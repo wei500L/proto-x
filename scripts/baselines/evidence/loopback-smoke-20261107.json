@@ -1,0 +1,131 @@
+{
+  "kind": "loopback-smoke",
+  "time_utc": "2026-11-06T22:18:18Z",
+  "payload_bytes": 8192,
+  "results": [
+    {
+      "baseline": "xray",
+      "requests": 3,
+      "successes": 3,
+      "events": [
+        {
+          "request": 0,
+          "ok": true,
+          "elapsed_ms": 11.844041000000027,
+          "bytes": 8192,
+          "sha256": "dc404a613fedaeb54034514bc6505f56b933caa5250299ba7d094377a51caa46",
+          "error": ""
+        },
+        {
+          "request": 1,
+          "ok": true,
+          "elapsed_ms": 8.49929100000002,
+          "bytes": 8192,
+          "sha256": "dc404a613fedaeb54034514bc6505f56b933caa5250299ba7d094377a51caa46",
+          "error": ""
+        },
+        {
+          "request": 2,
+          "ok": true,
+          "elapsed_ms": 8.445833999999985,
+          "bytes": 8192,
+          "sha256": "dc404a613fedaeb54034514bc6505f56b933caa5250299ba7d094377a51caa46",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "baseline": "hysteria-bbr-standard",
+      "requests": 3,
+      "successes": 3,
+      "events": [
+        {
+          "request": 0,
+          "ok": true,
+          "elapsed_ms": 10.116459000000022,
+          "bytes": 8192,
+          "sha256": "dc404a613fedaeb54034514bc6505f56b933caa5250299ba7d094377a51caa46",
+          "error": ""
+        },
+        {
+          "request": 1,
+          "ok": true,
+          "elapsed_ms": 8.386000000000005,
+          "bytes": 8192,
+          "sha256": "dc404a613fedaeb54034514bc6505f56b933caa5250299ba7d094377a51caa46",
+          "error": ""
+        },
+        {
+          "request": 2,
+          "ok": true,
+          "elapsed_ms": 8.039416999999993,
+          "bytes": 8192,
+          "sha256": "dc404a613fedaeb54034514bc6505f56b933caa5250299ba7d094377a51caa46",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "baseline": "hysteria-bbr-conservative",
+      "requests": 3,
+      "successes": 3,
+      "events": [
+        {
+          "request": 0,
+          "ok": true,
+          "elapsed_ms": 10.218041999999983,
+          "bytes": 8192,
+          "sha256": "dc404a613fedaeb54034514bc6505f56b933caa5250299ba7d094377a51caa46",
+          "error": ""
+        },
+        {
+          "request": 1,
+          "ok": true,
+          "elapsed_ms": 8.133791999999973,
+          "bytes": 8192,
+          "sha256": "dc404a613fedaeb54034514bc6505f56b933caa5250299ba7d094377a51caa46",
+          "error": ""
+        },
+        {
+          "request": 2,
+          "ok": true,
+          "elapsed_ms": 7.406083000000008,
+          "bytes": 8192,
+          "sha256": "dc404a613fedaeb54034514bc6505f56b933caa5250299ba7d094377a51caa46",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "baseline": "hysteria-brutal",
+      "requests": 3,
+      "successes": 3,
+      "events": [
+        {
+          "request": 0,
+          "ok": true,
+          "elapsed_ms": 88.49866700000008,
+          "bytes": 8192,
+          "sha256": "dc404a613fedaeb54034514bc6505f56b933caa5250299ba7d094377a51caa46",
+          "error": ""
+        },
+        {
+          "request": 1,
+          "ok": true,
+          "elapsed_ms": 11.364582999999984,
+          "bytes": 8192,
+          "sha256": "dc404a613fedaeb54034514bc6505f56b933caa5250299ba7d094377a51caa46",
+          "error": ""
+        },
+        {
+          "request": 2,
+          "ok": true,
+          "elapsed_ms": 9.287459000000053,
+          "bytes": 8192,
+          "sha256": "dc404a613fedaeb54034514bc6505f56b933caa5250299ba7d094377a51caa46",
+          "error": ""
+        }
+      ]
+    }
+  ]
+}

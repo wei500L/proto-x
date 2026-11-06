@@ -1,0 +1,34 @@
+# Lima 2.3.0, native Apple Virtualization. The image digest is pinned: if this
+# dated mirror snapshot expires, select and record a new version deliberately.
+# Install is confined to the guest; the host gets no network rules.
+minimumLimaVersion: 2.3.0
+images:
+  - location: https://cloud.debian.org/images/cloud/trixie/20261103-2651/debian-13-genericcloud-arm64-20261103-2651.qcow2
+    arch: aarch64
+    digest: sha512:5d3ecec46fd29605db4084388a1e2eb82fd19a80202898f962840ea73793261de721e505e3877c829ae86c37fdd2f6c205b0b3b1337a89d0d4b98d9081adc0c2
+vmType: vz
+arch: aarch64
+cpus: 2
+memory: 1GiB
+disk: 8GiB
+mounts: []
+portForwards:
+  - guestIP: 0.0.0.0
+    guestPortRange: [1, 65535]
+    proto: any
+    ignore: true
+containerd:
+  system: false
+  user: false
+provision:
+  - mode: system
+    script: |
+      #!/bin/sh
+      set -eu
+      export DEBIAN_FRONTEND=noninteractive
+      apt-get update
+      apt-get install -y --no-install-recommends iproute2 iperf3 ethtool tcpdump python3 openssl ca-certificates nftables
+      # Debian13 sshd/vsock UNKNOWN-peer LLMNR delay, same workaround as Lima.
+      mkdir -p /etc/systemd/resolved.conf.d
+      printf '[Resolve]\nLLMNR=no\n' > /etc/systemd/resolved.conf.d/10-lima-disable-llmnr.conf
+      systemctl restart systemd-resolved.service

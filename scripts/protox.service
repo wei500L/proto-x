@@ -1,0 +1,27 @@
+[Unit]
+Description=PROTO-X experimental resumable proxy
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=protox
+Group=protox
+WorkingDirectory=/opt/proto-x
+ExecStart=/opt/proto-x/protox server -config /opt/proto-x/server.json
+Environment=GOMAXPROCS=1 GOMEMLIMIT=32MiB GOGC=50
+Restart=on-failure
+RestartSec=2
+TimeoutStopSec=8
+NoNewPrivileges=yes
+CapabilityBoundingSet=
+UMask=0077
+LimitNOFILE=2048
+TasksMax=128
+MemoryHigh=40M
+MemoryMax=56M
+LogRateLimitIntervalSec=30s
+LogRateLimitBurst=30
+
+[Install]
+WantedBy=multi-user.target
