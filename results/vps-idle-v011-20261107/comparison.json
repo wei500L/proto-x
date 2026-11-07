@@ -1,0 +1,25 @@
+{
+  "comparison": "one 60-second idle connection on each version; startup and shutdown included",
+  "old_run": "vps-idle-20261107",
+  "new_run": "vps-idle-v011-20261107",
+  "assumptions": [
+    "Same authorized VPS and relay method; different observation times.",
+    "IPv4+UDP bytes are estimated as observed UDP payload plus 28 bytes per datagram.",
+    "Not a measurement of Ethernet, mobile energy, or other paths."
+  ],
+  "payload_bytes_per_second": {
+    "v010": 978.1840744014049,
+    "v011": 629.9372705562996,
+    "decrease_percent": 35.60135693869411
+  },
+  "ipv4_udp_estimated_bytes_per_second": {
+    "v010": 1373.4502244337218,
+    "v011": 827.5659520996276,
+    "decrease_percent": 39.74547185058448
+  },
+  "packets_per_second": {
+    "v010": 14.116648215439891,
+    "v011": 7.058167197975992,
+    "decrease_percent": 50.00111152266146
+  }
+}

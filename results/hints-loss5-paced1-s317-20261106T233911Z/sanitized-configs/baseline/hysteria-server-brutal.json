@@ -1,0 +1,21 @@
+{
+  "listen": "0.0.0.0:33401",
+  "tls": {
+    "cert": "/tmp/pxlab-hints/private/baseline/tls-cert.pem",
+    "key": "/tmp/pxlab-hints/private/baseline/tls-key.pem"
+  },
+  "auth": "<redacted>",
+  "disableUDP": true,
+  "masquerade": {
+    "type": "string",
+    "string": {
+      "content": "Not Found\n",
+      "statusCode": 404
+    }
+  },
+  "bandwidth": {
+    "up": "8 mbps",
+    "down": "2 mbps",
+    "disableLossCompensation": false
+  }
+}

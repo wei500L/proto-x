@@ -1,0 +1,17 @@
+# Preserve measurements and frozen replay artifacts byte-for-byte on checkout.
+results/** -text
+research/cc/** -text
+research/hints/** -text
+research/patches/** -text
+
+# Unified-diff context prefixes are part of the stored patch syntax.
+research/patches/*.patch -whitespace
+research/cc/patches/*.patch -whitespace
+
+# Recorded Go build output has trailing tabs; captured stderr can end in blanks.
+research/cc/**/binary-go-buildinfo.txt -whitespace
+research/cc/**/replay.stderr.txt -whitespace
+research/cc/**/archive-replay.stderr.txt -whitespace
+
+# csv.writer emits RFC 4180 CRLF records; keep their existing byte hashes.
+results/**/*.csv whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

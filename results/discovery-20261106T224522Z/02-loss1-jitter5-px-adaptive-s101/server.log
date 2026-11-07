@@ -1,0 +1,3 @@
+{"time":"2026-11-07T01:45:53.973193766+03:00","level":"INFO","msg":"TLS listener ready","listen":":14443"}
+{"time":"2026-11-07T01:45:53.973243101+03:00","level":"INFO","msg":"QUIC listener ready","listen":":14443"}
+{"time":"2026-11-07T01:45:54.243799587+03:00","level":"INFO","msg":"carrier attached","carrier":"quic","generation":1,"resumed_flows":0}

@@ -1,0 +1,16 @@
+{
+  "trial_id": "12-healthy-hy-brutal6-s101",
+  "variant": "hy-brutal6",
+  "profile": "healthy",
+  "seed": 101,
+  "stage": "discovery",
+  "utc_start": "2026-11-06T22:50:13.807635+00:00",
+  "status": "runner_error",
+  "duration_s": 25.0,
+  "warmup_s": 3.0,
+  "gomaxprocs": 1,
+  "background_workers": 1,
+  "background_mbps_source_budget": null,
+  "error": "RuntimeError: server exited early with 1; see its retained log",
+  "utc_end": "2026-11-06T22:50:14.564053+00:00"
+}

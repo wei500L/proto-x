@@ -1,0 +1,1338 @@
+{
+  "source": "Linux VM packet-level emulation; per-trial estimates; no seed pooling",
+  "extractor_sha256": "cd3a38eaf270f2e546150c83e6450371688501f777cf0192217e5c2275c185b5",
+  "px_reno_source_reference": "https://github.com/quic-go/quic-go/blob/v0.65.0/internal/ackhandler/sent_packet_handler.go#L155-L163",
+  "notes": [
+    "All attempts, failed runs, statuses and censoring retained.",
+    "Percentiles describe successful operations only and are nearest-rank.",
+    "Outer qdisc bytes include interactive traffic; ratio to download bytes is not pure protocol overhead.",
+    "Namespace TCP retransmissions include loopback sockets and do not measure QUIC retransmission.",
+    "Identical loss seeds do not assign identical loss to each protocol's application messages."
+  ],
+  "runs": [
+    {
+      "run_id": "cc-window-w65536-s227-20261106T232446Z",
+      "created_utc": "2026-11-06T23:24:49.100052+00:00",
+      "binaries_sha256": {
+        "protox": "28ee62b17791e92dff0f2745c866913d3d500e3b530730102c9f35c977e0e638",
+        "pxbench": "e01e8df7756512820dc823b7b42f7f4fe58ad952ad3f76f95b7c610f3692353a",
+        "hysteria": "a68a61a84452ca250ce0368202521965ca9cc9d801a404f1dc9008ac6cf677a7",
+        "protox-cc": "46b55aa58073753d2a3fa16d76c117ce86692eaca57a2b05e355e52700c45819"
+      },
+      "matrix_script_sha256": "85e1d8cf7a9b9545395d4d5e5d50bba48e44495815b96110b76c6250372c7fa5",
+      "netlab_script_sha256": "aff761f96aba34f6b61eca7d343060c856c27cefc8575e3e0675fe37dbfe2ba5",
+      "parameters": {
+        "root": "/tmp/pxlab-cc",
+        "run_id": "cc-window-w65536-s227-20261106T232446Z",
+        "stage": "discovery",
+        "seed": 227,
+        "duration": 25.0,
+        "warmup": 3.0,
+        "queue_ms": 100,
+        "background": 1,
+        "background_mbps": null,
+        "variants": [
+          "px-fork-brutal6"
+        ],
+        "profiles": [
+          "loss1-jitter5"
+        ]
+      },
+      "config_parameters": {
+        "px": {
+          "server_rate_mbps": 8,
+          "client_rate_mbps": 2,
+          "window_bytes": 65536,
+          "variants": [
+            "priority=true,adaptive=false",
+            "priority=false,adaptive=false",
+            "priority=true,adaptive=true"
+          ],
+          "transport": "QUIC preferred with authenticated TLS fallback"
+        },
+        "xray": {
+          "version": "26.10.31",
+          "protocol": "VLESS+REALITY+Vision",
+          "mux": false,
+          "fingerprint": "chrome",
+          "target": "owned TLS1.3 cover on loopback",
+          "inner_application": "HTTPS TLS with verified owned CA"
+        },
+        "hysteria": {
+          "version": "2.13.0",
+          "profiles": [
+            "BBR standard",
+            "BBR conservative",
+            "Brutal8/2Mbps",
+            "Brutal6/1.5Mbps"
+          ],
+          "brutal_disable_loss_compensation": false,
+          "fastOpen": false
+        },
+        "addresses": {
+          "client": "10.203.0.1",
+          "server": "10.203.0.2",
+          "origin": "127.0.0.1"
+        },
+        "secrets": "omitted; regenerate private configs with provided scripts",
+        "experiment": {
+          "window_override_bytes": 65536,
+          "window_override_scope": "isolated diagnostic only; stable inputs and deployed defaults unchanged"
+        }
+      },
+      "cc_experiment_script_sha256": "78c7d23fd8f263d39ab4a30eceae4f07b7b3266283861f1c29d909f9bec5c859",
+      "private_config_sha256": {
+        "baseline/credentials.json": "1e6e22366c5d106f1410f5a8c96e3be54354b31d649cd40fcb43bd6cf7ba95e8",
+        "baseline/hysteria-client-bbr-conservative.json": "e11092d698db00b53c60b40d29219a59a93d27ff054ea18fe0870d31cf70975a",
+        "baseline/hysteria-client-bbr-standard.json": "ffaaab7632beda3e73213e55f4fc5463f88a7a497c82f59c7ba25e7e33325df4",
+        "baseline/hysteria-client-brutal.json": "240d46ce81f2cf8a883eaf047ccc151f3f7d65dd003e47bfffd23d2a7d4f3b47",
+        "baseline/hysteria-client-brutal6.json": "3c7c50f76065504c352b45992b03baf216ca6bc245d1f522e42582a1c5b80994",
+        "baseline/hysteria-client-brutal8.json": "240d46ce81f2cf8a883eaf047ccc151f3f7d65dd003e47bfffd23d2a7d4f3b47",
+        "baseline/hysteria-server-bbr-conservative.json": "9c439ba8323a4ce9787bbd06685edd3ecfbdac678e1d8e71ad053959b8ef0f38",
+        "baseline/hysteria-server-bbr-standard.json": "b9e198b0983063f6d7c9932a4226cfe9aac15b0f7d02d293d837c99517880d81",
+        "baseline/hysteria-server-brutal.json": "f59dd136a3884a170a684f1366fbc14f261a5a3df313084c43b302ff95043e52",
+        "baseline/hysteria-server-brutal6.json": "cf56e000e6c9acba585c503fed49659359f34cf15183b32a418980775f7bdca8",
+        "baseline/hysteria-server-brutal8.json": "f59dd136a3884a170a684f1366fbc14f261a5a3df313084c43b302ff95043e52",
+        "baseline/parameters.json": "d5b314eba507f6b255faa92e6844b18deed2dc0710c69134af911150b44675a0",
+        "baseline/xray-client.json": "29ad510e684c0df52e084b64de2dfb558193e24bea749585dbab843e7ea30a83",
+        "baseline/xray-server.json": "05116a2ddd3ac0b444149934a53abcf8f12f557aa5f42c47365fbf1f0c59eeca",
+        "px/client-px-adaptive.json": "6bdffc56d9efbf73dbef478a51495540e4bd3185525e611eeab87757542f3a6b",
+        "px/client-px-fifo.json": "073509d32ae3be9c0467e69dc4b0696d1e515fb0d87a8aa3b4f0e144480dcf28",
+        "px/client-px-priority.json": "e0082cdd2573b6a32a6207bcf7032bdf92b8fdd23b4fd90e459e18e437a46426",
+        "px/client.json": "c3b3ec9f6b36576772be7ac59e64080651c0a2c39e13e9c9a6fcfb2a73a36e58",
+        "px/server-px-adaptive.json": "ea5dd2e6580a82d8a9058b8b32c3520742d955931d73c0912003e2990a934e00",
+        "px/server-px-fifo.json": "3908c094382066a2f6de8c448144c5a544ad284a8797303b64ae19953f7c2348",
+        "px/server-px-priority.json": "9f6dd274904c8fc7f54a2f3746fb3fdbc99a038686b0b2222b876a5515a79fbb",
+        "px/server.json": "421e15dacdc62ef986ea44852db794476bcaaa4238dda99da5f4c53953953ee6"
+      },
+      "cc_provenance": {
+        "hycc_source": {
+          "upstream_repository": "https://github.com/HyNetworkS/hysteria",
+          "upstream_tag": "app/v2.13.0",
+          "upstream_commit": "ca8fbd874fd6ca82413948de6dc5924405e103e1",
+          "quic_module": "github.com/apernet/quic-go",
+          "quic_version": "v0.63.1-0.20261004180939-a10df75c260c",
+          "quic_commit": "a10df75c260cee8161f3261d63a37bd125a6bb2a",
+          "quic_module_sum": "h1:cxK8qTA0YCsj68A7zLYDCfPgMTOyt3ePkHh+oXEmYU0=",
+          "transformation": "Only replace the Hysteria internal congestion import-path prefix with proto-x/internal/hycc. Controller logic and constants, including upstream tests, are unchanged.",
+          "licenses": {
+            "internal/hycc/LICENSE.hysteria": "b279cfdac4db4b077f0660b5d8156d50a8bc7bd410036dc356499af43c4e84f5",
+            "internal/hycc/LICENSE.quic-go": "77d0b7b53e8abb84cf4dd3f9945a7fdf27044240d2e8023966a721a9a46fe96e"
+          },
+          "files": [
+            {
+              "upstream_path": "core/internal/congestion/bbr/bandwidth.go",
+              "local_path": "internal/hycc/bbr/bandwidth.go",
+              "upstream_sha256": "88c1645d59e0ef379cee2f3b40f32c5f9a9b83a1973a70c2874c75112057145c",
+              "local_sha256": "88c1645d59e0ef379cee2f3b40f32c5f9a9b83a1973a70c2874c75112057145c",
+              "namespace_replacements": 0
+            },
+            {
+              "upstream_path": "core/internal/congestion/bbr/bandwidth_sampler.go",
+              "local_path": "internal/hycc/bbr/bandwidth_sampler.go",
+              "upstream_sha256": "16fb21e17af2750d0687f13eceab1d2eba61e4be7c8cff520dc873d556d9bb7e",
+              "local_sha256": "16fb21e17af2750d0687f13eceab1d2eba61e4be7c8cff520dc873d556d9bb7e",
+              "namespace_replacements": 0
+            },
+            {
+              "upstream_path": "core/internal/congestion/bbr/bbr_sender.go",
+              "local_path": "internal/hycc/bbr/bbr_sender.go",
+              "upstream_sha256": "f01c0059914aec04626007b1469d3866c0420cc1f03b293e847a3396767cdf1e",
+              "local_sha256": "29efc133d8b9d5941ed4750767d4dd7aa079d1121895b62a19355f53d9d0afd8",
+              "namespace_replacements": 1
+            },
+            {
+              "upstream_path": "core/internal/congestion/bbr/bbr_sender_test.go",
+              "local_path": "internal/hycc/bbr/bbr_sender_test.go",
+              "upstream_sha256": "227e9a78359c09d3514247ab81d181c7c29abacc3e5ad746eb21bd43f6165f8b",
+              "local_sha256": "227e9a78359c09d3514247ab81d181c7c29abacc3e5ad746eb21bd43f6165f8b",
+              "namespace_replacements": 0
+            },
+            {
+              "upstream_path": "core/internal/congestion/bbr/clock.go",
+              "local_path": "internal/hycc/bbr/clock.go",
+              "upstream_sha256": "189e4ad09b252e33505b67760d4e362ee34fb7b000bf69903e2747dec3bacaab",
+              "local_sha256": "189e4ad09b252e33505b67760d4e362ee34fb7b000bf69903e2747dec3bacaab",
+              "namespace_replacements": 0
+            },
+            {
+              "upstream_path": "core/internal/congestion/bbr/packet_number_indexed_queue.go",
+              "local_path": "internal/hycc/bbr/packet_number_indexed_queue.go",
+              "upstream_sha256": "f01bdc184723d7b153713128e48758ca18fca9e4ffb157f18c2b2edecfbf7f1a",
+              "local_sha256": "f01bdc184723d7b153713128e48758ca18fca9e4ffb157f18c2b2edecfbf7f1a",
+              "namespace_replacements": 0
+            },
+            {
+              "upstream_path": "core/internal/congestion/bbr/ringbuffer.go",
+              "local_path": "internal/hycc/bbr/ringbuffer.go",
+              "upstream_sha256": "0a0ff11bd56a8c64a53db421b0d71560144c8690db7c726bc9fbc93465b0e589",
+              "local_sha256": "0a0ff11bd56a8c64a53db421b0d71560144c8690db7c726bc9fbc93465b0e589",
+              "namespace_replacements": 0
+            },
+            {
+              "upstream_path": "core/internal/congestion/bbr/windowed_filter.go",
+              "local_path": "internal/hycc/bbr/windowed_filter.go",
+              "upstream_sha256": "e573928f676d7ab9a6b8bbfd3530eb4a99fa96bc2861e7c271e242f6d2becce2",
+              "local_sha256": "e573928f676d7ab9a6b8bbfd3530eb4a99fa96bc2861e7c271e242f6d2becce2",
+              "namespace_replacements": 0
+            },
+            {
+              "upstream_path": "core/internal/congestion/brutal/brutal.go",
+              "local_path": "internal/hycc/brutal/brutal.go",
+              "upstream_sha256": "c620671ca0bfff791c512fda1b0a3cda48e44688430e30c8ab57677e4a87f83a",
+              "local_sha256": "6a2df763c8dabfc505419d7150de0e2afa3b8a9c5d2aadb75d3d6a941f67412e",
+              "namespace_replacements": 1
+            },
+            {
+              "upstream_path": "core/internal/congestion/brutal/brutal_test.go",
+              "local_path": "internal/hycc/brutal/brutal_test.go",
+              "upstream_sha256": "74beab811fa33daca11a664315960e97dc48f7306d132f6b30a7e5a147be83a7",
+              "local_sha256": "74beab811fa33daca11a664315960e97dc48f7306d132f6b30a7e5a147be83a7",
+              "namespace_replacements": 0
+            },
+            {
+              "upstream_path": "core/internal/congestion/common/pacer.go",
+              "local_path": "internal/hycc/common/pacer.go",
+              "upstream_sha256": "ca7cb0bd5897e573050522d7c8ec85b21964843d7cd2ac2fb0929f375442ed3c",
+              "local_sha256": "ca7cb0bd5897e573050522d7c8ec85b21964843d7cd2ac2fb0929f375442ed3c",
+              "namespace_replacements": 0
+            },
+            {
+              "upstream_path": "core/internal/congestion/utils.go",
+              "local_path": "internal/hycc/utils.go",
+              "upstream_sha256": "83df6db7655400b3919a53fb94b20d0a0bdedc8df1e6bc6dd70aeed957bc544e",
+              "local_sha256": "3834f7feade690a852b20af40b0e18693487959128e4be144d9d421959f42735",
+              "namespace_replacements": 2
+            }
+          ]
+        },
+        "source_files_sha256": {
+          "go.mod": "6a27ef6442ae1896e6d1394890e0fb848bb2912219f4e0fdfcaa054c8d5996e0",
+          "go.sum": "fb762e68a59a1205d59b60fd67f7da0bffd078f3ab1a15f3046cf4a10ddab1fd",
+          "internal/carrier/carrier.go": "bc143e0547c194001f9be9ffce1778f38cb4a7466e4904dc05db5a1142f5fee0",
+          "internal/carrier/experimental_cc.go": "545e2e787b8a61a09b25c39036e3e4c37e5b6d3cfabca874140bd7d89b6fce2e",
+          "internal/hycc/LICENSE.hysteria": "b279cfdac4db4b077f0660b5d8156d50a8bc7bd410036dc356499af43c4e84f5",
+          "internal/hycc/LICENSE.quic-go": "77d0b7b53e8abb84cf4dd3f9945a7fdf27044240d2e8023966a721a9a46fe96e",
+          "internal/hycc/SOURCE.json": "d61fffd05d4abe81004dd5649da4efbc9a61ed3d73b65050d0e3f2ef324db7a3",
+          "internal/hycc/bbr/bandwidth.go": "88c1645d59e0ef379cee2f3b40f32c5f9a9b83a1973a70c2874c75112057145c",
+          "internal/hycc/bbr/bandwidth_sampler.go": "16fb21e17af2750d0687f13eceab1d2eba61e4be7c8cff520dc873d556d9bb7e",
+          "internal/hycc/bbr/bbr_sender.go": "29efc133d8b9d5941ed4750767d4dd7aa079d1121895b62a19355f53d9d0afd8",
+          "internal/hycc/bbr/bbr_sender_test.go": "227e9a78359c09d3514247ab81d181c7c29abacc3e5ad746eb21bd43f6165f8b",
+          "internal/hycc/bbr/clock.go": "189e4ad09b252e33505b67760d4e362ee34fb7b000bf69903e2747dec3bacaab",
+          "internal/hycc/bbr/packet_number_indexed_queue.go": "f01bdc184723d7b153713128e48758ca18fca9e4ffb157f18c2b2edecfbf7f1a",
+          "internal/hycc/bbr/ringbuffer.go": "0a0ff11bd56a8c64a53db421b0d71560144c8690db7c726bc9fbc93465b0e589",
+          "internal/hycc/bbr/windowed_filter.go": "e573928f676d7ab9a6b8bbfd3530eb4a99fa96bc2861e7c271e242f6d2becce2",
+          "internal/hycc/brutal/brutal.go": "6a2df763c8dabfc505419d7150de0e2afa3b8a9c5d2aadb75d3d6a941f67412e",
+          "internal/hycc/brutal/brutal_test.go": "74beab811fa33daca11a664315960e97dc48f7306d132f6b30a7e5a147be83a7",
+          "internal/hycc/common/pacer.go": "ca7cb0bd5897e573050522d7c8ec85b21964843d7cd2ac2fb0929f375442ed3c",
+          "internal/hycc/utils.go": "3834f7feade690a852b20af40b0e18693487959128e4be144d9d421959f42735"
+        },
+        "fork": "github.com/apernet/quic-go v0.63.1-0.20261004180939-a10df75c260c",
+        "fork_delta": "CC installed after app authentication; explicit QUIC v1; same scheduler/session/config semantics",
+        "path_migration_limitation": "fork may reset CC to Reno on migration; not exercised in static-path screening",
+        "default_expected_sha256": {
+          "protox": "28ee62b17791e92dff0f2745c866913d3d500e3b530730102c9f35c977e0e638",
+          "pxbench": "e01e8df7756512820dc823b7b42f7f4fe58ad952ad3f76f95b7c610f3692353a",
+          "protox-cc": "46b55aa58073753d2a3fa16d76c117ce86692eaca57a2b05e355e52700c45819",
+          "hysteria": "a68a61a84452ca250ce0368202521965ca9cc9d801a404f1dc9008ac6cf677a7"
+        }
+      }
+    },
+    {
+      "run_id": "cc-window-w262144-s227-20261106T232555Z",
+      "created_utc": "2026-11-06T23:25:57.063335+00:00",
+      "binaries_sha256": {
+        "protox": "28ee62b17791e92dff0f2745c866913d3d500e3b530730102c9f35c977e0e638",
+        "pxbench": "e01e8df7756512820dc823b7b42f7f4fe58ad952ad3f76f95b7c610f3692353a",
+        "hysteria": "a68a61a84452ca250ce0368202521965ca9cc9d801a404f1dc9008ac6cf677a7",
+        "protox-cc": "46b55aa58073753d2a3fa16d76c117ce86692eaca57a2b05e355e52700c45819"
+      },
+      "matrix_script_sha256": "85e1d8cf7a9b9545395d4d5e5d50bba48e44495815b96110b76c6250372c7fa5",
+      "netlab_script_sha256": "aff761f96aba34f6b61eca7d343060c856c27cefc8575e3e0675fe37dbfe2ba5",
+      "parameters": {
+        "root": "/tmp/pxlab-cc",
+        "run_id": "cc-window-w262144-s227-20261106T232555Z",
+        "stage": "discovery",
+        "seed": 227,
+        "duration": 25.0,
+        "warmup": 3.0,
+        "queue_ms": 100,
+        "background": 1,
+        "background_mbps": null,
+        "variants": [
+          "px-fork-brutal6"
+        ],
+        "profiles": [
+          "loss1-jitter5"
+        ]
+      },
+      "config_parameters": {
+        "px": {
+          "server_rate_mbps": 8,
+          "client_rate_mbps": 2,
+          "window_bytes": 262144,
+          "variants": [
+            "priority=true,adaptive=false",
+            "priority=false,adaptive=false",
+            "priority=true,adaptive=true"
+          ],
+          "transport": "QUIC preferred with authenticated TLS fallback"
+        },
+        "xray": {
+          "version": "26.10.31",
+          "protocol": "VLESS+REALITY+Vision",
+          "mux": false,
+          "fingerprint": "chrome",
+          "target": "owned TLS1.3 cover on loopback",
+          "inner_application": "HTTPS TLS with verified owned CA"
+        },
+        "hysteria": {
+          "version": "2.13.0",
+          "profiles": [
+            "BBR standard",
+            "BBR conservative",
+            "Brutal8/2Mbps",
+            "Brutal6/1.5Mbps"
+          ],
+          "brutal_disable_loss_compensation": false,
+          "fastOpen": false
+        },
+        "addresses": {
+          "client": "10.203.0.1",
+          "server": "10.203.0.2",
+          "origin": "127.0.0.1"
+        },
+        "secrets": "omitted; regenerate private configs with provided scripts",
+        "experiment": {
+          "window_override_bytes": 262144,
+          "window_override_scope": "isolated diagnostic only; stable inputs and deployed defaults unchanged"
+        }
+      },
+      "cc_experiment_script_sha256": "78c7d23fd8f263d39ab4a30eceae4f07b7b3266283861f1c29d909f9bec5c859",
+      "private_config_sha256": {
+        "baseline/credentials.json": "1e6e22366c5d106f1410f5a8c96e3be54354b31d649cd40fcb43bd6cf7ba95e8",
+        "baseline/hysteria-client-bbr-conservative.json": "e11092d698db00b53c60b40d29219a59a93d27ff054ea18fe0870d31cf70975a",
+        "baseline/hysteria-client-bbr-standard.json": "ffaaab7632beda3e73213e55f4fc5463f88a7a497c82f59c7ba25e7e33325df4",
+        "baseline/hysteria-client-brutal.json": "240d46ce81f2cf8a883eaf047ccc151f3f7d65dd003e47bfffd23d2a7d4f3b47",
+        "baseline/hysteria-client-brutal6.json": "3c7c50f76065504c352b45992b03baf216ca6bc245d1f522e42582a1c5b80994",
+        "baseline/hysteria-client-brutal8.json": "240d46ce81f2cf8a883eaf047ccc151f3f7d65dd003e47bfffd23d2a7d4f3b47",
+        "baseline/hysteria-server-bbr-conservative.json": "9c439ba8323a4ce9787bbd06685edd3ecfbdac678e1d8e71ad053959b8ef0f38",
+        "baseline/hysteria-server-bbr-standard.json": "b9e198b0983063f6d7c9932a4226cfe9aac15b0f7d02d293d837c99517880d81",
+        "baseline/hysteria-server-brutal.json": "f59dd136a3884a170a684f1366fbc14f261a5a3df313084c43b302ff95043e52",
+        "baseline/hysteria-server-brutal6.json": "cf56e000e6c9acba585c503fed49659359f34cf15183b32a418980775f7bdca8",
+        "baseline/hysteria-server-brutal8.json": "f59dd136a3884a170a684f1366fbc14f261a5a3df313084c43b302ff95043e52",
+        "baseline/parameters.json": "d5b314eba507f6b255faa92e6844b18deed2dc0710c69134af911150b44675a0",
+        "baseline/xray-client.json": "29ad510e684c0df52e084b64de2dfb558193e24bea749585dbab843e7ea30a83",
+        "baseline/xray-server.json": "05116a2ddd3ac0b444149934a53abcf8f12f557aa5f42c47365fbf1f0c59eeca",
+        "px/client-px-adaptive.json": "6bdffc56d9efbf73dbef478a51495540e4bd3185525e611eeab87757542f3a6b",
+        "px/client-px-fifo.json": "073509d32ae3be9c0467e69dc4b0696d1e515fb0d87a8aa3b4f0e144480dcf28",
+        "px/client-px-priority.json": "14e96285dc4be63f53e64a41fe5a4eac6972d469546404eefa090dfe4cb7f2d0",
+        "px/client.json": "c3b3ec9f6b36576772be7ac59e64080651c0a2c39e13e9c9a6fcfb2a73a36e58",
+        "px/server-px-adaptive.json": "ea5dd2e6580a82d8a9058b8b32c3520742d955931d73c0912003e2990a934e00",
+        "px/server-px-fifo.json": "3908c094382066a2f6de8c448144c5a544ad284a8797303b64ae19953f7c2348",
+        "px/server-px-priority.json": "ec98999b47009749bae19889cf0fc53c025a85e5be34653a729fddb5f29e54c7",
+        "px/server.json": "421e15dacdc62ef986ea44852db794476bcaaa4238dda99da5f4c53953953ee6"
+      },
+      "cc_provenance": {
+        "hycc_source": {
+          "upstream_repository": "https://github.com/HyNetworkS/hysteria",
+          "upstream_tag": "app/v2.13.0",
+          "upstream_commit": "ca8fbd874fd6ca82413948de6dc5924405e103e1",
+          "quic_module": "github.com/apernet/quic-go",
+          "quic_version": "v0.63.1-0.20261004180939-a10df75c260c",
+          "quic_commit": "a10df75c260cee8161f3261d63a37bd125a6bb2a",
+          "quic_module_sum": "h1:cxK8qTA0YCsj68A7zLYDCfPgMTOyt3ePkHh+oXEmYU0=",
+          "transformation": "Only replace the Hysteria internal congestion import-path prefix with proto-x/internal/hycc. Controller logic and constants, including upstream tests, are unchanged.",
+          "licenses": {
+            "internal/hycc/LICENSE.hysteria": "b279cfdac4db4b077f0660b5d8156d50a8bc7bd410036dc356499af43c4e84f5",
+            "internal/hycc/LICENSE.quic-go": "77d0b7b53e8abb84cf4dd3f9945a7fdf27044240d2e8023966a721a9a46fe96e"
+          },
+          "files": [
+            {
+              "upstream_path": "core/internal/congestion/bbr/bandwidth.go",
+              "local_path": "internal/hycc/bbr/bandwidth.go",
+              "upstream_sha256": "88c1645d59e0ef379cee2f3b40f32c5f9a9b83a1973a70c2874c75112057145c",
+              "local_sha256": "88c1645d59e0ef379cee2f3b40f32c5f9a9b83a1973a70c2874c75112057145c",
+              "namespace_replacements": 0
+            },
+            {
+              "upstream_path": "core/internal/congestion/bbr/bandwidth_sampler.go",
+              "local_path": "internal/hycc/bbr/bandwidth_sampler.go",
+              "upstream_sha256": "16fb21e17af2750d0687f13eceab1d2eba61e4be7c8cff520dc873d556d9bb7e",
+              "local_sha256": "16fb21e17af2750d0687f13eceab1d2eba61e4be7c8cff520dc873d556d9bb7e",
+              "namespace_replacements": 0
+            },
+            {
+              "upstream_path": "core/internal/congestion/bbr/bbr_sender.go",
+              "local_path": "internal/hycc/bbr/bbr_sender.go",
+              "upstream_sha256": "f01c0059914aec04626007b1469d3866c0420cc1f03b293e847a3396767cdf1e",
+              "local_sha256": "29efc133d8b9d5941ed4750767d4dd7aa079d1121895b62a19355f53d9d0afd8",
+              "namespace_replacements": 1
+            },
+            {
+              "upstream_path": "core/internal/congestion/bbr/bbr_sender_test.go",
+              "local_path": "internal/hycc/bbr/bbr_sender_test.go",
+              "upstream_sha256": "227e9a78359c09d3514247ab81d181c7c29abacc3e5ad746eb21bd43f6165f8b",
+              "local_sha256": "227e9a78359c09d3514247ab81d181c7c29abacc3e5ad746eb21bd43f6165f8b",
+              "namespace_replacements": 0
+            },
+            {
+              "upstream_path": "core/internal/congestion/bbr/clock.go",
+              "local_path": "internal/hycc/bbr/clock.go",
+              "upstream_sha256": "189e4ad09b252e33505b67760d4e362ee34fb7b000bf69903e2747dec3bacaab",
+              "local_sha256": "189e4ad09b252e33505b67760d4e362ee34fb7b000bf69903e2747dec3bacaab",
+              "namespace_replacements": 0
+            },
+            {
+              "upstream_path": "core/internal/congestion/bbr/packet_number_indexed_queue.go",
+              "local_path": "internal/hycc/bbr/packet_number_indexed_queue.go",
+              "upstream_sha256": "f01bdc184723d7b153713128e48758ca18fca9e4ffb157f18c2b2edecfbf7f1a",
+              "local_sha256": "f01bdc184723d7b153713128e48758ca18fca9e4ffb157f18c2b2edecfbf7f1a",
+              "namespace_replacements": 0
+            },
+            {
+              "upstream_path": "core/internal/congestion/bbr/ringbuffer.go",
+              "local_path": "internal/hycc/bbr/ringbuffer.go",
+              "upstream_sha256": "0a0ff11bd56a8c64a53db421b0d71560144c8690db7c726bc9fbc93465b0e589",
+              "local_sha256": "0a0ff11bd56a8c64a53db421b0d71560144c8690db7c726bc9fbc93465b0e589",
+              "namespace_replacements": 0
+            },
+            {
+              "upstream_path": "core/internal/congestion/bbr/windowed_filter.go",
+              "local_path": "internal/hycc/bbr/windowed_filter.go",
+              "upstream_sha256": "e573928f676d7ab9a6b8bbfd3530eb4a99fa96bc2861e7c271e242f6d2becce2",
+              "local_sha256": "e573928f676d7ab9a6b8bbfd3530eb4a99fa96bc2861e7c271e242f6d2becce2",
+              "namespace_replacements": 0
+            },
+            {
+              "upstream_path": "core/internal/congestion/brutal/brutal.go",
+              "local_path": "internal/hycc/brutal/brutal.go",
+              "upstream_sha256": "c620671ca0bfff791c512fda1b0a3cda48e44688430e30c8ab57677e4a87f83a",
+              "local_sha256": "6a2df763c8dabfc505419d7150de0e2afa3b8a9c5d2aadb75d3d6a941f67412e",
+              "namespace_replacements": 1
+            },
+            {
+              "upstream_path": "core/internal/congestion/brutal/brutal_test.go",
+              "local_path": "internal/hycc/brutal/brutal_test.go",
+              "upstream_sha256": "74beab811fa33daca11a664315960e97dc48f7306d132f6b30a7e5a147be83a7",
+              "local_sha256": "74beab811fa33daca11a664315960e97dc48f7306d132f6b30a7e5a147be83a7",
+              "namespace_replacements": 0
+            },
+            {
+              "upstream_path": "core/internal/congestion/common/pacer.go",
+              "local_path": "internal/hycc/common/pacer.go",
+              "upstream_sha256": "ca7cb0bd5897e573050522d7c8ec85b21964843d7cd2ac2fb0929f375442ed3c",
+              "local_sha256": "ca7cb0bd5897e573050522d7c8ec85b21964843d7cd2ac2fb0929f375442ed3c",
+              "namespace_replacements": 0
+            },
+            {
+              "upstream_path": "core/internal/congestion/utils.go",
+              "local_path": "internal/hycc/utils.go",
+              "upstream_sha256": "83df6db7655400b3919a53fb94b20d0a0bdedc8df1e6bc6dd70aeed957bc544e",
+              "local_sha256": "3834f7feade690a852b20af40b0e18693487959128e4be144d9d421959f42735",
+              "namespace_replacements": 2
+            }
+          ]
+        },
+        "source_files_sha256": {
+          "go.mod": "6a27ef6442ae1896e6d1394890e0fb848bb2912219f4e0fdfcaa054c8d5996e0",
+          "go.sum": "fb762e68a59a1205d59b60fd67f7da0bffd078f3ab1a15f3046cf4a10ddab1fd",
+          "internal/carrier/carrier.go": "bc143e0547c194001f9be9ffce1778f38cb4a7466e4904dc05db5a1142f5fee0",
+          "internal/carrier/experimental_cc.go": "545e2e787b8a61a09b25c39036e3e4c37e5b6d3cfabca874140bd7d89b6fce2e",
+          "internal/hycc/LICENSE.hysteria": "b279cfdac4db4b077f0660b5d8156d50a8bc7bd410036dc356499af43c4e84f5",
+          "internal/hycc/LICENSE.quic-go": "77d0b7b53e8abb84cf4dd3f9945a7fdf27044240d2e8023966a721a9a46fe96e",
+          "internal/hycc/SOURCE.json": "d61fffd05d4abe81004dd5649da4efbc9a61ed3d73b65050d0e3f2ef324db7a3",
+          "internal/hycc/bbr/bandwidth.go": "88c1645d59e0ef379cee2f3b40f32c5f9a9b83a1973a70c2874c75112057145c",
+          "internal/hycc/bbr/bandwidth_sampler.go": "16fb21e17af2750d0687f13eceab1d2eba61e4be7c8cff520dc873d556d9bb7e",
+          "internal/hycc/bbr/bbr_sender.go": "29efc133d8b9d5941ed4750767d4dd7aa079d1121895b62a19355f53d9d0afd8",
+          "internal/hycc/bbr/bbr_sender_test.go": "227e9a78359c09d3514247ab81d181c7c29abacc3e5ad746eb21bd43f6165f8b",
+          "internal/hycc/bbr/clock.go": "189e4ad09b252e33505b67760d4e362ee34fb7b000bf69903e2747dec3bacaab",
+          "internal/hycc/bbr/packet_number_indexed_queue.go": "f01bdc184723d7b153713128e48758ca18fca9e4ffb157f18c2b2edecfbf7f1a",
+          "internal/hycc/bbr/ringbuffer.go": "0a0ff11bd56a8c64a53db421b0d71560144c8690db7c726bc9fbc93465b0e589",
+          "internal/hycc/bbr/windowed_filter.go": "e573928f676d7ab9a6b8bbfd3530eb4a99fa96bc2861e7c271e242f6d2becce2",
+          "internal/hycc/brutal/brutal.go": "6a2df763c8dabfc505419d7150de0e2afa3b8a9c5d2aadb75d3d6a941f67412e",
+          "internal/hycc/brutal/brutal_test.go": "74beab811fa33daca11a664315960e97dc48f7306d132f6b30a7e5a147be83a7",
+          "internal/hycc/common/pacer.go": "ca7cb0bd5897e573050522d7c8ec85b21964843d7cd2ac2fb0929f375442ed3c",
+          "internal/hycc/utils.go": "3834f7feade690a852b20af40b0e18693487959128e4be144d9d421959f42735"
+        },
+        "fork": "github.com/apernet/quic-go v0.63.1-0.20261004180939-a10df75c260c",
+        "fork_delta": "CC installed after app authentication; explicit QUIC v1; same scheduler/session/config semantics",
+        "path_migration_limitation": "fork may reset CC to Reno on migration; not exercised in static-path screening",
+        "default_expected_sha256": {
+          "protox": "28ee62b17791e92dff0f2745c866913d3d500e3b530730102c9f35c977e0e638",
+          "pxbench": "e01e8df7756512820dc823b7b42f7f4fe58ad952ad3f76f95b7c610f3692353a",
+          "protox-cc": "46b55aa58073753d2a3fa16d76c117ce86692eaca57a2b05e355e52700c45819",
+          "hysteria": "a68a61a84452ca250ce0368202521965ca9cc9d801a404f1dc9008ac6cf677a7"
+        }
+      }
+    },
+    {
+      "run_id": "cc-window-w131072-s227-20261106T232738Z",
+      "created_utc": "2026-11-06T23:27:40.250374+00:00",
+      "binaries_sha256": {
+        "protox": "28ee62b17791e92dff0f2745c866913d3d500e3b530730102c9f35c977e0e638",
+        "pxbench": "e01e8df7756512820dc823b7b42f7f4fe58ad952ad3f76f95b7c610f3692353a",
+        "hysteria": "a68a61a84452ca250ce0368202521965ca9cc9d801a404f1dc9008ac6cf677a7",
+        "protox-cc": "46b55aa58073753d2a3fa16d76c117ce86692eaca57a2b05e355e52700c45819"
+      },
+      "matrix_script_sha256": "85e1d8cf7a9b9545395d4d5e5d50bba48e44495815b96110b76c6250372c7fa5",
+      "netlab_script_sha256": "aff761f96aba34f6b61eca7d343060c856c27cefc8575e3e0675fe37dbfe2ba5",
+      "parameters": {
+        "root": "/tmp/pxlab-cc",
+        "run_id": "cc-window-w131072-s227-20261106T232738Z",
+        "stage": "discovery",
+        "seed": 227,
+        "duration": 25.0,
+        "warmup": 3.0,
+        "queue_ms": 100,
+        "background": 1,
+        "background_mbps": null,
+        "variants": [
+          "px-fork-brutal6"
+        ],
+        "profiles": [
+          "loss1-jitter5"
+        ]
+      },
+      "config_parameters": {
+        "px": {
+          "server_rate_mbps": 8,
+          "client_rate_mbps": 2,
+          "window_bytes": 131072,
+          "variants": [
+            "priority=true,adaptive=false",
+            "priority=false,adaptive=false",
+            "priority=true,adaptive=true"
+          ],
+          "transport": "QUIC preferred with authenticated TLS fallback"
+        },
+        "xray": {
+          "version": "26.10.31",
+          "protocol": "VLESS+REALITY+Vision",
+          "mux": false,
+          "fingerprint": "chrome",
+          "target": "owned TLS1.3 cover on loopback",
+          "inner_application": "HTTPS TLS with verified owned CA"
+        },
+        "hysteria": {
+          "version": "2.13.0",
+          "profiles": [
+            "BBR standard",
+            "BBR conservative",
+            "Brutal8/2Mbps",
+            "Brutal6/1.5Mbps"
+          ],
+          "brutal_disable_loss_compensation": false,
+          "fastOpen": false
+        },
+        "addresses": {
+          "client": "10.203.0.1",
+          "server": "10.203.0.2",
+          "origin": "127.0.0.1"
+        },
+        "secrets": "omitted; regenerate private configs with provided scripts",
+        "experiment": {
+          "window_override_bytes": 131072,
+          "window_override_scope": "isolated diagnostic only; stable inputs and deployed defaults unchanged"
+        }
+      },
+      "cc_experiment_script_sha256": "78c7d23fd8f263d39ab4a30eceae4f07b7b3266283861f1c29d909f9bec5c859",
+      "private_config_sha256": {
+        "baseline/credentials.json": "1e6e22366c5d106f1410f5a8c96e3be54354b31d649cd40fcb43bd6cf7ba95e8",
+        "baseline/hysteria-client-bbr-conservative.json": "e11092d698db00b53c60b40d29219a59a93d27ff054ea18fe0870d31cf70975a",
+        "baseline/hysteria-client-bbr-standard.json": "ffaaab7632beda3e73213e55f4fc5463f88a7a497c82f59c7ba25e7e33325df4",
+        "baseline/hysteria-client-brutal.json": "240d46ce81f2cf8a883eaf047ccc151f3f7d65dd003e47bfffd23d2a7d4f3b47",
+        "baseline/hysteria-client-brutal6.json": "3c7c50f76065504c352b45992b03baf216ca6bc245d1f522e42582a1c5b80994",
+        "baseline/hysteria-client-brutal8.json": "240d46ce81f2cf8a883eaf047ccc151f3f7d65dd003e47bfffd23d2a7d4f3b47",
+        "baseline/hysteria-server-bbr-conservative.json": "9c439ba8323a4ce9787bbd06685edd3ecfbdac678e1d8e71ad053959b8ef0f38",
+        "baseline/hysteria-server-bbr-standard.json": "b9e198b0983063f6d7c9932a4226cfe9aac15b0f7d02d293d837c99517880d81",
+        "baseline/hysteria-server-brutal.json": "f59dd136a3884a170a684f1366fbc14f261a5a3df313084c43b302ff95043e52",
+        "baseline/hysteria-server-brutal6.json": "cf56e000e6c9acba585c503fed49659359f34cf15183b32a418980775f7bdca8",
+        "baseline/hysteria-server-brutal8.json": "f59dd136a3884a170a684f1366fbc14f261a5a3df313084c43b302ff95043e52",
+        "baseline/parameters.json": "d5b314eba507f6b255faa92e6844b18deed2dc0710c69134af911150b44675a0",
+        "baseline/xray-client.json": "29ad510e684c0df52e084b64de2dfb558193e24bea749585dbab843e7ea30a83",
+        "baseline/xray-server.json": "05116a2ddd3ac0b444149934a53abcf8f12f557aa5f42c47365fbf1f0c59eeca",
+        "px/client-px-adaptive.json": "6bdffc56d9efbf73dbef478a51495540e4bd3185525e611eeab87757542f3a6b",
+        "px/client-px-fifo.json": "073509d32ae3be9c0467e69dc4b0696d1e515fb0d87a8aa3b4f0e144480dcf28",
+        "px/client-px-priority.json": "056b40b81f698644a806d97b8ea720c4d165be4c408c530722dfe7e7bb514d1c",
+        "px/client.json": "c3b3ec9f6b36576772be7ac59e64080651c0a2c39e13e9c9a6fcfb2a73a36e58",
+        "px/server-px-adaptive.json": "ea5dd2e6580a82d8a9058b8b32c3520742d955931d73c0912003e2990a934e00",
+        "px/server-px-fifo.json": "3908c094382066a2f6de8c448144c5a544ad284a8797303b64ae19953f7c2348",
+        "px/server-px-priority.json": "141f4364e01c594b3f4a9afe0a3e1893913e99fb63bba7e5d0eed8b196f69102",
+        "px/server.json": "421e15dacdc62ef986ea44852db794476bcaaa4238dda99da5f4c53953953ee6"
+      },
+      "cc_provenance": {
+        "hycc_source": {
+          "upstream_repository": "https://github.com/HyNetworkS/hysteria",
+          "upstream_tag": "app/v2.13.0",
+          "upstream_commit": "ca8fbd874fd6ca82413948de6dc5924405e103e1",
+          "quic_module": "github.com/apernet/quic-go",
+          "quic_version": "v0.63.1-0.20261004180939-a10df75c260c",
+          "quic_commit": "a10df75c260cee8161f3261d63a37bd125a6bb2a",
+          "quic_module_sum": "h1:cxK8qTA0YCsj68A7zLYDCfPgMTOyt3ePkHh+oXEmYU0=",
+          "transformation": "Only replace the Hysteria internal congestion import-path prefix with proto-x/internal/hycc. Controller logic and constants, including upstream tests, are unchanged.",
+          "licenses": {
+            "internal/hycc/LICENSE.hysteria": "b279cfdac4db4b077f0660b5d8156d50a8bc7bd410036dc356499af43c4e84f5",
+            "internal/hycc/LICENSE.quic-go": "77d0b7b53e8abb84cf4dd3f9945a7fdf27044240d2e8023966a721a9a46fe96e"
+          },
+          "files": [
+            {
+              "upstream_path": "core/internal/congestion/bbr/bandwidth.go",
+              "local_path": "internal/hycc/bbr/bandwidth.go",
+              "upstream_sha256": "88c1645d59e0ef379cee2f3b40f32c5f9a9b83a1973a70c2874c75112057145c",
+              "local_sha256": "88c1645d59e0ef379cee2f3b40f32c5f9a9b83a1973a70c2874c75112057145c",
+              "namespace_replacements": 0
+            },
+            {
+              "upstream_path": "core/internal/congestion/bbr/bandwidth_sampler.go",
+              "local_path": "internal/hycc/bbr/bandwidth_sampler.go",
+              "upstream_sha256": "16fb21e17af2750d0687f13eceab1d2eba61e4be7c8cff520dc873d556d9bb7e",
+              "local_sha256": "16fb21e17af2750d0687f13eceab1d2eba61e4be7c8cff520dc873d556d9bb7e",
+              "namespace_replacements": 0
+            },
+            {
+              "upstream_path": "core/internal/congestion/bbr/bbr_sender.go",
+              "local_path": "internal/hycc/bbr/bbr_sender.go",
+              "upstream_sha256": "f01c0059914aec04626007b1469d3866c0420cc1f03b293e847a3396767cdf1e",
+              "local_sha256": "29efc133d8b9d5941ed4750767d4dd7aa079d1121895b62a19355f53d9d0afd8",
+              "namespace_replacements": 1
+            },
+            {
+              "upstream_path": "core/internal/congestion/bbr/bbr_sender_test.go",
+              "local_path": "internal/hycc/bbr/bbr_sender_test.go",
+              "upstream_sha256": "227e9a78359c09d3514247ab81d181c7c29abacc3e5ad746eb21bd43f6165f8b",
+              "local_sha256": "227e9a78359c09d3514247ab81d181c7c29abacc3e5ad746eb21bd43f6165f8b",
+              "namespace_replacements": 0
+            },
+            {
+              "upstream_path": "core/internal/congestion/bbr/clock.go",
+              "local_path": "internal/hycc/bbr/clock.go",
+              "upstream_sha256": "189e4ad09b252e33505b67760d4e362ee34fb7b000bf69903e2747dec3bacaab",
+              "local_sha256": "189e4ad09b252e33505b67760d4e362ee34fb7b000bf69903e2747dec3bacaab",
+              "namespace_replacements": 0
+            },
+            {
+              "upstream_path": "core/internal/congestion/bbr/packet_number_indexed_queue.go",
+              "local_path": "internal/hycc/bbr/packet_number_indexed_queue.go",
+              "upstream_sha256": "f01bdc184723d7b153713128e48758ca18fca9e4ffb157f18c2b2edecfbf7f1a",
+              "local_sha256": "f01bdc184723d7b153713128e48758ca18fca9e4ffb157f18c2b2edecfbf7f1a",
+              "namespace_replacements": 0
+            },
+            {
+              "upstream_path": "core/internal/congestion/bbr/ringbuffer.go",
+              "local_path": "internal/hycc/bbr/ringbuffer.go",
+              "upstream_sha256": "0a0ff11bd56a8c64a53db421b0d71560144c8690db7c726bc9fbc93465b0e589",
+              "local_sha256": "0a0ff11bd56a8c64a53db421b0d71560144c8690db7c726bc9fbc93465b0e589",
+              "namespace_replacements": 0
+            },
+            {
+              "upstream_path": "core/internal/congestion/bbr/windowed_filter.go",
+              "local_path": "internal/hycc/bbr/windowed_filter.go",
+              "upstream_sha256": "e573928f676d7ab9a6b8bbfd3530eb4a99fa96bc2861e7c271e242f6d2becce2",
+              "local_sha256": "e573928f676d7ab9a6b8bbfd3530eb4a99fa96bc2861e7c271e242f6d2becce2",
+              "namespace_replacements": 0
+            },
+            {
+              "upstream_path": "core/internal/congestion/brutal/brutal.go",
+              "local_path": "internal/hycc/brutal/brutal.go",
+              "upstream_sha256": "c620671ca0bfff791c512fda1b0a3cda48e44688430e30c8ab57677e4a87f83a",
+              "local_sha256": "6a2df763c8dabfc505419d7150de0e2afa3b8a9c5d2aadb75d3d6a941f67412e",
+              "namespace_replacements": 1
+            },
+            {
+              "upstream_path": "core/internal/congestion/brutal/brutal_test.go",
+              "local_path": "internal/hycc/brutal/brutal_test.go",
+              "upstream_sha256": "74beab811fa33daca11a664315960e97dc48f7306d132f6b30a7e5a147be83a7",
+              "local_sha256": "74beab811fa33daca11a664315960e97dc48f7306d132f6b30a7e5a147be83a7",
+              "namespace_replacements": 0
+            },
+            {
+              "upstream_path": "core/internal/congestion/common/pacer.go",
+              "local_path": "internal/hycc/common/pacer.go",
+              "upstream_sha256": "ca7cb0bd5897e573050522d7c8ec85b21964843d7cd2ac2fb0929f375442ed3c",
+              "local_sha256": "ca7cb0bd5897e573050522d7c8ec85b21964843d7cd2ac2fb0929f375442ed3c",
+              "namespace_replacements": 0
+            },
+            {
+              "upstream_path": "core/internal/congestion/utils.go",
+              "local_path": "internal/hycc/utils.go",
+              "upstream_sha256": "83df6db7655400b3919a53fb94b20d0a0bdedc8df1e6bc6dd70aeed957bc544e",
+              "local_sha256": "3834f7feade690a852b20af40b0e18693487959128e4be144d9d421959f42735",
+              "namespace_replacements": 2
+            }
+          ]
+        },
+        "source_files_sha256": {
+          "go.mod": "6a27ef6442ae1896e6d1394890e0fb848bb2912219f4e0fdfcaa054c8d5996e0",
+          "go.sum": "fb762e68a59a1205d59b60fd67f7da0bffd078f3ab1a15f3046cf4a10ddab1fd",
+          "internal/carrier/carrier.go": "bc143e0547c194001f9be9ffce1778f38cb4a7466e4904dc05db5a1142f5fee0",
+          "internal/carrier/experimental_cc.go": "545e2e787b8a61a09b25c39036e3e4c37e5b6d3cfabca874140bd7d89b6fce2e",
+          "internal/hycc/LICENSE.hysteria": "b279cfdac4db4b077f0660b5d8156d50a8bc7bd410036dc356499af43c4e84f5",
+          "internal/hycc/LICENSE.quic-go": "77d0b7b53e8abb84cf4dd3f9945a7fdf27044240d2e8023966a721a9a46fe96e",
+          "internal/hycc/SOURCE.json": "d61fffd05d4abe81004dd5649da4efbc9a61ed3d73b65050d0e3f2ef324db7a3",
+          "internal/hycc/bbr/bandwidth.go": "88c1645d59e0ef379cee2f3b40f32c5f9a9b83a1973a70c2874c75112057145c",
+          "internal/hycc/bbr/bandwidth_sampler.go": "16fb21e17af2750d0687f13eceab1d2eba61e4be7c8cff520dc873d556d9bb7e",
+          "internal/hycc/bbr/bbr_sender.go": "29efc133d8b9d5941ed4750767d4dd7aa079d1121895b62a19355f53d9d0afd8",
+          "internal/hycc/bbr/bbr_sender_test.go": "227e9a78359c09d3514247ab81d181c7c29abacc3e5ad746eb21bd43f6165f8b",
+          "internal/hycc/bbr/clock.go": "189e4ad09b252e33505b67760d4e362ee34fb7b000bf69903e2747dec3bacaab",
+          "internal/hycc/bbr/packet_number_indexed_queue.go": "f01bdc184723d7b153713128e48758ca18fca9e4ffb157f18c2b2edecfbf7f1a",
+          "internal/hycc/bbr/ringbuffer.go": "0a0ff11bd56a8c64a53db421b0d71560144c8690db7c726bc9fbc93465b0e589",
+          "internal/hycc/bbr/windowed_filter.go": "e573928f676d7ab9a6b8bbfd3530eb4a99fa96bc2861e7c271e242f6d2becce2",
+          "internal/hycc/brutal/brutal.go": "6a2df763c8dabfc505419d7150de0e2afa3b8a9c5d2aadb75d3d6a941f67412e",
+          "internal/hycc/brutal/brutal_test.go": "74beab811fa33daca11a664315960e97dc48f7306d132f6b30a7e5a147be83a7",
+          "internal/hycc/common/pacer.go": "ca7cb0bd5897e573050522d7c8ec85b21964843d7cd2ac2fb0929f375442ed3c",
+          "internal/hycc/utils.go": "3834f7feade690a852b20af40b0e18693487959128e4be144d9d421959f42735"
+        },
+        "fork": "github.com/apernet/quic-go v0.63.1-0.20261004180939-a10df75c260c",
+        "fork_delta": "CC installed after app authentication; explicit QUIC v1; same scheduler/session/config semantics",
+        "path_migration_limitation": "fork may reset CC to Reno on migration; not exercised in static-path screening",
+        "default_expected_sha256": {
+          "protox": "28ee62b17791e92dff0f2745c866913d3d500e3b530730102c9f35c977e0e638",
+          "pxbench": "e01e8df7756512820dc823b7b42f7f4fe58ad952ad3f76f95b7c610f3692353a",
+          "protox-cc": "46b55aa58073753d2a3fa16d76c117ce86692eaca57a2b05e355e52700c45819",
+          "hysteria": "a68a61a84452ca250ce0368202521965ca9cc9d801a404f1dc9008ac6cf677a7"
+        }
+      }
+    }
+  ],
+  "trials": [
+    {
+      "run_id": "cc-window-w65536-s227-20261106T232446Z",
+      "trial_id": "01-loss1-jitter5-px-fork-brutal6-s227",
+      "raw_path": "results/cc-window-w65536-s227-20261106T232446Z/01-loss1-jitter5-px-fork-brutal6-s227",
+      "variant": "px-fork-brutal6",
+      "profile": "loss1-jitter5",
+      "seed": 227,
+      "status": "completed",
+      "error": "",
+      "stage": "discovery",
+      "warmup_s": 3.0,
+      "configured_duration_s": 25.0,
+      "background_workers": 1,
+      "background_mbps_source_budget_per_worker": null,
+      "px_window_bytes": 65536,
+      "px_congestion_control": "hy-brutal",
+      "protocol_binary": "protox-cc",
+      "protocol_binary_sha256": "46b55aa58073753d2a3fa16d76c117ce86692eaca57a2b05e355e52700c45819",
+      "controller_log_validation_passed": true,
+      "sparse_redundancy": null,
+      "quic_only_validated": null,
+      "protox_sha256": "28ee62b17791e92dff0f2745c866913d3d500e3b530730102c9f35c977e0e638",
+      "benchmark_sha256": "e01e8df7756512820dc823b7b42f7f4fe58ad952ad3f76f95b7c610f3692353a",
+      "duration_seconds": 25.00087767,
+      "download_end_total": 1,
+      "download_end_success": 0,
+      "download_end_failure": 0,
+      "download_end_timeout": 0,
+      "download_end_censored": 1,
+      "download_end_rejected": 0,
+      "download_end_connection_attempts": 0,
+      "download_end_latency_ms_p50": 0,
+      "download_end_latency_ms_p95": 0,
+      "download_end_latency_ms_p99": 0,
+      "download_end_scheduled_latency_ms_p50": 0,
+      "download_end_scheduled_latency_ms_p95": 0,
+      "download_end_scheduled_latency_ms_p99": 0,
+      "download_end_ttfb_ms_p50": 0,
+      "download_end_ttfb_ms_p95": 0,
+      "download_end_ttfb_ms_p99": 0,
+      "echo_total": 235,
+      "echo_success": 234,
+      "echo_failure": 0,
+      "echo_timeout": 0,
+      "echo_censored": 1,
+      "echo_rejected": 0,
+      "echo_connection_attempts": 0,
+      "echo_latency_ms_p50": 73.827221,
+      "echo_latency_ms_p95": 151.358189,
+      "echo_latency_ms_p99": 192.513691,
+      "echo_scheduled_latency_ms_p50": 0,
+      "echo_scheduled_latency_ms_p95": 0,
+      "echo_scheduled_latency_ms_p99": 0,
+      "echo_ttfb_ms_p50": 0,
+      "echo_ttfb_ms_p95": 0,
+      "echo_ttfb_ms_p99": 0,
+      "http_total": 125,
+      "http_success": 125,
+      "http_failure": 0,
+      "http_timeout": 0,
+      "http_censored": 0,
+      "http_rejected": 0,
+      "http_connection_attempts": 125,
+      "http_latency_ms_p50": 75.900314,
+      "http_latency_ms_p95": 156.166225,
+      "http_latency_ms_p99": 174.59089,
+      "http_scheduled_latency_ms_p50": 76.15548,
+      "http_scheduled_latency_ms_p95": 156.809925,
+      "http_scheduled_latency_ms_p99": 174.785647,
+      "http_ttfb_ms_p50": 75.793589,
+      "http_ttfb_ms_p95": 156.046158,
+      "http_ttfb_ms_p99": 174.528673,
+      "sse_connections": 1,
+      "sse_connect_failure": 0,
+      "sse_tokens": 496,
+      "sse_sequence_errors": 0,
+      "sse_source_errors": 0,
+      "sse_unexpected_ends": 0,
+      "sse_receive_gap_ms_n": 495,
+      "sse_receive_gap_ms_p50": 49.496197,
+      "sse_receive_gap_ms_p95": 61.55686,
+      "sse_receive_gap_ms_p99": 67.488211,
+      "sse_receive_gap_ms_max": 132.280094,
+      "sse_receive_gap_ms_mean": 49.992269630302985,
+      "sse_source_gap_ms_n": 495,
+      "sse_source_gap_ms_p50": 50.039789,
+      "sse_source_gap_ms_p95": 50.840937,
+      "sse_source_gap_ms_p99": 51.041926,
+      "sse_source_gap_ms_max": 52.451639,
+      "sse_source_gap_ms_mean": 50.00029425454542,
+      "sse_excess_gap_ms_n": 495,
+      "sse_excess_gap_ms_p50": 0,
+      "sse_excess_gap_ms_p95": 11.48384,
+      "sse_excess_gap_ms_p99": 17.36077300000001,
+      "sse_excess_gap_ms_max": 81.71289499999999,
+      "sse_excess_gap_ms_mean": 3.0770463515151527,
+      "sse_gaps_over_250ms": 0,
+      "sse_gaps_over_1000ms": 0,
+      "sse_excess_over_250ms": 0,
+      "sse_excess_over_1000ms": 0,
+      "sse_terminal_gaps_over_250ms": 0,
+      "sse_terminal_gaps_over_1000ms": 0,
+      "sse_max_terminal_gap_ms": 24.792059,
+      "sse_run_tail_gap_ms": 24.830257,
+      "sse_source_generation_delay_ms_n": 496,
+      "sse_source_generation_delay_ms_p50": 0.652341,
+      "sse_source_generation_delay_ms_p95": 1.211085,
+      "sse_source_generation_delay_ms_p99": 1.524302,
+      "sse_source_generation_delay_ms_max": 2.704008,
+      "sse_source_generation_delay_ms_mean": 0.6489236229838712,
+      "download_validated_bytes": 11358200,
+      "download_goodput_mbps": 3.6344964044616277,
+      "upload_server_confirmed_bytes": 0,
+      "upload_confirmed_goodput_mbps": 0,
+      "echo_connections": 1,
+      "benchmark_config": {
+        "proxy": "127.0.0.1:1088",
+        "http_target": "https://protox-baseline.test:18443",
+        "echo_target": "127.0.0.1:18081",
+        "duration_ns": 25000000000,
+        "request_timeout_ns": 3000000000,
+        "http_rps": 5,
+        "http_method": "POST",
+        "http_response_bytes": 1024,
+        "http_max_concurrency": 64,
+        "echo_interval_ns": 100000000,
+        "sse_interval_ns": 50000000,
+        "download_workers": 1,
+        "download_mbps_per_worker": 0,
+        "upload_workers": 0,
+        "upload_chunk_bytes": 262144,
+        "output": "/tmp/pxlab-cc/results/cc-window-w65536-s227-20261106T232446Z/01-loss1-jitter5-px-fork-brutal6-s227/events.jsonl",
+        "summary": "/tmp/pxlab-cc/results/cc-window-w65536-s227-20261106T232446Z/01-loss1-jitter5-px-fork-brutal6-s227/events.summary.json",
+        "run_id": "01-loss1-jitter5-px-fork-brutal6-s227",
+        "ca_file": "/tmp/pxlab-cc/private/baseline/tls-cert.pem",
+        "insecure_tls": false,
+        "cold_http": false
+      },
+      "client_qdisc_bytes": 1064553,
+      "client_qdisc_packets": 11236,
+      "client_qdisc_drops": 894,
+      "client_qdisc_overlimits": 0,
+      "client_qdisc_requeues": 0,
+      "client_all_namespace_tcp_retrans_segments_includes_loopback": 1,
+      "server_qdisc_bytes": 12977997,
+      "server_qdisc_packets": 14532,
+      "server_qdisc_drops": 89,
+      "server_qdisc_overlimits": 0,
+      "server_qdisc_requeues": 0,
+      "server_all_namespace_tcp_retrans_segments_includes_loopback": 24,
+      "outer_qdisc_bytes_both_directions": 14042550,
+      "outer_qdisc_mbps_both_directions": 4.493458249059942,
+      "all_outer_bytes_per_download_byte": 1.236335863076896,
+      "fixture_rss_peak_bytes": 13684736,
+      "fixture_rss_mean_bytes": 13355230.072289156,
+      "fixture_cpu_percent_one_core": 0.639877151188721,
+      "fixture_sampled_seconds": 25.004799702999662,
+      "server_rss_peak_bytes": 16109568,
+      "server_rss_mean_bytes": 16096375.261044176,
+      "server_cpu_percent_one_core": 3.39934736569008,
+      "server_sampled_seconds": 25.004799702999662,
+      "client_rss_peak_bytes": 18198528,
+      "client_rss_mean_bytes": 18106343.325301204,
+      "client_cpu_percent_one_core": 2.719477892552064,
+      "client_sampled_seconds": 25.004799702999662,
+      "workload_rss_peak_bytes": 14622720,
+      "workload_rss_mean_bytes": 14485150.32931727,
+      "workload_cpu_percent_one_core": 1.4797159121239172,
+      "workload_sampled_seconds": 25.004799702999662,
+      "raw_event_counts_by_status": {
+        "run_start": {
+          "unspecified": 1
+        },
+        "echo_connect": {
+          "success": 1
+        },
+        "echo": {
+          "success": 234,
+          "censored": 1
+        },
+        "http_connection": {
+          "success": 125
+        },
+        "http_write": {
+          "success": 125
+        },
+        "sse_connect": {
+          "success": 1
+        },
+        "sse_token": {
+          "success": 496
+        },
+        "http": {
+          "success": 125
+        },
+        "download_interval": {
+          "success": 23
+        },
+        "sse_end": {
+          "censored": 1
+        },
+        "sse_run_tail": {
+          "censored": 1
+        },
+        "download_end": {
+          "censored": 1
+        },
+        "run_end": {
+          "success": 1
+        }
+      },
+      "verification_errors": []
+    },
+    {
+      "run_id": "cc-window-w262144-s227-20261106T232555Z",
+      "trial_id": "01-loss1-jitter5-px-fork-brutal6-s227",
+      "raw_path": "results/cc-window-w262144-s227-20261106T232555Z/01-loss1-jitter5-px-fork-brutal6-s227",
+      "variant": "px-fork-brutal6",
+      "profile": "loss1-jitter5",
+      "seed": 227,
+      "status": "completed",
+      "error": "",
+      "stage": "discovery",
+      "warmup_s": 3.0,
+      "configured_duration_s": 25.0,
+      "background_workers": 1,
+      "background_mbps_source_budget_per_worker": null,
+      "px_window_bytes": 262144,
+      "px_congestion_control": "hy-brutal",
+      "protocol_binary": "protox-cc",
+      "protocol_binary_sha256": "46b55aa58073753d2a3fa16d76c117ce86692eaca57a2b05e355e52700c45819",
+      "controller_log_validation_passed": true,
+      "sparse_redundancy": null,
+      "quic_only_validated": null,
+      "protox_sha256": "28ee62b17791e92dff0f2745c866913d3d500e3b530730102c9f35c977e0e638",
+      "benchmark_sha256": "e01e8df7756512820dc823b7b42f7f4fe58ad952ad3f76f95b7c610f3692353a",
+      "duration_seconds": 25.000641205,
+      "download_end_total": 1,
+      "download_end_success": 0,
+      "download_end_failure": 0,
+      "download_end_timeout": 0,
+      "download_end_censored": 1,
+      "download_end_rejected": 0,
+      "download_end_connection_attempts": 0,
+      "download_end_latency_ms_p50": 0,
+      "download_end_latency_ms_p95": 0,
+      "download_end_latency_ms_p99": 0,
+      "download_end_scheduled_latency_ms_p50": 0,
+      "download_end_scheduled_latency_ms_p95": 0,
+      "download_end_scheduled_latency_ms_p99": 0,
+      "download_end_ttfb_ms_p50": 0,
+      "download_end_ttfb_ms_p95": 0,
+      "download_end_ttfb_ms_p99": 0,
+      "echo_total": 236,
+      "echo_success": 236,
+      "echo_failure": 0,
+      "echo_timeout": 0,
+      "echo_censored": 0,
+      "echo_rejected": 0,
+      "echo_connection_attempts": 0,
+      "echo_latency_ms_p50": 77.237197,
+      "echo_latency_ms_p95": 154.006648,
+      "echo_latency_ms_p99": 167.26045,
+      "echo_scheduled_latency_ms_p50": 0,
+      "echo_scheduled_latency_ms_p95": 0,
+      "echo_scheduled_latency_ms_p99": 0,
+      "echo_ttfb_ms_p50": 0,
+      "echo_ttfb_ms_p95": 0,
+      "echo_ttfb_ms_p99": 0,
+      "http_total": 125,
+      "http_success": 125,
+      "http_failure": 0,
+      "http_timeout": 0,
+      "http_censored": 0,
+      "http_rejected": 0,
+      "http_connection_attempts": 125,
+      "http_latency_ms_p50": 79.976171,
+      "http_latency_ms_p95": 160.024723,
+      "http_latency_ms_p99": 167.486375,
+      "http_scheduled_latency_ms_p50": 80.573608,
+      "http_scheduled_latency_ms_p95": 161.104382,
+      "http_scheduled_latency_ms_p99": 168.322696,
+      "http_ttfb_ms_p50": 79.912968,
+      "http_ttfb_ms_p95": 159.944099,
+      "http_ttfb_ms_p99": 167.433633,
+      "sse_connections": 1,
+      "sse_connect_failure": 0,
+      "sse_tokens": 496,
+      "sse_sequence_errors": 0,
+      "sse_source_errors": 0,
+      "sse_unexpected_ends": 0,
+      "sse_receive_gap_ms_n": 495,
+      "sse_receive_gap_ms_p50": 49.878388,
+      "sse_receive_gap_ms_p95": 57.66425,
+      "sse_receive_gap_ms_p99": 63.543154,
+      "sse_receive_gap_ms_max": 127.596159,
+      "sse_receive_gap_ms_mean": 50.011803365656604,
+      "sse_source_gap_ms_n": 495,
+      "sse_source_gap_ms_p50": 50.116026,
+      "sse_source_gap_ms_p95": 50.752583,
+      "sse_source_gap_ms_p99": 50.968262,
+      "sse_source_gap_ms_max": 53.698713,
+      "sse_source_gap_ms_mean": 50.00104051919192,
+      "sse_excess_gap_ms_n": 495,
+      "sse_excess_gap_ms_p50": 0.026212999999998488,
+      "sse_excess_gap_ms_p95": 7.657976000000005,
+      "sse_excess_gap_ms_p99": 13.036295000000003,
+      "sse_excess_gap_ms_max": 76.992468,
+      "sse_excess_gap_ms_mean": 1.9106671111111113,
+      "sse_gaps_over_250ms": 0,
+      "sse_gaps_over_1000ms": 0,
+      "sse_excess_over_250ms": 0,
+      "sse_excess_over_1000ms": 0,
+      "sse_terminal_gaps_over_250ms": 0,
+      "sse_terminal_gaps_over_1000ms": 0,
+      "sse_max_terminal_gap_ms": 7.559253,
+      "sse_run_tail_gap_ms": 7.598073,
+      "sse_source_generation_delay_ms_n": 496,
+      "sse_source_generation_delay_ms_p50": 0.591443,
+      "sse_source_generation_delay_ms_p95": 1.066884,
+      "sse_source_generation_delay_ms_p99": 1.158463,
+      "sse_source_generation_delay_ms_max": 4.424294,
+      "sse_source_generation_delay_ms_mean": 0.5922062096774193,
+      "download_validated_bytes": 17203200,
+      "download_goodput_mbps": 5.50488280966472,
+      "upload_server_confirmed_bytes": 0,
+      "upload_confirmed_goodput_mbps": 0,
+      "echo_connections": 1,
+      "benchmark_config": {
+        "proxy": "127.0.0.1:1088",
+        "http_target": "https://protox-baseline.test:18443",
+        "echo_target": "127.0.0.1:18081",
+        "duration_ns": 25000000000,
+        "request_timeout_ns": 3000000000,
+        "http_rps": 5,
+        "http_method": "POST",
+        "http_response_bytes": 1024,
+        "http_max_concurrency": 64,
+        "echo_interval_ns": 100000000,
+        "sse_interval_ns": 50000000,
+        "download_workers": 1,
+        "download_mbps_per_worker": 0,
+        "upload_workers": 0,
+        "upload_chunk_bytes": 262144,
+        "output": "/tmp/pxlab-cc/results/cc-window-w262144-s227-20261106T232555Z/01-loss1-jitter5-px-fork-brutal6-s227/events.jsonl",
+        "summary": "/tmp/pxlab-cc/results/cc-window-w262144-s227-20261106T232555Z/01-loss1-jitter5-px-fork-brutal6-s227/events.summary.json",
+        "run_id": "01-loss1-jitter5-px-fork-brutal6-s227",
+        "ca_file": "/tmp/pxlab-cc/private/baseline/tls-cert.pem",
+        "insecure_tls": false,
+        "cold_http": false
+      },
+      "client_qdisc_bytes": 1323499,
+      "client_qdisc_packets": 14146,
+      "client_qdisc_drops": 1240,
+      "client_qdisc_overlimits": 0,
+      "client_qdisc_requeues": 0,
+      "client_all_namespace_tcp_retrans_segments_includes_loopback": 1,
+      "server_qdisc_bytes": 19307365,
+      "server_qdisc_packets": 18470,
+      "server_qdisc_drops": 165,
+      "server_qdisc_overlimits": 0,
+      "server_qdisc_requeues": 0,
+      "server_all_namespace_tcp_retrans_segments_includes_loopback": 11,
+      "outer_qdisc_bytes_both_directions": 20630864,
+      "outer_qdisc_mbps_both_directions": 6.6017071580944675,
+      "all_outer_bytes_per_download_byte": 1.1992457217261905,
+      "fixture_rss_peak_bytes": 11513856,
+      "fixture_rss_mean_bytes": 11495152.578313254,
+      "fixture_cpu_percent_one_core": 0.7200202154603582,
+      "fixture_sampled_seconds": 24.99929809400055,
+      "server_rss_peak_bytes": 17895424,
+      "server_rss_mean_bytes": 16758644.176706828,
+      "server_cpu_percent_one_core": 5.52015498519608,
+      "server_sampled_seconds": 24.99929809400055,
+      "client_rss_peak_bytes": 16125952,
+      "client_rss_mean_bytes": 15913552.192771085,
+      "client_cpu_percent_one_core": 4.400123538924411,
+      "client_sampled_seconds": 24.99929809400055,
+      "workload_rss_peak_bytes": 14835712,
+      "workload_rss_mean_bytes": 14560622.008032128,
+      "workload_cpu_percent_one_core": 1.7200482924886336,
+      "workload_sampled_seconds": 24.99929809400055,
+      "raw_event_counts_by_status": {
+        "run_start": {
+          "unspecified": 1
+        },
+        "echo_connect": {
+          "success": 1
+        },
+        "echo": {
+          "success": 236
+        },
+        "http_connection": {
+          "success": 125
+        },
+        "http_write": {
+          "success": 125
+        },
+        "sse_connect": {
+          "success": 1
+        },
+        "sse_token": {
+          "success": 496
+        },
+        "http": {
+          "success": 125
+        },
+        "download_interval": {
+          "success": 24
+        },
+        "sse_end": {
+          "censored": 1
+        },
+        "sse_run_tail": {
+          "censored": 1
+        },
+        "download_end": {
+          "censored": 1
+        },
+        "run_end": {
+          "success": 1
+        }
+      },
+      "verification_errors": []
+    },
+    {
+      "run_id": "cc-window-w131072-s227-20261106T232738Z",
+      "trial_id": "01-loss1-jitter5-px-fork-brutal6-s227",
+      "raw_path": "results/cc-window-w131072-s227-20261106T232738Z/01-loss1-jitter5-px-fork-brutal6-s227",
+      "variant": "px-fork-brutal6",
+      "profile": "loss1-jitter5",
+      "seed": 227,
+      "status": "completed",
+      "error": "",
+      "stage": "discovery",
+      "warmup_s": 3.0,
+      "configured_duration_s": 25.0,
+      "background_workers": 1,
+      "background_mbps_source_budget_per_worker": null,
+      "px_window_bytes": 131072,
+      "px_congestion_control": "hy-brutal",
+      "protocol_binary": "protox-cc",
+      "protocol_binary_sha256": "46b55aa58073753d2a3fa16d76c117ce86692eaca57a2b05e355e52700c45819",
+      "controller_log_validation_passed": true,
+      "sparse_redundancy": null,
+      "quic_only_validated": null,
+      "protox_sha256": "28ee62b17791e92dff0f2745c866913d3d500e3b530730102c9f35c977e0e638",
+      "benchmark_sha256": "e01e8df7756512820dc823b7b42f7f4fe58ad952ad3f76f95b7c610f3692353a",
+      "duration_seconds": 25.000826111,
+      "download_end_total": 1,
+      "download_end_success": 0,
+      "download_end_failure": 0,
+      "download_end_timeout": 0,
+      "download_end_censored": 1,
+      "download_end_rejected": 0,
+      "download_end_connection_attempts": 0,
+      "download_end_latency_ms_p50": 0,
+      "download_end_latency_ms_p95": 0,
+      "download_end_latency_ms_p99": 0,
+      "download_end_scheduled_latency_ms_p50": 0,
+      "download_end_scheduled_latency_ms_p95": 0,
+      "download_end_scheduled_latency_ms_p99": 0,
+      "download_end_ttfb_ms_p50": 0,
+      "download_end_ttfb_ms_p95": 0,
+      "download_end_ttfb_ms_p99": 0,
+      "echo_total": 227,
+      "echo_success": 226,
+      "echo_failure": 0,
+      "echo_timeout": 0,
+      "echo_censored": 1,
+      "echo_rejected": 0,
+      "echo_connection_attempts": 0,
+      "echo_latency_ms_p50": 78.148833,
+      "echo_latency_ms_p95": 156.216727,
+      "echo_latency_ms_p99": 229.898208,
+      "echo_scheduled_latency_ms_p50": 0,
+      "echo_scheduled_latency_ms_p95": 0,
+      "echo_scheduled_latency_ms_p99": 0,
+      "echo_ttfb_ms_p50": 0,
+      "echo_ttfb_ms_p95": 0,
+      "echo_ttfb_ms_p99": 0,
+      "http_total": 125,
+      "http_success": 125,
+      "http_failure": 0,
+      "http_timeout": 0,
+      "http_censored": 0,
+      "http_rejected": 0,
+      "http_connection_attempts": 125,
+      "http_latency_ms_p50": 78.489205,
+      "http_latency_ms_p95": 154.245351,
+      "http_latency_ms_p99": 161.605501,
+      "http_scheduled_latency_ms_p50": 79.05519,
+      "http_scheduled_latency_ms_p95": 154.499479,
+      "http_scheduled_latency_ms_p99": 161.689885,
+      "http_ttfb_ms_p50": 78.441489,
+      "http_ttfb_ms_p95": 154.17377,
+      "http_ttfb_ms_p99": 161.511765,
+      "sse_connections": 1,
+      "sse_connect_failure": 0,
+      "sse_tokens": 496,
+      "sse_sequence_errors": 0,
+      "sse_source_errors": 0,
+      "sse_unexpected_ends": 0,
+      "sse_receive_gap_ms_n": 495,
+      "sse_receive_gap_ms_p50": 50.182152,
+      "sse_receive_gap_ms_p95": 59.820018,
+      "sse_receive_gap_ms_p99": 126.392176,
+      "sse_receive_gap_ms_max": 134.425,
+      "sse_receive_gap_ms_mean": 49.836900446464625,
+      "sse_source_gap_ms_n": 495,
+      "sse_source_gap_ms_p50": 50.122069,
+      "sse_source_gap_ms_p95": 50.684365,
+      "sse_source_gap_ms_p99": 51.018967,
+      "sse_source_gap_ms_max": 53.986079,
+      "sse_source_gap_ms_mean": 50.00207474141418,
+      "sse_excess_gap_ms_n": 495,
+      "sse_excess_gap_ms_p50": 0.2121880000000047,
+      "sse_excess_gap_ms_p95": 9.924853999999996,
+      "sse_excess_gap_ms_p99": 76.23295000000002,
+      "sse_excess_gap_ms_max": 80.87785300000002,
+      "sse_excess_gap_ms_mean": 2.954952995959595,
+      "sse_gaps_over_250ms": 0,
+      "sse_gaps_over_1000ms": 0,
+      "sse_excess_over_250ms": 0,
+      "sse_excess_over_1000ms": 0,
+      "sse_terminal_gaps_over_250ms": 0,
+      "sse_terminal_gaps_over_1000ms": 0,
+      "sse_max_terminal_gap_ms": 21.54846,
+      "sse_run_tail_gap_ms": 21.581349,
+      "sse_source_generation_delay_ms_n": 496,
+      "sse_source_generation_delay_ms_p50": 0.597186,
+      "sse_source_generation_delay_ms_p95": 1.087791,
+      "sse_source_generation_delay_ms_p99": 1.218609,
+      "sse_source_generation_delay_ms_max": 4.055773,
+      "sse_source_generation_delay_ms_mean": 0.6050949838709683,
+      "download_validated_bytes": 16142328,
+      "download_goodput_mbps": 5.165374273099755,
+      "upload_server_confirmed_bytes": 0,
+      "upload_confirmed_goodput_mbps": 0,
+      "echo_connections": 1,
+      "benchmark_config": {
+        "proxy": "127.0.0.1:1088",
+        "http_target": "https://protox-baseline.test:18443",
+        "echo_target": "127.0.0.1:18081",
+        "duration_ns": 25000000000,
+        "request_timeout_ns": 3000000000,
+        "http_rps": 5,
+        "http_method": "POST",
+        "http_response_bytes": 1024,
+        "http_max_concurrency": 64,
+        "echo_interval_ns": 100000000,
+        "sse_interval_ns": 50000000,
+        "download_workers": 1,
+        "download_mbps_per_worker": 0,
+        "upload_workers": 0,
+        "upload_chunk_bytes": 262144,
+        "output": "/tmp/pxlab-cc/results/cc-window-w131072-s227-20261106T232738Z/01-loss1-jitter5-px-fork-brutal6-s227/events.jsonl",
+        "summary": "/tmp/pxlab-cc/results/cc-window-w131072-s227-20261106T232738Z/01-loss1-jitter5-px-fork-brutal6-s227/events.summary.json",
+        "run_id": "01-loss1-jitter5-px-fork-brutal6-s227",
+        "ca_file": "/tmp/pxlab-cc/private/baseline/tls-cert.pem",
+        "insecure_tls": false,
+        "cold_http": false
+      },
+      "client_qdisc_bytes": 1290744,
+      "client_qdisc_packets": 13716,
+      "client_qdisc_drops": 1428,
+      "client_qdisc_overlimits": 0,
+      "client_qdisc_requeues": 0,
+      "client_all_namespace_tcp_retrans_segments_includes_loopback": 1,
+      "server_qdisc_bytes": 18115986,
+      "server_qdisc_packets": 18126,
+      "server_qdisc_drops": 146,
+      "server_qdisc_overlimits": 0,
+      "server_qdisc_requeues": 0,
+      "server_all_namespace_tcp_retrans_segments_includes_loopback": 10,
+      "outer_qdisc_bytes_both_directions": 19406730,
+      "outer_qdisc_mbps_both_directions": 6.209948395732835,
+      "all_outer_bytes_per_download_byte": 1.2022262216453539,
+      "fixture_rss_peak_bytes": 11583488,
+      "fixture_rss_mean_bytes": 11539616.38554217,
+      "fixture_cpu_percent_one_core": 0.8008219830953804,
+      "fixture_sampled_seconds": 24.9743393939998,
+      "server_rss_peak_bytes": 16027648,
+      "server_rss_mean_bytes": 15836073.638554217,
+      "server_cpu_percent_one_core": 5.525671683358125,
+      "server_sampled_seconds": 24.9743393939998,
+      "client_rss_peak_bytes": 18178048,
+      "client_rss_mean_bytes": 17617636.240963854,
+      "client_cpu_percent_one_core": 4.4445620061793605,
+      "client_sampled_seconds": 24.9743393939998,
+      "workload_rss_peak_bytes": 15319040,
+      "workload_rss_mean_bytes": 14885999.036144579,
+      "workload_cpu_percent_one_core": 1.881931660274144,
+      "workload_sampled_seconds": 24.9743393939998,
+      "raw_event_counts_by_status": {
+        "run_start": {
+          "unspecified": 1
+        },
+        "echo_connect": {
+          "success": 1
+        },
+        "echo": {
+          "success": 226,
+          "censored": 1
+        },
+        "http_connection": {
+          "success": 125
+        },
+        "http_write": {
+          "success": 125
+        },
+        "http": {
+          "success": 125
+        },
+        "sse_connect": {
+          "success": 1
+        },
+        "sse_token": {
+          "success": 496
+        },
+        "download_interval": {
+          "success": 24
+        },
+        "sse_end": {
+          "censored": 1
+        },
+        "sse_run_tail": {
+          "censored": 1
+        },
+        "download_end": {
+          "censored": 1
+        },
+        "run_end": {
+          "success": 1
+        }
+      },
+      "verification_errors": []
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{"Time":"2026-11-07T01:59:47.455588+03:00","Action":"start","Package":"proto-x/tools/faultrelay"}
+{"Time":"2026-11-07T01:59:47.906739+03:00","Action":"run","Package":"proto-x/tools/faultrelay","Test":"TestBytePreservingForwardingAndClientPortHandoff"}
+{"Time":"2026-11-07T01:59:47.906819+03:00","Action":"output","Package":"proto-x/tools/faultrelay","Test":"TestBytePreservingForwardingAndClientPortHandoff","Output":"=== RUN   TestBytePreservingForwardingAndClientPortHandoff\n","OutputType":"frame"}
+{"Time":"2026-11-07T01:59:47.920662+03:00","Action":"output","Package":"proto-x/tools/faultrelay","Test":"TestBytePreservingForwardingAndClientPortHandoff","Output":"--- PASS: TestBytePreservingForwardingAndClientPortHandoff (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T01:59:47.920688+03:00","Action":"pass","Package":"proto-x/tools/faultrelay","Test":"TestBytePreservingForwardingAndClientPortHandoff","Elapsed":0.01}
+{"Time":"2026-11-07T01:59:47.920709+03:00","Action":"run","Package":"proto-x/tools/faultrelay","Test":"TestBlackholeBothDirectionsAndRecovery"}
+{"Time":"2026-11-07T01:59:47.920726+03:00","Action":"output","Package":"proto-x/tools/faultrelay","Test":"TestBlackholeBothDirectionsAndRecovery","Output":"=== RUN   TestBlackholeBothDirectionsAndRecovery\n","OutputType":"frame"}
+{"Time":"2026-11-07T01:59:48.209837+03:00","Action":"output","Package":"proto-x/tools/faultrelay","Test":"TestBlackholeBothDirectionsAndRecovery","Output":"--- PASS: TestBlackholeBothDirectionsAndRecovery (0.29s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T01:59:48.20988+03:00","Action":"pass","Package":"proto-x/tools/faultrelay","Test":"TestBlackholeBothDirectionsAndRecovery","Elapsed":0.29}
+{"Time":"2026-11-07T01:59:48.209892+03:00","Action":"run","Package":"proto-x/tools/faultrelay","Test":"TestScheduledRebindChangesObservedPort"}
+{"Time":"2026-11-07T01:59:48.209895+03:00","Action":"output","Package":"proto-x/tools/faultrelay","Test":"TestScheduledRebindChangesObservedPort","Output":"=== RUN   TestScheduledRebindChangesObservedPort\n","OutputType":"frame"}
+{"Time":"2026-11-07T01:59:48.318924+03:00","Action":"output","Package":"proto-x/tools/faultrelay","Test":"TestScheduledRebindChangesObservedPort","Output":"--- PASS: TestScheduledRebindChangesObservedPort (0.11s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T01:59:48.318967+03:00","Action":"pass","Package":"proto-x/tools/faultrelay","Test":"TestScheduledRebindChangesObservedPort","Elapsed":0.11}
+{"Time":"2026-11-07T01:59:48.318974+03:00","Action":"run","Package":"proto-x/tools/faultrelay","Test":"TestOversizedDatagramsDiscardedBothDirections"}
+{"Time":"2026-11-07T01:59:48.318976+03:00","Action":"output","Package":"proto-x/tools/faultrelay","Test":"TestOversizedDatagramsDiscardedBothDirections","Output":"=== RUN   TestOversizedDatagramsDiscardedBothDirections\n","OutputType":"frame"}
+{"Time":"2026-11-07T01:59:48.355218+03:00","Action":"output","Package":"proto-x/tools/faultrelay","Test":"TestOversizedDatagramsDiscardedBothDirections","Output":"--- PASS: TestOversizedDatagramsDiscardedBothDirections (0.04s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T01:59:48.355256+03:00","Action":"pass","Package":"proto-x/tools/faultrelay","Test":"TestOversizedDatagramsDiscardedBothDirections","Elapsed":0.04}
+{"Time":"2026-11-07T01:59:48.355267+03:00","Action":"run","Package":"proto-x/tools/faultrelay","Test":"TestDifferentClientIPRejected"}
+{"Time":"2026-11-07T01:59:48.355292+03:00","Action":"output","Package":"proto-x/tools/faultrelay","Test":"TestDifferentClientIPRejected","Output":"=== RUN   TestDifferentClientIPRejected\n","OutputType":"frame"}
+{"Time":"2026-11-07T01:59:48.356716+03:00","Action":"output","Package":"proto-x/tools/faultrelay","Test":"TestDifferentClientIPRejected","Output":"    main_test.go:330: host does not expose a second loopback source IP\n"}
+{"Time":"2026-11-07T01:59:48.36106+03:00","Action":"output","Package":"proto-x/tools/faultrelay","Test":"TestDifferentClientIPRejected","Output":"--- SKIP: TestDifferentClientIPRejected (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T01:59:48.361088+03:00","Action":"skip","Package":"proto-x/tools/faultrelay","Test":"TestDifferentClientIPRejected","Elapsed":0.01}
+{"Time":"2026-11-07T01:59:48.361097+03:00","Action":"run","Package":"proto-x/tools/faultrelay","Test":"TestDurationStopsAndClosesSockets"}
+{"Time":"2026-11-07T01:59:48.361099+03:00","Action":"output","Package":"proto-x/tools/faultrelay","Test":"TestDurationStopsAndClosesSockets","Output":"=== RUN   TestDurationStopsAndClosesSockets\n","OutputType":"frame"}
+{"Time":"2026-11-07T01:59:48.4085+03:00","Action":"output","Package":"proto-x/tools/faultrelay","Test":"TestDurationStopsAndClosesSockets","Output":"--- PASS: TestDurationStopsAndClosesSockets (0.05s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T01:59:48.408545+03:00","Action":"pass","Package":"proto-x/tools/faultrelay","Test":"TestDurationStopsAndClosesSockets","Elapsed":0.05}
+{"Time":"2026-11-07T01:59:48.408556+03:00","Action":"run","Package":"proto-x/tools/faultrelay","Test":"TestRejectsUnsafeListenersAndInvalidLimits"}
+{"Time":"2026-11-07T01:59:48.408559+03:00","Action":"output","Package":"proto-x/tools/faultrelay","Test":"TestRejectsUnsafeListenersAndInvalidLimits","Output":"=== RUN   TestRejectsUnsafeListenersAndInvalidLimits\n","OutputType":"frame"}
+{"Time":"2026-11-07T01:59:48.408771+03:00","Action":"output","Package":"proto-x/tools/faultrelay","Test":"TestRejectsUnsafeListenersAndInvalidLimits","Output":"--- PASS: TestRejectsUnsafeListenersAndInvalidLimits (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T01:59:48.408777+03:00","Action":"pass","Package":"proto-x/tools/faultrelay","Test":"TestRejectsUnsafeListenersAndInvalidLimits","Elapsed":0}
+{"Time":"2026-11-07T01:59:48.408812+03:00","Action":"run","Package":"proto-x/tools/faultrelay","Test":"TestSignalHelper"}
+{"Time":"2026-11-07T01:59:48.408823+03:00","Action":"output","Package":"proto-x/tools/faultrelay","Test":"TestSignalHelper","Output":"=== RUN   TestSignalHelper\n","OutputType":"frame"}
+{"Time":"2026-11-07T01:59:48.408835+03:00","Action":"output","Package":"proto-x/tools/faultrelay","Test":"TestSignalHelper","Output":"--- PASS: TestSignalHelper (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T01:59:48.408862+03:00","Action":"pass","Package":"proto-x/tools/faultrelay","Test":"TestSignalHelper","Elapsed":0}
+{"Time":"2026-11-07T01:59:48.408865+03:00","Action":"run","Package":"proto-x/tools/faultrelay","Test":"TestSIGTERMFlushesEndCountersDuringBlackhole"}
+{"Time":"2026-11-07T01:59:48.408867+03:00","Action":"output","Package":"proto-x/tools/faultrelay","Test":"TestSIGTERMFlushesEndCountersDuringBlackhole","Output":"=== RUN   TestSIGTERMFlushesEndCountersDuringBlackhole\n","OutputType":"frame"}
+{"Time":"2026-11-07T01:59:49.586422+03:00","Action":"output","Package":"proto-x/tools/faultrelay","Test":"TestSIGTERMFlushesEndCountersDuringBlackhole","Output":"--- PASS: TestSIGTERMFlushesEndCountersDuringBlackhole (1.18s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T01:59:49.586472+03:00","Action":"pass","Package":"proto-x/tools/faultrelay","Test":"TestSIGTERMFlushesEndCountersDuringBlackhole","Elapsed":1.18}
+{"Time":"2026-11-07T01:59:49.586482+03:00","Action":"output","Package":"proto-x/tools/faultrelay","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-11-07T01:59:50.593445+03:00","Action":"output","Package":"proto-x/tools/faultrelay","Output":"ok  \tproto-x/tools/faultrelay\t3.138s\n"}
+{"Time":"2026-11-07T01:59:50.59349+03:00","Action":"pass","Package":"proto-x/tools/faultrelay","Elapsed":3.138}

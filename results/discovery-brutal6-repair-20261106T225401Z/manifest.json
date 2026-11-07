@@ -1,0 +1,97 @@
+{
+  "run_id": "discovery-brutal6-repair-20261106T225401Z",
+  "stage": "discovery",
+  "created_utc": "2026-11-06T22:54:03.735727+00:00",
+  "source": "local Linux VM packet-level emulation; not Russian field data",
+  "kernel": "Linux lima-protox-lab 6.12.115+deb13.1-cloud-arm64 #1 SMP Debian 6.12.115-2 (2026-11-01) aarch64 GNU/Linux",
+  "cpu_count": 2,
+  "gomaxprocs": 1,
+  "binaries_sha256": {
+    "xray": "5939649960deaf535bcd5f7ce0467a2b1d63b72a2758a6f42eade714ae8d5328",
+    "protox": "28ee62b17791e92dff0f2745c866913d3d500e3b530730102c9f35c977e0e638",
+    "pxbench": "e01e8df7756512820dc823b7b42f7f4fe58ad952ad3f76f95b7c610f3692353a",
+    "hysteria": "a68a61a84452ca250ce0368202521965ca9cc9d801a404f1dc9008ac6cf677a7",
+    "tlscover": "6bcf2a2aa5348e4185c63deee2977ccec65a6ffcd6ad34a236f487bef9b39cd3"
+  },
+  "matrix_script_sha256": "85e1d8cf7a9b9545395d4d5e5d50bba48e44495815b96110b76c6250372c7fa5",
+  "netlab_script_sha256": "aff761f96aba34f6b61eca7d343060c856c27cefc8575e3e0675fe37dbfe2ba5",
+  "go_buildinfo": ".local/matrix/stage/bin/protox: go1.27.1\n\tpath\tproto-x/cmd/protox\n\tmod\tproto-x\t(devel)\t\n\tdep\tgithub.com/quic-go/quic-go\tv0.65.0\th1:BJQSjdTvLPLmWtaCupUphRbgxgpZhdO/GMpr9Eoe3B4=\n\tdep\tgolang.org/x/crypto\tv0.54.0\th1:YLIA59K4fiNzHzjnZt2tUJQjQtUWfWbeHBqKtk3eScw=\n\tdep\tgolang.org/x/net\tv0.56.0\th1:Rw8j/hFzGvJUZwNBXnAtf5sVDVt+65SK2C7IxCxZt5o=\n\tdep\tgolang.org/x/sys\tv0.47.0\th1:o7XGOvZQCADBQQ4Y7VNq2dRWQR7JmOUW8Kxx4ZsNgWs=\n\tbuild\t-buildmode=exe\n\tbuild\t-compiler=gc\n\tbuild\t-trimpath=true\n\tbuild\tDefaultGODEBUG=tracebacklabels=0,x509sslcertoverrideplatform=0\n\tbuild\tCGO_ENABLED=0\n\tbuild\tGOARCH=arm64\n\tbuild\tGOOS=linux\n\tbuild\tGOARM64=v8.0\n\tbuild\tvcs=git\n\tbuild\tvcs.modified=true\n.local/matrix/stage/bin/pxbench: go1.27.1\n\tpath\tproto-x/cmd/pxbench\n\tmod\tproto-x\t(devel)\t\n\tbuild\t-buildmode=exe\n\tbuild\t-compiler=gc\n\tbuild\t-trimpath=true\n\tbuild\tDefaultGODEBUG=tracebacklabels=0,x509sslcertoverrideplatform=0\n\tbuild\tCGO_ENABLED=0\n\tbuild\tGOARCH=arm64\n\tbuild\tGOOS=linux\n\tbuild\tGOARM64=v8.0\n\tbuild\tvcs=git\n\tbuild\tvcs.modified=true\n.local/matrix/stage/bin/xray: go1.27.3\n\tpath\tgithub.com/xtls/xray-core/main\n\tmod\tgithub.com/xtls/xray-core\t(devel)\t\n\tdep\tgithub.com/andybalholm/brotli\tv1.2.3\th1:8H1qwOkl2LPfjf3YezB90JnCliZb6SInJ/OJkEbA5NQ=\n\tdep\tgithub.com/apernet/quic-go\tv0.61.1-0.20260806010916-184d081eef3e\th1:5mgtR5gwIgBKMiGI1QdXldZZ+SNor06Nbu1wCBulQBg=\n\tdep\tgithub.com/ghodss/yaml\tv1.0.1-0.20220118164431-d8423dcdf344\th1:Arcl6UOIS/kgO2nW3A65HN+7CMjSDP/gofXL4CZt1V4=\n\tdep\tgithub.com/google/gopacket\tv1.1.19\th1:ves8RnFZPGiFnTS0uPQStjwru6uO6h+nlr9j6fL7kF8=\n\tdep\tgithub.com/google/uuid\tv1.6.0\th1:NIvaJDMOsjHA8n1jAhLSgzrAzy1Hgr+hNrb57e+94F0=\n\tdep\tgithub.com/gorilla/websocket\tv1.5.3\th1:saDtZ6Pbx/0u+bgYQ3q96pZgCzfhKXGPqt7kZ72aNNg=\n\tdep\tgithub.com/huin/goupnp\tv1.2.0\th1:uOKW26NG1hsSSbXIZ1IR7XP9Gjd1U8pnLaCMgntmkmY=\n\tdep\tgithub.com/jackpal/go-nat-pmp\tv1.0.2\th1:KzKSgb7qkJvOUTqYl9/Hg/me3pWgBmERKrTGD7BdWus=\n\tdep\tgithub.com/juju/ratelimit\tv1.0.2\th1:sRxmtRiajbvrcLQT7S+JbqU0ntsb9W2yhSdNN8tWfaI=\n\tdep\tgithub.com/klauspost/compress\tv1.20.0\th1:a3C1ke2ohxFymNlb2HWAHjDeKCI90scRskErZkR0ezA=\n\tdep\tgithub.com/klauspost/cpuid/v2\tv2.4.1\th1:I9KxadAkvo+QjtcEE2f2tyfEvmIla/T0m+14PrZNl0U=\n\tdep\tgithub.com/koron/go-ssdp\tv0.0.4\th1:1IDwrghSKYM7yLf7XCzbByg2sJ/JcNOZRXS2jczTwz0=\n\tdep\tgithub.com/libp2p/go-nat\tv1.0.1-0.20250821073202-01afc089f138\th1:YohuNPT/1k3VcThCQlBZ43PCPWPfMRS1zcxWBF2SLK8=\n\tdep\tgithub.com/libp2p/go-netroute\tv0.2.1\th1:V8kVrpD8GK0Riv15/7VN6RbUQ3URNZVosw7H2v9tksU=\n\tdep\tgithub.com/miekg/dns\tv1.1.73\th1:uhT8nJxmTrPJYClxVxTCX+CVn6qnzSiybRk72Z6DgrE=\n\tdep\tgithub.com/pelletier/go-toml\tv1.9.5\th1:4yBQzkHv+7BHq2PQUZF3Mx0IYxG7LsP222s7Agd3ve8=\n\tdep\tgithub.com/pion/dtls/v3\tv3.1.5\th1:9xJtVsHwMYeSjPp5Hh1FTis4DchnQWtnOa5o+6ygqfc=\n\tdep\tgithub.com/pion/logging\tv0.2.4\th1:tTew+7cmQ+Mc1pTBLKH2puKsOvhm32dROumOZ655zB8=\n\tdep\tgithub.com/pion/stun/v3\tv3.1.7\th1:uRXMTlGLf89WgItGNyZ6aR5jMTX0NBbybXADpQCzn+E=\n\tdep\tgithub.com/pion/transport/v4\tv4.1.0\th1:8S+nF2reM2cJuqC6g78OVy2BBgmbdns+acx3jA97BvQ=\n\tdep\tgithub.com/pires/go-proxyproto\tv0.16.0\th1:9KYT/fM3wpjT8bdMEj/7FBcoiUG1KyzEjRYnPu+vz7A=\n\tdep\tgithub.com/quic-go/qpack\tv0.6.0\th1:g7W+BMYynC1LbYLSqRt8PBg5Tgwxn214ZZR34VIOjz8=\n\tdep\tgithub.com/refraction-networking/utls\tv1.8.3-0.20260301010127-aa6edf4b11af\th1:er2acxbi3N1nvEq6HXHUAR1nTWEJmQfqiGR8EVT9rfs=\n\tdep\tgithub.com/robfig/cron/v3\tv3.0.1\th1:WdRxkvbJztn8LMz/QEvLN5sBU+xKpSqwwUO1Pjr4qDs=\n\tdep\tgithub.com/vishvananda/netlink\tv1.3.1\th1:3AEMt62VKqz90r0tmNhog0r/PpWKmrEShJU0wJW6bV0=\n\tdep\tgithub.com/vishvananda/netns\tv0.0.5\th1:DfiHV+j8bA32MFM7bfEunvT8IAqQ/NzSJHtcmW5zdEY=\n\tdep\tgithub.com/wlynxg/anet\tv0.0.5\th1:J3VJGi1gvo0JwZ/P1/Yc/8p63SoW98B5dHkYDmpgvvU=\n\tdep\tgithub.com/xtls/reality\tv0.0.0-20261014101318-83f621788ca8\th1:RjLnVvlzK4q6zWaSBPNRGsrgx2fbJDeUWffjw574uzs=\n\tdep\tgithub.com/yuin/gopher-lua\tv1.1.2\th1:yF/FjE3hD65tBbt0VXLE13HWS9h34fdzJmrWRXwobGA=\n\tdep\tgo4.org/netipx\tv0.0.0-20231129151722-fdeea329fbba\th1:0b9z3AuHCjxk0x/opv64kcgZLBseWJUpBw5I82+2U4M=\n\tdep\tgolang.org/x/crypto\tv0.58.0\th1:COkYLr4k7nDI4r6QtMML2AfzeIswWHAJthLS6K/M/54=\n\tdep\tgolang.org/x/crypto/x509roots/fallback\tv0.0.0-20261020153306-9f2b28d4331a\th1:V5oicZXS0oqZx30gY/apgSVD7YvNBfrIOdcMnlelJY4=\n\tdep\tgolang.org/x/exp\tv0.0.0-20240506185415-9bf2ced13842\th1:vr/HnozRka3pE4EsMEg1lgkXJkTFJCVUX+S/ZT6wYzM=\n\tdep\tgolang.org/x/net\tv0.61.0\th1:RR+6j/BTBCrggOLugxa+66R8FvoN6MHlzDlZIbN9YFw=\n\tdep\tgolang.org/x/sync\tv0.24.0\th1:iqiDrGoDgyuvAKrhLQthUEzU/R378N78gXbBjxed7oA=\n\tdep\tgolang.org/x/sys\tv0.49.0\th1:XbzkgYJHdqh/8m2Uu0W/dQv8nktxx4BFHp1M0gROTXA=\n\tdep\tgolang.org/x/text\tv0.43.0\th1:1QivrlhwAsnMOcqgOdl9my7s9OyZl8O5/UGUTJVXoWc=\n\tdep\tgolang.zx2c4.com/wireguard\tv0.0.0-20250521234502-f333402bd9cb\th1:whnFRlWMcXI9d+ZbWg+4sHnLp52d5yiIPUxMBSt4X9A=\n\tdep\tgoogle.golang.org/genproto/googleapis/rpc\tv0.0.0-20260706201446-f0a921348800\th1:qEHAMpSaUhtD0p3NbEEI83HwNGFxEwaSJ1G9PLnCBZE=\n\tdep\tgoogle.golang.org/grpc\tv1.84.0\th1:soMyaPJ8pAak5PIQ0DGBUir0XRo2fRoMqhNWMLlLxO0=\n\tdep\tgoogle.golang.org/protobuf\tv1.36.12\th1:pJOKDDOyeXErUroCihFAd5LQuwXBSpVnKGrj5o/fwxc=\n\tdep\tgopkg.in/yaml.v2\tv2.4.0\th1:D8xgwECY7CYvx+Y2n4sBz93Jn9JRvxdiyyo8CTfuKaY=\n\tdep\tlayeh.com/gopher-luar\tv1.0.11\th1:8zJudpKI6HWkoh9eyyNFaTM79PY6CAPcIr6X/KTiliw=\n\tdep\tlukechampine.com/blake3\tv1.4.1\th1:I3Smz7gso8w4/TunLKec6K2fn+kyKtDxr/xcQEN84Wg=\n\tbuild\t-buildmode=exe\n\tbuild\t-compiler=gc\n\tbuild\t-gcflags=all=-l=4\n\tbuild\t-trimpath=true\n\tbuild\tCGO_ENABLED=0\n\tbuild\tGOARCH=arm64\n\tbuild\tGOOS=linux\n\tbuild\tGOARM64=v8.0\n.local/matrix/stage/bin/hysteria: go1.26.8\n\tpath\tgithub.com/apernet/hysteria/app/v2\n\tmod\tgithub.com/apernet/hysteria/app/v2\t(devel)\t\n\tdep\tgithub.com/andybalholm/brotli\tv1.1.0\th1:eLKJA0d02Lf0mVpIDgYnqXcUn0GqVmEFny3VuID1U3M=\n\tdep\tgithub.com/apernet/go-tproxy\tv0.0.0-20230809025308-8f4723fd742f\th1:uVh0qpEslrWjgzx9vOcyCqsOY3c9kofDZ1n+qaw35ZY=\n\tdep\tgithub.com/apernet/hysteria/core/v2\t(devel)\t\n\tdep\tgithub.com/apernet/hysteria/extras/v2\t(devel)\t\n\tdep\tgithub.com/apernet/quic-go\tv0.63.1-0.20261004180939-a10df75c260c\th1:cxK8qTA0YCsj68A7zLYDCfPgMTOyt3ePkHh+oXEmYU0=\n\tdep\tgithub.com/caddyserver/certmagic\tv0.25.4\th1:8eIXh0HC3MsGnNo8One+BCxMGTbe5zb/oz+2KsxBFQg=\n\tdep\tgithub.com/caddyserver/zerossl\tv0.1.5\th1:dkvOjBAEEtY6LIGAHei7sw2UgqSD6TrWweXpV7lvEvE=\n\tdep\tgithub.com/database64128/netx-go\tv0.1.1\th1:dT5LG7Gs7zFZBthFBbzWE6K8wAHjSNAaK7wCYZT7NzM=\n\tdep\tgithub.com/database64128/tfo-go/v2\tv2.3.3\th1:M0X1SgOirhSvMKI8VQfgUtNVM53L6Rzg9Z+DN6fLA50=\n\tdep\tgithub.com/florianl/go-nfqueue/v2\tv2.1.0\th1:Fywt30TY/evxyDySpXjxQ1jsRW7nQbLpOhELqpr4068=\n\tdep\tgithub.com/fsnotify/fsnotify\tv1.9.0\th1:2Ml+OJNzbYCTzsxtv8vKSFD9PbJjmhYF14k/jKC7S9k=\n\tdep\tgithub.com/go-viper/mapstructure/v2\tv2.5.0\th1:vM5IJoUAy3d7zRSVtIwQgBj7BiWtMPfmPEgAXnvj1Ro=\n\tdep\tgithub.com/google/btree\tv1.1.3\th1:CVpQJjYgC4VbzxeGVHfvZrv1ctoYCAI8vbl07Fcxlyg=\n\tdep\tgithub.com/google/go-querystring\tv1.1.0\th1:AnCroh3fv4ZBgVIf1Iwtovgjaw/GiKJo8M8yD/fhyJ8=\n\tdep\tgithub.com/google/gopacket\tv1.1.19\th1:ves8RnFZPGiFnTS0uPQStjwru6uO6h+nlr9j6fL7kF8=\n\tdep\tgithub.com/hashicorp/go-cleanhttp\tv0.5.2\th1:035FKYIWjmULyFRBKPs8TBQoi0x6d9G4xc9neXJWAZQ=\n\tdep\tgithub.com/hashicorp/go-retryablehttp\tv0.7.7\th1:C8hUCYzor8PIfXHa4UrZkU4VvK8o9ISHxT2Q8+VepXU=\n\tdep\tgithub.com/hashicorp/golang-lru/v2\tv2.0.7\th1:a+bsQ5rvGLjzHuww6tVxozPZFVghXaHOwFs4luLUK2k=\n\tdep\tgithub.com/huin/goupnp\tv1.2.0\th1:uOKW26NG1hsSSbXIZ1IR7XP9Gjd1U8pnLaCMgntmkmY=\n\tdep\tgithub.com/jackpal/go-nat-pmp\tv1.0.2\th1:KzKSgb7qkJvOUTqYl9/Hg/me3pWgBmERKrTGD7BdWus=\n\tdep\tgithub.com/klauspost/compress\tv1.17.9\th1:6KIumPrER1LHsvBVuDa0r5xaG0Es51mhhB9BQB2qeMA=\n\tdep\tgithub.com/klauspost/cpuid/v2\tv2.3.0\th1:S4CRMLnYUhGeDFDqkGriYKdfoFlDnMtqTiI/sFzhA9Y=\n\tdep\tgithub.com/koron/go-ssdp\tv0.0.4\th1:1IDwrghSKYM7yLf7XCzbByg2sJ/JcNOZRXS2jczTwz0=\n\tdep\tgithub.com/libdns/cloudflare\tv0.2.2\th1:XWHv+C1dDcApqazlh08Q6pjytYLgR2a+Y3xrXFu0vsI=\n\tdep\tgithub.com/libdns/duckdns\tv0.3.0\th1:YsNlEDrA/F6dOjOCPewS9wqA9OKE5Rduk5eVpAPdcQA=\n\tdep\tgithub.com/libdns/gandi\tv1.1.0\th1:gBBbx23xejvOpbUX7HRqCYsROYag5+OUMGhQXzAkol4=\n\tdep\tgithub.com/libdns/godaddy\tv1.1.0\th1:mxB107yFulEGApacljrCfaR4faR/9d9SyrGmjD2VubU=\n\tdep\tgithub.com/libdns/libdns\tv1.1.1\th1:wPrHrXILoSHKWJKGd0EiAVmiJbFShguILTg9leS/P/U=\n\tdep\tgithub.com/libdns/namecheap\tv1.0.0\th1:cZK8w4Y1AJQCtL5bjqnFpYBnI1k/mzJhljcKAP5vPd8=\n\tdep\tgithub.com/libdns/njalla\tv0.0.0-20250815081032-a55a87a8f20f\th1:BG7UdnPkQGW4jK9mB73cFfRbxnYARF4BtRvD8gj2sxY=\n\tdep\tgithub.com/libdns/porkbun\tv1.1.0\th1:X763NqXjW26VEl7GvBtF/3CGeuGt9JqoQ35mwIlx40E=\n\tdep\tgithub.com/libdns/vultr/v2\tv2.0.4\th1:4V1OSiUnYvFfpFBicdM27JEnAF0D694cmmQ3AyNqobA=\n\tdep\tgithub.com/libp2p/go-nat\tv1.0.1-0.20250821073202-01afc089f138\th1:YohuNPT/1k3VcThCQlBZ43PCPWPfMRS1zcxWBF2SLK8=\n\tdep\tgithub.com/libp2p/go-netroute\tv0.2.1\th1:V8kVrpD8GK0Riv15/7VN6RbUQ3URNZVosw7H2v9tksU=\n\tdep\tgithub.com/mdlayher/netlink\tv1.11.2\th1:HKh2jqe+omdSWcQ88nrT7INE61B0NXfiSPFdgL4YbNI=\n\tdep\tgithub.com/mdlayher/socket\tv0.6.0\th1:ScZPaAGyO1icQnbFrhPM8mnXyMu9qukC1K4ZoM2IQKU=\n\tdep\tgithub.com/mdp/qrterminal/v3\tv3.2.1\th1:6+yQjiiOsSuXT5n9/m60E54vdgFsw0zhADHhHLrFet4=\n\tdep\tgithub.com/mholt/acmez/v3\tv3.1.6\th1:eGVQNObP0pBN4sxqrXeg7MYqTOWyoiYpQqITVWlrevk=\n\tdep\tgithub.com/miekg/dns\tv1.1.72\th1:vhmr+TF2A3tuoGNkLDFK9zi36F2LS+hKTRW0Uf8kbzI=\n\tdep\tgithub.com/patrickmn/go-cache\tv2.1.0+incompatible\th1:HRMgzkcYKYpi3C8ajMPV8OFXaaRUnok+kx1WdO15EQc=\n\tdep\tgithub.com/pelletier/go-toml/v2\tv2.2.4\th1:mye9XuhQ6gvn5h28+VilKrrPoQVanw5PMw/TB0t5Ec4=\n\tdep\tgithub.com/pion/dtls/v3\tv3.1.4\th1:QhvtMflMfu9Kf0RcDC5BJBle4caPskByrKQR6uuYqpY=\n\tdep\tgithub.com/pion/logging\tv0.2.4\th1:tTew+7cmQ+Mc1pTBLKH2puKsOvhm32dROumOZ655zB8=\n\tdep\tgithub.com/pion/stun/v3\tv3.1.6\th1:WnhsD0eHCiwCfKNkVx0VJJwr2Y3eV4Ueih3KJ+dfZy8=\n\tdep\tgithub.com/pion/transport/v4\tv4.0.2\th1:ifYlPqNwsy6aKQ9y8yzxXlHae5431ZrH2avkD/Rn6Tk=\n\tdep\tgithub.com/quic-go/qpack\tv0.6.0\th1:g7W+BMYynC1LbYLSqRt8PBg5Tgwxn214ZZR34VIOjz8=\n\tdep\tgithub.com/refraction-networking/utls\tv1.8.2\th1:j4Q1gJj0xngdeH+Ox/qND11aEfhpgoEvV+S9iJ2IdQo=\n\tdep\tgithub.com/sagernet/netlink\tv0.0.0-20240612041022-b9a21c07ac6a\th1:ObwtHN2VpqE0ZNjr6sGeT00J8uU7JF4cNUdb44/Duis=\n\tdep\tgithub.com/sagernet/nftables\tv0.3.0-mod.4\th1:vnOtcDYeSXv2e5RoRuGH0lrpttQFJ8iC4ICS2nhlDSo=\n\tdep\tgithub.com/sagernet/sing\tv0.8.12-0.20260717023913-84ab32b56cb8\th1:dyRIj+MZ2rc9JVzJoG04jxu+MpvHrLIZLJr0QjNAMGg=\n\tdep\tgithub.com/sagernet/sing-tun\tv0.9.6\th1:6NfiiT7FZMTnqs+Vvn/APQPMvdOGJ00DM4GPCe9mw1U=\n\tdep\tgithub.com/sagikazarmark/locafero\tv0.12.0\th1:/NQhBAkUb4+fH1jivKHWusDYFjMOOKU88eegjfxfHb4=\n\tdep\tgithub.com/spf13/afero\tv1.15.0\th1:b/YBCLWAJdFWJTN9cLhiXXcD7mzKn9Dm86dNnfyQw1I=\n\tdep\tgithub.com/spf13/cast\tv1.10.0\th1:h2x0u2shc1QuLHfxi+cTJvs30+ZAHOGRic8uyGTDWxY=\n\tdep\tgithub.com/spf13/cobra\tv1.10.2\th1:DMTTonx5m65Ic0GOoRY2c16WCbHxOOw6xxezuLaBpcU=\n\tdep\tgithub.com/spf13/pflag\tv1.0.10\th1:4EBh2KAYBwaONj6b2Ye1GiHfwjqyROoF4RwYO+vPwFk=\n\tdep\tgithub.com/spf13/viper\tv1.21.0\th1:x5S+0EU27Lbphp4UKm1C+1oQO+rKx36vfCoaVebLFSU=\n\tdep\tgithub.com/stretchr/objx\tv0.5.3\th1:jmXUvGomnU1o3W/V5h2VEradbpJDwGrzugQQvL0POH4=\n\tdep\tgithub.com/stretchr/testify\tv1.12.1\th1:EuwCh5fleGS7H32xRwO3wRGT7DxrDhLAT6FF8MpWDWE=\n\tdep\tgithub.com/subosito/gotenv\tv1.6.0\th1:9NlTDc1FTs4qu0DDq7AEtTPNw6SVm7uBMsUCUjABIf8=\n\tdep\tgithub.com/txthinking/runnergroup\tv0.0.0-20210608031112-152c7c4432bf\th1:7PflaKRtU4np/epFxRXlFhlzLXZzKFrH5/I4so5Ove0=\n\tdep\tgithub.com/txthinking/socks5\tv0.0.0-20230325130024-4230056ae301\th1:d/Wr/Vl/wiJHc3AHYbYs5I3PucJvRuw3SvbmlIRf+oM=\n\tdep\tgithub.com/vishvananda/netns\tv0.0.4\th1:Oeaw1EM2JMxD51g9uhtC0D7erkIjgmj8+JZc26m1YX8=\n\tdep\tgithub.com/vultr/govultr/v3\tv3.20.0\th1:O+Om6gXpN6ehwAIIKq5DyGuekpyHaoRlwrxTb44bDzA=\n\tdep\tgithub.com/wlynxg/anet\tv0.0.5\th1:J3VJGi1gvo0JwZ/P1/Yc/8p63SoW98B5dHkYDmpgvvU=\n\tdep\tgithub.com/zeebo/blake3\tv0.2.4\th1:KYQPkhpRtcqh0ssGYcKLG1JYvddkEA8QwCM/yBqhaZI=\n\tdep\tgo.uber.org/multierr\tv1.11.0\th1:blXXJkSxSSfBVBlC76pxqeO+LN3aDfLQo+309xJstO0=\n\tdep\tgo.uber.org/zap\tv1.28.0\th1:IZzaP1Fv73/T/pBMLk4VutPl36uNC+OSUh3JLG3FIjo=\n\tdep\tgo.uber.org/zap/exp\tv0.3.0\th1:6JYzdifzYkGmTdRR59oYH+Ng7k49H9qVpWwNSsGJj3U=\n\tdep\tgo.yaml.in/yaml/v3\tv3.0.5\th1:N6y/pJk8buWs9NY5ERU2HSMfm+IuD/OtfdAnq6kESPw=\n\tdep\tgo4.org/netipx\tv0.0.0-20231129151722-fdeea329fbba\th1:0b9z3AuHCjxk0x/opv64kcgZLBseWJUpBw5I82+2U4M=\n\tdep\tgolang.org/x/crypto\tv0.54.0\th1:YLIA59K4fiNzHzjnZt2tUJQjQtUWfWbeHBqKtk3eScw=\n\tdep\tgolang.org/x/exp\tv0.0.0-20250711185948-6ae5c78190dc\th1:TS73t7x3KarrNd5qAipmspBDS1rkMcgVG/fS1aRb4Rc=\n\tdep\tgolang.org/x/net\tv0.57.0\th1:K5+3DljvIuDG9/Jv9rvyMywYNFCQ9RSUY6OOTTkT+tE=\n\tdep\tgolang.org/x/oauth2\tv0.30.0\th1:dnDm7JmhM45NNpd8FDDeLhK6FwqbOf4MLCM9zb1BOHI=\n\tdep\tgolang.org/x/sync\tv0.22.0\th1:SZjpbeLmrCk4xhRSZFNZW5gFUeCeFgjekvI/+gfScek=\n\tdep\tgolang.org/x/sys\tv0.47.0\th1:o7XGOvZQCADBQQ4Y7VNq2dRWQR7JmOUW8Kxx4ZsNgWs=\n\tdep\tgolang.org/x/term\tv0.45.0\th1:NwWyBmoJCbfTHpxrWoZ9C6/VxOf7ic219I8xZZFdrf0=\n\tdep\tgolang.org/x/text\tv0.40.0\th1:Ub2Z6/xjgF1WrYQz2nuITOEegKFtiIy+rieRJ5lHZKs=\n\tdep\tgoogle.golang.org/protobuf\tv1.36.11\th1:fV6ZwhNocDyBLK0dj+fg8ektcVegBBuEolpbTQyBNVE=\n\tdep\trsc.io/qr\tv0.2.0\th1:6vBLea5/NRMVTz8V66gipeLycZMl/+UlFmk8DvqQ6WY=\n\tbuild\t-buildmode=exe\n\tbuild\t-compiler=gc\n\tbuild\t-trimpath=true\n\tbuild\tCGO_ENABLED=0\n\tbuild\tGOARCH=arm64\n\tbuild\tGOOS=linux\n\tbuild\tGOARM64=v8.0\n\tbuild\tvcs=git\n\tbuild\tvcs.revision=ca8fbd874fd6ca82413948de6dc5924405e103e1\n\tbuild\tvcs.time=2026-10-05T04:00:22Z\n\tbuild\tvcs.modified=true\n.local/matrix/stage/bin/tlscover: go1.27.1\n\tpath\tcommand-line-arguments\n\tbuild\t-buildmode=exe\n\tbuild\t-compiler=gc\n\tbuild\t-trimpath=true\n\tbuild\tDefaultGODEBUG=tracebacklabels=0,x509sslcertoverrideplatform=0\n\tbuild\tCGO_ENABLED=0\n\tbuild\tGOARCH=arm64\n\tbuild\tGOOS=linux\n\tbuild\tGOARM64=v8.0\n",
+  "schedule": [
+    {
+      "variant": "hy-brutal6",
+      "profile": "loss1-jitter5",
+      "seed": 101
+    },
+    {
+      "variant": "hy-brutal6",
+      "profile": "healthy",
+      "seed": 101
+    }
+  ],
+  "parameters": {
+    "root": "/tmp/pxlab",
+    "run_id": "discovery-brutal6-repair-20261106T225401Z",
+    "stage": "discovery",
+    "seed": 101,
+    "duration": 25.0,
+    "warmup": 3.0,
+    "queue_ms": 100,
+    "background": 1,
+    "background_mbps": null,
+    "variants": [
+      "hy-brutal6"
+    ],
+    "profiles": [
+      "healthy",
+      "loss1-jitter5"
+    ]
+  },
+  "config_parameters": {
+    "px": {
+      "server_rate_mbps": 8,
+      "client_rate_mbps": 2,
+      "window_bytes": 65536,
+      "variants": [
+        "priority=true,adaptive=false",
+        "priority=false,adaptive=false",
+        "priority=true,adaptive=true"
+      ],
+      "transport": "QUIC preferred with authenticated TLS fallback"
+    },
+    "xray": {
+      "version": "26.10.31",
+      "protocol": "VLESS+REALITY+Vision",
+      "mux": false,
+      "fingerprint": "chrome",
+      "target": "owned TLS1.3 cover on loopback",
+      "inner_application": "HTTPS TLS with verified owned CA"
+    },
+    "hysteria": {
+      "version": "2.13.0",
+      "profiles": [
+        "BBR standard",
+        "BBR conservative",
+        "Brutal8/2Mbps",
+        "Brutal6/1.5Mbps"
+      ],
+      "brutal_disable_loss_compensation": false,
+      "fastOpen": false
+    },
+    "addresses": {
+      "client": "10.203.0.1",
+      "server": "10.203.0.2",
+      "origin": "127.0.0.1"
+    },
+    "secrets": "omitted; regenerate private configs with provided scripts"
+  },
+  "notes": [
+    "Every protocol uses the same fixed physical link budget; PX also has an application frame pacer.",
+    "A common source-paced background follow-up is needed to isolate generic rate-limiting gains.",
+    "Warmup runs a separate application workload; reusable proxy outer sessions persist into measurement.",
+    "All operation failures/timeouts/censoring are retained; successful-only percentiles cannot be read alone.",
+    "nstat TCP retransmission deltas include all namespace TCP sockets, including loopback proxy/fixture sockets; they do not measure QUIC retransmissions.",
+    "Resource CPU is percent of one core; guest has two vCPUs; GOMAXPROCS=1 per process."
+  ],
+  "finished_utc": "2026-11-06T22:55:01.451969+00:00",
+  "completed_trials": 2
+}

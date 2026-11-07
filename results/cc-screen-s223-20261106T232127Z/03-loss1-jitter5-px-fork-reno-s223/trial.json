@@ -1,0 +1,176 @@
+{
+  "trial_id": "03-loss1-jitter5-px-fork-reno-s223",
+  "variant": "px-fork-reno",
+  "profile": "loss1-jitter5",
+  "seed": 223,
+  "stage": "discovery",
+  "utc_start": "2026-11-06T23:22:26.985402+00:00",
+  "status": "completed",
+  "duration_s": 25.0,
+  "warmup_s": 3.0,
+  "gomaxprocs": 1,
+  "background_workers": 1,
+  "background_mbps_source_budget": null,
+  "warmup_exit_code": 0,
+  "process_ids": {
+    "fixture": 6266,
+    "server": 6267,
+    "client": 6278,
+    "workload": 6303
+  },
+  "commands": {
+    "fixture": [
+      "ip",
+      "netns",
+      "exec",
+      "px-server",
+      "env",
+      "GOMAXPROCS=1",
+      "/tmp/pxlab-cc/bin/pxbench",
+      "serve",
+      "-http",
+      "",
+      "-https",
+      "127.0.0.1:18443",
+      "-echo",
+      "127.0.0.1:18081",
+      "-cert",
+      "/tmp/pxlab-cc/private/baseline/tls-cert.pem",
+      "-key",
+      "/tmp/pxlab-cc/private/baseline/tls-key.pem"
+    ],
+    "server": [
+      "ip",
+      "netns",
+      "exec",
+      "px-server",
+      "env",
+      "GOMAXPROCS=1",
+      "env",
+      "PROTOX_CC=reno",
+      "PROTOX_CC_DISABLE_LOSS_COMPENSATION=false",
+      "/tmp/pxlab-cc/bin/protox-cc",
+      "server",
+      "-config",
+      "/tmp/pxlab-cc/private/px/server-px-priority.json"
+    ],
+    "client": [
+      "ip",
+      "netns",
+      "exec",
+      "px-client",
+      "env",
+      "GOMAXPROCS=1",
+      "env",
+      "PROTOX_CC=reno",
+      "PROTOX_CC_DISABLE_LOSS_COMPENSATION=false",
+      "/tmp/pxlab-cc/bin/protox-cc",
+      "client",
+      "-config",
+      "/tmp/pxlab-cc/private/px/client-px-priority.json"
+    ],
+    "workload": [
+      "ip",
+      "netns",
+      "exec",
+      "px-client",
+      "env",
+      "GOMAXPROCS=1",
+      "/tmp/pxlab-cc/bin/pxbench",
+      "run",
+      "-proxy",
+      "127.0.0.1:1088",
+      "-http-target",
+      "https://protox-baseline.test:18443",
+      "-echo-target",
+      "127.0.0.1:18081",
+      "-ca",
+      "/tmp/pxlab-cc/private/baseline/tls-cert.pem",
+      "-duration",
+      "25.0s",
+      "-timeout",
+      "3s",
+      "-rps",
+      "5",
+      "-echo-interval",
+      "100ms",
+      "-stream-interval",
+      "50ms",
+      "-background",
+      "1",
+      "-uploads",
+      "0",
+      "-output",
+      "/tmp/pxlab-cc/results/cc-screen-s223-20261106T232127Z/03-loss1-jitter5-px-fork-reno-s223/events.jsonl",
+      "-summary",
+      "/tmp/pxlab-cc/results/cc-screen-s223-20261106T232127Z/03-loss1-jitter5-px-fork-reno-s223/events.summary.json",
+      "-run-id",
+      "03-loss1-jitter5-px-fork-reno-s223"
+    ]
+  },
+  "workload_exit_code": 0,
+  "observed": {
+    "http_success": 125,
+    "http_total": 125,
+    "http_fail": 0,
+    "http_timeout": 0,
+    "http_censored": 0,
+    "http_p95_ms": 120.583452,
+    "http_p99_ms": 170.43555,
+    "echo_success": 241,
+    "echo_total": 241,
+    "echo_timeout": 0,
+    "echo_p95_ms": 129.526112,
+    "sse_tokens": 495,
+    "sse_sequence_errors": 0,
+    "sse_source_errors": 0,
+    "sse_gap_p95_ms": 68.239811,
+    "sse_gap_p99_ms": 86.744166,
+    "sse_gap_gt250": 0,
+    "sse_gap_gt1000": 0,
+    "download_goodput_mbps": 2.6225784884032763
+  },
+  "utc_end": "2026-11-06T23:22:55.807406+00:00",
+  "protocol_binary": "protox-cc",
+  "congestion_control": "reno",
+  "controller_validation": {
+    "required_controller": "reno",
+    "roles": {
+      "server": {
+        "passed": true,
+        "carrier_attachments": [
+          "quic"
+        ],
+        "installation_records": [
+          {
+            "time": "2026-11-07T02:22:27.362119045+03:00",
+            "level": "INFO",
+            "msg": "experimental QUIC controller installed",
+            "controller": "reno",
+            "hysteria_source": "ca8fbd874fd6ca82413948de6dc5924405e103e1",
+            "brutal_bytes_per_second": 0,
+            "disable_loss_compensation": false
+          }
+        ]
+      },
+      "client": {
+        "passed": true,
+        "carrier_attachments": [
+          "quic"
+        ],
+        "installation_records": [
+          {
+            "time": "2026-11-07T02:22:27.407461796+03:00",
+            "level": "INFO",
+            "msg": "experimental QUIC controller installed",
+            "controller": "reno",
+            "hysteria_source": "ca8fbd874fd6ca82413948de6dc5924405e103e1",
+            "brutal_bytes_per_second": 0,
+            "disable_loss_compensation": false
+          }
+        ]
+      }
+    },
+    "passed": true
+  }
+}

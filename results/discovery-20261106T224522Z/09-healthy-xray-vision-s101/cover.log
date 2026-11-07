@@ -1,0 +1,17 @@
+2026/11/07 01:48:47 http: TLS handshake error from 127.0.0.1:48496: remote error: tls: bad certificate
+2026/11/07 01:48:47 http: TLS handshake error from 127.0.0.1:48514: remote error: tls: bad certificate
+2026/11/07 01:48:47 http: TLS handshake error from 127.0.0.1:48532: remote error: tls: bad certificate
+2026/11/07 01:48:48 http: TLS handshake error from 127.0.0.1:48542: EOF
+2026/11/07 01:48:48 http: TLS handshake error from 127.0.0.1:48564: EOF
+2026/11/07 01:48:48 http: TLS handshake error from 127.0.0.1:48552: EOF
+2026/11/07 01:48:48 http: TLS handshake error from 127.0.0.1:48544: EOF
+2026/11/07 01:48:48 http: TLS handshake error from 127.0.0.1:48530: tls: too many ignored records
+2026/11/07 01:48:48 http: TLS handshake error from 127.0.0.1:48504: tls: too many ignored records
+2026/11/07 01:48:48 http: TLS handshake error from 127.0.0.1:48486: tls: too many ignored records
+2026/11/07 01:48:48 http: TLS handshake error from 127.0.0.1:48576: EOF
+2026/11/07 01:48:51 http: TLS handshake error from 127.0.0.1:48596: EOF
+2026/11/07 01:48:51 http: TLS handshake error from 127.0.0.1:48586: EOF
+2026/11/07 01:48:51 http: TLS handshake error from 127.0.0.1:48604: EOF
+2026/11/07 01:48:51 http: TLS handshake error from 127.0.0.1:48610: EOF
+2026/11/07 01:48:52 http: TLS handshake error from 127.0.0.1:48630: EOF
+2026/11/07 01:48:53 http: TLS handshake error from 127.0.0.1:48624: EOF

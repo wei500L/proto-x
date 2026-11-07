@@ -1,0 +1,277 @@
+{
+  "date": "2026-11-07",
+  "scope": "Final public working-tree packaging; protocol race/vet and live measurements are recorded separately.",
+  "sensitive_data_scan": {
+    "public_files": 1939,
+    "archive_members": 245,
+    "bytes_checked": 83544814,
+    "known_sensitive_values": 10,
+    "exact_matches": 0,
+    "credential_pattern_matches": 0,
+    "method": [
+      "Enumerated tracked and untracked Git-visible files, excluding ignored .local/bin and credentials.",
+      "Compared bytes and file names against known task endpoints, supplied SSH password, private token files and deployment pin values. Values are intentionally omitted from this report.",
+      "Checked private-key PEM headers and credential-bearing JSON/YAML patterns.",
+      "Also scanned every regular file inside included tar/zip source archives, without extracting them into the worktree.",
+      "Additionally scanned every blob reachable from the existing local Git branches before the delivery commit."
+    ],
+    "limitations": [
+      "Finite known-value and pattern scan, not a guarantee against every possible secret representation.",
+      "The audit output itself is excluded to avoid a self-referential count; it contains only methods, public paths, hashes and counts."
+    ],
+    "historical_blobs": 138
+  },
+  "syntax_checks": [
+    {
+      "path": "research/cc/verify_exports.py",
+      "kind": "python_compile",
+      "sha256": "0d22a3aea0fed76b9a77d47cf87e60415b0dd2094dd7a283555de0757cdbae59",
+      "exit": 0
+    },
+    {
+      "path": "results/cc-screening-20261106/extractor.py",
+      "kind": "python_compile",
+      "sha256": "3c2f69c929fff8971261fc502a9233f57020140984add135290509c23bc618fb",
+      "exit": 0
+    },
+    {
+      "path": "results/cc-window-diagnostic-20261106/extractor.py",
+      "kind": "python_compile",
+      "sha256": "cd3a38eaf270f2e546150c83e6450371688501f777cf0192217e5c2275c185b5",
+      "exit": 0
+    },
+    {
+      "path": "results/hint-confirmation-s307-20261107/cc_matrix.py",
+      "kind": "python_compile",
+      "sha256": "78c7d23fd8f263d39ab4a30eceae4f07b7b3266283861f1c29d909f9bec5c859",
+      "exit": 0
+    },
+    {
+      "path": "results/hint-confirmation-s307-20261107/extractor.py",
+      "kind": "python_compile",
+      "sha256": "cd3a38eaf270f2e546150c83e6450371688501f777cf0192217e5c2275c185b5",
+      "exit": 0
+    },
+    {
+      "path": "results/hint-confirmation-s307-20261107/hint_matrix.py",
+      "kind": "python_compile",
+      "sha256": "44a2ada49ee1d552c13e902a4f8d7e60f0980c7f75a63a8346ebff0b3ed4c4c6",
+      "exit": 0
+    },
+    {
+      "path": "results/hint-confirmation-s307-20261107/matrix.py",
+      "kind": "python_compile",
+      "sha256": "85e1d8cf7a9b9545395d4d5e5d50bba48e44495815b96110b76c6250372c7fa5",
+      "exit": 0
+    },
+    {
+      "path": "results/hint-confirmation-s307-20261107/netlab.py",
+      "kind": "python_compile",
+      "sha256": "aff761f96aba34f6b61eca7d343060c856c27cefc8575e3e0675fe37dbfe2ba5",
+      "exit": 0
+    },
+    {
+      "path": "results/hint-confirmation-s307-20261107/run-hint-matrix.sh",
+      "kind": "sh -n",
+      "sha256": "41c45c50b842f54a5a9b959d7e8701015481ad9de643743679a5ae09d3bcd057",
+      "exit": 0
+    },
+    {
+      "path": "results/hint-confirmation-s307-20261107/summarize.py",
+      "kind": "python_compile",
+      "sha256": "cd3a38eaf270f2e546150c83e6450371688501f777cf0192217e5c2275c185b5",
+      "exit": 0
+    },
+    {
+      "path": "results/hint-confirmation-s307-20261107/verifier.py",
+      "kind": "python_compile",
+      "sha256": "11d4663a370f16ce814357a525799620f823e289ae675f5d3c2447e43ae9becf",
+      "exit": 0
+    },
+    {
+      "path": "results/hint-screening-20261106/extractor.py",
+      "kind": "python_compile",
+      "sha256": "cd3a38eaf270f2e546150c83e6450371688501f777cf0192217e5c2275c185b5",
+      "exit": 0
+    },
+    {
+      "path": "results/hint-screening-20261106/hint_matrix-v1.py",
+      "kind": "python_compile",
+      "sha256": "49efc5700fed743b157e89579b83cedfde06803cb0f50531c30aeece328a998d",
+      "exit": 0
+    },
+    {
+      "path": "results/hint-screening-20261106/hint_matrix-v2-loss5.py",
+      "kind": "python_compile",
+      "sha256": "5928902db53522e8d500092fb8ad1669abaeb2f58de6ac6a6458568a745e59df",
+      "exit": 0
+    },
+    {
+      "path": "results/hint-screening-20261106/verifier.py",
+      "kind": "python_compile",
+      "sha256": "11d4663a370f16ce814357a525799620f823e289ae675f5d3c2447e43ae9becf",
+      "exit": 0
+    },
+    {
+      "path": "results/mechanism-ab-v01-20261106/extractor.py",
+      "kind": "python_compile",
+      "sha256": "39b0b4a4a0a881f4554a6601e31f567cdab53cfbb26c75c4894783cdd50d2ed2",
+      "exit": 0
+    },
+    {
+      "path": "scripts/baselines/configure.py",
+      "kind": "python_compile",
+      "sha256": "b99a4886364d460dff7ff3866e843da097d53f9634923e56673d0a892c2130de",
+      "exit": 0
+    },
+    {
+      "path": "scripts/baselines/download.py",
+      "kind": "python_compile",
+      "sha256": "71063cee5ea249ecf3e1e77e8cfbb8bccf960a335970025d2935a0c0975f8b37",
+      "exit": 0
+    },
+    {
+      "path": "scripts/baselines/smoke.py",
+      "kind": "python_compile",
+      "sha256": "d14180e67d6eb2fda7ab451904237775bc44b88d0447d894c661b792a05d99f4",
+      "exit": 0
+    },
+    {
+      "path": "scripts/build.sh",
+      "kind": "sh -n",
+      "sha256": "33c5ad94ac5f5f7bf474956c2ac160a44f93357cc462526a6a42927885ec5774",
+      "exit": 0
+    },
+    {
+      "path": "scripts/deploy-test.sh",
+      "kind": "sh -n",
+      "sha256": "a9a3f99c640acce53e85e5c7c620b821ef35a6c1cccbcbe89e32a4c7dad81a34",
+      "exit": 0
+    },
+    {
+      "path": "scripts/lab/bootstrap.sh",
+      "kind": "sh -n",
+      "sha256": "cbd537484e7c84a1500d9e4def066f6cc4e538036a7e0ceb916d918d91bd21a6",
+      "exit": 0
+    },
+    {
+      "path": "scripts/lab/quickcheck.sh",
+      "kind": "sh -n",
+      "sha256": "3ba161d4ba71882c8d01dcf0c5cb69ea6daff7c3fa2e760901eea193e89efa8c",
+      "exit": 0
+    },
+    {
+      "path": "scripts/lab/run-cc-matrix.sh",
+      "kind": "sh -n",
+      "sha256": "b08e8aa1c3688a8ae3e694b579fe07713eac9c83fe3a26a335c0a909925b73f5",
+      "exit": 0
+    },
+    {
+      "path": "scripts/lab/run-hint-matrix.sh",
+      "kind": "sh -n",
+      "sha256": "41c45c50b842f54a5a9b959d7e8701015481ad9de643743679a5ae09d3bcd057",
+      "exit": 0
+    },
+    {
+      "path": "scripts/lab/run-matrix.sh",
+      "kind": "sh -n",
+      "sha256": "414963d737b389e4377bb96aaf839f3a32dd7bbfd848919d97e803c28334176c",
+      "exit": 0
+    },
+    {
+      "path": "scripts/lab/vm.sh",
+      "kind": "sh -n",
+      "sha256": "57e9c88ff7769466656494e912cc81df6199a3cfed88677eda8b19af69196239",
+      "exit": 0
+    },
+    {
+      "path": "scripts/vps-fault.py",
+      "kind": "python_compile",
+      "sha256": "a111684721b23397179317bfadec1b0b0408cf03119954fa2e61ff5c0b150228",
+      "exit": 0
+    },
+    {
+      "path": "scripts/vps-idle.py",
+      "kind": "python_compile",
+      "sha256": "3843ac6996411913324af6e44146d215d13742c8f9afbe225d15661c847202ea",
+      "exit": 0
+    },
+    {
+      "path": "scripts/vps-soak.py",
+      "kind": "python_compile",
+      "sha256": "4f8856430ff96da11881f05a419a93c62bd02c2c0106e31db70bb75503f7c6b0",
+      "exit": 0
+    },
+    {
+      "path": "tools/lab/cc_matrix.py",
+      "kind": "python_compile",
+      "sha256": "78c7d23fd8f263d39ab4a30eceae4f07b7b3266283861f1c29d909f9bec5c859",
+      "exit": 0
+    },
+    {
+      "path": "tools/lab/hint_matrix.py",
+      "kind": "python_compile",
+      "sha256": "44a2ada49ee1d552c13e902a4f8d7e60f0980c7f75a63a8346ebff0b3ed4c4c6",
+      "exit": 0
+    },
+    {
+      "path": "tools/lab/matrix.py",
+      "kind": "python_compile",
+      "sha256": "85e1d8cf7a9b9545395d4d5e5d50bba48e44495815b96110b76c6250372c7fa5",
+      "exit": 0
+    },
+    {
+      "path": "tools/lab/netlab.py",
+      "kind": "python_compile",
+      "sha256": "aff761f96aba34f6b61eca7d343060c856c27cefc8575e3e0675fe37dbfe2ba5",
+      "exit": 0
+    },
+    {
+      "path": "tools/lab/quickcheck.py",
+      "kind": "python_compile",
+      "sha256": "40833867a2a6fa199eca8303bb6361116f92f3af1c03f93864b6342c8cca37c9",
+      "exit": 0
+    },
+    {
+      "path": "tools/lab/summarize.py",
+      "kind": "python_compile",
+      "sha256": "cd3a38eaf270f2e546150c83e6450371688501f777cf0192217e5c2275c185b5",
+      "exit": 0
+    },
+    {
+      "path": "tools/lab/verify_hints.py",
+      "kind": "python_compile",
+      "sha256": "11d4663a370f16ce814357a525799620f823e289ae675f5d3c2447e43ae9becf",
+      "exit": 0
+    }
+  ],
+  "local_markdown_links": {
+    "checked": 181,
+    "missing": []
+  },
+  "related_verification": [
+    "checks.json",
+    "shutdown-regression.md",
+    "fault-evidence-check.json"
+  ],
+  "notes": [
+    "No additional VPS restart, VM run, or long test was performed for final document and harness cleanup.",
+    "Research branches retain their separate identities and were not merged into the deployed mainline.",
+    "Staged whitespace validation passed with documented artifact attributes; the final Git commit follows this report."
+  ],
+  "staged_artifact_bytes": {
+    "artifact_files_checked": 1872,
+    "index_matches_working_file_bytes": true,
+    "mismatches": []
+  },
+  "whitespace_check": {
+    "command": "git diff --cached --check",
+    "exit": 0,
+    "attributes": ".gitattributes",
+    "notes": [
+      "Stored unified diffs and exact captured Go stdout/stderr keep their original whitespace. Only these archive patterns are exempted.",
+      "CSV CRLF record endings are recognized as intentional. Python/Go/Shell/document source checks retain standard whitespace rules.",
+      "No frozen patch, log, or CSV was rewritten to satisfy the style check."
+    ]
+  }
+}

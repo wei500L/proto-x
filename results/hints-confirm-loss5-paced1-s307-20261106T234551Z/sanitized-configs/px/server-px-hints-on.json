@@ -1,0 +1,20 @@
+{
+  "tls_listen": ":14443",
+  "quic_listen": ":14443",
+  "cert_file": "server.crt",
+  "key_file": "server.key",
+  "token_file": "token",
+  "rate_mbps": 8,
+  "priority": true,
+  "adaptive": false,
+  "window_bytes": 65536,
+  "max_flows": 32,
+  "max_sessions": 2,
+  "heartbeat_ms": 500,
+  "dead_ms": 2000,
+  "resume_seconds": 90,
+  "dial_timeout_ms": 1200,
+  "allow_private_targets": true,
+  "test_rotate_seconds": 0,
+  "sparse_redundancy": true
+}

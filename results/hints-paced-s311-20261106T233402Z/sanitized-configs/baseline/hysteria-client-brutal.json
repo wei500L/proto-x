@@ -1,0 +1,19 @@
+{
+  "server": "10.203.0.2:33401",
+  "auth": "<redacted>",
+  "tls": {
+    "sni": "protox-baseline.test",
+    "ca": "/tmp/pxlab-hints/private/baseline/tls-cert.pem",
+    "insecure": false
+  },
+  "socks5": {
+    "listen": "127.0.0.1:10802",
+    "disableUDP": true
+  },
+  "fastOpen": false,
+  "bandwidth": {
+    "up": "2 mbps",
+    "down": "8 mbps",
+    "disableLossCompensation": false
+  }
+}

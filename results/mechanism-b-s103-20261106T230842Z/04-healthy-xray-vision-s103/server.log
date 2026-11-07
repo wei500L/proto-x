@@ -1,0 +1,31 @@
+Xray 26.10.31 (Xray, Penetrates Everything.) a4a3dff (go1.27.3 linux/arm64)
+A unified platform for anti-censorship.
+2026/11/07 02:10:12.510374 [Info] infra/conf/serial: Reading config: &{Name:/tmp/pxlab/private/baseline/xray-server.json Format:json}
+2026/11/07 02:10:12.510378 [Warning] infra/conf: REALITY: Listening on non-443 ports will increase the likelihood of your server's IP being blocked by the GFW
+2026/11/07 02:10:12.511558 [Warning] core: Xray 26.10.31 started
+2026/11/07 02:10:13.352764 from 10.203.0.1:39062 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:10:13.357430 from 10.203.0.1:39058 accepted tcp:127.0.0.1:18081 [vless-reality-vision >> direct]
+2026/11/07 02:10:13.368938 from 10.203.0.1:39054 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:10:13.377058 from 10.203.0.1:39040 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:10:13.386438 from 10.203.0.1:39026 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:10:13.395656 from 10.203.0.1:39024 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:10:13.403697 from 10.203.0.1:39008 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:10:13.412885 from 10.203.0.1:38994 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:10:13.421847 from 10.203.0.1:38992 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:10:13.577492 from 10.203.0.1:39078 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:10:15.794374 from 10.203.0.1:37684 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:10:15.998160 from 10.203.0.1:37690 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:10:16.161728 from 10.203.0.1:37706 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:10:16.361939 from 10.203.0.1:37722 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:10:16.565729 from 10.203.0.1:37776 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:10:16.574290 from 10.203.0.1:37766 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:10:16.583438 from 10.203.0.1:37750 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:10:16.592763 from 10.203.0.1:37738 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:10:16.602293 from 10.203.0.1:37808 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:10:16.848969 from 10.203.0.1:37814 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:10:17.188867 from 10.203.0.1:37830 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:10:17.563022 from 10.203.0.1:37752 accepted tcp:127.0.0.1:18081 [vless-reality-vision >> direct]
+2026/11/07 02:10:17.569257 from 10.203.0.1:37778 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:10:17.578566 from 10.203.0.1:37790 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:10:17.587285 from 10.203.0.1:37800 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:10:17.596288 from 10.203.0.1:37724 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]

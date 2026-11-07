@@ -95,6 +95,8 @@ netem 对每方向加入半个指定 RTT、独立延迟抖动和丢包；每方�
 
 `scripts/lab/run-matrix.sh RUN_ID [选项]` 使用已构建的 `bin/{protox,pxbench}-linux-arm64` 及下载并校验的三份基线程序，生成私密配置并复制至虚机。固定的三方实现版本、SHA256、Go build info、参数、随机执行顺序和资源口径写入运行manifest。源码变更后须明确重建并冻结二进制；同一批次中不会更新运行中的程序。
 
+跨多个批次比较同一实现时，把两个 Linux 二进制复制至独立目录，以 `PROTOX_LAB_BIN_DIR=.local/matrix/frozen-v01/bin` 指定读取来源；每次核对 manifest 中的 SHA256。开发者可以同时更新普通 `bin/`，不改变已冻结的实验版本。包装脚本启动时也冻结自身文本，避免运行中编辑文件改变 shell 的后续读取偏移。
+
 ```sh
 # 明确先做发现集，读完结果才决定确认集；两次都保留完整数据。
 scripts/lab/run-matrix.sh discovery-UNIQUE --stage discovery --seed 101
@@ -114,4 +116,52 @@ scripts/lab/run-matrix.sh paced-UNIQUE --stage discovery --seed 101 \
 
 变体为 PX priority / FIFO / adaptive、Xray REALITY+Vision、Hy BBR standard / conservative、Brutal8/2和Brutal6/1.5。链路先采用healthy和每方向1%随机丢包+5ms抖动，均名义RTT60ms、8/2Mbps；按seed打乱协议/场景顺序。PX在共同物理链路上另有自己的应用帧pacer；因此必须通过相同源端限速、调度消融和不同吞吐点继续归因，不能把所有差异直接归功于新协议机制。
 
+冻结的 PX v0.1 使用 **quic-go v0.65.0 的默认 Reno**。虽然内部构造函数名为 `NewCubicSender`，[`sent_packet_handler.go:155–163`](https://github.com/quic-go/quic-go/blob/v0.65.0/internal/ackhandler/sent_packet_handler.go#L155-L163) 实际传入 `true // use Reno`，由 [`cubic_sender.go`](https://github.com/quic-go/quic-go/blob/v0.65.0/internal/congestion/cubic_sender.go) 选择 Reno 分支；不能只凭函数名把本轮标成 CUBIC。新拥塞算法须单独编译、记录 SHA 并作为新变体比较，不能追溯修改旧结果的实现身份。
+
 每项数据包含所有HTTP/echo/SSE事件、失败和结束截尾、warmup原始数据、外链tc前后快照和差值、namespace全部TCP nstat、100ms进程CPU/RSS样本。`nstat`包含环回源站/SOCKS TCP，**不能当作QUIC重传率**。源端限速是每下载worker的应用字节预算，不是加密代理的总外层字节上限。
+
+完成的v0.1共同限速/多下载调度消融见 `results/mechanism-ab-v01-20261106/ANALYSIS.md`。`tools/lab/summarize.py` 重新核对原始事件数量、状态、HTTP/echo分位数及SSE间隙分位数，生成不合并种子的CSV/JSON；原始失败运行不会被剔除。
+
+## 独立拥塞控制筛选
+
+`scripts/lab/run-cc-matrix.sh` 在 `/tmp/pxlab-cc` 使用单独的程序、配置与结果目录，但仍共享两个实验命名空间，**不可与其他矩阵同时运行**。它核对冻结v0.1、冻结CC分支、benchmark与Hysteria的SHA，再复用已核验的自有TLS配置。须先通过普通矩阵建立 `.local/matrix/stage/private`，并准备 `.local/matrix/frozen-v01/bin`、`.local/cc-matrix/frozen/protox-cc-linux-arm64`；具体冻结SHA写在脚本与manifest中。
+
+```sh
+scripts/lab/run-cc-matrix.sh cc-training-211-UNIQUE --seed 211
+scripts/lab/run-cc-matrix.sh cc-training-223-UNIQUE --seed 223
+```
+
+候选为稳定PX priority、旧fork Reno、旧fork Hy BBR standard、旧fork Hy Brutal6/1.5、正式Hysteria Brutal6/1.5。默认每项25秒加3秒预热，一个不限速后台下载，1%丢包/5ms抖动，物理8/2Mbps。211/223只作为训练/发现数据；脚本明确拒绝预留307，不自动进入确认阶段。
+
+实验分支使用Hysteria 2.13.0固定提交的拥塞控制实现及其固定的 `apernet/quic-go`；CC逻辑没有作为PROTO-X原创机制报告。分支还显式使用QUIC v1，因此稳定版与fork间的收益不能只归因于CC；同一个fork的Reno/BBR/Brutal才是CC消融。JSON保持相同PX优先调度参数，通过进程环境选择算法，在认证后安装。每次采集并检查两端实际安装日志、Brutal速率及QUIC连接日志，错误或回退会标记验证失败；记录脱敏完整配置、原配置SHA及源码来源。
+
+此轮没有注入路径迁移。已知旧fork在迁移时可能把拥塞控制重置为Reno，不能把静态路径筛选结果当作迁移正确性证明。CC选择结果与恢复、会话调度和其他冗余机制保持分开记录。
+
+两种子完整CC筛选见 `results/cc-screening-20261106/ANALYSIS.md`。追加的单种子信用窗口诊断见 `results/cc-window-diagnostic-20261106/ANALYSIS.md`：通过 `PROTOX_LAB_CC_WINDOW_BYTES` 取值65536、131072或262144 在单独的CC staging配置中改变窗口，普通矩阵输入与部署默认不变。
+
+## 稀疏副本消融
+
+`scripts/lab/run-hint-matrix.sh` 使用 `.local/hint-matrix/frozen/protox-hints-linux-arm64` 中的同一个冻结程序，生成双方明确打开/关闭 `sparse_redundancy` 的两组配置，再与正式Hy Brutal6对比。窗口64KiB、priority=true、adaptive=false、应用pacer8/2Mbps及默认Reno均相同；只改布尔开关。程序、私密配置和原始数据存于独立 `/tmp/pxlab-hints`，仍共享实验namespace，不能与其他实验同时跑。
+
+```sh
+scripts/lab/run-hint-matrix.sh hints-unpaced-311-UNIQUE --seed 311
+scripts/lab/run-hint-matrix.sh hints-unpaced-313-UNIQUE --seed 313
+scripts/lab/run-hint-matrix.sh hints-paced-311-UNIQUE --seed 311 --background-mbps 2.5
+scripts/lab/run-hint-matrix.sh hints-paced-313-UNIQUE --seed 313 --background-mbps 2.5
+
+# 观察训练数据后预先声明的更高丢包场景；仍属于探索集。
+scripts/lab/run-hint-matrix.sh hints-loss5-paced1-317-UNIQUE --seed 317 \
+  --profiles loss5-jitter5 --background-mbps 1
+
+# 仅在筛选完成并书面释放留出集后使用；参数由运行器锁定。
+scripts/lab/run-hint-matrix.sh hints-confirm-loss5-paced1-307-UNIQUE \
+  --stage confirmation --seed 307 --duration 90 --warmup 3 --queue-ms 100 \
+  --profiles loss5-jitter5 --background 1 --background-mbps 1 \
+  --variants px-hints-off px-hints-on hy-brutal6
+```
+
+311/313和追加317为训练种子，完整15项筛选见 `results/hint-screening-20261106/ANALYSIS.md`。筛选结束后，307按 `results/hint-confirmation-s307-20261107/PREDECLARED.json` 的书面方案释放，独立测量每项90秒而非筛选的25秒，三项已完成；结果和完整代价见 `results/hint-confirmation-s307-20261107/ANALYSIS.md`。不允许根据确认结果补调、更换seed或只保留有利指标。运行器默认仍为discovery，只有显式confirmation且全部参数匹配才接受307；它不防止使用另一个run-id重跑，研究者仍须遵守预声明停止规则。
+
+运行器保存退出时的每一条 `sparse redundancy counters` 日志；多个记录不直接相加，日志缺失记为缺失。冻结实验程序的客户端退出存在listener先关闭、主循环可能先返回的竞态，筛选集中on组客户端计数全部缺失；off组正常不输出计数。计数覆盖包含预热在内的会话生命周期，与测量窗的tc字节不同。`sent_datagrams` 仅说明成功交给QUIC队列，`first_delivered_bytes` 仅说明副本先交付，均不自动证明真实丢包恢复；QUIC对datagram的打包或调度也可能产生收益。分析必须同时看成功/失败、有效吞吐与外层字节，而不只看“副本先到”的计数。
+
+`tools/lab/verify_hints.py results/AGGREGATE` 在 `summarize.py` 汇总后复核二进制/源码和配置SHA、双方只差开关、原始qdisc前后差值、实际损伤参数及QUIC承载，并对当前实验凭据/私钥做精确扫描，只报告命中路径和数量。它不把缺失计数补成零，也不检验真实网络抗识别。

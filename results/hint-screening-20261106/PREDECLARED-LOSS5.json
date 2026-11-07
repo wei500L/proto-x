@@ -1,0 +1,31 @@
+{
+  "declared_utc": "2026-11-06T23:36:44.554690+00:00",
+  "status_at_declaration": "not yet run; execute after both common2.5Mbps source-paced trials",
+  "question": "Does sparse-copy on/off gain become more consistent when independent packet loss is more frequent?",
+  "seed": 317,
+  "variants": [
+    "px-hints-off",
+    "px-hints-on",
+    "hy-brutal6"
+  ],
+  "duration_s": 25,
+  "warmup_s": 3,
+  "physical_down_mbps": 8,
+  "physical_up_mbps": 2,
+  "rtt_ms": 60,
+  "jitter_ms_each_direction": 5,
+  "random_loss_pct_each_direction": 5,
+  "queue_ms_nominal": 100,
+  "background_workers": 1,
+  "background_mbps_source_budget_per_worker": 1,
+  "px_window_bytes": 65536,
+  "px_priority": true,
+  "px_adaptive": false,
+  "px_rate_server_client_mbps": [
+    8,
+    2
+  ],
+  "px_binary_sha256": "0b42f0a8fc63165ed1e9e99d4eb650da6af4e3c097a2a08913fa6e50595d98fe",
+  "held_out_seed307_used": false,
+  "retention": "All outcomes, failures, censoring, wire costs and counter-log limitations retained; no scene removed for an unfavorable result."
+}

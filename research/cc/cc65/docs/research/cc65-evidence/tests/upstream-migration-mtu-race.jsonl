@@ -1,0 +1,28 @@
+{"Time":"2026-11-07T02:36:15.873582+03:00","Action":"start","Package":"github.com/quic-go/quic-go/integrationtests/self"}
+{"Time":"2026-11-07T02:36:17.942112+03:00","Action":"output","Package":"github.com/quic-go/quic-go/integrationtests/self","Output":"using QUIC version: v1\n"}
+{"Time":"2026-11-07T02:36:17.942524+03:00","Action":"run","Package":"github.com/quic-go/quic-go/integrationtests/self","Test":"TestConnectionMigration"}
+{"Time":"2026-11-07T02:36:17.942545+03:00","Action":"output","Package":"github.com/quic-go/quic-go/integrationtests/self","Test":"TestConnectionMigration","Output":"=== RUN   TestConnectionMigration\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:18.193329+03:00","Action":"output","Package":"github.com/quic-go/quic-go/integrationtests/self","Test":"TestConnectionMigration","Output":"--- PASS: TestConnectionMigration (0.25s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:18.193394+03:00","Action":"pass","Package":"github.com/quic-go/quic-go/integrationtests/self","Test":"TestConnectionMigration","Elapsed":0.25}
+{"Time":"2026-11-07T02:36:18.193453+03:00","Action":"run","Package":"github.com/quic-go/quic-go/integrationtests/self","Test":"TestDatagramSizeLimitWithMTUDiscovery"}
+{"Time":"2026-11-07T02:36:18.193463+03:00","Action":"output","Package":"github.com/quic-go/quic-go/integrationtests/self","Test":"TestDatagramSizeLimitWithMTUDiscovery","Output":"=== RUN   TestDatagramSizeLimitWithMTUDiscovery\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:18.204449+03:00","Action":"output","Package":"github.com/quic-go/quic-go/integrationtests/self","Test":"TestDatagramSizeLimitWithMTUDiscovery","Output":"--- PASS: TestDatagramSizeLimitWithMTUDiscovery (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:18.204498+03:00","Action":"pass","Package":"github.com/quic-go/quic-go/integrationtests/self","Test":"TestDatagramSizeLimitWithMTUDiscovery","Elapsed":0.01}
+{"Time":"2026-11-07T02:36:18.206047+03:00","Action":"run","Package":"github.com/quic-go/quic-go/integrationtests/self","Test":"TestPathMTUDiscovery"}
+{"Time":"2026-11-07T02:36:18.206057+03:00","Action":"output","Package":"github.com/quic-go/quic-go/integrationtests/self","Test":"TestPathMTUDiscovery","Output":"=== RUN   TestPathMTUDiscovery\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:19.989796+03:00","Action":"output","Package":"github.com/quic-go/quic-go/integrationtests/self","Test":"TestPathMTUDiscovery","Output":"    mtu_test.go:184: max client packet size: 1400, MTU: 1400\n"}
+{"Time":"2026-11-07T02:36:19.989846+03:00","Action":"output","Package":"github.com/quic-go/quic-go/integrationtests/self","Test":"TestPathMTUDiscovery","Output":"    mtu_test.go:185: max datagram size: initial: 1163, final: 1363\n"}
+{"Time":"2026-11-07T02:36:19.989862+03:00","Action":"output","Package":"github.com/quic-go/quic-go/integrationtests/self","Test":"TestPathMTUDiscovery","Output":"    mtu_test.go:186: max server packet size: 1234, MTU: 1400\n"}
+{"Time":"2026-11-07T02:36:19.990201+03:00","Action":"output","Package":"github.com/quic-go/quic-go/integrationtests/self","Test":"TestPathMTUDiscovery","Output":"--- PASS: TestPathMTUDiscovery (1.78s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:19.990213+03:00","Action":"pass","Package":"github.com/quic-go/quic-go/integrationtests/self","Test":"TestPathMTUDiscovery","Elapsed":1.78}
+{"Time":"2026-11-07T02:36:19.990342+03:00","Action":"run","Package":"github.com/quic-go/quic-go/integrationtests/self","Test":"TestNATRebinding"}
+{"Time":"2026-11-07T02:36:19.990356+03:00","Action":"output","Package":"github.com/quic-go/quic-go/integrationtests/self","Test":"TestNATRebinding","Output":"=== RUN   TestNATRebinding\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:20.274768+03:00","Action":"output","Package":"github.com/quic-go/quic-go/integrationtests/self","Test":"TestNATRebinding","Output":"--- PASS: TestNATRebinding (0.28s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:20.274816+03:00","Action":"pass","Package":"github.com/quic-go/quic-go/integrationtests/self","Test":"TestNATRebinding","Elapsed":0.28}
+{"Time":"2026-11-07T02:36:20.274857+03:00","Action":"run","Package":"github.com/quic-go/quic-go/integrationtests/self","Test":"TestNATRebindingRepeated"}
+{"Time":"2026-11-07T02:36:20.274865+03:00","Action":"output","Package":"github.com/quic-go/quic-go/integrationtests/self","Test":"TestNATRebindingRepeated","Output":"=== RUN   TestNATRebindingRepeated\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:20.290468+03:00","Action":"output","Package":"github.com/quic-go/quic-go/integrationtests/self","Test":"TestNATRebindingRepeated","Output":"--- PASS: TestNATRebindingRepeated (0.02s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:20.290502+03:00","Action":"pass","Package":"github.com/quic-go/quic-go/integrationtests/self","Test":"TestNATRebindingRepeated","Elapsed":0.02}
+{"Time":"2026-11-07T02:36:20.291054+03:00","Action":"output","Package":"github.com/quic-go/quic-go/integrationtests/self","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:21.323992+03:00","Action":"output","Package":"github.com/quic-go/quic-go/integrationtests/self","Output":"ok  \tgithub.com/quic-go/quic-go/integrationtests/self\t5.450s\n"}
+{"Time":"2026-11-07T02:36:21.324056+03:00","Action":"pass","Package":"github.com/quic-go/quic-go/integrationtests/self","Elapsed":5.45}

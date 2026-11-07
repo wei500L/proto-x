@@ -1,0 +1,16 @@
+{
+  "trial_id": "04-loss1-jitter5-hy-brutal6-s101",
+  "variant": "hy-brutal6",
+  "profile": "loss1-jitter5",
+  "seed": 101,
+  "stage": "discovery",
+  "utc_start": "2026-11-06T22:46:51.527594+00:00",
+  "status": "runner_error",
+  "duration_s": 25.0,
+  "warmup_s": 3.0,
+  "gomaxprocs": 1,
+  "background_workers": 1,
+  "background_mbps_source_budget": null,
+  "error": "RuntimeError: server exited early with 1; see its retained log",
+  "utc_end": "2026-11-06T22:46:52.299252+00:00"
+}

@@ -1,0 +1,107 @@
+{
+  "run_id": "smoke-20261106T2235",
+  "stage": "smoke",
+  "created_utc": "2026-11-06T22:36:08.825543+00:00",
+  "source": "local Linux VM packet-level emulation; not Russian field data",
+  "kernel": "Linux lima-protox-lab 6.12.115+deb13.1-cloud-arm64 #1 SMP Debian 6.12.115-2 (2026-11-01) aarch64 GNU/Linux",
+  "cpu_count": 2,
+  "gomaxprocs": 1,
+  "binaries_sha256": {
+    "xray": "5939649960deaf535bcd5f7ce0467a2b1d63b72a2758a6f42eade714ae8d5328",
+    "protox": "17f56436e55ae2c99da6aedcf4eeb98f062ed5a9a9e24662c67d84af3002bd7d",
+    "pxbench": "39e75bcd33a2d10b175709f673e6737110a1c31cf0c305bbb89943f6e96c16ea",
+    "hysteria": "a68a61a84452ca250ce0368202521965ca9cc9d801a404f1dc9008ac6cf677a7",
+    "tlscover": "6bcf2a2aa5348e4185c63deee2977ccec65a6ffcd6ad34a236f487bef9b39cd3"
+  },
+  "matrix_script_sha256": "dbff852cb8b2b1212588dd780bd8ed927982152ec32da062641fcf8875361bc5",
+  "netlab_script_sha256": "7426341c0001e5621345f1bcd657d3089a6e6b337e0883b58cf7ea619238b49c",
+  "schedule": [
+    {
+      "variant": "px-priority",
+      "profile": "healthy",
+      "seed": 17
+    },
+    {
+      "variant": "xray-vision",
+      "profile": "healthy",
+      "seed": 17
+    },
+    {
+      "variant": "px-fifo",
+      "profile": "healthy",
+      "seed": 17
+    },
+    {
+      "variant": "hy-bbr-standard",
+      "profile": "healthy",
+      "seed": 17
+    }
+  ],
+  "parameters": {
+    "root": "/tmp/pxlab",
+    "run_id": "smoke-20261106T2235",
+    "stage": "smoke",
+    "seed": 17,
+    "duration": 6.0,
+    "warmup": 1.0,
+    "queue_ms": 100,
+    "background": 1,
+    "background_mbps": null,
+    "variants": [
+      "px-priority",
+      "px-fifo",
+      "xray-vision",
+      "hy-bbr-standard"
+    ],
+    "profiles": [
+      "healthy"
+    ]
+  },
+  "config_parameters": {
+    "px": {
+      "server_rate_mbps": 8,
+      "client_rate_mbps": 2,
+      "window_bytes": 65536,
+      "variants": [
+        "priority=true,adaptive=false",
+        "priority=false,adaptive=false",
+        "priority=true,adaptive=true"
+      ],
+      "transport": "QUIC preferred with authenticated TLS fallback"
+    },
+    "xray": {
+      "version": "26.10.31",
+      "protocol": "VLESS+REALITY+Vision",
+      "mux": false,
+      "fingerprint": "chrome",
+      "target": "owned TLS1.3 cover on loopback",
+      "inner_application": "HTTPS TLS with verified owned CA"
+    },
+    "hysteria": {
+      "version": "2.13.0",
+      "profiles": [
+        "BBR standard",
+        "BBR conservative",
+        "Brutal8/2Mbps",
+        "Brutal6/1.5Mbps"
+      ],
+      "brutal_disable_loss_compensation": false,
+      "fastOpen": false
+    },
+    "addresses": {
+      "client": "10.203.0.1",
+      "server": "10.203.0.2",
+      "origin": "127.0.0.1"
+    },
+    "secrets": "omitted; regenerate private configs with provided scripts"
+  },
+  "notes": [
+    "Every protocol uses the same fixed physical link budget; PX also has an application frame pacer.",
+    "A common source-paced background follow-up is needed to isolate generic rate-limiting gains.",
+    "Warmup runs a separate application workload; reusable proxy outer sessions persist into measurement.",
+    "All operation failures/timeouts/censoring are retained; successful-only percentiles cannot be read alone.",
+    "Resource CPU is percent of one core; guest has two vCPUs; GOMAXPROCS=1 per process."
+  ],
+  "finished_utc": "2026-11-06T22:36:40.411471+00:00",
+  "completed_trials": 4
+}

@@ -55,17 +55,29 @@ func RunClient(ctx context.Context, cfg Config) error {
 		return e
 	}
 	defer ln.Close()
+	ctx, cancel := context.WithCancel(ctx)
 	c := &Client{cfg: cfg, token: token, changed: make(chan struct{})}
-	go c.manage(ctx)
+	managed := make(chan struct{})
 	go func() {
-		<-ctx.Done()
+		defer close(managed)
+		c.manage(ctx)
+	}()
+	defer func() {
+		cancel()
 		_ = ln.Close()
+		// Stop publication before reading current. Cleanup must finish before
+		// RunClient returns, including on an unexpected listener failure.
+		<-managed
 		c.mu.Lock()
 		s := c.current
 		c.mu.Unlock()
 		if s != nil {
 			s.Close(context.Canceled)
 		}
+	}()
+	go func() {
+		<-ctx.Done()
+		_ = ln.Close()
 	}()
 	slog.Info("SOCKS5 listener ready", "listen", cfg.SOCKSListen)
 	connections := make(chan struct{}, cfg.MaxFlows+8)
@@ -123,6 +135,9 @@ func (c *Client) manage(ctx context.Context) {
 			cfg, _ := carrier.ClientTLS(c.cfg.Pin, ep.ServerName)
 			l, e := carrier.Dial(dctx, ep.Network, ep.Address, cfg)
 			if e == nil {
+				// DialContext ends after the transport handshake. Also interrupt
+				// the following application handshake when its parent is canceled.
+				stop := context.AfterFunc(dctx, func() { _ = l.Close() })
 				deadline, _ := dctx.Deadline()
 				l.SetHandshakeDeadline(deadline)
 				b, _ := json.Marshal(hello{Version: wire.Version, Session: s.ID, Token: c.token, Resume: resuming, Window: c.cfg.Window})
@@ -144,6 +159,11 @@ func (c *Client) manage(ctx context.Context) {
 							e = session.ErrSessionLost
 						}
 					}
+				}
+				if !stop() && e == nil {
+					// A cancellation callback may already be closing this link.
+					// Never publish it as an attached carrier.
+					e = dctx.Err()
 				}
 			}
 			cancel()

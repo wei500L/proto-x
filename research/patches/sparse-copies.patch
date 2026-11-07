@@ -1,0 +1,1481 @@
+From 9b60c69f28c675576a5f61af31669cdc58519448 Mon Sep 17 00:00:00 2001
+From: PROTO-X research <research@example.invalid>
+Date: Sat, 7 Nov 2026 02:35:51 +0300
+Subject: [PATCH] Prototype bounded sparse QUIC datagram copies with recovery
+ tests
+
+---
+ docs/research/hints-prototype.md      |  40 ++++
+ docs/research/hints-review.md         | 147 +++++++++++++++
+ internal/app/config.go                |  43 ++---
+ internal/app/integration_test.go      | 101 +++++++++-
+ internal/carrier/carrier.go           |  93 +++++++++-
+ internal/carrier/hints_test.go        | 117 ++++++++++++
+ internal/session/hints.go             | 117 ++++++++++++
+ internal/session/hints_resume_test.go | 257 ++++++++++++++++++++++++++
+ internal/session/hints_test.go        |  88 +++++++++
+ internal/session/session.go           | 196 +++++++++++---------
+ internal/wire/frame.go                |  15 +-
+ 11 files changed, 1099 insertions(+), 115 deletions(-)
+ create mode 100644 docs/research/hints-prototype.md
+ create mode 100644 docs/research/hints-review.md
+ create mode 100644 internal/carrier/hints_test.go
+ create mode 100644 internal/session/hints.go
+ create mode 100644 internal/session/hints_resume_test.go
+ create mode 100644 internal/session/hints_test.go
+
+diff --git a/docs/research/hints-prototype.md b/docs/research/hints-prototype.md
+new file mode 100644
+index 0000000..e963599
+--- /dev/null
++++ b/docs/research/hints-prototype.md
+@@ -0,0 +1,40 @@
++# 稀疏 QUIC DATAGRAM 副本原型
++
++基于 `5d80253`，研究分支 `research/hints`，仍使用上游 quic-go v0.65.0 的默认 Reno。它是独立的机制实验，未部署到测试 VPS，也没有预设性能优势。
++
++## 机制
++
++配置字段 `sparse_redundancy` 默认为 false。开启后，获得稀疏信用的 DATA 仍完整进入可靠 QUIC 流，再排队发送同字节、同偏移的 QUIC DATAGRAM 副本。单个副本 payload 最多 900 字节，大记录拆为几个带偏移副本；HELLO、OPEN、ACK、FIN、RESET 等控制记录不能通过这个通道执行。
++
++副本在原件提交后等待 8 ms，以减少共用原包丢失位置的机会。它不保证两个副本在不同 QUIC 包中；拥塞、合包和底层调度仍决定实际包化。每会话副本队列最多 64 项，接收副本队列独立且最多 32 项；已经排队的可靠记录先处理。未来偏移副本直接丢弃，不新建乱序缓存。原可靠流仍负责最终填补缺口。
++
++副本**同时消耗**独立的 10% 发送预算（上限 64 KiB/s）与原会话共享发送预算；未限速的实验配置仍保留 64 KiB/s 副本预算。预算按记录长度和相同的下层开销估计计费，并非精确的外层 wire-rate 上限。稀疏信用是按流字节活动推断，持续下载的初始字节也可能被选中，不能称为准确的 SSH / SSE 应用识别。
++
++接收端只有已有、已打开的流可以接受有效副本，受相同偏移与消费窗口约束。副本可先行交付并被正常 ACK；之后到来的原件按偏移去重。这个 ACK 同样只意味着会话层收到了字节，不表示目标事务持久化或服务器崩溃后的恰好一次。
++
++## 已修问题与限制
++
++- 等待 8 ms 之后、每次预算等待之后重新检查副本是否已被确认，避免常见低 RTT 场景下明知无用仍扣主预算。确认与预算发放仍可发生并发竞态，计费可能保守地多扣，不能宣称零浪费。
++- 副本接收与可靠接收队列已经分开。副本不能先填满可靠记录队列并阻塞 ACK/FIN；`NextFrame` 优先取已经排队的可靠记录。
++- 40 ms 限制的是**调用 QUIC 之前的排队年龄**。上游 `SendDatagram` 没有 deadline API，内部 32 项发送队列可能阻塞；成功入队的副本也可能在拥塞后延迟发送。这一限制尚未解决，不能宣传为硬发送过期。
++- 开关只控制本端发送；为了可接收兼容副本，QUIC 配置始终允许 DATAGRAM。无副本对照必须两端都设为 false。
++- `HintSent` 表示成功提交 QUIC 队列；`HintDelivered` 表示副本先交付的字节。前者不是已在链路发送，后者不是“恢复丢包字节”。QUIC 打包器可能优先取 DATAGRAM，原件的 `Write` 返回也不代表它已经发包，因此即使无丢包副本也可能先到。
++- 冻结试验中客户端退出日志有竞态，可能缺少最终计数；缺失不能按零处理。真实外层计数以实验室接口计数为依据。
++
++独立评审见 [hints-review.md](hints-review.md)。开启功能需要同时评估交互延迟、SSE 间隔、失败、goodput 和总外层字节；只改善一个种子或一个分位数不足以推广。
++
++## 实际检查
++
++完整 `go test -race -count=1 -timeout=60s ./...` 与 `go vet ./...` 已通过。包括真正的 QUIC DATAGRAM 编解码与类型过滤、副本窗口/重叠去重、独立队列优先级，以及启用副本后的真实 QUIC→TLS 512 KiB 原 socket 恢复。后者使用单向 15 ms 的有界延迟路径，并要求切换前确有副本提交，避免回环 ACK 太快、实际零副本也通过。
++
++另有 `TestHintAcknowledgedBeforeOriginalSurvivesCarrierReplacement`：记录级过滤器截留首个 2048 字节原件，注入其 900 字节副本，等待目标实际读取和正常 ACK，确认发送缓存从偏移 900 继续。替换承载后自动补发后缀，再重放完整原件，核验去重、单次目标 accept 与双向半关闭。定向 race 单次及连续 10 次通过。它明确是会话状态机检查，不是实际 QUIC 丢包测量。
++
++## 复现
++
++从主仓库的 `research/hints` 分支或归档 patch 创建隔离工作树，按主项目方式构建。双方在生成的私密 JSON 配置里设 `"sparse_redundancy": true` 即可；用于无副本对照时双方都设为 false，其余参数和二进制必须相同。
++
++冻结实验 Linux arm64 二进制 SHA-256：
++`0b42f0a8fc63165ed1e9e99d4eb650da6af4e3c097a2a08913fa6e50595d98fe`。
++
++构建时使用 `-trimpath -ldflags '-s -w -X main.version=0.2.0-hints-experimental'`。
++它基于未提交的工作树构建，Go 的 VCS 元数据记录 base revision 和 dirty=true；提交后直接构建会改变元数据。若要求同样构建状态，对 `5d80253` 应用归档 patch 后先不提交，再构建。使用同一个冻结二进制进行开/关对照不受这项元数据差异影响。
+diff --git a/docs/research/hints-review.md b/docs/research/hints-review.md
+new file mode 100644
+index 0000000..20ef64c
+--- /dev/null
++++ b/docs/research/hints-review.md
+@@ -0,0 +1,147 @@
++# 稀疏 QUIC DATAGRAM 副本：独立源码评审
++
++日期：2026-11-07（Europe/Moscow）；评审者：workloads Agent。范围仅为隔离工作树
++中基于 `5d80253` 的未提交原型和本机 quic-go v0.65.0 源码。本次没有修改实现、
++执行测试或操作 VPS；测试运行结果应由实际运行记录另行给出。
++
++在原型发送同一份不可变字节的前提下，未从本次检查中发现副本造成可靠字节丢失、
++重复交付、越窗口或提前 FIN 的路径。健康链路误扣预算的常见路径及副本占用可靠
++接收队列的问题已由主开发者修复；QUIC 内部发送期限和副本先交付后恢复的测试覆盖
++仍有限制。
++这不是形式化证明，也不构成性能收益结论。
++
++复核时的文件 SHA-256 前缀：
++
++| 文件 | 前缀 |
++| --- | --- |
++| `internal/session/hints.go` | `288fe61ae98c1956` |
++| `internal/session/session.go` | `15a51ecde9708c22` |
++| `internal/carrier/carrier.go` | `381c9e7630e0104c` |
++| `internal/session/hints_test.go` | `cce62c8be9b2192e` |
++| `internal/carrier/hints_test.go` | `34a214ccc38250ae` |
++| `internal/app/integration_test.go` | `efb56b335a388ce3` |
++
++## 已修复：原字节已 ACK，副本仍先扣主预算
++
++初次审查的 `hints.go` 哈希前缀为 `30d5a6597e6620a3`。当时
++`hintUseful` 只在定时前、两个 `Acquire` 后执行。可由代码直接构造的时序为：
++
++1. 原 DATA 写入 QUIC 后，副本进入 worker，检查时尚未 ACK。
++2. 等待 8 ms 期间原 DATA 已 ACK，例如健康低 RTT 链路。
++3. worker 仍取得副本预算及主预算，然后才发现无用、增加 `HintSkipped`。
++
++因此即使实际未发送这个副本，也会推迟待发送原始记录，制造额外限速。不能把
++这种少发后台字节引起的尾延迟变化归因于冗余交付。
++
++当前 [sendHints](../../internal/session/hints.go) 已在 8 ms 等待后和独立副本
++预算等待后复查用途，在这些时刻已 ACK 的副本不再消耗后续主预算。本次已读取
++修改后源码，未冒称相关回归测试已经运行。ACK 仍可能与主预算放行竞争；预算
++一旦放行没有退款，所以 `HintSkipped` 并不意味着完全未消耗调度额度。这是
++当前保守计费的剩余边界，区别于上述可避免的固定 8 ms 路径。
++
++## 仍有限制：40 ms 不是 QUIC 发送或交付期限
++
++[SendHint](../../internal/carrier/carrier.go) 调用 `Conn.SendDatagram`，后者
++进入 quic-go 的 [datagramQueue.Add](https://github.com/quic-go/quic-go/blob/v0.65.0/datagram_queue.go)。
++队列最多 32 条；满时等待出队或连接关闭，接口不接收调用者 context。已入队项
++也没有有效期字段。
++
++因此应用在第 39 ms 通过用途检查后，可能阻塞到第 100 ms 才入队；已入队副本
++还可能继续等拥塞窗口。`context.WithDeadline` 只能中止之前的预算等待，不能
++取消这次 `SendDatagram` 或撤回它的队列项。副本 worker 在此期间不能处理其余
++副本，应用侧 64 条队列会填满并丢弃新副本。此处是源码确定的条件路径，不是
++本次已在真实链路观察到的 100 ms 数字。
++
++主开发者已把常量改为 `hintSubmitWindow`，并明确它是**调用 QUIC 前的年龄
++检查**；不能理解为在 40 ms 内完成入队。当前保留原 quic-go 接口，内部过期问题
++尚未解决。它不会凭空增加可靠字节；连接关闭会唤醒库内等待，不应据此声称永久
++goroutine 泄漏。它仍会让拥塞恢复时的陈旧副本占用线路，后续实验必须纳入这项
++代价。发送端期限保证需要可取消／可过期的队列支持，仅增加外围 context 不够。
++
++## 已修复：副本占用可靠记录的接收队列
++
++初审的 `carrier.go` 哈希前缀为 `3e5148866f3f8424`，其中
++[datagramLoop](../../internal/carrier/carrier.go) 和 `readLoop` 共用容量 128
++的 `l.in`。副本入队的 `default` 只保证副本生产者不等待，没有为可靠记录保留
++空间。若 Session 消费者暂时停顿，128 条合法副本可以先占满队列，随后可靠
++ACK／FIN／DATA 的 `readLoop` 阻塞在同一 channel。消费者恢复后，可靠记录还需
++排在已有副本后面处理。
++
++这是明确的共享队列队头等待，原注释“optional copy must not stall the
++reliable record receiver”未实现所描述的隔离。没有证据说它在正常负载下必然出现
++显著时延；但在 CPU 压力或突发到达条件下，可能直接损害本功能追求的交互体验。
++
++当前已拆出容量 32 的 `Link.hints`，副本不再占用可靠 `l.in` 的位置；Session
++改用 `NextFrame`，优先取得已经排队的可靠记录。若可靠记录与副本同时新到达，
++仍可能先处理一条副本；不能解释为绝对抢占。修改后已从源码核对，新增
++`TestCopyQueueCannotDelayAlreadyQueuedReliableControl` 将副本队列填满，再放入
++可靠 ACK，断言先返回 ACK。本次未执行该检查，也未把队列隔离外推为 CPU／线路
++成本隔离。
++
++## 已核对的交付、信用与生命周期关系
++
++- `queueHints` 只在原可靠 `Send` 成功后，为稀疏信用覆盖的 DATA 复制 payload；
++  单份最多 900 字节，原可靠路径始终保留全部原字节。队列满丢副本不会丢原始数据。
++- `Unreliable` 只是本地 metadata，不在线上编码；DATAGRAM 解析严格限制 DATA、
++  奇数非零 ID、零 Flags／Limit、完整长度。不能通过 DATAGRAM 注入 OPEN、ACK、
++  FIN 或 RESET。未知 Flow 的合法副本被忽略，不拨号、不推进 ID 水位。
++- [Flow.receive](../../internal/session/session.go) 对未打开、已失败、未来偏移、
++  溢出、越接收窗口和 FIN 后的新字节副本直接忽略。连续新后缀走原来的接收缓冲，
++  以后可靠原件只追加未交付部分。副本没有更新远端信用，也没有新增乱序缓冲。
++- 副本先到后产生的 ACK 仍只表示会话层已收到字节。发送端可以据此修剪重传
++  缓冲，因为接收端保留字节；若外层随后断开，两端活 Session 以相同 offset
++  恢复。它不是目标应用已执行或服务器重启后持久化交付的证明。
++- FIN 仍来自可靠记录，携带最终字节 offset；同一流可靠记录顺序及接收 EOF
++  检查继续生效。退休后的副本被忽略，不重新建立目标 socket。墓碑与最终 FIN
++  ACK 的原有机制没有因 DATAGRAM 而新增依赖。
++- 提交前检查 Flow 退休／错误、ACK 水位、当前 Link 和 generation。旧 Link
++  被替换会关闭；Session 接收循环也核对当前 Link。检查之后与关闭仍可能竞争，
++  所以会有已无用副本尝试发送，但在本次同字节语义下没有找到因此破坏交付的路径。
++
++上述判断依赖原件与副本携带相同内容。接收端采用“先收到的连续字节生效”，不会
++把之后可靠记录的重复前缀重新与已交付内容比较。网络包由 QUIC 认证；若认证端点
++自身发送矛盾内容，不能宣称可靠 stream 会自动纠正已交付的副本。
++
++## 测试目前证明什么
++
++| 源码中的检查 | 实际覆盖与不足 |
++| --- | --- |
++| `TestSparseCopyDeliveredOnceAcrossOriginalOverlap` | 直接向 Flow 注入先到副本和重叠原件，检查字节及计数；未运行 worker、预算或 QUIC 队列 |
++| `TestOptionalCopyCannotAdvanceAcrossGapOrMutateControlState` | 检查未来偏移、控制类型、溢出和过大副本被忽略；是 Flow 层检查 |
++| `TestOptionalCopyRespectsConsumedWindowAndFinishedStream` | 检查满窗口及 FIN 后新字节；没有交织主预算等待与退休 |
++| `TestQUICAuthenticatedDatagramCarriesOnlyOptionalDATA` | 实际 QUIC、证书 pin、畸形 OPEN 丢弃和 DATA metadata；测试 HELLO 是 fixture 字节，没有校验应用 token，不能单靠此项证明应用认证 |
++| `TestCopyQueueCannotDelayAlreadyQueuedReliableControl` | 填满独立副本队列，确认已排队可靠 ACK 优先；没有运行网络或制造 CPU 压力 |
++| `TestQUICToTLSWithSparseCopiesRetainsOriginAndBytes` | 当前增加每方向 15 ms 的受控 FIFO 延迟和 `HintSent > 0` 断言，再检查 QUIC→TLS 字节与单次目标 socket；没有要求副本先交付 |
++
++最后一项初稿（哈希前缀 `b03d295d4b4df18d`）即使 `queueHints` 丢弃所有副本，
++仍能沿原可靠路径通过。该问题已通过延迟路径和提交计数断言修正；本次读取了
++修改后测试，未执行它。当前检查要求**实际向 QUIC 提交过副本**，而不是只开启
++选项；仍不能证明先由副本交付的字节与恢复交织正确。
++
++若要覆盖后一语义，应控制原件暂停点，使 `HintDelivered > 0`，在这些字节已
++ACK、可靠原件未到时替换载体，再检查完整内容、半关闭和单次目标拨号。固定
++延迟无丢包路径不能保证产生此先后关系。这个缺口与“测试正在执行但本次未取得
++结果”是两件事。
++
++## 性能归因和开关语义
++
++`sparse_redundancy=false` 当前只关闭本端副本发送。QUIC 配置始终启用 DATAGRAM
++能力，接收端不检查这个布尔值。无副本对照应关闭**两端**；只关客户端不能禁止
++服务端下行副本。若希望开关表示双向禁用，需要另外定义协商／接收策略。
++
++`HintSent` 是 QUIC 成功接受入队的数量，不是线上实际包数；MTU 变化还可能在
++打包时丢弃。`HintDelivered` 是副本先贡献的字节数，不能命名为“已修复丢包
++字节”。原可靠 `Send` 返回时数据可以仍在 QUIC 缓冲中；8 ms 从函数返回计算，
++不是从原包离开发送口计算。quic-go 的
++[packet_packer](https://github.com/quic-go/quic-go/blob/v0.65.0/packet_packer.go)
++在普通 STREAM 数据前装入 DATAGRAM，副本也比 2048 字节原记录更小。故无丢包
++时仍可能因打包顺序、分块和记录读取等待而先交付；先交付本身不是独立丢包恢复证据。
++
++副本预算为 `min(配置速率 × 10%, 64 KiB/s)`，并再计入同一个主预算；关闭
++整形时仍有 64 KiB/s 副本上限。两者按头部、payload 及估计开销计费，允许单条
++记录初始放行，并非任意短时间窗内的硬 10% 线上比例。副本可能额外引发可靠 ACK，
++QUIC 头、ACK、重传和过期后仍发出的副本都要进入外层成本测量。
++
++保留原型的依据应是固定总预算下，成功率、完整失败分母、应用停顿／分位数和
++goodput 共同改善；加上无丢包对照及相同源端后台限速，可区分多发副本与少发后台
++流量的收益。已有计数器有助于解释，但不能取代外层抓包、实际发送时间或独立重复。
+diff --git a/internal/app/config.go b/internal/app/config.go
+index f994bd8..c3b5f0a 100644
+--- a/internal/app/config.go
++++ b/internal/app/config.go
+@@ -27,33 +27,34 @@ type Endpoint struct {
+ 	ServerName string `json:"server_name"`
+ }
+ type Config struct {
+-	TLSListen     string     `json:"tls_listen,omitempty"`
+-	QUICListen    string     `json:"quic_listen,omitempty"`
+-	SOCKSListen   string     `json:"socks_listen,omitempty"`
+-	Endpoints     []Endpoint `json:"endpoints,omitempty"`
+-	CertFile      string     `json:"cert_file,omitempty"`
+-	KeyFile       string     `json:"key_file,omitempty"`
+-	TokenFile     string     `json:"token_file"`
+-	Pin           string     `json:"pin_sha256,omitempty"`
+-	RateMbps      float64    `json:"rate_mbps"`
+-	Priority      bool       `json:"priority"`
+-	Adaptive      bool       `json:"adaptive"`
+-	AllowPrivate  bool       `json:"allow_private_targets,omitempty"`
+-	Window        int        `json:"window_bytes"`
+-	MaxFlows      int        `json:"max_flows"`
+-	MaxSessions   int        `json:"max_sessions,omitempty"`
+-	HeartbeatMS   int        `json:"heartbeat_ms"`
+-	DeadMS        int        `json:"dead_ms"`
+-	ResumeSeconds int        `json:"resume_seconds"`
+-	DialTimeoutMS int        `json:"dial_timeout_ms"`
+-	RotateSeconds int        `json:"test_rotate_seconds,omitempty"`
++	TLSListen        string     `json:"tls_listen,omitempty"`
++	QUICListen       string     `json:"quic_listen,omitempty"`
++	SOCKSListen      string     `json:"socks_listen,omitempty"`
++	Endpoints        []Endpoint `json:"endpoints,omitempty"`
++	CertFile         string     `json:"cert_file,omitempty"`
++	KeyFile          string     `json:"key_file,omitempty"`
++	TokenFile        string     `json:"token_file"`
++	Pin              string     `json:"pin_sha256,omitempty"`
++	RateMbps         float64    `json:"rate_mbps"`
++	Priority         bool       `json:"priority"`
++	Adaptive         bool       `json:"adaptive"`
++	SparseRedundancy bool       `json:"sparse_redundancy,omitempty"`
++	AllowPrivate     bool       `json:"allow_private_targets,omitempty"`
++	Window           int        `json:"window_bytes"`
++	MaxFlows         int        `json:"max_flows"`
++	MaxSessions      int        `json:"max_sessions,omitempty"`
++	HeartbeatMS      int        `json:"heartbeat_ms"`
++	DeadMS           int        `json:"dead_ms"`
++	ResumeSeconds    int        `json:"resume_seconds"`
++	DialTimeoutMS    int        `json:"dial_timeout_ms"`
++	RotateSeconds    int        `json:"test_rotate_seconds,omitempty"`
+ }
+ 
+ func Defaults() Config {
+ 	return Config{RateMbps: 8, Priority: true, Window: 64 << 10, MaxFlows: 32, MaxSessions: 2, HeartbeatMS: 500, DeadMS: 2000, ResumeSeconds: 90, DialTimeoutMS: 1200}
+ }
+ func (c Config) Session() session.Config {
+-	return session.Config{Window: c.Window, MaxFlows: c.MaxFlows, Rate: c.RateMbps * 1e6 / 8, Priority: c.Priority, Adaptive: c.Adaptive, Heartbeat: time.Duration(c.HeartbeatMS) * time.Millisecond, DeadAfter: time.Duration(c.DeadMS) * time.Millisecond, ResumeTTL: time.Duration(c.ResumeSeconds) * time.Second}
++	return session.Config{Window: c.Window, MaxFlows: c.MaxFlows, Rate: c.RateMbps * 1e6 / 8, Priority: c.Priority, Adaptive: c.Adaptive, SparseRedundancy: c.SparseRedundancy, Heartbeat: time.Duration(c.HeartbeatMS) * time.Millisecond, DeadAfter: time.Duration(c.DeadMS) * time.Millisecond, ResumeTTL: time.Duration(c.ResumeSeconds) * time.Second}
+ }
+ func Load(path string) (Config, error) {
+ 	c := Defaults()
+diff --git a/internal/app/integration_test.go b/internal/app/integration_test.go
+index 97e33e9..9c4ac1f 100644
+--- a/internal/app/integration_test.go
++++ b/internal/app/integration_test.go
+@@ -7,6 +7,7 @@ import (
+ 	"io"
+ 	"net"
+ 	"path/filepath"
++	"sync"
+ 	"sync/atomic"
+ 	"testing"
+ 	"time"
+@@ -19,6 +20,14 @@ import (
+ // This crosses the real QUIC/TLS implementations and authenticates both links.
+ // The origin must accept exactly once even though the carrier family changes.
+ func TestQUICToTLSRetainsOriginAndBytes(t *testing.T) {
++	testQUICToTLSRetainsOriginAndBytes(t, false)
++}
++
++func TestQUICToTLSWithSparseCopiesRetainsOriginAndBytes(t *testing.T) {
++	testQUICToTLSRetainsOriginAndBytes(t, true)
++}
++
++func testQUICToTLSRetainsOriginAndBytes(t *testing.T, copies bool) {
+ 	dir := t.TempDir()
+ 	if e := Init(dir, "127.0.0.1", 14443, 14443); e != nil {
+ 		t.Fatal(e)
+@@ -44,6 +53,8 @@ func TestQUICToTLSRetainsOriginAndBytes(t *testing.T) {
+ 	sc.QUICListen = freeUDP.LocalAddr().String()
+ 	_ = freeUDP.Close()
+ 	sc.AllowPrivate = true
++	sc.SparseRedundancy = copies
++	cc.SparseRedundancy = copies
+ 	sc.RateMbps = 0
+ 	cc.RateMbps = 0
+ 	ctx, cancel := context.WithTimeout(context.Background(), 12*time.Second)
+@@ -125,7 +136,13 @@ func TestQUICToTLSRetainsOriginAndBytes(t *testing.T) {
+ 		}
+ 		return l
+ 	}
+-	first := attach("quic", sc.QUICListen, false)
++	quicAddress := sc.QUICListen
++	if copies {
++		// Ensure ACKs cannot arrive before the 8 ms copy timer. Otherwise an
++		// all-loopback test can pass while submitting no copies at all.
++		quicAddress = delayedUDPPath(t, sc.QUICListen, 15*time.Millisecond)
++	}
++	first := attach("quic", quicAddress, false)
+ 	f, e := s.Open(ctx, origin.Addr().String())
+ 	if e != nil {
+ 		t.Fatal(e)
+@@ -147,6 +164,9 @@ func TestQUICToTLSRetainsOriginAndBytes(t *testing.T) {
+ 	if _, e = io.ReadFull(f, got[:32<<10]); e != nil {
+ 		t.Fatal(e)
+ 	}
++	if copies && s.HintSent.Load() == 0 {
++		t.Fatal("copy-enabled recovery test did not exercise any submitted copies")
++	}
+ 	s.Drop(first)
+ 	attach("tls", sc.TLSListen, true)
+ 	readDone := make(chan error, 1)
+@@ -179,3 +199,82 @@ func TestQUICToTLSRetainsOriginAndBytes(t *testing.T) {
+ 		t.Fatalf("origin accepted %d times", accepts.Load())
+ 	}
+ }
++
++// A bounded FIFO delay path for this test only. It does not inspect encrypted
++// payloads, add random losses, or claim to model a real network's performance.
++func delayedUDPPath(t *testing.T, target string, delay time.Duration) string {
++	t.Helper()
++	dst, err := net.ResolveUDPAddr("udp", target)
++	if err != nil {
++		t.Fatal(err)
++	}
++	front, err := net.ListenUDP("udp", &net.UDPAddr{IP: net.IPv4(127, 0, 0, 1)})
++	if err != nil {
++		t.Fatal(err)
++	}
++	back, err := net.DialUDP("udp", nil, dst)
++	if err != nil {
++		front.Close()
++		t.Fatal(err)
++	}
++	ctx, cancel := context.WithCancel(context.Background())
++	t.Cleanup(func() { cancel(); front.Close(); back.Close() })
++	type packet struct {
++		data []byte
++		due  time.Time
++	}
++	up, down := make(chan packet, 256), make(chan packet, 256)
++	var client *net.UDPAddr
++	var mu sync.Mutex
++	read := func(c *net.UDPConn, queue chan<- packet, upstream bool) {
++		buf := make([]byte, 65535)
++		for {
++			n, addr, err := c.ReadFromUDP(buf)
++			if err != nil {
++				return
++			}
++			if upstream {
++				mu.Lock()
++				client = addr
++				mu.Unlock()
++			}
++			p := packet{data: append([]byte(nil), buf[:n]...), due: time.Now().Add(delay)}
++			select {
++			case queue <- p:
++			case <-ctx.Done():
++				return
++			}
++		}
++	}
++	write := func(queue <-chan packet, upstream bool) {
++		for {
++			select {
++			case <-ctx.Done():
++				return
++			case p := <-queue:
++				timer := time.NewTimer(max(0, time.Until(p.due)))
++				select {
++				case <-ctx.Done():
++					timer.Stop()
++					return
++				case <-timer.C:
++				}
++				if upstream {
++					_, _ = back.Write(p.data)
++				} else {
++					mu.Lock()
++					addr := client
++					mu.Unlock()
++					if addr != nil {
++						_, _ = front.WriteToUDP(p.data, addr)
++					}
++				}
++			}
++		}
++	}
++	go read(front, up, true)
++	go read(back, down, false)
++	go write(up, true)
++	go write(down, false)
++	return front.LocalAddr().String()
++}
+diff --git a/internal/carrier/carrier.go b/internal/carrier/carrier.go
+index bd4a187..5c8384a 100644
+--- a/internal/carrier/carrier.go
++++ b/internal/carrier/carrier.go
+@@ -3,6 +3,7 @@
+ package carrier
+ 
+ import (
++	"bytes"
+ 	"context"
+ 	"crypto/sha256"
+ 	"crypto/subtle"
+@@ -22,6 +23,10 @@ import (
+ 
+ const ALPN = "proto-x/1"
+ 
++// Keep copies below the QUIC minimum-path payload limit. No fragmentation is
++// added; a larger original DATA record can be copied as several offset chunks.
++const MaxHintPayload = 900
++
+ type Link struct {
+ 	Kind         string
+ 	TCP          net.Conn
+@@ -30,6 +35,7 @@ type Link struct {
+ 	ctx          context.Context
+ 	cancel       context.CancelFunc
+ 	in           chan wire.Frame
++	hints        chan wire.Frame
+ 	done         chan struct{}
+ 	once         sync.Once
+ 	mu           sync.Mutex
+@@ -40,6 +46,8 @@ type Link struct {
+ 	controlQueue chan wire.Frame
+ 	Sent         atomic.Uint64
+ 	Received     atomic.Uint64
++	HintSent     atomic.Uint64
++	HintReceived atomic.Uint64
+ }
+ type writer struct {
+ 	mu     sync.Mutex
+@@ -78,12 +86,13 @@ func QUICConfig() *quic.Config {
+ 		InitialStreamReceiveWindow: 64 << 10, MaxStreamReceiveWindow: 128 << 10,
+ 		InitialConnectionReceiveWindow: 512 << 10, MaxConnectionReceiveWindow: 4 << 20,
+ 		MaxIncomingStreams: 1, MaxIncomingUniStreams: 128, Allow0RTT: false,
++		EnableDatagrams: true,
+ 	}
+ }
+ 
+ func newLink(kind string, control io.ReadWriteCloser) *Link {
+ 	ctx, cancel := context.WithCancel(context.Background())
+-	return &Link{Kind: kind, control: control, ctx: ctx, cancel: cancel, in: make(chan wire.Frame, 128), controlQueue: make(chan wire.Frame, 64), done: make(chan struct{}), writers: make(map[uint64]*writer), seen: make(map[uint64]bool)}
++	return &Link{Kind: kind, control: control, ctx: ctx, cancel: cancel, in: make(chan wire.Frame, 128), hints: make(chan wire.Frame, 32), controlQueue: make(chan wire.Frame, 64), done: make(chan struct{}), writers: make(map[uint64]*writer), seen: make(map[uint64]bool)}
+ }
+ 
+ func Dial(ctx context.Context, kind, addr string, cfg *tls.Config) (*Link, error) {
+@@ -147,12 +156,88 @@ func (l *Link) Start() {
+ 	go l.readLoop(l.control, 0, l.QUIC != nil)
+ 	if l.QUIC != nil {
+ 		go l.acceptStreams()
++		go l.datagramLoop()
++	}
++}
++
++func (l *Link) SupportsHints() bool {
++	return l.QUIC != nil && l.QUIC.ConnectionState().SupportsDatagrams.Remote
++}
++
++// SendHint is best effort. The reliable stream still carries every DATA byte.
++func (l *Link) SendHint(f wire.Frame) bool {
++	if !l.SupportsHints() || f.Kind != wire.Data || f.ID == 0 || f.ID%2 == 0 ||
++		len(f.Payload) == 0 || len(f.Payload) > MaxHintPayload || f.Flags != 0 || f.Limit != 0 {
++		return false
++	}
++	var b bytes.Buffer
++	if wire.Write(&b, f) != nil || l.QUIC.SendDatagram(b.Bytes()) != nil {
++		return false
++	}
++	l.Sent.Add(uint64(b.Len()))
++	l.HintSent.Add(1)
++	return true
++}
++
++func (l *Link) datagramLoop() {
++	for {
++		b, err := l.QUIC.ReceiveDatagram(l.ctx)
++		if err != nil {
++			return
++		}
++		if len(b) > wire.HeaderSize+MaxHintPayload {
++			continue
++		}
++		r := bytes.NewReader(b)
++		f, err := wire.Read(r)
++		if err != nil || r.Len() != 0 || f.Kind != wire.Data || f.Flags != 0 ||
++			f.Limit != 0 || f.ID == 0 || f.ID%2 == 0 || len(f.Payload) == 0 {
++			continue
++		}
++		f.Unreliable = true
++		l.Received.Add(uint64(len(b)))
++		l.HintReceived.Add(1)
++		// Copies cannot occupy any reliable-record queue slots.
++		select {
++		case l.hints <- f:
++		case <-l.done:
++			return
++		default:
++		}
+ 	}
+ }
+ func (l *Link) Frames() <-chan wire.Frame { return l.in }
+-func (l *Link) Done() <-chan struct{}     { return l.done }
+-func (l *Link) Err() error                { l.mu.Lock(); defer l.mu.Unlock(); return l.err }
+-func (l *Link) Close() error              { l.fail(io.EOF); return nil }
++
++// NextFrame prefers already queued reliable records over optional copies.
++// A copy arriving concurrently may be selected once; it cannot fill or block
++// the separate reliable queue. Session processing is bounded per record.
++func (l *Link) NextFrame(ctx context.Context) (wire.Frame, error) {
++	select {
++	case <-ctx.Done():
++		return wire.Frame{}, ctx.Err()
++	case <-l.done:
++		return wire.Frame{}, io.EOF
++	default:
++	}
++	select {
++	case f := <-l.in:
++		return f, nil
++	default:
++	}
++	select {
++	case <-ctx.Done():
++		return wire.Frame{}, ctx.Err()
++	case <-l.done:
++		return wire.Frame{}, io.EOF
++	case f := <-l.in:
++		return f, nil
++	case f := <-l.hints:
++		return f, nil
++	}
++}
++func (l *Link) Done() <-chan struct{} { return l.done }
++func (l *Link) Err() error            { l.mu.Lock(); defer l.mu.Unlock(); return l.err }
++func (l *Link) Close() error          { l.fail(io.EOF); return nil }
+ func (l *Link) fail(e error) {
+ 	l.once.Do(func() {
+ 		l.mu.Lock()
+diff --git a/internal/carrier/hints_test.go b/internal/carrier/hints_test.go
+new file mode 100644
+index 0000000..3fdf905
+--- /dev/null
++++ b/internal/carrier/hints_test.go
+@@ -0,0 +1,117 @@
++package carrier
++
++import (
++	"bytes"
++	"context"
++	"crypto/ecdsa"
++	"crypto/elliptic"
++	"crypto/rand"
++	"crypto/sha256"
++	"crypto/tls"
++	"crypto/x509"
++	"encoding/hex"
++	"math/big"
++	"testing"
++	"time"
++
++	quic "github.com/quic-go/quic-go"
++	"proto-x/internal/wire"
++)
++
++func TestQUICAuthenticatedDatagramCarriesOnlyOptionalDATA(t *testing.T) {
++	key, err := ecdsa.GenerateKey(elliptic.P256(), rand.Reader)
++	if err != nil {
++		t.Fatal(err)
++	}
++	template := &x509.Certificate{SerialNumber: big.NewInt(1), NotBefore: time.Now().Add(-time.Hour),
++		NotAfter: time.Now().Add(time.Hour), DNSNames: []string{"proto-x.local"},
++		KeyUsage: x509.KeyUsageDigitalSignature, ExtKeyUsage: []x509.ExtKeyUsage{x509.ExtKeyUsageServerAuth}}
++	der, err := x509.CreateCertificate(rand.Reader, template, template, &key.PublicKey, key)
++	if err != nil {
++		t.Fatal(err)
++	}
++	listener, err := quic.ListenAddr("127.0.0.1:0", TLSConfig(tls.Certificate{Certificate: [][]byte{der}, PrivateKey: key}), QUICConfig())
++	if err != nil {
++		t.Fatal(err)
++	}
++	defer listener.Close()
++	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
++	defer cancel()
++	server := make(chan *Link, 1)
++	serverErr := make(chan error, 1)
++	go func() {
++		c, err := listener.Accept(ctx)
++		if err != nil {
++			serverErr <- err
++			return
++		}
++		l, err := AcceptQUIC(ctx, c)
++		if err == nil {
++			l.SetHandshakeDeadline(time.Now().Add(time.Second))
++			_, err = l.HandshakeRead()
++		}
++		if err != nil {
++			serverErr <- err
++			return
++		}
++		l.SetHandshakeDeadline(time.Time{})
++		l.Start()
++		server <- l
++	}()
++	pin := sha256.Sum256(der)
++	tc, err := ClientTLS(hex.EncodeToString(pin[:]), "proto-x.local")
++	if err != nil {
++		t.Fatal(err)
++	}
++	client, err := Dial(ctx, "quic", listener.Addr().String(), tc)
++	if err != nil {
++		t.Fatal(err)
++	}
++	defer client.Close()
++	if err := client.HandshakeWrite(wire.Frame{Kind: wire.Hello, Payload: []byte("fixture")}); err != nil {
++		t.Fatal(err)
++	}
++	var peer *Link
++	select {
++	case peer = <-server:
++	case err := <-serverErr:
++		t.Fatal(err)
++	case <-ctx.Done():
++		t.Fatal(ctx.Err())
++	}
++	defer peer.Close()
++	client.Start()
++	var malformed bytes.Buffer
++	if err := wire.Write(&malformed, wire.Frame{Kind: wire.Open, ID: 1, Payload: []byte("forbidden.test:80")}); err != nil {
++		t.Fatal(err)
++	}
++	if err := client.QUIC.SendDatagram(malformed.Bytes()); err != nil {
++		t.Fatal(err)
++	}
++	if client.SendHint(wire.Frame{Kind: wire.Reset, ID: 1}) {
++		t.Fatal("control record sent as optional data")
++	}
++	if !client.SendHint(wire.Frame{Kind: wire.Data, ID: 1, Offset: 100, Payload: []byte("small response")}) {
++		t.Fatal("valid datagram rejected")
++	}
++	f, err := peer.NextFrame(ctx)
++	if err != nil {
++		t.Fatal(err)
++	}
++	if !f.Unreliable || f.Kind != wire.Data || f.Offset != 100 || string(f.Payload) != "small response" {
++		t.Fatalf("wrong datagram record %+v", f)
++	}
++}
++
++func TestCopyQueueCannotDelayAlreadyQueuedReliableControl(t *testing.T) {
++	l := newLink("fixture", nil)
++	defer l.cancel()
++	for i := 0; i < cap(l.hints); i++ {
++		l.hints <- wire.Frame{Kind: wire.Data, ID: 1, Unreliable: true, Payload: []byte("x")}
++	}
++	l.in <- wire.Frame{Kind: wire.Ack, ID: 1, Offset: 100}
++	f, err := l.NextFrame(context.Background())
++	if err != nil || f.Kind != wire.Ack || f.Unreliable {
++		t.Fatalf("full optional queue hid reliable control: %+v %v", f, err)
++	}
++}
+diff --git a/internal/session/hints.go b/internal/session/hints.go
+new file mode 100644
+index 0000000..de26aca
+--- /dev/null
++++ b/internal/session/hints.go
+@@ -0,0 +1,117 @@
++package session
++
++import (
++	"context"
++	"time"
++
++	"proto-x/internal/carrier"
++	"proto-x/internal/scheduler"
++	"proto-x/internal/wire"
++)
++
++// Sparse copies are delayed to reduce sharing the original packet's fate.
++// QUIC remains free to coalesce them under congestion; there is no assertion
++// that these are independent losses. The packet-level lab must measure that.
++const hintDelay = 8 * time.Millisecond
++
++// This is a PRE-SUBMISSION age limit. quic-go's SendDatagram queue has no expiry
++// API and may block when full; congestion can delay an accepted copy further.
++const hintSubmitWindow = 40 * time.Millisecond
++
++type hint struct {
++	flow       *Flow
++	link       *carrier.Link
++	generation uint64
++	frame      wire.Frame
++	ready      time.Time
++	expires    time.Time
++}
++
++func (s *Session) queueHints(f *Flow, l *carrier.Link, gen uint64, p wire.Frame) {
++	now := time.Now()
++	for at := 0; at < len(p.Payload); {
++		n := min(carrier.MaxHintPayload, len(p.Payload)-at)
++		copyFrame := wire.Frame{Kind: wire.Data, ID: p.ID, Offset: p.Offset + uint64(at),
++			Payload: append([]byte(nil), p.Payload[at:at+n]...)}
++		h := hint{flow: f, link: l, generation: gen, frame: copyFrame,
++			ready: now.Add(hintDelay), expires: now.Add(hintSubmitWindow)}
++		select {
++		case s.hints <- h:
++		default:
++			s.HintSkipped.Add(1)
++		}
++		at += n
++	}
++}
++
++func (s *Session) sendHints() {
++	// Copies consume the SAME total paced budget as original data. This second
++	// budget also limits them to <=10% of configured rate (max64KiB/s), before
++	// headers below QUIC. With shaping off, the explicit64KiB/s cap remains.
++	copyRate := 64.0 * 1024
++	if s.cfg.Rate > 0 {
++		copyRate = min(copyRate, s.cfg.Rate*0.1)
++	}
++	budget := scheduler.New(s.ctx, copyRate, false, false)
++	for {
++		select {
++		case <-s.ctx.Done():
++			return
++		case h := <-s.hints:
++			if !s.hintUseful(h) {
++				s.HintSkipped.Add(1)
++				continue
++			}
++			t := time.NewTimer(max(0, time.Until(h.ready)))
++			select {
++			case <-s.ctx.Done():
++				t.Stop()
++				return
++			case <-t.C:
++			}
++			if !s.hintUseful(h) {
++				s.HintSkipped.Add(1)
++				continue
++			}
++			ctx, cancel := context.WithDeadline(s.ctx, h.expires)
++			cost := wire.HeaderSize + len(h.frame.Payload) + 64
++			err := budget.Acquire(ctx, cost, false)
++			if err == nil && !s.hintUseful(h) {
++				cancel()
++				s.HintSkipped.Add(1)
++				continue
++			}
++			if err == nil {
++				err = s.budget.Acquire(ctx, cost, true)
++			}
++			useful := err == nil && s.hintUseful(h)
++			// Once handed to QUIC, congestion may keep a copy in its internal
++			// bounded queue beyond expires. Byte correctness still comes from
++			// offsets, but this is not a hard wire-deadline guarantee.
++			if useful && h.link.SendHint(h.frame) {
++				s.HintSent.Add(1)
++			} else {
++				s.HintSkipped.Add(1)
++			}
++			cancel()
++		}
++	}
++}
++
++func (s *Session) hintUseful(h hint) bool {
++	if !time.Now().Before(h.expires) {
++		return false
++	}
++	l, gen, _ := s.Current()
++	if l != h.link || gen != h.generation {
++		return false
++	}
++	h.flow.mu.Lock()
++	defer h.flow.mu.Unlock()
++	select {
++	case <-h.flow.done:
++		return false
++	default:
++	}
++	return h.flow.err == nil && h.flow.txBase < h.frame.Offset+uint64(len(h.frame.Payload))
++}
+diff --git a/internal/session/hints_resume_test.go b/internal/session/hints_resume_test.go
+new file mode 100644
+index 0000000..8fb8783
+--- /dev/null
++++ b/internal/session/hints_resume_test.go
+@@ -0,0 +1,257 @@
++package session
++
++import (
++	"bytes"
++	"context"
++	"errors"
++	"fmt"
++	"io"
++	"net"
++	"sync/atomic"
++	"testing"
++	"time"
++
++	"proto-x/internal/carrier"
++	"proto-x/internal/wire"
++)
++
++// This is a session-state test, not a QUIC packet-loss or cryptography test.
++// The first reliable DATA is accepted by a test-only record filter but withheld
++// from the receiver. Its prefix is injected at the receiving Flow boundary with
++// the same Unreliable metadata that a validated QUIC DATAGRAM would carry.
++// The ACK uses the normal record path; no ACK or sender offset is injected.
++func TestHintAcknowledgedBeforeOriginalSurvivesCarrierReplacement(t *testing.T) {
++	ctx, cancel := context.WithTimeout(context.Background(), 8*time.Second)
++	defer cancel()
++
++	const copied = carrier.MaxHintPayload
++	initial := deterministicBytes(wire.DataPayload, 610)
++	tail := deterministicBytes((64<<10)+113, 611)
++	request := append(append([]byte(nil), initial...), tail...)
++	reply := deterministicBytes((32<<10)+47, 612)
++	originPrefix := make(chan error, 1)
++	originDone := make(chan error, 1)
++	o := listenOrigin(t, func(c *net.TCPConn) {
++		prefix := make([]byte, copied)
++		_, err := io.ReadFull(c, prefix)
++		if err == nil && !bytes.Equal(prefix, initial[:copied]) {
++			err = errors.New("origin did not receive the exact hinted prefix")
++		}
++		select {
++		case originPrefix <- err:
++		case <-ctx.Done():
++			return
++		}
++		if err == nil {
++			var rest []byte
++			// A reply is deliberately impossible until the client half-closes.
++			rest, err = io.ReadAll(c)
++			body := append(prefix, rest...)
++			if err == nil && !bytes.Equal(body, request) {
++				err = fmt.Errorf("origin bytes changed across resume: got %d, want %d", len(body), len(request))
++			}
++		}
++		if err == nil {
++			_, err = io.Copy(c, bytes.NewReader(reply))
++		}
++		if err == nil {
++			err = c.CloseWrite()
++		}
++		select {
++		case originDone <- err:
++		case <-ctx.Done():
++		}
++	})
++
++	cfg := testConfig()
++	cfg.SparseRedundancy = true
++	cfg.DeadAfter = 5 * time.Second
++	cfg.ResumeTTL = 10 * time.Second
++	p := newMemorySessions(t, cfg)
++	p.drop()
++
++	// AcceptTLS only wraps a net.Pipe here; it does not run TLS. A single
++	// Write from wire.Write contains a complete record in this fixture.
++	left, right := net.Pipe()
++	captured := make(chan wire.Frame, 1)
++	var held, forwarded atomic.Int64
++	filtered := &filteredWriteConn{Conn: left, drop: func(record wire.Frame) bool {
++		if record.Kind != wire.Data {
++			return false
++		}
++		if held.CompareAndSwap(0, 1) {
++			captured <- record
++			return true
++		}
++		forwarded.Add(int64(len(record.Payload)))
++		return false
++	}}
++	p.cl, p.sl = carrier.AcceptTLS(filtered), carrier.AcceptTLS(right)
++	if err := p.server.Attach(p.sl); err != nil {
++		t.Fatal(err)
++	}
++	if err := p.client.Attach(p.cl); err != nil {
++		t.Fatal(err)
++	}
++	f := openTestFlow(t, p.client, o.address)
++	p.server.mu.Lock()
++	serverFlow := p.server.flows[f.id]
++	p.server.mu.Unlock()
++	if serverFlow == nil {
++		t.Fatal("opened flow has no server state")
++	}
++	serverFlow.mu.Lock()
++	originalSocket := serverFlow.socket
++	serverFlow.mu.Unlock()
++	if originalSocket == nil {
++		t.Fatal("opened flow has no target socket")
++	}
++
++	if n, err := f.Write(initial); err != nil || n != len(initial) {
++		t.Fatalf("initial write: n=%d err=%v", n, err)
++	}
++	original := hintResumeWait(t, ctx, "withheld original DATA", captured)
++	if original.ID != f.id || original.Offset != 0 || !bytes.Equal(original.Payload, initial) {
++		t.Fatalf("unexpected withheld record: id=%d offset=%d bytes=%d", original.ID, original.Offset, len(original.Payload))
++	}
++
++	acknowledged := hintResumeObserveACK(f, copied)
++	copyFrame := wire.Frame{Kind: wire.Data, ID: f.id, Offset: 0,
++		Payload: append([]byte(nil), original.Payload[:copied]...), Unreliable: true}
++	if err := serverFlow.receive(copyFrame); err != nil {
++		t.Fatal(err)
++	}
++	if err := hintResumeWait(t, ctx, "target receipt of hinted bytes", originPrefix); err != nil {
++		t.Fatal(err)
++	}
++	ack := hintResumeWait(t, ctx, "normal ACK of hinted bytes", acknowledged)
++	if ack.err != nil || ack.base != copied || ack.end != uint64(len(initial)) ||
++		!bytes.Equal(ack.retained, initial[copied:]) {
++		t.Fatalf("hint ACK did not trim only the delivered prefix: base=%d end=%d retained=%d err=%v",
++			ack.base, ack.end, len(ack.retained), ack.err)
++	}
++	if got := p.server.HintDelivered.Load(); got != copied {
++		t.Fatalf("test did not deliver its hint: got %d bytes, want %d", got, copied)
++	}
++	if held.Load() != 1 || forwarded.Load() != 0 {
++		t.Fatalf("original escaped before interruption: held=%d forwarded=%d", held.Load(), forwarded.Load())
++	}
++	select {
++	case err := <-originDone:
++		t.Fatalf("target finished before application half-close: %v", err)
++	default:
++	}
++
++	// At this barrier the target consumed the hint and the sender processed
++	// its ACK, but no original DATA reached the receiving session.
++	p.drop()
++	left, right = net.Pipe()
++	replayed := make(chan wire.Frame, 1)
++	var firstReplay atomic.Bool
++	observed := &filteredWriteConn{Conn: left, drop: func(record wire.Frame) bool {
++		if record.Kind == wire.Data && firstReplay.CompareAndSwap(false, true) {
++			replayed <- record
++		}
++		return false
++	}}
++	p.cl, p.sl = carrier.AcceptTLS(observed), carrier.AcceptTLS(right)
++	if err := p.server.Attach(p.sl); err != nil {
++		t.Fatal(err)
++	}
++	if err := p.client.Attach(p.cl); err != nil {
++		t.Fatal(err)
++	}
++	resumed := hintResumeWait(t, ctx, "automatic replay after hint ACK", replayed)
++	if resumed.ID != f.id || resumed.Offset != copied || !bytes.Equal(resumed.Payload, initial[copied:]) {
++		t.Fatalf("resume ignored acknowledged hint offset: id=%d offset=%d bytes=%d", resumed.ID, resumed.Offset, len(resumed.Payload))
++	}
++
++	// Replay the whole withheld original after the automatic suffix. This is
++	// explicit record-layer duplicate injection, not a claim that old QUIC
++	// packets cross connection identities. Link.Send serializes it after the
++	// observed DATA, and the receiver must not deliver the overlap again.
++	if err := p.cl.Send(original); err != nil {
++		t.Fatal(err)
++	}
++	writeDone := make(chan error, 1)
++	readDone := make(chan error, 1)
++	go func() {
++		n, err := f.Write(tail)
++		if err == nil && n != len(tail) {
++			err = io.ErrShortWrite
++		}
++		if err == nil {
++			err = f.CloseWrite()
++		}
++		writeDone <- err
++	}()
++	go func() {
++		body, err := io.ReadAll(f)
++		if err == nil && !bytes.Equal(body, reply) {
++			err = fmt.Errorf("reply changed or EOF was premature: got %d bytes, want %d", len(body), len(reply))
++		}
++		readDone <- err
++	}()
++	for name, ch := range map[string]<-chan error{"writer half-close": writeDone, "reply and EOF": readDone, "origin completion": originDone} {
++		if err := hintResumeWait(t, ctx, name, ch); err != nil {
++			t.Fatalf("%s: %v", name, err)
++		}
++	}
++	if err := f.Close(); err != nil {
++		t.Fatal(err)
++	}
++	hintResumeWait(t, ctx, "client flow retirement", f.done)
++	hintResumeWait(t, ctx, "server flow retirement", serverFlow.done)
++	serverFlow.mu.Lock()
++	sameSocket := serverFlow.socket == originalSocket
++	serverErr := serverFlow.err
++	serverClean := serverFlow.txFinAck && serverFlow.rxReadEOF
++	serverFlow.mu.Unlock()
++	f.mu.Lock()
++	clientErr := f.err
++	clientClean := f.txFinAck && f.rxReadEOF
++	f.mu.Unlock()
++	if !sameSocket || p.dials.Load() != 1 || o.count.Load() != 1 {
++		t.Fatalf("resume recreated target: same=%v dials=%d accepts=%d", sameSocket, p.dials.Load(), o.count.Load())
++	}
++	if clientErr != nil || serverErr != nil || !clientClean || !serverClean {
++		t.Fatalf("half-close ended in reset or incomplete FIN: client=%v/%v server=%v/%v", clientErr, clientClean, serverErr, serverClean)
++	}
++	if p.server.HintDelivered.Load() != copied || p.server.DuplicateBytes.Load() < uint64(len(original.Payload)) {
++		t.Fatalf("hint/overlap path not exercised: hinted=%d duplicates=%d", p.server.HintDelivered.Load(), p.server.DuplicateBytes.Load())
++	}
++}
++
++type hintResumeACK struct {
++	base, end uint64
++	retained  []byte
++	err       error
++}
++
++// Observe the sender's existing ACK condition variable without mutating its
++// offsets. Test cleanup closes the session and wakes this waiter on failure.
++func hintResumeObserveACK(f *Flow, want uint64) <-chan hintResumeACK {
++	result := make(chan hintResumeACK, 1)
++	go func() {
++		f.mu.Lock()
++		for f.txBase < want && f.err == nil {
++			f.cond.Wait()
++		}
++		state := hintResumeACK{base: f.txBase, end: f.txEnd, retained: append([]byte(nil), f.txBuf...), err: f.err}
++		f.mu.Unlock()
++		result <- state
++	}()
++	return result
++}
++
++func hintResumeWait[T any](t *testing.T, ctx context.Context, description string, ch <-chan T) T {
++	t.Helper()
++	select {
++	case value := <-ch:
++		return value
++	case <-ctx.Done():
++		t.Fatalf("waiting for %s: %v", description, ctx.Err())
++		var zero T
++		return zero
++	}
++}
+diff --git a/internal/session/hints_test.go b/internal/session/hints_test.go
+new file mode 100644
+index 0000000..118ceca
+--- /dev/null
++++ b/internal/session/hints_test.go
+@@ -0,0 +1,88 @@
++package session
++
++import (
++	"bytes"
++	"context"
++	"io"
++	"testing"
++
++	"proto-x/internal/carrier"
++	"proto-x/internal/wire"
++)
++
++func hintFlow(t *testing.T) *Flow {
++	t.Helper()
++	s := New("copy-test", false, testConfig())
++	t.Cleanup(func() { s.Close(context.Canceled) })
++	f := newFlow(s, 1, "example.test:443")
++	f.opened = true
++	return f
++}
++
++func TestSparseCopyDeliveredOnceAcrossOriginalOverlap(t *testing.T) {
++	f := hintFlow(t)
++	for _, frame := range []wire.Frame{
++		{Kind: wire.Data, ID: 1, Offset: 0, Payload: []byte("abc"), Unreliable: true},
++		{Kind: wire.Data, ID: 1, Offset: 0, Payload: []byte("abcde")},
++		{Kind: wire.Data, ID: 1, Offset: 3, Payload: []byte("de"), Unreliable: true},
++		{Kind: wire.Fin, ID: 1, Offset: 5},
++	} {
++		if err := f.receive(frame); err != nil {
++			t.Fatal(err)
++		}
++	}
++	got, err := io.ReadAll(f)
++	if err != nil || !bytes.Equal(got, []byte("abcde")) {
++		t.Fatalf("reliable stream changed: %q %v", got, err)
++	}
++	if f.s.HintDelivered.Load() != 3 || f.s.DuplicateBytes.Load() != 5 {
++		t.Fatalf("incorrect delivery accounting: hinted=%d duplicates=%d", f.s.HintDelivered.Load(), f.s.DuplicateBytes.Load())
++	}
++}
++
++func TestOptionalCopyCannotAdvanceAcrossGapOrMutateControlState(t *testing.T) {
++	f := hintFlow(t)
++	frames := []wire.Frame{
++		{Kind: wire.Opened, ID: 1, Offset: 0, Limit: 999999, Unreliable: true},
++		{Kind: wire.Fin, ID: 1, Offset: 0, Unreliable: true},
++		{Kind: wire.Reset, ID: 1, Unreliable: true},
++		{Kind: wire.Data, ID: 1, Offset: 3, Payload: []byte("def"), Unreliable: true},
++		{Kind: wire.Data, ID: 1, Offset: ^uint64(0), Payload: []byte("overflow"), Unreliable: true},
++		{Kind: wire.Data, ID: 1, Offset: 0, Payload: make([]byte, carrier.MaxHintPayload+1), Unreliable: true},
++	}
++	for _, frame := range frames {
++		if err := f.receive(frame); err != nil {
++			t.Fatal(err)
++		}
++	}
++	if f.rxNext != 0 || f.rxEOF || f.err != nil || len(f.rxBuf) != 0 || f.s.HintDelivered.Load() != 0 {
++		t.Fatal("optional input mutated reliable stream state")
++	}
++	// The ordinary reliable path still fills the discarded copy's gap.
++	if err := f.receive(wire.Frame{Kind: wire.Data, ID: 1, Payload: []byte("abcdef")}); err != nil {
++		t.Fatal(err)
++	}
++	got := make([]byte, 6)
++	if _, err := io.ReadFull(f, got); err != nil || string(got) != "abcdef" {
++		t.Fatalf("original data missing: %q %v", got, err)
++	}
++}
++
++func TestOptionalCopyRespectsConsumedWindowAndFinishedStream(t *testing.T) {
++	f := hintFlow(t)
++	f.rxNext = uint64(f.s.cfg.Window)
++	if err := f.receive(wire.Frame{Kind: wire.Data, ID: 1, Offset: f.rxNext, Payload: []byte("x"), Unreliable: true}); err != nil {
++		t.Fatal(err)
++	}
++	if len(f.rxBuf) != 0 {
++		t.Fatal("copy extended a full receive window")
++	}
++	f.rxConsumed = f.rxNext
++	f.rxEOF = true
++	if err := f.receive(wire.Frame{Kind: wire.Data, ID: 1, Offset: f.rxNext, Payload: []byte("x"), Unreliable: true}); err != nil {
++		t.Fatal(err)
++	}
++	if len(f.rxBuf) != 0 {
++		t.Fatal("copy appended after FIN")
++	}
++}
+diff --git a/internal/session/session.go b/internal/session/session.go
+index ab8d06f..675f513 100644
+--- a/internal/session/session.go
++++ b/internal/session/session.go
+@@ -23,16 +23,17 @@ var ErrFlowLimit = errors.New("concurrent flow limit reached")
+ var ErrProtocol = errors.New("invalid flow state")
+ 
+ type Config struct {
+-	Window    int
+-	MaxFlows  int
+-	Rate      float64 // shared bytes/s, including record headers and an overhead estimate
+-	Priority  bool
+-	Adaptive  bool
+-	Heartbeat time.Duration
+-	DeadAfter time.Duration
+-	ResumeTTL time.Duration
+-	Dial      func(context.Context, string) (net.Conn, error)
+-	Logger    *slog.Logger
++	Window           int
++	MaxFlows         int
++	Rate             float64 // shared bytes/s, including record headers and an overhead estimate
++	Priority         bool
++	Adaptive         bool
++	SparseRedundancy bool
++	Heartbeat        time.Duration
++	DeadAfter        time.Duration
++	ResumeTTL        time.Duration
++	Dial             func(context.Context, string) (net.Conn, error)
++	Logger           *slog.Logger
+ }
+ 
+ func (c *Config) defaults() {
+@@ -86,6 +87,10 @@ type Session struct {
+ 	RecordReceived atomic.Uint64
+ 	DuplicateBytes atomic.Uint64
+ 	RTTNanos       atomic.Int64
++	hints          chan hint
++	HintSent       atomic.Uint64
++	HintSkipped    atomic.Uint64
++	HintDelivered  atomic.Uint64
+ }
+ 
+ type tombstone struct {
+@@ -98,6 +103,10 @@ func New(id string, server bool, cfg Config) *Session {
+ 	ctx, cancel := context.WithCancel(context.Background())
+ 	s := &Session{ID: id, Server: server, cfg: cfg, ctx: ctx, cancel: cancel, flows: make(map[uint64]*Flow), tombs: make(map[uint64]tombstone), nextID: 1, detached: time.Now(), started: time.Now(), changed: make(chan struct{})}
+ 	s.budget = scheduler.New(ctx, cfg.Rate, cfg.Priority, cfg.Adaptive)
++	if cfg.SparseRedundancy {
++		s.hints = make(chan hint, 64)
++		go s.sendHints()
++	}
+ 	go s.maintenance()
+ 	return s
+ }
+@@ -169,6 +178,11 @@ func (s *Session) Close(err error) {
+ 	for _, f := range fs {
+ 		f.fail(err, false)
+ 	}
++	if s.cfg.SparseRedundancy {
++		s.cfg.Logger.Info("sparse redundancy counters", "server", s.Server,
++			"sent_datagrams", s.HintSent.Load(), "skipped_copies", s.HintSkipped.Load(),
++			"first_delivered_bytes", s.HintDelivered.Load(), "duplicate_data_bytes", s.DuplicateBytes.Load())
++	}
+ }
+ func (s *Session) flowListLocked() []*Flow {
+ 	fs := make([]*Flow, 0, len(s.flows))
+@@ -226,96 +240,96 @@ func (s *Session) Open(ctx context.Context, target string) (*Flow, error) {
+ 
+ func (s *Session) receive(l *carrier.Link) {
+ 	for {
+-		select {
+-		case <-s.ctx.Done():
+-			return
+-		case <-l.Done():
++		p, err := l.NextFrame(s.ctx)
++		if err != nil {
+ 			s.Drop(l)
+ 			return
+-		case p := <-l.Frames():
+-			current, _, _ := s.Current()
+-			if current != l {
+-				return
+-			}
+-			s.lastRX.Store(int64(time.Since(s.started)))
+-			if p.ID == 0 {
+-				switch p.Kind {
+-				case wire.Ping:
+-					if !l.QueueControl(wire.Frame{Kind: wire.Pong, Offset: p.Offset}) {
+-						s.Drop(l)
+-						return
+-					}
+-				case wire.Pong:
+-					elapsed := time.Since(s.started)
+-					if p.Offset > uint64(elapsed) {
+-						s.Drop(l)
+-						return
+-					}
+-					rtt := elapsed - time.Duration(p.Offset)
+-					s.RTTNanos.Store(int64(rtt))
+-					s.budget.ObserveRTT(rtt)
+-				default:
++		}
++		current, _, _ := s.Current()
++		if current != l {
++			return
++		}
++		s.lastRX.Store(int64(time.Since(s.started)))
++		if p.ID == 0 {
++			switch p.Kind {
++			case wire.Ping:
++				if !l.QueueControl(wire.Frame{Kind: wire.Pong, Offset: p.Offset}) {
+ 					s.Drop(l)
+ 					return
+ 				}
+-				continue
++			case wire.Pong:
++				elapsed := time.Since(s.started)
++				if p.Offset > uint64(elapsed) {
++					s.Drop(l)
++					return
++				}
++				rtt := elapsed - time.Duration(p.Offset)
++				s.RTTNanos.Store(int64(rtt))
++				s.budget.ObserveRTT(rtt)
++			default:
++				s.Drop(l)
++				return
+ 			}
+-			if p.ID%2 != 1 {
++			continue
++		}
++		if p.ID%2 != 1 {
++			s.Drop(l)
++			return
++		}
++		s.mu.Lock()
++		f := s.flows[p.ID]
++		tomb, closed := s.tombs[p.ID]
++		stale := s.maxID > 8192 && p.ID < s.maxID-8192
++		if f == nil && p.Kind == wire.Open && s.Server && !closed && !stale && len(s.flows) < s.cfg.MaxFlows {
++			target := string(p.Payload)
++			if len(target) == 0 || len(target) > 1024 {
++				s.mu.Unlock()
+ 				s.Drop(l)
+ 				return
+ 			}
+-			s.mu.Lock()
+-			f := s.flows[p.ID]
+-			tomb, closed := s.tombs[p.ID]
+-			stale := s.maxID > 8192 && p.ID < s.maxID-8192
+-			if f == nil && p.Kind == wire.Open && s.Server && !closed && !stale && len(s.flows) < s.cfg.MaxFlows {
+-				target := string(p.Payload)
+-				if len(target) == 0 || len(target) > 1024 {
+-					s.mu.Unlock()
++			f = newFlow(s, p.ID, target)
++			s.flows[p.ID] = f
++			if p.ID > s.maxID {
++				s.maxID = p.ID
++			}
++			go f.sendLoop()
++			go s.connectTarget(f)
++		}
++		s.mu.Unlock()
++		if f == nil {
++			if p.Unreliable {
++				continue
++			}
++			if p.Kind == wire.Reset || p.Kind == wire.Ack {
++				continue
++			}
++			// A completed flow's compact tombstone preserves graceful FIN
++			// semantics if its last ACK was lost with the previous carrier.
++			if closed && !tomb.reset {
++				kind := uint8(wire.Ack)
++				if p.Kind == wire.Open {
++					kind = wire.Opened
++				}
++				if !l.QueueControl(wire.Frame{Kind: kind, Flags: wire.FlagFIN, ID: p.ID, Offset: tomb.received, Limit: tomb.received + uint64(s.cfg.Window)}) {
+ 					s.Drop(l)
+ 					return
+ 				}
+-				f = newFlow(s, p.ID, target)
+-				s.flows[p.ID] = f
+-				if p.ID > s.maxID {
+-					s.maxID = p.ID
+-				}
+-				go f.sendLoop()
+-				go s.connectTarget(f)
+-			}
+-			s.mu.Unlock()
+-			if f == nil {
+-				if p.Kind == wire.Reset || p.Kind == wire.Ack {
+-					continue
+-				}
+-				// A completed flow's compact tombstone preserves graceful FIN
+-				// semantics if its last ACK was lost with the previous carrier.
+-				if closed && !tomb.reset {
+-					kind := uint8(wire.Ack)
+-					if p.Kind == wire.Open {
+-						kind = wire.Opened
+-					}
+-					if !l.QueueControl(wire.Frame{Kind: kind, Flags: wire.FlagFIN, ID: p.ID, Offset: tomb.received, Limit: tomb.received + uint64(s.cfg.Window)}) {
+-						s.Drop(l)
+-						return
+-					}
+-					if p.Kind == wire.Open {
+-						if !l.QueueControl(wire.Frame{Kind: wire.Fin, ID: p.ID, Offset: tomb.sent}) {
+-							s.Drop(l)
+-							return
+-						}
+-					}
+-				} else {
+-					if !l.QueueControl(wire.Frame{Kind: wire.Reset, ID: p.ID, Payload: []byte("flow unavailable")}) {
++				if p.Kind == wire.Open {
++					if !l.QueueControl(wire.Frame{Kind: wire.Fin, ID: p.ID, Offset: tomb.sent}) {
+ 						s.Drop(l)
+ 						return
+ 					}
+ 				}
+-				continue
+-			}
+-			if err := f.receive(p); err != nil {
+-				f.fail(err, true)
++			} else {
++				if !l.QueueControl(wire.Frame{Kind: wire.Reset, ID: p.ID, Payload: []byte("flow unavailable")}) {
++					s.Drop(l)
++					return
++				}
+ 			}
++			continue
++		}
++		if err := f.receive(p); err != nil {
++			f.fail(err, true)
+ 		}
+ 	}
+ }
+@@ -563,6 +577,16 @@ func (f *Flow) Close() error {
+ func (f *Flow) receive(p wire.Frame) error {
+ 	f.mu.Lock()
+ 	defer f.mu.Unlock()
++	// Delayed copies never open/reset a flow, extend its receive window, or
++	// create state. Future-offset copies are discarded; reliable originals
++	// eventually fill any gap. Old-carrier copies are filtered by Session.
++	if p.Unreliable && (p.Kind != wire.Data || !f.opened || f.err != nil ||
++		len(p.Payload) == 0 || len(p.Payload) > carrier.MaxHintPayload ||
++		p.Offset > f.rxNext || p.Offset > ^uint64(0)-uint64(len(p.Payload)) ||
++		p.Offset+uint64(len(p.Payload)) > f.rxConsumed+uint64(f.s.cfg.Window) ||
++		(f.rxEOF && p.Offset+uint64(len(p.Payload)) > f.rxNext)) {
++		return nil
++	}
+ 	if f.err != nil {
+ 		if p.Kind != wire.Reset {
+ 			f.resetPending = true
+@@ -634,6 +658,9 @@ func (f *Flow) receive(p wire.Frame) error {
+ 			return ErrProtocol
+ 		}
+ 		f.s.DuplicateBytes.Add(skip)
++		if p.Unreliable {
++			f.s.HintDelivered.Add(uint64(len(p.Payload)) - skip)
++		}
+ 		f.rxBuf = append(f.rxBuf, p.Payload[skip:]...)
+ 		f.rxNext = end
+ 		f.ackPending = true
+@@ -759,6 +786,9 @@ func (f *Flow) sendLoop() {
+ 			continue
+ 		}
+ 		err := l.Send(p)
++		if err == nil && f.s.cfg.SparseRedundancy && high && p.Kind == wire.Data && l.SupportsHints() {
++			f.s.queueHints(f, l, generation, p)
++		}
+ 		f.mu.Lock()
+ 		f.inFlight = false
+ 		if err == nil {
+diff --git a/internal/wire/frame.go b/internal/wire/frame.go
+index 8e9b042..527df73 100644
+--- a/internal/wire/frame.go
++++ b/internal/wire/frame.go
+@@ -30,12 +30,15 @@ const (
+ const FlagFIN uint8 = 1
+ 
+ type Frame struct {
+-	Kind    uint8
+-	Flags   uint8
+-	ID      uint64
+-	Offset  uint64
+-	Limit   uint64
+-	Payload []byte
++	// Unreliable is local carrier metadata, never encoded on the wire. Only
++	// authenticated QUIC DATAGRAM copies may set it; streams stay authoritative.
++	Unreliable bool
++	Kind       uint8
++	Flags      uint8
++	ID         uint64
++	Offset     uint64
++	Limit      uint64
++	Payload    []byte
+ }
+ 
+ var ErrFrame = errors.New("invalid protocol record")
+-- 
+2.55.0
+

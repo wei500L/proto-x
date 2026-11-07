@@ -1,0 +1,146 @@
+{
+  "kind": "frozen-old-fork-cc-control-prototype",
+  "time_utc": "2026-11-06T23:11:41.216054+00:00",
+  "prototype_base": "5d80253d057b5004a3fad77d50ea4ed315eb0b85",
+  "go_version": "go version go1.27.1 darwin/arm64",
+  "source_sha256": {
+    "cmd/protox/main.go": "c314bb56af6ae0331d76dcceb94d7ce34e7c6ef59984697e5dbe459a865805b2",
+    "cmd/pxbench/main.go": "9e139ba49264571061de1b29f99f3a691fd3f687d815ed6599591a62ea09b6df",
+    "go.mod": "6a27ef6442ae1896e6d1394890e0fb848bb2912219f4e0fdfcaa054c8d5996e0",
+    "go.sum": "fb762e68a59a1205d59b60fd67f7da0bffd078f3ab1a15f3046cf4a10ddab1fd",
+    "internal/app/client.go": "91e23b44dc5af01db3d360adaaba69ad9068faad9e0ddd86e29d9a6445d9df28",
+    "internal/app/config.go": "c626e4e5a839fa024d718d94efdc1a93add3983c23ca524ee32cf787e13c497c",
+    "internal/app/integration_test.go": "ac6a19fc4dbbef01aecde3160304b93150f0d29e16e4163e54ac9254d2570f44",
+    "internal/app/server.go": "d95e360c161f68e9c425479d97c0265d3ec134d73b0168bff934bed626b71a37",
+    "internal/bench/bench_test.go": "360e4e4aa7eaafdeaa80708bede0b43db0a6dd4cbcf0789e1fb6452b0dd372d0",
+    "internal/bench/events.go": "3407be85842e46e26f9d2b78f94b4da0dea356d1675ef09b828845f5d755e389",
+    "internal/bench/payload.go": "e81ab00e863b6f0cd567727e2c1bd31f832a0235997fd2a8b4599c6a975aa577",
+    "internal/bench/run.go": "6956c37a3653c4ed02c29840a7e81be7a23e5eb9f4bb02b21e52e25e01e37620",
+    "internal/bench/serve.go": "fdced44b2e507cc0c8db5891b22fd694161df80d71c4b31d64a1533162c34aba",
+    "internal/bench/socks.go": "fe2ad579300172d260233772ed4e5917ec5b062151104f9fedff42b90f5ead69",
+    "internal/carrier/carrier.go": "bc143e0547c194001f9be9ffce1778f38cb4a7466e4904dc05db5a1142f5fee0",
+    "internal/carrier/experimental_cc.go": "545e2e787b8a61a09b25c39036e3e4c37e5b6d3cfabca874140bd7d89b6fce2e",
+    "internal/hycc/LICENSE.hysteria": "b279cfdac4db4b077f0660b5d8156d50a8bc7bd410036dc356499af43c4e84f5",
+    "internal/hycc/LICENSE.quic-go": "77d0b7b53e8abb84cf4dd3f9945a7fdf27044240d2e8023966a721a9a46fe96e",
+    "internal/hycc/SOURCE.json": "d61fffd05d4abe81004dd5649da4efbc9a61ed3d73b65050d0e3f2ef324db7a3",
+    "internal/hycc/bbr/bandwidth.go": "88c1645d59e0ef379cee2f3b40f32c5f9a9b83a1973a70c2874c75112057145c",
+    "internal/hycc/bbr/bandwidth_sampler.go": "16fb21e17af2750d0687f13eceab1d2eba61e4be7c8cff520dc873d556d9bb7e",
+    "internal/hycc/bbr/bbr_sender.go": "29efc133d8b9d5941ed4750767d4dd7aa079d1121895b62a19355f53d9d0afd8",
+    "internal/hycc/bbr/bbr_sender_test.go": "227e9a78359c09d3514247ab81d181c7c29abacc3e5ad746eb21bd43f6165f8b",
+    "internal/hycc/bbr/clock.go": "189e4ad09b252e33505b67760d4e362ee34fb7b000bf69903e2747dec3bacaab",
+    "internal/hycc/bbr/packet_number_indexed_queue.go": "f01bdc184723d7b153713128e48758ca18fca9e4ffb157f18c2b2edecfbf7f1a",
+    "internal/hycc/bbr/ringbuffer.go": "0a0ff11bd56a8c64a53db421b0d71560144c8690db7c726bc9fbc93465b0e589",
+    "internal/hycc/bbr/windowed_filter.go": "e573928f676d7ab9a6b8bbfd3530eb4a99fa96bc2861e7c271e242f6d2becce2",
+    "internal/hycc/brutal/brutal.go": "6a2df763c8dabfc505419d7150de0e2afa3b8a9c5d2aadb75d3d6a941f67412e",
+    "internal/hycc/brutal/brutal_test.go": "74beab811fa33daca11a664315960e97dc48f7306d132f6b30a7e5a147be83a7",
+    "internal/hycc/common/pacer.go": "ca7cb0bd5897e573050522d7c8ec85b21964843d7cd2ac2fb0929f375442ed3c",
+    "internal/hycc/utils.go": "3834f7feade690a852b20af40b0e18693487959128e4be144d9d421959f42735",
+    "internal/scheduler/budget.go": "6205179eb8d05938e1429a15ffd182af86596a7ec2a53316c3e5b21394543bbe",
+    "internal/session/session.go": "d92453fcda56bb63534094cd0aae7e343f1d1925580fc8636730de1bcf1a4a18",
+    "internal/session/session_test.go": "ec580e7917d4a16f9868aabdc556286081e1c1e59dd3e8a796e37817eaf7ee13",
+    "internal/wire/frame.go": "bc1d02545261a1171e26f1aa7edb81c577199c4bb98fde3b5bf768f5ea3dafad",
+    "internal/wire/frame_test.go": "7d3a973468cb1c236583cf33d16e92c68b63e6691a95ec364672bb5ca3bae621",
+    "scripts/baselines/tlscover.go": "4ef6e03e31306fea5c86ad8eda0da948db2ea6a594397283be3871e3b3fe3dd6",
+    "tools/securitycheck/main.go": "b23c913aa0fc673297c7a89b96cece3bcbaaa29f8b0ea7236e2641f8f00fd986"
+  },
+  "binaries": {
+    "bin/protox-cc-darwin-arm64": {
+      "sha256": "af557f02ff97d5a5964a2b670b62a2068eccabda7e2b7b4a363256aad433c41e",
+      "bytes": 13547138
+    },
+    "bin/protox-cc-linux-arm64": {
+      "sha256": "46b55aa58073753d2a3fa16d76c117ce86692eaca57a2b05e355e52700c45819",
+      "bytes": 13260332
+    }
+  },
+  "build_commands": [
+    "CGO_ENABLED=0 go build -trimpath -ldflags=-X=main.version=0.1.0-research-hycc -o bin/protox-cc-darwin-arm64 ./cmd/protox",
+    "CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -trimpath -ldflags=-X=main.version=0.1.0-research-hycc -o bin/protox-cc-linux-arm64 ./cmd/protox"
+  ],
+  "validation": {
+    "full_suite": {
+      "command": [
+        "go",
+        "test",
+        "-race",
+        "-count=1",
+        "./..."
+      ],
+      "exit_code": 0,
+      "evidence": "Observed complete tool output in this session; controller-specific JSONL checks are in tests/.",
+      "scope": "All existing project tests plus unchanged upstream BBR/Brutal tests; default fork Reno carrier."
+    },
+    "mode_recovery_tests": [
+      {
+        "mode": "hy-bbr-standard",
+        "command": [
+          "go",
+          "test",
+          "-race",
+          "-count=1",
+          "-json",
+          "./internal/app",
+          "-run",
+          "^TestQUICToTLSRetainsOriginAndBytes$"
+        ],
+        "brutal_mbps": null,
+        "exit_code": 0,
+        "time_utc": "2026-11-06T23:09:56.019486+00:00"
+      },
+      {
+        "mode": "hy-bbr-conservative",
+        "command": [
+          "go",
+          "test",
+          "-race",
+          "-count=1",
+          "-json",
+          "./internal/app",
+          "-run",
+          "^TestQUICToTLSRetainsOriginAndBytes$"
+        ],
+        "brutal_mbps": null,
+        "exit_code": 0,
+        "time_utc": "2026-11-06T23:09:57.621222+00:00"
+      },
+      {
+        "mode": "hy-bbr-aggressive",
+        "command": [
+          "go",
+          "test",
+          "-race",
+          "-count=1",
+          "-json",
+          "./internal/app",
+          "-run",
+          "^TestQUICToTLSRetainsOriginAndBytes$"
+        ],
+        "brutal_mbps": null,
+        "exit_code": 0,
+        "time_utc": "2026-11-06T23:09:59.205048+00:00"
+      },
+      {
+        "mode": "hy-brutal",
+        "command": [
+          "go",
+          "test",
+          "-race",
+          "-count=1",
+          "-json",
+          "./internal/app",
+          "-run",
+          "^TestQUICToTLSRetainsOriginAndBytes$"
+        ],
+        "brutal_mbps": 6,
+        "exit_code": 0,
+        "time_utc": "2026-11-06T23:10:00.807435+00:00"
+      }
+    ]
+  },
+  "limits": [
+    "Linux ARM64 binary is cross-compiled, not executed by this agent.",
+    "Loopback recovery tests are not a latency/throughput comparison.",
+    "No VPS or matrix VM operations performed.",
+    "Hysteria official release uses Go1.26.8 and has vcs.modified=true; this prototype is Go1.27.1. Raw CC source hashes prove source copy transformation, not binary-equivalence to the official Hysteria executable."
+  ]
+}

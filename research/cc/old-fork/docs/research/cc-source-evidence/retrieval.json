@@ -1,0 +1,26 @@
+[
+  {
+    "name": "v0.64.0",
+    "url": "https://api.github.com/repos/quic-go/quic-go/releases/tags/v0.64.0",
+    "retrieved_utc": "2026-11-06T23:04:32.202570+00:00",
+    "summary": "saved"
+  },
+  {
+    "name": "v0.64.1",
+    "url": "https://api.github.com/repos/quic-go/quic-go/releases/tags/v0.64.1",
+    "retrieved_utc": "2026-11-06T23:04:32.199464+00:00",
+    "summary": "This patch release fixes datagram receive cancellation and stream reset handling.\r\n\r\n## Notable Fixes\r\n\r\n* `Conn.ReceiveDatagram` now fails immediately if the context is already canceled: [#5947](https://github.com/quic-go/quic-go/pull/5947)\r\n* http3: `Stream.ReceiveDatagram` and `RequestStream.ReceiveDatagram` now fail immediately if the context is already canceled: [#5948](https://github.com/quic-go/quic-go/pull/5948)\r\n* Stream reset handling now ignores reliable boundary updates after cancellation: [#5950](https://github.com/quic-go/quic-go/pull/5950)\r\n\r\n"
+  },
+  {
+    "name": "v0.65.0",
+    "url": "https://api.github.com/repos/quic-go/quic-go/releases/tags/v0.65.0",
+    "retrieved_utc": "2026-11-06T23:04:32.209929+00:00",
+    "summary": "saved"
+  },
+  {
+    "name": "security-advisories",
+    "url": "https://api.github.com/repos/quic-go/quic-go/security-advisories?per_page=100",
+    "retrieved_utc": "2026-11-06T23:04:32.419297+00:00",
+    "summary": "saved"
+  }
+]

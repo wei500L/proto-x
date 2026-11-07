@@ -1,0 +1,117 @@
+{
+  "declared_utc": "2026-11-06T23:45:51.217885+00:00",
+  "status_at_declaration": "not yet run; seed307 has never been used in the lab",
+  "authorization": "Primary researcher explicitly released the previously held-out seed after all 15 discovery trials finished.",
+  "run_id": "hints-confirm-loss5-paced1-s307-20261106T234551Z",
+  "stage": "confirmation",
+  "seed": 307,
+  "variants_input_order": [
+    "px-hints-off",
+    "px-hints-on",
+    "hy-brutal6"
+  ],
+  "schedule": [
+    "px-hints-off",
+    "px-hints-on",
+    "hy-brutal6"
+  ],
+  "randomization": "Python random.Random(307).shuffle on the declared input order; no redraw",
+  "duration_s": 90,
+  "warmup_s": 3,
+  "duration_change_from_screening": "90s measurement instead of 25s; separate 3s warmup unchanged",
+  "profile": "loss5-jitter5",
+  "physical_down_mbps": 8,
+  "physical_up_mbps": 2,
+  "rtt_ms": 60,
+  "jitter_ms_each_direction": 5,
+  "random_loss_pct_each_direction": 5,
+  "queue_ms_nominal": 100,
+  "background_workers": 1,
+  "background_mbps_source_budget_per_worker": 1,
+  "workload": {
+    "https_post_rps": 5,
+    "http_response_bytes": 1024,
+    "http_keep_alive": true,
+    "owned_ca_verified": true,
+    "echo_min_interval_ms": 100,
+    "sse_source_interval_ms": 50,
+    "operation_timeout_s": 3,
+    "uploads": 0,
+    "gomaxprocs_per_process": 1
+  },
+  "px_settings": {
+    "window_bytes": 65536,
+    "priority": true,
+    "adaptive": false,
+    "rate_server_client_mbps": [
+      8,
+      2
+    ],
+    "congestion_control": "quic-go v0.65.0 default Reno",
+    "sparse_redundancy_off_on_on_both_endpoints": [
+      false,
+      true
+    ]
+  },
+  "baseline": "Hysteria2.13.0 official binary; Brutal6Mbps server /1.5Mbps client, loss compensation active",
+  "binaries_sha256": {
+    "protox": "0b42f0a8fc63165ed1e9e99d4eb650da6af4e3c097a2a08913fa6e50595d98fe",
+    "pxbench": "e01e8df7756512820dc823b7b42f7f4fe58ad952ad3f76f95b7c610f3692353a",
+    "hysteria": "a68a61a84452ca250ce0368202521965ca9cc9d801a404f1dc9008ac6cf677a7"
+  },
+  "source_files_sha256": {
+    "go.mod": "f74ed957837b47fe3c782a27947eed0ba133bfe75ff6bb9c3cd07214b3bae33c",
+    "go.sum": "eee3207734fdb37d8c9b2c695698472633058bde515fba9b53e610891c38889b",
+    "internal/app/client.go": "91e23b44dc5af01db3d360adaaba69ad9068faad9e0ddd86e29d9a6445d9df28",
+    "internal/app/config.go": "ff513a224f68d8270fc289ce083cb4b3f0365def01bb7ba2d0ed1ca6b4025bc2",
+    "internal/app/integration_test.go": "efb56b335a388ce3c296def2a86ffe49b8264c295f3e0d27d1b127b5f761cf46",
+    "internal/app/server.go": "93aa90141e2b25dd3aaafa77c9479636178b779e363fdd84eb728b6ab944bc29",
+    "internal/bench/bench_test.go": "360e4e4aa7eaafdeaa80708bede0b43db0a6dd4cbcf0789e1fb6452b0dd372d0",
+    "internal/bench/events.go": "3407be85842e46e26f9d2b78f94b4da0dea356d1675ef09b828845f5d755e389",
+    "internal/bench/payload.go": "e81ab00e863b6f0cd567727e2c1bd31f832a0235997fd2a8b4599c6a975aa577",
+    "internal/bench/run.go": "6956c37a3653c4ed02c29840a7e81be7a23e5eb9f4bb02b21e52e25e01e37620",
+    "internal/bench/serve.go": "fdced44b2e507cc0c8db5891b22fd694161df80d71c4b31d64a1533162c34aba",
+    "internal/bench/socks.go": "fe2ad579300172d260233772ed4e5917ec5b062151104f9fedff42b90f5ead69",
+    "internal/carrier/carrier.go": "381c9e7630e0104c3db441b406e0c23494ce8a5addf74ad1dffd78f6aafc6e6e",
+    "internal/carrier/hints_test.go": "34a214ccc38250ae9601f769b1c0986a88a79f1ce6d5faae7d37162169fab994",
+    "internal/scheduler/budget.go": "6205179eb8d05938e1429a15ffd182af86596a7ec2a53316c3e5b21394543bbe",
+    "internal/session/hints.go": "288fe61ae98c19563d74425ba3f2b1b001e885f94b995ebadccabdfc896f111e",
+    "internal/session/hints_resume_test.go": "0f92bfb38f530cea0c84b1364cf59459a39520c06110be37c80065847c37b9b7",
+    "internal/session/hints_test.go": "cce62c8be9b2192e8a168d94fb8e80fab81d559a0dd6820189dfd02d24a4dcab",
+    "internal/session/session.go": "15a51ecde9708c221a8fe68436cdc83c356f6e0ca6aee44978707d4125ecedb3",
+    "internal/session/session_test.go": "ec580e7917d4a16f9868aabdc556286081e1c1e59dd3e8a796e37817eaf7ee13",
+    "internal/wire/frame.go": "9efa3c0cdcdd7ab05388f0e937f805167f96c9afd411ff808470bc6ee0e8be11",
+    "internal/wire/frame_test.go": "7d3a973468cb1c236583cf33d16e92c68b63e6691a95ec364672bb5ca3bae621",
+    "cmd/protox/main.go": "c314bb56af6ae0331d76dcceb94d7ce34e7c6ef59984697e5dbe459a865805b2",
+    "cmd/pxbench/main.go": "9e139ba49264571061de1b29f99f3a691fd3f687d815ed6599591a62ea09b6df"
+  },
+  "runner_files_sha256": {
+    "tools/lab/hint_matrix.py": "44a2ada49ee1d552c13e902a4f8d7e60f0980c7f75a63a8346ebff0b3ed4c4c6",
+    "tools/lab/matrix.py": "85e1d8cf7a9b9545395d4d5e5d50bba48e44495815b96110b76c6250372c7fa5",
+    "tools/lab/netlab.py": "aff761f96aba34f6b61eca7d343060c856c27cefc8575e3e0675fe37dbfe2ba5",
+    "tools/lab/cc_matrix.py": "78c7d23fd8f263d39ab4a30eceae4f07b7b3266283861f1c29d909f9bec5c859",
+    "scripts/lab/run-hint-matrix.sh": "41c45c50b842f54a5a9b959d7e8701015481ad9de643743679a5ae09d3bcd057",
+    "tools/lab/summarize.py": "cd3a38eaf270f2e546150c83e6450371688501f777cf0192217e5c2275c185b5"
+  },
+  "primary_criterion": {
+    "comparison": "hints-on versus hints-off; same executable and remaining settings",
+    "directional_pass": "Both HTTP complete-response p95 and echo p95 are lower for hints-on. This is a single-seed replication criterion, not a statistical-significance or general-superiority claim.",
+    "failure_context": "Report all attempts, full timeouts, failures, rejections and end censoring with success-only quantiles; a percentile gain obtained by dropping difficult requests is not accepted as evidence."
+  },
+  "secondary_comparison": "Also report hints-on versus HyBrutal6 for both p95 values; do not promote a favorable subset of metrics into overall superiority.",
+  "mandatory_reporting": [
+    "HTTP p50/p95/p99 and successful TTFB",
+    "echo p50/p95/p99",
+    "all failure/timeout/rejection/censoring counts",
+    "SSE source and receive gaps including p99/max, >250ms and >1s counts, terminal censoring",
+    "source generation jitter",
+    "download validated bytes and goodput",
+    "both-direction qdisc bytes and ratio to download bytes",
+    "CPU/RSS",
+    "hints activity with missing-client-log limitation",
+    "binary/source/config identity and raw-event verification"
+  ],
+  "stopping_rule": "Exactly one scheduled 90s measurement per variant. Freeze report after all outcomes, including failures. No parameter changes, seed replacement or favorable-result retries.",
+  "scope": "Local Linux VM packet-level netem, static path. No Russian field validation, traffic-classifier test, migration or long-term reliability inference.",
+  "screening_comparison_sha256": "5517dd97da27ebb40046a47fdede6b9b448cf9383bf7753fbae189c44bb33abf"
+}

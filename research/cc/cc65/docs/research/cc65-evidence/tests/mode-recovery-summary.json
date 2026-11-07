@@ -1,0 +1,66 @@
+[
+  {
+    "mode": "hy-bbr-standard",
+    "command": [
+      "go",
+      "test",
+      "-race",
+      "-count=1",
+      "-json",
+      "./internal/app",
+      "-run",
+      "^TestQUICToTLSRetainsOriginAndBytes$"
+    ],
+    "brutal_mbps": null,
+    "exit_code": 0,
+    "elapsed_seconds": 2.2211198806762695
+  },
+  {
+    "mode": "hy-bbr-conservative",
+    "command": [
+      "go",
+      "test",
+      "-race",
+      "-count=1",
+      "-json",
+      "./internal/app",
+      "-run",
+      "^TestQUICToTLSRetainsOriginAndBytes$"
+    ],
+    "brutal_mbps": null,
+    "exit_code": 0,
+    "elapsed_seconds": 2.707190990447998
+  },
+  {
+    "mode": "hy-bbr-aggressive",
+    "command": [
+      "go",
+      "test",
+      "-race",
+      "-count=1",
+      "-json",
+      "./internal/app",
+      "-run",
+      "^TestQUICToTLSRetainsOriginAndBytes$"
+    ],
+    "brutal_mbps": null,
+    "exit_code": 0,
+    "elapsed_seconds": 1.5572288036346436
+  },
+  {
+    "mode": "hy-brutal",
+    "command": [
+      "go",
+      "test",
+      "-race",
+      "-count=1",
+      "-json",
+      "./internal/app",
+      "-run",
+      "^TestQUICToTLSRetainsOriginAndBytes$"
+    ],
+    "brutal_mbps": 6,
+    "exit_code": 0,
+    "elapsed_seconds": 1.5946769714355469
+  }
+]

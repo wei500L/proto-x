@@ -1,0 +1,77 @@
+{
+  "kind": "local-security-boundary-checks",
+  "time_utc": "2026-11-06T22:42:10Z",
+  "network": "loopback only",
+  "server_mode": "external binary",
+  "check_platform": "darwin/arm64",
+  "check_go_version": "go1.27.1",
+  "server_binary_sha256": "05d334d472885777698fb051f33a7d533b814876a72af229ff72b1da0c6a58af",
+  "observed_source_sha256": {
+    "go.mod": "f74ed957837b47fe3c782a27947eed0ba133bfe75ff6bb9c3cd07214b3bae33c",
+    "go.sum": "eee3207734fdb37d8c9b2c695698472633058bde515fba9b53e610891c38889b",
+    "internal/app/client.go": "5f02594eb84e75274811e49907bce8b49f4e577b811671752070d9ef39e79458",
+    "internal/app/config.go": "c626e4e5a839fa024d718d94efdc1a93add3983c23ca524ee32cf787e13c497c",
+    "internal/app/server.go": "93aa90141e2b25dd3aaafa77c9479636178b779e363fdd84eb728b6ab944bc29",
+    "internal/carrier/carrier.go": "1f83cb4f692dac4490a12bbab92bc2e0483535f6fde58cde70f83e96fe020eeb",
+    "internal/session/session.go": "d92453fcda56bb63534094cd0aae7e343f1d1925580fc8636730de1bcf1a4a18",
+    "internal/wire/frame.go": "bc1d02545261a1171e26f1aa7edb81c577199c4bb98fde3b5bf768f5ea3dafad",
+    "tools/securitycheck/main.go": "74fb5f15f62c7343546822ebf94e2253c83f47afdcd0a73f85f4774d25c07475"
+  },
+  "source_note": "Source hashes describe files observed at check startup; they are not a reproducible-build attestation. In external-binary mode, the binary hash identifies the tested server; source hashes describe the local test/client source and do not prove binary provenance.",
+  "wire_version": 1,
+  "probe_timeout_ms": 2000,
+  "busy_timeout_ms": 500,
+  "expected_preauth_slots": 8,
+  "tests": [
+    {
+      "name": "wrong_certificate_pin_rejected",
+      "pass": true,
+      "detail": "TLS handshake failed specifically at certificate pin verification"
+    },
+    {
+      "name": "wrong_token_rejected",
+      "pass": true,
+      "detail": "valid pinned TLS plus wrong bearer token must be closed, not time out"
+    },
+    {
+      "name": "wrong_protocol_version_rejected",
+      "pass": true,
+      "detail": "unsupported version must be closed, not time out"
+    },
+    {
+      "name": "incompatible_flow_window_rejected",
+      "pass": true,
+      "detail": "mismatched flow window must be closed, not time out"
+    },
+    {
+      "name": "malformed_session_id_rejected",
+      "pass": true,
+      "detail": "malformed session ID must be closed, not time out"
+    },
+    {
+      "name": "unknown_resume_explicitly_lost",
+      "pass": true,
+      "detail": "resumption of absent state is explicitly refused"
+    },
+    {
+      "name": "valid_new_session_accepted",
+      "pass": true,
+      "detail": "first authenticated hello creates a new session"
+    },
+    {
+      "name": "known_session_resume_accepted",
+      "pass": true,
+      "detail": "same live server recognizes the detached session; no target socket was created by this check"
+    },
+    {
+      "name": "oversized_hello_length_rejected",
+      "pass": true,
+      "detail": "oversized declared payload is rejected without waiting for the absent body"
+    },
+    {
+      "name": "quic_preauth_slot_boundary",
+      "pass": true,
+      "detail": "8 idle QUIC peers retained; peer 9 rejected within 500ms before opening a control stream"
+    }
+  ]
+}

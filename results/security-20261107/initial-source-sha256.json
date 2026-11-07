@@ -1,0 +1,8 @@
+{
+  "internal/carrier/carrier.go": "1f83cb4f692dac4490a12bbab92bc2e0483535f6fde58cde70f83e96fe020eeb",
+  "internal/app/server.go": "93aa90141e2b25dd3aaafa77c9479636178b779e363fdd84eb728b6ab944bc29",
+  "internal/app/client.go": "7df3eea10811a8563eaf522ab5953757d9d1a776ad55aabaa92d5011fb26393d",
+  "internal/app/config.go": "c626e4e5a839fa024d718d94efdc1a93add3983c23ca524ee32cf787e13c497c",
+  "internal/session/session.go": "b7890dd4b05218bb86242fcf58750f34268255466e043865e0d5f0644a330010",
+  "internal/wire/frame.go": "bc1d02545261a1171e26f1aa7edb81c577199c4bb98fde3b5bf768f5ea3dafad"
+}

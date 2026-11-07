@@ -1,0 +1,12 @@
+{
+  "bin/protox-cc65-darwin-arm64": {
+    "sha256": "3b9640e863fb5e3d8d6c6a50bf2c35e55dcf068376c380b3af27770730464faa",
+    "bytes": 11146786,
+    "build_command": "CGO_ENABLED=0 GOOS=darwin GOARCH=arm64 go build -trimpath -buildvcs=false -ldflags=-X=main.version=0.1.0-research-cc65 -o bin/protox-cc65-darwin-arm64 ./cmd/protox"
+  },
+  "bin/protox-cc65-linux-arm64": {
+    "sha256": "61e9036c1acb9aee3843e5a0e964c00a8949bc5809b4b8ef162a62ab7888b2f6",
+    "bytes": 10886592,
+    "build_command": "CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -trimpath -buildvcs=false -ldflags=-X=main.version=0.1.0-research-cc65 -o bin/protox-cc65-linux-arm64 ./cmd/protox"
+  }
+}

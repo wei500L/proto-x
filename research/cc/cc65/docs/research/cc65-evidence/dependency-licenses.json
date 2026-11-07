@@ -1,0 +1,65 @@
+{
+  "github.com/quic-go/quic-go": {
+    "version": "v0.65.0",
+    "local_replace": "./.local/quic-go-v0.65.0",
+    "licenses": [
+      {
+        "path": "docs/research/cc65-evidence/licenses/dependencies/github.com/quic-go/quic-go/LICENSE",
+        "sha256": "77d0b7b53e8abb84cf4dd3f9945a7fdf27044240d2e8023966a721a9a46fe96e"
+      },
+      {
+        "path": "docs/research/cc65-evidence/licenses/dependencies/github.com/quic-go/quic-go/assets/LICENSE.md",
+        "sha256": "2c8d4ff4244edf09d99dcd428d278e47a059d24f0030b38c1ab38e93b1c8030c"
+      }
+    ]
+  },
+  "golang.org/x/crypto": {
+    "version": "v0.54.0",
+    "local_replace": null,
+    "licenses": [
+      {
+        "path": "docs/research/cc65-evidence/licenses/dependencies/golang.org/x/crypto/LICENSE",
+        "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad"
+      }
+    ]
+  },
+  "golang.org/x/exp": {
+    "version": "v0.0.0-20250711185948-6ae5c78190dc",
+    "local_replace": null,
+    "licenses": [
+      {
+        "path": "docs/research/cc65-evidence/licenses/dependencies/golang.org/x/exp/LICENSE",
+        "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad"
+      }
+    ]
+  },
+  "golang.org/x/net": {
+    "version": "v0.56.0",
+    "local_replace": null,
+    "licenses": [
+      {
+        "path": "docs/research/cc65-evidence/licenses/dependencies/golang.org/x/net/LICENSE",
+        "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad"
+      }
+    ]
+  },
+  "golang.org/x/sys": {
+    "version": "v0.47.0",
+    "local_replace": null,
+    "licenses": [
+      {
+        "path": "docs/research/cc65-evidence/licenses/dependencies/golang.org/x/sys/LICENSE",
+        "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad"
+      }
+    ]
+  },
+  "Go": {
+    "version": "go version go1.27.1 darwin/arm64",
+    "licenses": [
+      {
+        "path": "docs/research/cc65-evidence/licenses/Go.LICENSE",
+        "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad"
+      }
+    ]
+  }
+}

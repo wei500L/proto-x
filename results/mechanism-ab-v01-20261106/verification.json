@@ -1,0 +1,35 @@
+{
+  "trials": 19,
+  "raw_summary_consistent": true,
+  "identical_binary_sets": true,
+  "identical_matrix_script": true,
+  "identical_netlab_script": true,
+  "all_trial_status_completed": true,
+  "seeds": [
+    103,
+    109
+  ],
+  "source": "observed packet-level Linux VM experiments",
+  "http_failure": 0,
+  "http_timeout": 0,
+  "http_rejected": 0,
+  "http_censored": 1,
+  "echo_failure": 0,
+  "echo_timeout": 0,
+  "echo_censored": 16,
+  "sse_sequence_errors": 0,
+  "sse_source_errors": 0,
+  "sse_unexpected_ends": 0,
+  "sse_connect_failure": 0,
+  "sse_gaps_over_250ms": 2,
+  "sse_gaps_over_1000ms": 0,
+  "sse_terminal_gaps_over_250ms": 0,
+  "sse_terminal_gaps_over_1000ms": 0,
+  "private_material_scan": {
+    "pass": true,
+    "files": 378,
+    "credential_patterns": 14,
+    "matching_paths": [],
+    "scope": "exact current controlled lab credentials and private key material"
+  }
+}

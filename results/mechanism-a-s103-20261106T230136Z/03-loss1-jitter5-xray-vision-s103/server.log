@@ -1,0 +1,18 @@
+Xray 26.10.31 (Xray, Penetrates Everything.) a4a3dff (go1.27.3 linux/arm64)
+A unified platform for anti-censorship.
+2026/11/07 02:02:37.288885 [Info] infra/conf/serial: Reading config: &{Name:/tmp/pxlab/private/baseline/xray-server.json Format:json}
+2026/11/07 02:02:37.288889 [Warning] infra/conf: REALITY: Listening on non-443 ports will increase the likelihood of your server's IP being blocked by the GFW
+2026/11/07 02:02:37.290282 [Warning] core: Xray 26.10.31 started
+2026/11/07 02:02:38.116763 from 10.203.0.1:50400 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:02:38.141746 from 10.203.0.1:50402 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:02:38.166497 from 10.203.0.1:50416 accepted tcp:127.0.0.1:18081 [vless-reality-vision >> direct]
+2026/11/07 02:02:38.175514 from 10.203.0.1:50404 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:02:38.350161 from 10.203.0.1:50418 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:02:38.848536 from 10.203.0.1:50434 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:02:41.209913 from 10.203.0.1:50482 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:02:41.219215 from 10.203.0.1:50468 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:02:41.227517 from 10.203.0.1:50454 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:02:41.232504 from 10.203.0.1:50450 accepted tcp:127.0.0.1:18081 [vless-reality-vision >> direct]
+2026/11/07 02:02:41.412288 from 10.203.0.1:50496 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:02:50.213318 from 10.203.0.1:36730 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:02:50.397732 from 10.203.0.1:36746 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]

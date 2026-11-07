@@ -12,7 +12,7 @@ import (
 	"proto-x/internal/app"
 )
 
-var version = "0.1.0-experimental"
+var version = "0.1.1-experimental"
 
 func main() {
 	if e := run(); e != nil {

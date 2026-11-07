@@ -1,0 +1,33 @@
+{
+  "repository": "https://github.com/quic-go/quic-go",
+  "tag": "v0.65.0",
+  "base_commit": "aa265c3fc6489e3bfa8071b333be95e0e887a51d",
+  "base_module_sum": "h1:BJQSjdTvLPLmWtaCupUphRbgxgpZhdO/GMpr9Eoe3B4=",
+  "base_module_go_mod_sum": "h1:RAro2j2yN9a9EiPACLHT9IB2NXCvGQmmo/alT0yYI0w=",
+  "patch": "patches/quic-go-v0.65.0-cc.patch",
+  "patch_sha256": "fd0175fc63d7dbe455bf0dcd34d3475fe7776767a0f0bb8aae88c66841cf9125",
+  "patched_file_sha256": {
+    "congestion/interface.go": "2cddd13b0f357064a0c19dd9e98653928ef28b8f68e7c77b3ddc7d57101685e3",
+    "congestion_control.go": "3b1c5145a3381a6b36af2bf8a2edefcc322e83e95a4e565d989575b03b57fc55",
+    "congestion_control_test.go": "a56dd8c528c045ba5fc7f1a4bbe928f8dea5817b245e8b0b0ae9508041a3ba11",
+    "connection.go": "62bbef7b02dba7e606d2f37ab29c9d3b9ccac66244d27526431ae9a9fac09fc1",
+    "internal/ackhandler/cc_adapter.go": "beca162a07b3aa551f1d9d0beb99b31e698ae25713952f64ef3449f1c43bb880",
+    "internal/ackhandler/congestion_extension.go": "f41f1f617f7559303672807eb3f98d7916d803e4c6cb225e75ed7bde16db8132",
+    "internal/ackhandler/congestion_extension_test.go": "410f77c765f62dc679ba862f0a74c1338e2849e90de9e015db43fb6c7ef13182",
+    "internal/ackhandler/interfaces.go": "7829c4f7b346d8e36d2ab11412a1bcda0f863ade435ed61c2cb84f9585131aff",
+    "internal/ackhandler/sent_packet_handler.go": "76c875c39e57ab3844d2f34238e7a3a97f1a9389be269650b0dbadf2edbc5ee4",
+    "internal/mocks/ackhandler/sent_packet_handler.go": "5a8fe281cc7bff24e6559ee9dd5bcc91a5fcca8aacbb5af787dfbfa4446fe832",
+    "monotime/time.go": "19319c92b0f1a0a128fca5bf2e23701bda291df1fb9ea85be19609019b3ce6b5"
+  },
+  "interface_adapter_reference": {
+    "repository": "https://github.com/apernet/quic-go",
+    "commit": "a10df75c260cee8161f3261d63a37bd125a6bb2a",
+    "files": {
+      "congestion/interface.go": "52e40e33e55474c6c4421e89f39a918ea375d3ec47addce116c4af9d26d1deba",
+      "monotime/time.go": "1b6f7940fe965be9702033608a58492719e3b807fc5a999a30606dfc58236da6",
+      "internal/ackhandler/cc_adapter.go": "56bf731dcfde8b9b7e59abc96a5d11b3830272416f13e3317742a261937a0932"
+    },
+    "changes": "Import paths, pacing constant provenance, documented event semantics, factory API, optional spurious-loss notification, current connection statistics. The old connection mutex and transport changes are not copied."
+  },
+  "scope": "Experimental factory, event-loop installation and reset lifecycle, public CC and monotonic-time aliases, adapter and complete batch feedback; default upstream Reno behavior retained."
+}

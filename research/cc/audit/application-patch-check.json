@@ -1,0 +1,36 @@
+{
+  "checked_utc": "2026-11-06T23:54:37.041656+00:00",
+  "method": "Loaded the application base into an isolated temporary Git index, then ran git apply --cached --check. The working tree, normal Git index and research branches were not modified.",
+  "checks": [
+    {
+      "patch": "research/patches/cc-hy-fork.patch",
+      "base": "5d80253d057b5004a3fad77d50ea4ed315eb0b85",
+      "command": [
+        "git",
+        "apply",
+        "--cached",
+        "--check",
+        "--whitespace=nowarn",
+        "research/patches/cc-hy-fork.patch"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "patch": "research/patches/cc65.patch",
+      "base": "5d80253d057b5004a3fad77d50ea4ed315eb0b85",
+      "command": [
+        "git",
+        "apply",
+        "--cached",
+        "--check",
+        "--whitespace=nowarn",
+        "research/patches/cc65.patch"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}

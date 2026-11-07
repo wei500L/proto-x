@@ -1,0 +1,30 @@
+{
+  "socks_listen": "127.0.0.1:1088",
+  "endpoints": [
+    {
+      "network": "quic",
+      "address": "10.203.0.2:14443",
+      "server_name": "proto-x.local"
+    },
+    {
+      "network": "tls",
+      "address": "10.203.0.2:14443",
+      "server_name": "proto-x.local"
+    }
+  ],
+  "token_file": "token",
+  "pin_sha256": "<redacted>",
+  "rate_mbps": 2,
+  "priority": true,
+  "adaptive": false,
+  "window_bytes": 65536,
+  "max_flows": 32,
+  "max_sessions": 2,
+  "heartbeat_ms": 500,
+  "dead_ms": 2000,
+  "resume_seconds": 90,
+  "dial_timeout_ms": 1200,
+  "allow_private_targets": false,
+  "test_rotate_seconds": 0,
+  "sparse_redundancy": false
+}

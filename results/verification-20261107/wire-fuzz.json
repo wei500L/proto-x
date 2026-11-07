@@ -1,0 +1,13 @@
+{
+  "kind": "bounded wire decoder fuzz",
+  "command": "go test ./internal/wire -fuzz=Fuzz -fuzztime=60s -parallel=2",
+  "exit_code": 0,
+  "executions": 14080954,
+  "reported_test_seconds": 60.459,
+  "workers": 2,
+  "new_interesting_inputs": 4,
+  "source_commit": "5d80253",
+  "wire_sha256": "bc1d02545261a1171e26f1aa7edb81c577199c4bb98fde3b5bf768f5ea3dafad",
+  "go_version": "go version go1.27.1 darwin/arm64",
+  "scope": "Decoder fuzz only; no claim of protocol-state fuzzing or production security certification."
+}

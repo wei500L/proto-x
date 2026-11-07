@@ -1,0 +1,182 @@
+{
+  "trial_id": "03-loss5-jitter5-px-hints-on-s317",
+  "variant": "px-hints-on",
+  "profile": "loss5-jitter5",
+  "seed": 317,
+  "stage": "discovery",
+  "utc_start": "2026-11-06T23:40:10.544294+00:00",
+  "status": "completed",
+  "duration_s": 25.0,
+  "warmup_s": 3.0,
+  "gomaxprocs": 1,
+  "background_workers": 1,
+  "background_mbps_source_budget": 1.0,
+  "warmup_exit_code": 0,
+  "process_ids": {
+    "fixture": 8242,
+    "server": 8243,
+    "client": 8253,
+    "workload": 8279
+  },
+  "commands": {
+    "fixture": [
+      "ip",
+      "netns",
+      "exec",
+      "px-server",
+      "env",
+      "GOMAXPROCS=1",
+      "/tmp/pxlab-hints/bin/pxbench",
+      "serve",
+      "-http",
+      "",
+      "-https",
+      "127.0.0.1:18443",
+      "-echo",
+      "127.0.0.1:18081",
+      "-cert",
+      "/tmp/pxlab-hints/private/baseline/tls-cert.pem",
+      "-key",
+      "/tmp/pxlab-hints/private/baseline/tls-key.pem"
+    ],
+    "server": [
+      "ip",
+      "netns",
+      "exec",
+      "px-server",
+      "env",
+      "GOMAXPROCS=1",
+      "/tmp/pxlab-hints/bin/protox",
+      "server",
+      "-config",
+      "/tmp/pxlab-hints/private/px/server-px-hints-on.json"
+    ],
+    "client": [
+      "ip",
+      "netns",
+      "exec",
+      "px-client",
+      "env",
+      "GOMAXPROCS=1",
+      "/tmp/pxlab-hints/bin/protox",
+      "client",
+      "-config",
+      "/tmp/pxlab-hints/private/px/client-px-hints-on.json"
+    ],
+    "workload": [
+      "ip",
+      "netns",
+      "exec",
+      "px-client",
+      "env",
+      "GOMAXPROCS=1",
+      "/tmp/pxlab-hints/bin/pxbench",
+      "run",
+      "-proxy",
+      "127.0.0.1:1088",
+      "-http-target",
+      "https://protox-baseline.test:18443",
+      "-echo-target",
+      "127.0.0.1:18081",
+      "-ca",
+      "/tmp/pxlab-hints/private/baseline/tls-cert.pem",
+      "-duration",
+      "25.0s",
+      "-timeout",
+      "3s",
+      "-rps",
+      "5",
+      "-echo-interval",
+      "100ms",
+      "-stream-interval",
+      "50ms",
+      "-background",
+      "1",
+      "-uploads",
+      "0",
+      "-output",
+      "/tmp/pxlab-hints/results/hints-loss5-paced1-s317-20261106T233911Z/03-loss5-jitter5-px-hints-on-s317/events.jsonl",
+      "-summary",
+      "/tmp/pxlab-hints/results/hints-loss5-paced1-s317-20261106T233911Z/03-loss5-jitter5-px-hints-on-s317/events.summary.json",
+      "-run-id",
+      "03-loss5-jitter5-px-hints-on-s317",
+      "-background-mbps",
+      "1.0"
+    ]
+  },
+  "workload_exit_code": 0,
+  "observed": {
+    "http_success": 125,
+    "http_total": 125,
+    "http_fail": 0,
+    "http_timeout": 0,
+    "http_censored": 0,
+    "http_p95_ms": 145.671178,
+    "http_p99_ms": 242.904438,
+    "echo_success": 239,
+    "echo_total": 240,
+    "echo_timeout": 0,
+    "echo_p95_ms": 123.272706,
+    "sse_tokens": 494,
+    "sse_sequence_errors": 0,
+    "sse_source_errors": 0,
+    "sse_gap_p95_ms": 87.114758,
+    "sse_gap_p99_ms": 164.158123,
+    "sse_gap_gt250": 1,
+    "sse_gap_gt1000": 0,
+    "download_goodput_mbps": 0.9463040375708947
+  },
+  "utc_end": "2026-11-06T23:40:39.269125+00:00",
+  "protocol_binary": "protox",
+  "congestion_control": "quic-go v0.65.0 default Reno",
+  "sparse_redundancy": true,
+  "hint_activity": {
+    "scope": "session lifetime includes startup, warmup, measurement and shutdown",
+    "sent_semantics": "successful QUIC datagram submission, not proof of wire transmission",
+    "delivery_semantics": "copy delivered bytes first, not proof the original was lost",
+    "records_are_not_summed": "counter records lack session identity and may be repeated",
+    "roles": {
+      "server": {
+        "carrier_attachments": [
+          "quic"
+        ],
+        "counter_records": [
+          {
+            "time": "2026-11-07T02:40:39.268077137+03:00",
+            "level": "INFO",
+            "msg": "sparse redundancy counters",
+            "server": true,
+            "sent_datagrams": 1170,
+            "skipped_copies": 80,
+            "first_delivered_bytes": 3314,
+            "duplicate_data_bytes": 41902
+          }
+        ],
+        "last_record": {
+          "time": "2026-11-07T02:40:39.268077137+03:00",
+          "level": "INFO",
+          "msg": "sparse redundancy counters",
+          "server": true,
+          "sent_datagrams": 1170,
+          "skipped_copies": 80,
+          "first_delivered_bytes": 3314,
+          "duplicate_data_bytes": 41902
+        },
+        "sent_activity_observed": true,
+        "copy_first_delivery_observed": true,
+        "missing_counter_log": false
+      },
+      "client": {
+        "carrier_attachments": [
+          "quic"
+        ],
+        "counter_records": [],
+        "last_record": null,
+        "sent_activity_observed": false,
+        "copy_first_delivery_observed": false,
+        "missing_counter_log": true
+      }
+    }
+  },
+  "quic_only_validated": true
+}

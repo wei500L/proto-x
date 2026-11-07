@@ -1,0 +1,136 @@
+{
+  "trials": 15,
+  "raw_summary_consistent": true,
+  "identical_binary_sets": true,
+  "identical_hint_source_file_hashes": true,
+  "identical_matrix_script": true,
+  "identical_netlab_script": true,
+  "identical_private_config_hashes": true,
+  "all_trial_status_completed": true,
+  "all_px_quic_only_checks_passed": true,
+  "seeds": [
+    311,
+    313,
+    317
+  ],
+  "hint_runner_sha256_versions": [
+    "49efc5700fed743b157e89579b83cedfde06803cb0f50531c30aeece328a998d",
+    "5928902db53522e8d500092fb8ad1669abaeb2f58de6ac6a6458568a745e59df"
+  ],
+  "config_ablation_checks": [
+    {
+      "run_id": "hints-unpaced-s311-20261106T232943Z",
+      "side": "client",
+      "changed_fields": [
+        "sparse_redundancy"
+      ],
+      "passed": true
+    },
+    {
+      "run_id": "hints-unpaced-s311-20261106T232943Z",
+      "side": "server",
+      "changed_fields": [
+        "sparse_redundancy"
+      ],
+      "passed": true
+    },
+    {
+      "run_id": "hints-unpaced-s313-20261106T233204Z",
+      "side": "client",
+      "changed_fields": [
+        "sparse_redundancy"
+      ],
+      "passed": true
+    },
+    {
+      "run_id": "hints-unpaced-s313-20261106T233204Z",
+      "side": "server",
+      "changed_fields": [
+        "sparse_redundancy"
+      ],
+      "passed": true
+    },
+    {
+      "run_id": "hints-paced-s311-20261106T233402Z",
+      "side": "client",
+      "changed_fields": [
+        "sparse_redundancy"
+      ],
+      "passed": true
+    },
+    {
+      "run_id": "hints-paced-s311-20261106T233402Z",
+      "side": "server",
+      "changed_fields": [
+        "sparse_redundancy"
+      ],
+      "passed": true
+    },
+    {
+      "run_id": "hints-paced-s313-20261106T233659Z",
+      "side": "client",
+      "changed_fields": [
+        "sparse_redundancy"
+      ],
+      "passed": true
+    },
+    {
+      "run_id": "hints-paced-s313-20261106T233659Z",
+      "side": "server",
+      "changed_fields": [
+        "sparse_redundancy"
+      ],
+      "passed": true
+    },
+    {
+      "run_id": "hints-loss5-paced1-s317-20261106T233911Z",
+      "side": "client",
+      "changed_fields": [
+        "sparse_redundancy"
+      ],
+      "passed": true
+    },
+    {
+      "run_id": "hints-loss5-paced1-s317-20261106T233911Z",
+      "side": "server",
+      "changed_fields": [
+        "sparse_redundancy"
+      ],
+      "passed": true
+    }
+  ],
+  "all_config_ablation_checks_passed": true,
+  "all_qdisc_and_profile_checks_passed": true,
+  "hint_on_server_counters_present": 5,
+  "hint_on_client_counters_missing": 5,
+  "verification_errors": [],
+  "extractor_sha256": "cd3a38eaf270f2e546150c83e6450371688501f777cf0192217e5c2275c185b5",
+  "verifier_sha256": "11d4663a370f16ce814357a525799620f823e289ae675f5d3c2447e43ae9becf",
+  "http_success": 1875,
+  "http_total": 1875,
+  "http_failure": 0,
+  "http_timeout": 0,
+  "http_rejected": 0,
+  "http_censored": 0,
+  "echo_success": 3618,
+  "echo_total": 3630,
+  "echo_failure": 0,
+  "echo_timeout": 0,
+  "echo_rejected": 0,
+  "echo_censored": 12,
+  "sse_sequence_errors": 0,
+  "sse_source_errors": 0,
+  "sse_unexpected_ends": 0,
+  "sse_connect_failure": 0,
+  "sse_gaps_over_250ms": 1,
+  "sse_gaps_over_1000ms": 0,
+  "sse_terminal_gaps_over_250ms": 0,
+  "sse_terminal_gaps_over_1000ms": 0,
+  "private_material_scan": {
+    "pass": true,
+    "files": 438,
+    "credential_patterns": 14,
+    "matching_paths": [],
+    "scope": "exact current controlled lab credentials and private key material"
+  }
+}

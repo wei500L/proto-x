@@ -1,0 +1,15 @@
+Xray 26.10.31 (Xray, Penetrates Everything.) a4a3dff (go1.27.3 linux/arm64)
+A unified platform for anti-censorship.
+2026/11/07 02:07:51.248467 [Info] infra/conf/serial: Reading config: &{Name:/tmp/pxlab/private/baseline/xray-server.json Format:json}
+2026/11/07 02:07:51.248471 [Warning] infra/conf: REALITY: Listening on non-443 ports will increase the likelihood of your server's IP being blocked by the GFW
+2026/11/07 02:07:51.249976 [Warning] core: Xray 26.10.31 started
+2026/11/07 02:07:52.101475 from 10.203.0.1:34730 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:07:52.105595 from 10.203.0.1:34714 accepted tcp:127.0.0.1:18081 [vless-reality-vision >> direct]
+2026/11/07 02:07:52.111514 from 10.203.0.1:34700 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:07:52.121382 from 10.203.0.1:34688 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:07:52.292606 from 10.203.0.1:34746 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:07:55.143897 from 10.203.0.1:35756 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:07:55.152976 from 10.203.0.1:35770 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:07:55.157358 from 10.203.0.1:35768 accepted tcp:127.0.0.1:18081 [vless-reality-vision >> direct]
+2026/11/07 02:07:55.211692 from 10.203.0.1:35750 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]
+2026/11/07 02:07:55.327989 from 10.203.0.1:35776 accepted tcp:protox-baseline.test:18443 [vless-reality-vision >> direct]

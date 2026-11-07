@@ -1,0 +1,57 @@
+{
+  "kind": "local-security-boundary-checks",
+  "network": "loopback only",
+  "tests": [
+    {
+      "name": "wrong_certificate_pin_rejected",
+      "pass": true,
+      "detail": "TLS handshake must fail specifically at certificate pin verification"
+    },
+    {
+      "name": "wrong_token_rejected",
+      "pass": true,
+      "detail": "valid pinned TLS but invalid bearer token received no Welcome"
+    },
+    {
+      "name": "wrong_protocol_version_rejected",
+      "pass": true,
+      "detail": "unsupported version received no Welcome"
+    },
+    {
+      "name": "incompatible_flow_window_rejected",
+      "pass": true,
+      "detail": "mismatched flow window received no Welcome"
+    },
+    {
+      "name": "malformed_session_id_rejected",
+      "pass": true,
+      "detail": "non-128-bit-hex session ID received no Welcome"
+    },
+    {
+      "name": "unknown_resume_explicitly_lost",
+      "pass": true,
+      "detail": "resumption of absent state is explicitly refused"
+    },
+    {
+      "name": "valid_new_session_accepted",
+      "pass": true,
+      "detail": "first authenticated hello creates a new session"
+    },
+    {
+      "name": "known_session_resume_accepted",
+      "pass": true,
+      "detail": "same live server recognizes the detached session"
+    },
+    {
+      "name": "oversized_hello_length_rejected",
+      "pass": true,
+      "detail": "declared 4097-byte payload is rejected without waiting for body"
+    },
+    {
+      "name": "quic_preauth_slot_boundary",
+      "pass": true,
+      "detail": "8 idle QUIC peers retained; 9th promptly closed before it opens control stream"
+    }
+  ],
+  "time_utc": "2026-11-06T22:32:19Z"
+}

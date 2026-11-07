@@ -1,0 +1,150 @@
+{
+  "trial_id": "02-loss1-jitter5-px-priority-s211",
+  "variant": "px-priority",
+  "profile": "loss1-jitter5",
+  "seed": 211,
+  "stage": "discovery",
+  "utc_start": "2026-11-06T23:19:02.011110+00:00",
+  "status": "completed",
+  "duration_s": 25.0,
+  "warmup_s": 3.0,
+  "gomaxprocs": 1,
+  "background_workers": 1,
+  "background_mbps_source_budget": null,
+  "warmup_exit_code": 0,
+  "process_ids": {
+    "fixture": 5735,
+    "server": 5736,
+    "client": 5745,
+    "workload": 5772
+  },
+  "commands": {
+    "fixture": [
+      "ip",
+      "netns",
+      "exec",
+      "px-server",
+      "env",
+      "GOMAXPROCS=1",
+      "/tmp/pxlab-cc/bin/pxbench",
+      "serve",
+      "-http",
+      "",
+      "-https",
+      "127.0.0.1:18443",
+      "-echo",
+      "127.0.0.1:18081",
+      "-cert",
+      "/tmp/pxlab-cc/private/baseline/tls-cert.pem",
+      "-key",
+      "/tmp/pxlab-cc/private/baseline/tls-key.pem"
+    ],
+    "server": [
+      "ip",
+      "netns",
+      "exec",
+      "px-server",
+      "env",
+      "GOMAXPROCS=1",
+      "/tmp/pxlab-cc/bin/protox",
+      "server",
+      "-config",
+      "/tmp/pxlab-cc/private/px/server-px-priority.json"
+    ],
+    "client": [
+      "ip",
+      "netns",
+      "exec",
+      "px-client",
+      "env",
+      "GOMAXPROCS=1",
+      "/tmp/pxlab-cc/bin/protox",
+      "client",
+      "-config",
+      "/tmp/pxlab-cc/private/px/client-px-priority.json"
+    ],
+    "workload": [
+      "ip",
+      "netns",
+      "exec",
+      "px-client",
+      "env",
+      "GOMAXPROCS=1",
+      "/tmp/pxlab-cc/bin/pxbench",
+      "run",
+      "-proxy",
+      "127.0.0.1:1088",
+      "-http-target",
+      "https://protox-baseline.test:18443",
+      "-echo-target",
+      "127.0.0.1:18081",
+      "-ca",
+      "/tmp/pxlab-cc/private/baseline/tls-cert.pem",
+      "-duration",
+      "25.0s",
+      "-timeout",
+      "3s",
+      "-rps",
+      "5",
+      "-echo-interval",
+      "100ms",
+      "-stream-interval",
+      "50ms",
+      "-background",
+      "1",
+      "-uploads",
+      "0",
+      "-output",
+      "/tmp/pxlab-cc/results/cc-screen-s211-20261106T231831Z/02-loss1-jitter5-px-priority-s211/events.jsonl",
+      "-summary",
+      "/tmp/pxlab-cc/results/cc-screen-s211-20261106T231831Z/02-loss1-jitter5-px-priority-s211/events.summary.json",
+      "-run-id",
+      "02-loss1-jitter5-px-priority-s211"
+    ]
+  },
+  "workload_exit_code": 0,
+  "observed": {
+    "http_success": 125,
+    "http_total": 125,
+    "http_fail": 0,
+    "http_timeout": 0,
+    "http_censored": 0,
+    "http_p95_ms": 116.584292,
+    "http_p99_ms": 193.289815,
+    "echo_success": 241,
+    "echo_total": 242,
+    "echo_timeout": 0,
+    "echo_p95_ms": 137.223327,
+    "sse_tokens": 496,
+    "sse_sequence_errors": 0,
+    "sse_source_errors": 0,
+    "sse_gap_p95_ms": 68.884633,
+    "sse_gap_p99_ms": 91.106586,
+    "sse_gap_gt250": 0,
+    "sse_gap_gt1000": 0,
+    "download_goodput_mbps": 2.769498547559635
+  },
+  "utc_end": "2026-11-06T23:19:30.796125+00:00",
+  "protocol_binary": "protox",
+  "congestion_control": "quic-go v0.65.0 default Reno",
+  "controller_validation": {
+    "required_controller": null,
+    "roles": {
+      "server": {
+        "passed": true,
+        "carrier_attachments": [
+          "quic"
+        ],
+        "installation_records": []
+      },
+      "client": {
+        "passed": true,
+        "carrier_attachments": [
+          "quic"
+        ],
+        "installation_records": []
+      }
+    },
+    "passed": true
+  }
+}

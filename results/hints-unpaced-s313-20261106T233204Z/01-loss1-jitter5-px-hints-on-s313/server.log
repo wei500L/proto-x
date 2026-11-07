@@ -1,0 +1,4 @@
+{"time":"2026-11-07T02:32:06.321474498+03:00","level":"INFO","msg":"TLS listener ready","listen":":14443"}
+{"time":"2026-11-07T02:32:06.321535658+03:00","level":"INFO","msg":"QUIC listener ready","listen":":14443"}
+{"time":"2026-11-07T02:32:06.615485901+03:00","level":"INFO","msg":"carrier attached","carrier":"quic","generation":1,"resumed_flows":0}
+{"time":"2026-11-07T02:32:35.091063247+03:00","level":"INFO","msg":"sparse redundancy counters","server":true,"sent_datagrams":1080,"skipped_copies":87,"first_delivered_bytes":1367,"duplicate_data_bytes":42556}

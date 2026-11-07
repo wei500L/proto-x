@@ -1,0 +1,39 @@
+{
+  "checked_utc": "2026-11-06T23:57:17.547779+00:00",
+  "version": "PROTO-X 0.1.1-experimental",
+  "server_binary_sha256": "ee662f85a083d29843fc6cfe32c867ccde76d9f79983d5a2bdd52cf7dec30d65",
+  "client_binary_sha256": "90a4682ac8f3c66af7f79092e65b584510b9c685d6f77f625238f9baa6f7862c",
+  "services": {
+    "protox": "active",
+    "xr": "active",
+    "sb": "active"
+  },
+  "allow_private_targets": false,
+  "temporary_fixture_running": false,
+  "resources": {
+    "NRestarts": "0",
+    "MemoryCurrent": "9334784",
+    "MemoryPeak": "9592832",
+    "ActiveState": "active",
+    "SubState": "running"
+  },
+  "client_listener": "127.0.0.1:1088",
+  "public_https_probe": {
+    "url": "https://example.com/",
+    "method": "HEAD",
+    "proxy": "SOCKS5 remote DNS",
+    "curl_exit": 0,
+    "status": 200,
+    "seconds": 0.358835
+  },
+  "notes": [
+    "A point-in-time application reachability check, not a long-running stability result.",
+    "Existing reference services and management SSH retained; production server not used."
+  ],
+  "latest_local_client_attachment": {
+    "time": "2026-11-07T02:57:16.130328+03:00",
+    "carrier": "quic",
+    "generation": 1,
+    "resumed_flows": 1
+  }
+}

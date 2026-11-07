@@ -1,0 +1,4 @@
+{"time":"2026-11-07T02:27:40.368223173+03:00","level":"INFO","msg":"TLS listener ready","listen":":14443"}
+{"time":"2026-11-07T02:27:40.368371961+03:00","level":"INFO","msg":"QUIC listener ready","listen":":14443"}
+{"time":"2026-11-07T02:27:40.63535514+03:00","level":"INFO","msg":"experimental QUIC controller installed","controller":"hy-brutal","hysteria_source":"ca8fbd874fd6ca82413948de6dc5924405e103e1","brutal_bytes_per_second":750000,"disable_loss_compensation":false}
+{"time":"2026-11-07T02:27:40.635387847+03:00","level":"INFO","msg":"carrier attached","carrier":"quic","generation":1,"resumed_flows":0}

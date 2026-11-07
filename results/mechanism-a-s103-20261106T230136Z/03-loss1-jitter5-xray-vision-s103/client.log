@@ -1,0 +1,17 @@
+Xray 26.10.31 (Xray, Penetrates Everything.) a4a3dff (go1.27.3 linux/arm64)
+A unified platform for anti-censorship.
+2026/11/07 02:02:37.443559 [Warning] core: Xray 26.10.31 started
+2026/11/07 02:02:37.443586 [Info] infra/conf/serial: Reading config: &{Name:/tmp/pxlab/private/baseline/xray-client.json Format:json}
+2026/11/07 02:02:37.952518 from tcp:127.0.0.1:60168 accepted tcp:protox-baseline.test:18443 [socks >> vless-reality-vision]
+2026/11/07 02:02:37.952566 from tcp:127.0.0.1:60200 accepted tcp:protox-baseline.test:18443 [socks >> vless-reality-vision]
+2026/11/07 02:02:37.952592 from tcp:127.0.0.1:60176 accepted tcp:protox-baseline.test:18443 [socks >> vless-reality-vision]
+2026/11/07 02:02:37.952620 from tcp:127.0.0.1:60184 accepted tcp:127.0.0.1:18081 [socks >> vless-reality-vision]
+2026/11/07 02:02:38.152642 from tcp:127.0.0.1:60214 accepted tcp:protox-baseline.test:18443 [socks >> vless-reality-vision]
+2026/11/07 02:02:38.353245 from tcp:127.0.0.1:60230 accepted tcp:protox-baseline.test:18443 [socks >> vless-reality-vision]
+2026/11/07 02:02:41.003787 from tcp:127.0.0.1:60244 accepted tcp:127.0.0.1:18081 [socks >> vless-reality-vision]
+2026/11/07 02:02:41.003837 from tcp:127.0.0.1:60260 accepted tcp:protox-baseline.test:18443 [socks >> vless-reality-vision]
+2026/11/07 02:02:41.003859 from tcp:127.0.0.1:60234 accepted tcp:protox-baseline.test:18443 [socks >> vless-reality-vision]
+2026/11/07 02:02:41.003879 from tcp:127.0.0.1:60242 accepted tcp:protox-baseline.test:18443 [socks >> vless-reality-vision]
+2026/11/07 02:02:41.206779 from tcp:127.0.0.1:60262 accepted tcp:protox-baseline.test:18443 [socks >> vless-reality-vision]
+2026/11/07 02:02:50.004575 from tcp:127.0.0.1:40524 accepted tcp:protox-baseline.test:18443 [socks >> vless-reality-vision]
+2026/11/07 02:02:50.205065 from tcp:127.0.0.1:40534 accepted tcp:protox-baseline.test:18443 [socks >> vless-reality-vision]

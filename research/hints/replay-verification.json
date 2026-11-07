@@ -1,0 +1,19 @@
+{
+  "source_commit": "9b60c69f28c675576a5f61af31669cdc58519448",
+  "patch_base": "5d80253",
+  "verified_utc": "2026-11-06T23:56:13.299276+00:00",
+  "build_command": "CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -trimpath -ldflags '-s -w -X main.version=0.2.0-hints-experimental' -o protox-linux-arm64 ./cmd/protox",
+  "go_version": "go version go1.27.1 darwin/arm64",
+  "built_from": "fresh detached worktree at patch_base, patch applied without committing",
+  "expected_frozen_binary_sha256": "0b42f0a8fc63165ed1e9e99d4eb650da6af4e3c097a2a08913fa6e50595d98fe",
+  "rebuilt_binary_sha256": "0b42f0a8fc63165ed1e9e99d4eb650da6af4e3c097a2a08913fa6e50595d98fe",
+  "matches": true,
+  "patch_sha256": "c3fe73619c879fabae718ca88739c3b3865c8896e12cd710797279ef4c5304c1",
+  "source_tar_sha256": "b1b28a0c7b49ca5c5ed01de45e97da2e4d147ff6eb1b43c07a2ba78118abfb59",
+  "source_tar_members": 69,
+  "source_tar_private_material_check_passed": true,
+  "notes": [
+    "No binary is shipped in this public source archive.",
+    "Source archive has no .git; its build omits original VCS metadata and need not match the frozen hash. Use the base-plus-uncommitted-patch route for the recorded hash."
+  ]
+}

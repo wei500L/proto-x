@@ -1,0 +1,17 @@
+{
+  "source_base": "5d80253d057b5004a3fad77d50ea4ed315eb0b85",
+  "patch": "old-fork-cc.patch",
+  "command": [
+    "go",
+    "build",
+    "-trimpath",
+    "-ldflags=-X=main.version=0.1.0-research-hycc",
+    "-o",
+    "bin/protox-cc-linux-arm64",
+    "./cmd/protox"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 0.38248300552368164,
+  "binary_sha256": "46b55aa58073753d2a3fa16d76c117ce86692eaca57a2b05e355e52700c45819",
+  "matches_recorded_binary": true
+}

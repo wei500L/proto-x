@@ -1,0 +1,2 @@
+2026-11-07T01:46:51+03:00	[34mINFO[0m	client mode
+2026-11-07T01:46:51+03:00	[31mFATAL[0m	failed to initialize client	{"error": "invalid config: bandwidth.up: unsupported unit"}

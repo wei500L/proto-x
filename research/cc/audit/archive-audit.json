@@ -1,0 +1,55 @@
+{
+  "audited_utc": "2026-11-06T23:52:20.701105+00:00",
+  "method": "Enumerated tar members and read regular-file contents before copying; source archives copied byte-for-byte; no archive member was extracted using tar path handling.",
+  "scope": "Structural and targeted secret-material checks, not a general code or vulnerability audit.",
+  "archives": [
+    {
+      "variant": "old-fork",
+      "archive": "research/cc/sources/protox-old-fork-cc-source.tar.gz",
+      "archive_sha256": "fdb5c2de1f756e69b8e9b341be183bdad8bb20be618e5efa0ac4ba79b23e1d6a",
+      "archived_commit": "a7a33341984ac60354aca6425c561d3b902e9c63",
+      "prefix": "protox-old-fork-cc/",
+      "members": 139,
+      "regular_files": 90,
+      "expanded_file_bytes": 509969,
+      "member_list": "research/cc/audit/old-fork-members.txt",
+      "checks": {
+        "relative_paths_within_prefix": true,
+        "no_dot_git_generated_dependencies_or_bin_tree": true,
+        "regular_files_and_directories_only": true,
+        "no_duplicate_paths": true,
+        "no_elf_or_macho_binaries": true,
+        "no_private_key_blocks": true,
+        "no_authorized_deployment_addresses": true
+      },
+      "config_named_members": [
+        "protox-old-fork-cc/internal/app/config.go",
+        "protox-old-fork-cc/scripts/baselines/configure.py"
+      ]
+    },
+    {
+      "variant": "cc65",
+      "archive": "research/cc/sources/protox-cc65-source.tar.gz",
+      "archive_sha256": "aa2ee83760be1e0b6465d90eadd7ce4d0cccb150ead97e87c4802d95500b9b60",
+      "archived_commit": "5959fe014513311d9b5cf0e7ea9953d755ed9052",
+      "prefix": "protox-cc65/",
+      "members": 146,
+      "regular_files": 106,
+      "expanded_file_bytes": 2736047,
+      "member_list": "research/cc/audit/cc65-members.txt",
+      "checks": {
+        "relative_paths_within_prefix": true,
+        "no_dot_git_generated_dependencies_or_bin_tree": true,
+        "regular_files_and_directories_only": true,
+        "no_duplicate_paths": true,
+        "no_elf_or_macho_binaries": true,
+        "no_private_key_blocks": true,
+        "no_authorized_deployment_addresses": true
+      },
+      "config_named_members": [
+        "protox-cc65/internal/app/config.go",
+        "protox-cc65/scripts/baselines/configure.py"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "commands": [
+    "go test -race -count=1 -timeout=60s ./...",
+    "go vet ./..."
+  ],
+  "combined_exit_code": 0,
+  "output": "?   \tproto-x/cmd/protox\t[no test files]\n?   \tproto-x/cmd/pxbench\t[no test files]\nok  \tproto-x/internal/app\t1.426s\nok  \tproto-x/internal/bench\t2.967s\n?   \tproto-x/internal/carrier\t[no test files]\n?   \tproto-x/internal/scheduler\t[no test files]\nok  \tproto-x/internal/session\t9.533s\nok  \tproto-x/internal/wire\t1.667s\n?   \tproto-x/scripts/baselines\t[no test files]\nok  \tproto-x/tools/faultrelay\t4.331s\n?   \tproto-x/tools/securitycheck\t[no test files]\n",
+  "notes": [
+    "Captured from one sequential command; go vet ran only after the full race suite passed and produced no output.",
+    "Package times are Go test output, not a sum of wall-clock run duration.",
+    "Includes idle liveness, asymmetric heartbeat intervals, one-way silence, pending and attached TLS cancellation, existing byte/half-close/recovery tests."
+  ]
+}

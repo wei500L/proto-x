@@ -1,0 +1,16 @@
+{
+  "fault": "blackhole",
+  "bench_exit": 0,
+  "ssh_exit": 0,
+  "ssh_expected_lines": 220,
+  "ssh_received_lines": 220,
+  "ssh_sequence_correct": true,
+  "ssh_max_receive_gap_ms": 2708.72875,
+  "duration_seconds": 31.2836285,
+  "notes": [
+    "Actual client-to-authorized-VPS path; no claim about other networks.",
+    "UDP relay applies only to relay trials; TLS alternate connects directly.",
+    "SSH probe uses one process over one original proxy flow; exit and sequence checks determine success.",
+    "Prototype server restarted only before this trial, not during the UDP fault."
+  ]
+}

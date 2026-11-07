@@ -1,0 +1,19 @@
+{"Time":"2026-11-07T02:09:54.57365+03:00","Action":"start","Package":"proto-x/internal/app"}
+{"Time":"2026-11-07T02:09:54.94683+03:00","Action":"run","Package":"proto-x/internal/app","Test":"TestQUICToTLSRetainsOriginAndBytes"}
+{"Time":"2026-11-07T02:09:54.946921+03:00","Action":"output","Package":"proto-x/internal/app","Test":"TestQUICToTLSRetainsOriginAndBytes","Output":"=== RUN   TestQUICToTLSRetainsOriginAndBytes\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:09:54.951776+03:00","Action":"output","Package":"proto-x/internal/app","Test":"TestQUICToTLSRetainsOriginAndBytes","Output":"2026/11/07 02:09:54 INFO TLS listener ready listen=127.0.0.1:63457\n"}
+{"Time":"2026-11-07T02:09:54.951957+03:00","Action":"output","Package":"proto-x/internal/app","Test":"TestQUICToTLSRetainsOriginAndBytes","Output":"2026/11/07 02:09:54 INFO QUIC listener ready listen=127.0.0.1:59847\n"}
+{"Time":"2026-11-07T02:09:54.958922+03:00","Action":"output","Package":"proto-x/internal/app","Test":"TestQUICToTLSRetainsOriginAndBytes","Output":"2026/11/07 02:09:54 INFO experimental QUIC controller installed controller=hy-bbr-standard hysteria_source=ca8fbd874fd6ca82413948de6dc5924405e103e1 brutal_bytes_per_second=0 disable_loss_compensation=false\n"}
+{"Time":"2026-11-07T02:09:54.958957+03:00","Action":"output","Package":"proto-x/internal/app","Test":"TestQUICToTLSRetainsOriginAndBytes","Output":"2026/11/07 02:09:54 INFO carrier attached carrier=quic generation=1 resumed_flows=0\n"}
+{"Time":"2026-11-07T02:09:54.959027+03:00","Action":"output","Package":"proto-x/internal/app","Test":"TestQUICToTLSRetainsOriginAndBytes","Output":"2026/11/07 02:09:54 INFO experimental QUIC controller installed controller=hy-bbr-standard hysteria_source=ca8fbd874fd6ca82413948de6dc5924405e103e1 brutal_bytes_per_second=0 disable_loss_compensation=false\n"}
+{"Time":"2026-11-07T02:09:54.959042+03:00","Action":"output","Package":"proto-x/internal/app","Test":"TestQUICToTLSRetainsOriginAndBytes","Output":"2026/11/07 02:09:54 INFO carrier attached carrier=quic generation=1 resumed_flows=0\n"}
+{"Time":"2026-11-07T02:09:54.966438+03:00","Action":"output","Package":"proto-x/internal/app","Test":"TestQUICToTLSRetainsOriginAndBytes","Output":"2026/11/07 02:09:54 INFO carrier detached carrier=quic\n"}
+{"Time":"2026-11-07T02:09:54.966504+03:00","Action":"output","Package":"proto-x/internal/app","Test":"TestQUICToTLSRetainsOriginAndBytes","Output":"2026/11/07 02:09:54 INFO carrier detached carrier=quic\n"}
+{"Time":"2026-11-07T02:09:54.970463+03:00","Action":"output","Package":"proto-x/internal/app","Test":"TestQUICToTLSRetainsOriginAndBytes","Output":"2026/11/07 02:09:54 INFO carrier attached carrier=tls generation=2 resumed_flows=1\n"}
+{"Time":"2026-11-07T02:09:54.970469+03:00","Action":"output","Package":"proto-x/internal/app","Test":"TestQUICToTLSRetainsOriginAndBytes","Output":"2026/11/07 02:09:54 INFO carrier attached carrier=tls generation=2 resumed_flows=1\n"}
+{"Time":"2026-11-07T02:09:54.983552+03:00","Action":"output","Package":"proto-x/internal/app","Test":"TestQUICToTLSRetainsOriginAndBytes","Output":"2026/11/07 02:09:54 INFO carrier detached carrier=tls\n"}
+{"Time":"2026-11-07T02:09:54.984052+03:00","Action":"output","Package":"proto-x/internal/app","Test":"TestQUICToTLSRetainsOriginAndBytes","Output":"--- PASS: TestQUICToTLSRetainsOriginAndBytes (0.04s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:09:54.984058+03:00","Action":"pass","Package":"proto-x/internal/app","Test":"TestQUICToTLSRetainsOriginAndBytes","Elapsed":0.04}
+{"Time":"2026-11-07T02:09:54.984089+03:00","Action":"output","Package":"proto-x/internal/app","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:09:55.989396+03:00","Action":"output","Package":"proto-x/internal/app","Output":"ok  \tproto-x/internal/app\t1.417s\n"}
+{"Time":"2026-11-07T02:09:55.989473+03:00","Action":"pass","Package":"proto-x/internal/app","Elapsed":1.417}

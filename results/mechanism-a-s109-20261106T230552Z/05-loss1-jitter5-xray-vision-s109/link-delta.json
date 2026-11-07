@@ -1,0 +1,22 @@
+{
+  "px-client": {
+    "qdisc": {
+      "bytes": 295942,
+      "packets": 3438,
+      "drops": 35,
+      "overlimits": 0,
+      "requeues": 0
+    },
+    "namespace_tcp_retrans_segments_includes_loopback": 9
+  },
+  "px-server": {
+    "qdisc": {
+      "bytes": 7458374,
+      "packets": 5657,
+      "drops": 46,
+      "overlimits": 0,
+      "requeues": 0
+    },
+    "namespace_tcp_retrans_segments_includes_loopback": 189
+  }
+}

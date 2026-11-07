@@ -1,0 +1,13 @@
+{
+  "server": "10.203.0.2",
+  "xray_port": 33400,
+  "hysteria_port": 33401,
+  "socks_xray": 10801,
+  "socks_hysteria": 10802,
+  "reality_sni": "protox-baseline.test",
+  "reality_target": "127.0.0.1:39443",
+  "tls_sni": "protox-baseline.test",
+  "up": "2 mbps",
+  "down": "8 mbps",
+  "server_directory": "/tmp/pxlab-cc/private/baseline"
+}

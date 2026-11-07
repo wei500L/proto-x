@@ -1,0 +1,265 @@
+{"Time":"2026-11-07T02:36:14.640966+03:00","Action":"start","Package":"proto-x/cmd/protox"}
+{"Time":"2026-11-07T02:36:14.641124+03:00","Action":"output","Package":"proto-x/cmd/protox","Output":"?   \tproto-x/cmd/protox\t[no test files]\n"}
+{"Time":"2026-11-07T02:36:14.641148+03:00","Action":"skip","Package":"proto-x/cmd/protox","Elapsed":0}
+{"Time":"2026-11-07T02:36:14.641165+03:00","Action":"start","Package":"proto-x/cmd/pxbench"}
+{"Time":"2026-11-07T02:36:14.641197+03:00","Action":"output","Package":"proto-x/cmd/pxbench","Output":"?   \tproto-x/cmd/pxbench\t[no test files]\n"}
+{"Time":"2026-11-07T02:36:14.641214+03:00","Action":"skip","Package":"proto-x/cmd/pxbench","Elapsed":0}
+{"Time":"2026-11-07T02:36:14.889399+03:00","Action":"start","Package":"proto-x/internal/app"}
+{"Time":"2026-11-07T02:36:14.889455+03:00","Action":"start","Package":"proto-x/internal/bench"}
+{"Time":"2026-11-07T02:36:14.889517+03:00","Action":"start","Package":"proto-x/internal/carrier"}
+{"Time":"2026-11-07T02:36:14.88953+03:00","Action":"start","Package":"proto-x/internal/hycc"}
+{"Time":"2026-11-07T02:36:14.889541+03:00","Action":"output","Package":"proto-x/internal/hycc","Output":"?   \tproto-x/internal/hycc\t[no test files]\n"}
+{"Time":"2026-11-07T02:36:14.889552+03:00","Action":"skip","Package":"proto-x/internal/hycc","Elapsed":0}
+{"Time":"2026-11-07T02:36:14.889553+03:00","Action":"start","Package":"proto-x/internal/hycc/bbr"}
+{"Time":"2026-11-07T02:36:14.889588+03:00","Action":"start","Package":"proto-x/internal/hycc/brutal"}
+{"Time":"2026-11-07T02:36:14.889653+03:00","Action":"start","Package":"proto-x/internal/hycc/common"}
+{"Time":"2026-11-07T02:36:14.889675+03:00","Action":"output","Package":"proto-x/internal/hycc/common","Output":"?   \tproto-x/internal/hycc/common\t[no test files]\n"}
+{"Time":"2026-11-07T02:36:14.889681+03:00","Action":"skip","Package":"proto-x/internal/hycc/common","Elapsed":0}
+{"Time":"2026-11-07T02:36:14.889686+03:00","Action":"start","Package":"proto-x/internal/scheduler"}
+{"Time":"2026-11-07T02:36:14.889714+03:00","Action":"output","Package":"proto-x/internal/scheduler","Output":"?   \tproto-x/internal/scheduler\t[no test files]\n"}
+{"Time":"2026-11-07T02:36:14.889727+03:00","Action":"skip","Package":"proto-x/internal/scheduler","Elapsed":0}
+{"Time":"2026-11-07T02:36:14.889724+03:00","Action":"start","Package":"proto-x/internal/session"}
+{"Time":"2026-11-07T02:36:14.889768+03:00","Action":"start","Package":"proto-x/internal/wire"}
+{"Time":"2026-11-07T02:36:14.889805+03:00","Action":"start","Package":"proto-x/scripts/baselines"}
+{"Time":"2026-11-07T02:36:14.889813+03:00","Action":"output","Package":"proto-x/scripts/baselines","Output":"?   \tproto-x/scripts/baselines\t[no test files]\n"}
+{"Time":"2026-11-07T02:36:14.889822+03:00","Action":"skip","Package":"proto-x/scripts/baselines","Elapsed":0}
+{"Time":"2026-11-07T02:36:14.889838+03:00","Action":"start","Package":"proto-x/tools/securitycheck"}
+{"Time":"2026-11-07T02:36:14.889856+03:00","Action":"output","Package":"proto-x/tools/securitycheck","Output":"?   \tproto-x/tools/securitycheck\t[no test files]\n"}
+{"Time":"2026-11-07T02:36:14.889866+03:00","Action":"skip","Package":"proto-x/tools/securitycheck","Elapsed":0}
+{"Time":"2026-11-07T02:36:15.501816+03:00","Action":"run","Package":"proto-x/internal/app","Test":"TestQUICToTLSRetainsOriginAndBytes"}
+{"Time":"2026-11-07T02:36:15.501888+03:00","Action":"output","Package":"proto-x/internal/app","Test":"TestQUICToTLSRetainsOriginAndBytes","Output":"=== RUN   TestQUICToTLSRetainsOriginAndBytes\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:15.505048+03:00","Action":"output","Package":"proto-x/internal/app","Test":"TestQUICToTLSRetainsOriginAndBytes","Output":"2026/11/07 02:36:15 INFO TLS listener ready listen=127.0.0.1:50884\n"}
+{"Time":"2026-11-07T02:36:15.505194+03:00","Action":"output","Package":"proto-x/internal/app","Test":"TestQUICToTLSRetainsOriginAndBytes","Output":"2026/11/07 02:36:15 INFO QUIC listener ready listen=127.0.0.1:52068\n"}
+{"Time":"2026-11-07T02:36:15.510134+03:00","Action":"output","Package":"proto-x/internal/app","Test":"TestQUICToTLSRetainsOriginAndBytes","Output":"2026/11/07 02:36:15 INFO experimental QUIC controller installed controller=reno quic_base=v0.65.0 hysteria_source=ca8fbd874fd6ca82413948de6dc5924405e103e1 brutal_bytes_per_second=0 disable_loss_compensation=false\n"}
+{"Time":"2026-11-07T02:36:15.510213+03:00","Action":"output","Package":"proto-x/internal/app","Test":"TestQUICToTLSRetainsOriginAndBytes","Output":"2026/11/07 02:36:15 INFO carrier attached carrier=quic generation=1 resumed_flows=0\n"}
+{"Time":"2026-11-07T02:36:15.510259+03:00","Action":"output","Package":"proto-x/internal/app","Test":"TestQUICToTLSRetainsOriginAndBytes","Output":"2026/11/07 02:36:15 INFO experimental QUIC controller installed controller=reno quic_base=v0.65.0 hysteria_source=ca8fbd874fd6ca82413948de6dc5924405e103e1 brutal_bytes_per_second=0 disable_loss_compensation=false\n"}
+{"Time":"2026-11-07T02:36:15.510319+03:00","Action":"output","Package":"proto-x/internal/app","Test":"TestQUICToTLSRetainsOriginAndBytes","Output":"2026/11/07 02:36:15 INFO carrier attached carrier=quic generation=1 resumed_flows=0\n"}
+{"Time":"2026-11-07T02:36:15.516928+03:00","Action":"output","Package":"proto-x/internal/app","Test":"TestQUICToTLSRetainsOriginAndBytes","Output":"2026/11/07 02:36:15 INFO carrier detached carrier=quic\n"}
+{"Time":"2026-11-07T02:36:15.516962+03:00","Action":"output","Package":"proto-x/internal/app","Test":"TestQUICToTLSRetainsOriginAndBytes","Output":"2026/11/07 02:36:15 INFO carrier detached carrier=quic\n"}
+{"Time":"2026-11-07T02:36:15.520137+03:00","Action":"output","Package":"proto-x/internal/app","Test":"TestQUICToTLSRetainsOriginAndBytes","Output":"2026/11/07 02:36:15 INFO carrier attached carrier=tls generation=2 resumed_flows=1\n"}
+{"Time":"2026-11-07T02:36:15.520213+03:00","Action":"output","Package":"proto-x/internal/app","Test":"TestQUICToTLSRetainsOriginAndBytes","Output":"2026/11/07 02:36:15 INFO carrier attached carrier=tls generation=2 resumed_flows=1\n"}
+{"Time":"2026-11-07T02:36:15.536902+03:00","Action":"output","Package":"proto-x/internal/app","Test":"TestQUICToTLSRetainsOriginAndBytes","Output":"2026/11/07 02:36:15 INFO carrier detached carrier=tls\n"}
+{"Time":"2026-11-07T02:36:15.537322+03:00","Action":"output","Package":"proto-x/internal/app","Test":"TestQUICToTLSRetainsOriginAndBytes","Output":"--- PASS: TestQUICToTLSRetainsOriginAndBytes (0.04s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:15.537332+03:00","Action":"pass","Package":"proto-x/internal/app","Test":"TestQUICToTLSRetainsOriginAndBytes","Elapsed":0.04}
+{"Time":"2026-11-07T02:36:15.537344+03:00","Action":"output","Package":"proto-x/internal/app","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:15.814422+03:00","Action":"run","Package":"proto-x/internal/bench","Test":"TestSOCKSAddressEncoding"}
+{"Time":"2026-11-07T02:36:15.814468+03:00","Action":"output","Package":"proto-x/internal/bench","Test":"TestSOCKSAddressEncoding","Output":"=== RUN   TestSOCKSAddressEncoding\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:15.81449+03:00","Action":"run","Package":"proto-x/internal/bench","Test":"TestSOCKSAddressEncoding/192.0.2.9:443"}
+{"Time":"2026-11-07T02:36:15.814493+03:00","Action":"output","Package":"proto-x/internal/bench","Test":"TestSOCKSAddressEncoding/192.0.2.9:443","Output":"=== RUN   TestSOCKSAddressEncoding/192.0.2.9:443\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:15.814559+03:00","Action":"output","Package":"proto-x/internal/bench","Test":"TestSOCKSAddressEncoding/192.0.2.9:443","Output":"--- PASS: TestSOCKSAddressEncoding/192.0.2.9:443 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:15.814568+03:00","Action":"pass","Package":"proto-x/internal/bench","Test":"TestSOCKSAddressEncoding/192.0.2.9:443","Elapsed":0}
+{"Time":"2026-11-07T02:36:15.814574+03:00","Action":"run","Package":"proto-x/internal/bench","Test":"TestSOCKSAddressEncoding/fixture.example:80"}
+{"Time":"2026-11-07T02:36:15.814576+03:00","Action":"output","Package":"proto-x/internal/bench","Test":"TestSOCKSAddressEncoding/fixture.example:80","Output":"=== RUN   TestSOCKSAddressEncoding/fixture.example:80\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:15.81459+03:00","Action":"output","Package":"proto-x/internal/bench","Test":"TestSOCKSAddressEncoding/fixture.example:80","Output":"--- PASS: TestSOCKSAddressEncoding/fixture.example:80 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:15.814603+03:00","Action":"pass","Package":"proto-x/internal/bench","Test":"TestSOCKSAddressEncoding/fixture.example:80","Elapsed":0}
+{"Time":"2026-11-07T02:36:15.814614+03:00","Action":"run","Package":"proto-x/internal/bench","Test":"TestSOCKSAddressEncoding/[2001:db8::1]:8080"}
+{"Time":"2026-11-07T02:36:15.814617+03:00","Action":"output","Package":"proto-x/internal/bench","Test":"TestSOCKSAddressEncoding/[2001:db8::1]:8080","Output":"=== RUN   TestSOCKSAddressEncoding/[2001:db8::1]:8080\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:15.814632+03:00","Action":"output","Package":"proto-x/internal/bench","Test":"TestSOCKSAddressEncoding/[2001:db8::1]:8080","Output":"--- PASS: TestSOCKSAddressEncoding/[2001:db8::1]:8080 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:15.814637+03:00","Action":"pass","Package":"proto-x/internal/bench","Test":"TestSOCKSAddressEncoding/[2001:db8::1]:8080","Elapsed":0}
+{"Time":"2026-11-07T02:36:15.814652+03:00","Action":"output","Package":"proto-x/internal/bench","Test":"TestSOCKSAddressEncoding","Output":"--- PASS: TestSOCKSAddressEncoding (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:15.814655+03:00","Action":"pass","Package":"proto-x/internal/bench","Test":"TestSOCKSAddressEncoding","Elapsed":0}
+{"Time":"2026-11-07T02:36:15.814672+03:00","Action":"run","Package":"proto-x/internal/bench","Test":"TestSOCKSHandshakeRejectsWrongAuthentication"}
+{"Time":"2026-11-07T02:36:15.814674+03:00","Action":"output","Package":"proto-x/internal/bench","Test":"TestSOCKSHandshakeRejectsWrongAuthentication","Output":"=== RUN   TestSOCKSHandshakeRejectsWrongAuthentication\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:15.815156+03:00","Action":"output","Package":"proto-x/internal/bench","Test":"TestSOCKSHandshakeRejectsWrongAuthentication","Output":"--- PASS: TestSOCKSHandshakeRejectsWrongAuthentication (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:15.815161+03:00","Action":"pass","Package":"proto-x/internal/bench","Test":"TestSOCKSHandshakeRejectsWrongAuthentication","Elapsed":0}
+{"Time":"2026-11-07T02:36:15.815182+03:00","Action":"run","Package":"proto-x/internal/bench","Test":"TestPayloadHasStableWirePatternAndRejectsCorruption"}
+{"Time":"2026-11-07T02:36:15.815184+03:00","Action":"output","Package":"proto-x/internal/bench","Test":"TestPayloadHasStableWirePatternAndRejectsCorruption","Output":"=== RUN   TestPayloadHasStableWirePatternAndRejectsCorruption\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:15.815214+03:00","Action":"output","Package":"proto-x/internal/bench","Test":"TestPayloadHasStableWirePatternAndRejectsCorruption","Output":"--- PASS: TestPayloadHasStableWirePatternAndRejectsCorruption (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:15.815229+03:00","Action":"pass","Package":"proto-x/internal/bench","Test":"TestPayloadHasStableWirePatternAndRejectsCorruption","Elapsed":0}
+{"Time":"2026-11-07T02:36:15.81524+03:00","Action":"run","Package":"proto-x/internal/bench","Test":"TestSummaryRetainsFailureTimeoutAndCensoringDenominators"}
+{"Time":"2026-11-07T02:36:15.815242+03:00","Action":"output","Package":"proto-x/internal/bench","Test":"TestSummaryRetainsFailureTimeoutAndCensoringDenominators","Output":"=== RUN   TestSummaryRetainsFailureTimeoutAndCensoringDenominators\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:15.829722+03:00","Action":"output","Package":"proto-x/internal/bench","Test":"TestSummaryRetainsFailureTimeoutAndCensoringDenominators","Output":"--- PASS: TestSummaryRetainsFailureTimeoutAndCensoringDenominators (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:15.829743+03:00","Action":"pass","Package":"proto-x/internal/bench","Test":"TestSummaryRetainsFailureTimeoutAndCensoringDenominators","Elapsed":0.01}
+{"Time":"2026-11-07T02:36:15.829756+03:00","Action":"run","Package":"proto-x/internal/bench","Test":"TestFixturesValidateUploadAndStreamSequence"}
+{"Time":"2026-11-07T02:36:15.829759+03:00","Action":"output","Package":"proto-x/internal/bench","Test":"TestFixturesValidateUploadAndStreamSequence","Output":"=== RUN   TestFixturesValidateUploadAndStreamSequence\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:15.903703+03:00","Action":"output","Package":"proto-x/internal/bench","Test":"TestFixturesValidateUploadAndStreamSequence","Output":"--- PASS: TestFixturesValidateUploadAndStreamSequence (0.07s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:15.903728+03:00","Action":"pass","Package":"proto-x/internal/bench","Test":"TestFixturesValidateUploadAndStreamSequence","Elapsed":0.07}
+{"Time":"2026-11-07T02:36:15.903733+03:00","Action":"run","Package":"proto-x/internal/bench","Test":"TestDownloadSourcePacingAndValidation"}
+{"Time":"2026-11-07T02:36:15.903737+03:00","Action":"output","Package":"proto-x/internal/bench","Test":"TestDownloadSourcePacingAndValidation","Output":"=== RUN   TestDownloadSourcePacingAndValidation\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.010068+03:00","Action":"output","Package":"proto-x/internal/bench","Test":"TestDownloadSourcePacingAndValidation","Output":"--- PASS: TestDownloadSourcePacingAndValidation (0.11s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.010094+03:00","Action":"pass","Package":"proto-x/internal/bench","Test":"TestDownloadSourcePacingAndValidation","Elapsed":0.11}
+{"Time":"2026-11-07T02:36:16.010112+03:00","Action":"run","Package":"proto-x/internal/bench","Test":"TestSSESourceGapIgnoresWallClockJumps"}
+{"Time":"2026-11-07T02:36:16.010116+03:00","Action":"output","Package":"proto-x/internal/bench","Test":"TestSSESourceGapIgnoresWallClockJumps","Output":"=== RUN   TestSSESourceGapIgnoresWallClockJumps\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.114145+03:00","Action":"output","Package":"proto-x/internal/bench","Test":"TestSSESourceGapIgnoresWallClockJumps","Output":"--- PASS: TestSSESourceGapIgnoresWallClockJumps (0.10s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.114174+03:00","Action":"pass","Package":"proto-x/internal/bench","Test":"TestSSESourceGapIgnoresWallClockJumps","Elapsed":0.1}
+{"Time":"2026-11-07T02:36:16.114182+03:00","Action":"run","Package":"proto-x/internal/bench","Test":"TestRunEndCensoringPrecedesContextNotification"}
+{"Time":"2026-11-07T02:36:16.114186+03:00","Action":"output","Package":"proto-x/internal/bench","Test":"TestRunEndCensoringPrecedesContextNotification","Output":"=== RUN   TestRunEndCensoringPrecedesContextNotification\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.114246+03:00","Action":"output","Package":"proto-x/internal/bench","Test":"TestRunEndCensoringPrecedesContextNotification","Output":"--- PASS: TestRunEndCensoringPrecedesContextNotification (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.114254+03:00","Action":"pass","Package":"proto-x/internal/bench","Test":"TestRunEndCensoringPrecedesContextNotification","Elapsed":0}
+{"Time":"2026-11-07T02:36:16.114264+03:00","Action":"run","Package":"proto-x/internal/bench","Test":"TestUnansweredEchoAtRunEndIsCensoredOnce"}
+{"Time":"2026-11-07T02:36:16.114268+03:00","Action":"output","Package":"proto-x/internal/bench","Test":"TestUnansweredEchoAtRunEndIsCensoredOnce","Output":"=== RUN   TestUnansweredEchoAtRunEndIsCensoredOnce\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.116812+03:00","Action":"run","Package":"proto-x/internal/hycc/bbr","Test":"TestSetMaxDatagramSizeRescalesPacketSizedWindows"}
+{"Time":"2026-11-07T02:36:16.116857+03:00","Action":"output","Package":"proto-x/internal/hycc/bbr","Test":"TestSetMaxDatagramSizeRescalesPacketSizedWindows","Output":"=== RUN   TestSetMaxDatagramSizeRescalesPacketSizedWindows\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.117013+03:00","Action":"output","Package":"proto-x/internal/hycc/bbr","Test":"TestSetMaxDatagramSizeRescalesPacketSizedWindows","Output":"--- PASS: TestSetMaxDatagramSizeRescalesPacketSizedWindows (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.117033+03:00","Action":"pass","Package":"proto-x/internal/hycc/bbr","Test":"TestSetMaxDatagramSizeRescalesPacketSizedWindows","Elapsed":0}
+{"Time":"2026-11-07T02:36:16.117039+03:00","Action":"run","Package":"proto-x/internal/hycc/bbr","Test":"TestSetMaxDatagramSizeClampsCongestionWindow"}
+{"Time":"2026-11-07T02:36:16.117043+03:00","Action":"output","Package":"proto-x/internal/hycc/bbr","Test":"TestSetMaxDatagramSizeClampsCongestionWindow","Output":"=== RUN   TestSetMaxDatagramSizeClampsCongestionWindow\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.117095+03:00","Action":"output","Package":"proto-x/internal/hycc/bbr","Test":"TestSetMaxDatagramSizeClampsCongestionWindow","Output":"--- PASS: TestSetMaxDatagramSizeClampsCongestionWindow (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.117104+03:00","Action":"pass","Package":"proto-x/internal/hycc/bbr","Test":"TestSetMaxDatagramSizeClampsCongestionWindow","Elapsed":0}
+{"Time":"2026-11-07T02:36:16.117109+03:00","Action":"run","Package":"proto-x/internal/hycc/bbr","Test":"TestNewBbrSenderAppliesProfiles"}
+{"Time":"2026-11-07T02:36:16.117113+03:00","Action":"output","Package":"proto-x/internal/hycc/bbr","Test":"TestNewBbrSenderAppliesProfiles","Output":"=== RUN   TestNewBbrSenderAppliesProfiles\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.117139+03:00","Action":"run","Package":"proto-x/internal/hycc/bbr","Test":"TestNewBbrSenderAppliesProfiles/standard"}
+{"Time":"2026-11-07T02:36:16.11715+03:00","Action":"output","Package":"proto-x/internal/hycc/bbr","Test":"TestNewBbrSenderAppliesProfiles/standard","Output":"=== RUN   TestNewBbrSenderAppliesProfiles/standard\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.117232+03:00","Action":"output","Package":"proto-x/internal/hycc/bbr","Test":"TestNewBbrSenderAppliesProfiles/standard","Output":"--- PASS: TestNewBbrSenderAppliesProfiles/standard (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.117252+03:00","Action":"pass","Package":"proto-x/internal/hycc/bbr","Test":"TestNewBbrSenderAppliesProfiles/standard","Elapsed":0}
+{"Time":"2026-11-07T02:36:16.11726+03:00","Action":"run","Package":"proto-x/internal/hycc/bbr","Test":"TestNewBbrSenderAppliesProfiles/conservative"}
+{"Time":"2026-11-07T02:36:16.117265+03:00","Action":"output","Package":"proto-x/internal/hycc/bbr","Test":"TestNewBbrSenderAppliesProfiles/conservative","Output":"=== RUN   TestNewBbrSenderAppliesProfiles/conservative\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.117319+03:00","Action":"output","Package":"proto-x/internal/hycc/bbr","Test":"TestNewBbrSenderAppliesProfiles/conservative","Output":"--- PASS: TestNewBbrSenderAppliesProfiles/conservative (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.117332+03:00","Action":"pass","Package":"proto-x/internal/hycc/bbr","Test":"TestNewBbrSenderAppliesProfiles/conservative","Elapsed":0}
+{"Time":"2026-11-07T02:36:16.117337+03:00","Action":"run","Package":"proto-x/internal/hycc/bbr","Test":"TestNewBbrSenderAppliesProfiles/aggressive"}
+{"Time":"2026-11-07T02:36:16.117341+03:00","Action":"output","Package":"proto-x/internal/hycc/bbr","Test":"TestNewBbrSenderAppliesProfiles/aggressive","Output":"=== RUN   TestNewBbrSenderAppliesProfiles/aggressive\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.117413+03:00","Action":"output","Package":"proto-x/internal/hycc/bbr","Test":"TestNewBbrSenderAppliesProfiles/aggressive","Output":"--- PASS: TestNewBbrSenderAppliesProfiles/aggressive (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.117423+03:00","Action":"pass","Package":"proto-x/internal/hycc/bbr","Test":"TestNewBbrSenderAppliesProfiles/aggressive","Elapsed":0}
+{"Time":"2026-11-07T02:36:16.117444+03:00","Action":"output","Package":"proto-x/internal/hycc/bbr","Test":"TestNewBbrSenderAppliesProfiles","Output":"--- PASS: TestNewBbrSenderAppliesProfiles (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.117458+03:00","Action":"pass","Package":"proto-x/internal/hycc/bbr","Test":"TestNewBbrSenderAppliesProfiles","Elapsed":0}
+{"Time":"2026-11-07T02:36:16.117474+03:00","Action":"run","Package":"proto-x/internal/hycc/bbr","Test":"TestParseProfile"}
+{"Time":"2026-11-07T02:36:16.117478+03:00","Action":"output","Package":"proto-x/internal/hycc/bbr","Test":"TestParseProfile","Output":"=== RUN   TestParseProfile\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.117504+03:00","Action":"output","Package":"proto-x/internal/hycc/bbr","Test":"TestParseProfile","Output":"--- PASS: TestParseProfile (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.117511+03:00","Action":"pass","Package":"proto-x/internal/hycc/bbr","Test":"TestParseProfile","Elapsed":0}
+{"Time":"2026-11-07T02:36:16.11753+03:00","Action":"output","Package":"proto-x/internal/hycc/bbr","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.218397+03:00","Action":"output","Package":"proto-x/internal/bench","Test":"TestUnansweredEchoAtRunEndIsCensoredOnce","Output":"--- PASS: TestUnansweredEchoAtRunEndIsCensoredOnce (0.10s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.218429+03:00","Action":"pass","Package":"proto-x/internal/bench","Test":"TestUnansweredEchoAtRunEndIsCensoredOnce","Elapsed":0.1}
+{"Time":"2026-11-07T02:36:16.218442+03:00","Action":"run","Package":"proto-x/internal/bench","Test":"TestRunUsesSOCKSForEveryWorkload"}
+{"Time":"2026-11-07T02:36:16.218448+03:00","Action":"output","Package":"proto-x/internal/bench","Test":"TestRunUsesSOCKSForEveryWorkload","Output":"=== RUN   TestRunUsesSOCKSForEveryWorkload\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.303543+03:00","Action":"run","Package":"proto-x/internal/carrier","Test":"TestCC65NativeMigrationRetainsControllerAndOriginalStream"}
+{"Time":"2026-11-07T02:36:16.303573+03:00","Action":"output","Package":"proto-x/internal/carrier","Test":"TestCC65NativeMigrationRetainsControllerAndOriginalStream","Output":"=== RUN   TestCC65NativeMigrationRetainsControllerAndOriginalStream\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.303582+03:00","Action":"run","Package":"proto-x/internal/carrier","Test":"TestCC65NativeMigrationRetainsControllerAndOriginalStream/reno"}
+{"Time":"2026-11-07T02:36:16.303585+03:00","Action":"output","Package":"proto-x/internal/carrier","Test":"TestCC65NativeMigrationRetainsControllerAndOriginalStream/reno","Output":"=== RUN   TestCC65NativeMigrationRetainsControllerAndOriginalStream/reno\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.347558+03:00","Action":"output","Package":"proto-x/internal/carrier","Test":"TestCC65NativeMigrationRetainsControllerAndOriginalStream/reno","Output":"    experimental_cc_test.go:155: mode=reno exact_echo_bytes=786432 native_path_changes=2 client_controllers=0 server_controllers=0\n"}
+{"Time":"2026-11-07T02:36:16.34783+03:00","Action":"output","Package":"proto-x/internal/carrier","Test":"TestCC65NativeMigrationRetainsControllerAndOriginalStream/reno","Output":"--- PASS: TestCC65NativeMigrationRetainsControllerAndOriginalStream/reno (0.04s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.347847+03:00","Action":"pass","Package":"proto-x/internal/carrier","Test":"TestCC65NativeMigrationRetainsControllerAndOriginalStream/reno","Elapsed":0.04}
+{"Time":"2026-11-07T02:36:16.347863+03:00","Action":"run","Package":"proto-x/internal/carrier","Test":"TestCC65NativeMigrationRetainsControllerAndOriginalStream/standard"}
+{"Time":"2026-11-07T02:36:16.347869+03:00","Action":"output","Package":"proto-x/internal/carrier","Test":"TestCC65NativeMigrationRetainsControllerAndOriginalStream/standard","Output":"=== RUN   TestCC65NativeMigrationRetainsControllerAndOriginalStream/standard\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.386148+03:00","Action":"output","Package":"proto-x/internal/carrier","Test":"TestCC65NativeMigrationRetainsControllerAndOriginalStream/standard","Output":"    experimental_cc_test.go:155: mode=standard exact_echo_bytes=786432 native_path_changes=2 client_controllers=3 server_controllers=3\n"}
+{"Time":"2026-11-07T02:36:16.386357+03:00","Action":"output","Package":"proto-x/internal/carrier","Test":"TestCC65NativeMigrationRetainsControllerAndOriginalStream/standard","Output":"--- PASS: TestCC65NativeMigrationRetainsControllerAndOriginalStream/standard (0.04s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.386373+03:00","Action":"pass","Package":"proto-x/internal/carrier","Test":"TestCC65NativeMigrationRetainsControllerAndOriginalStream/standard","Elapsed":0.04}
+{"Time":"2026-11-07T02:36:16.386379+03:00","Action":"run","Package":"proto-x/internal/carrier","Test":"TestCC65NativeMigrationRetainsControllerAndOriginalStream/conservative"}
+{"Time":"2026-11-07T02:36:16.386382+03:00","Action":"output","Package":"proto-x/internal/carrier","Test":"TestCC65NativeMigrationRetainsControllerAndOriginalStream/conservative","Output":"=== RUN   TestCC65NativeMigrationRetainsControllerAndOriginalStream/conservative\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.423021+03:00","Action":"output","Package":"proto-x/internal/carrier","Test":"TestCC65NativeMigrationRetainsControllerAndOriginalStream/conservative","Output":"    experimental_cc_test.go:155: mode=conservative exact_echo_bytes=786432 native_path_changes=2 client_controllers=3 server_controllers=3\n"}
+{"Time":"2026-11-07T02:36:16.4232+03:00","Action":"output","Package":"proto-x/internal/carrier","Test":"TestCC65NativeMigrationRetainsControllerAndOriginalStream/conservative","Output":"--- PASS: TestCC65NativeMigrationRetainsControllerAndOriginalStream/conservative (0.04s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.423233+03:00","Action":"pass","Package":"proto-x/internal/carrier","Test":"TestCC65NativeMigrationRetainsControllerAndOriginalStream/conservative","Elapsed":0.04}
+{"Time":"2026-11-07T02:36:16.423242+03:00","Action":"run","Package":"proto-x/internal/carrier","Test":"TestCC65NativeMigrationRetainsControllerAndOriginalStream/aggressive"}
+{"Time":"2026-11-07T02:36:16.423245+03:00","Action":"output","Package":"proto-x/internal/carrier","Test":"TestCC65NativeMigrationRetainsControllerAndOriginalStream/aggressive","Output":"=== RUN   TestCC65NativeMigrationRetainsControllerAndOriginalStream/aggressive\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.458963+03:00","Action":"output","Package":"proto-x/internal/carrier","Test":"TestCC65NativeMigrationRetainsControllerAndOriginalStream/aggressive","Output":"    experimental_cc_test.go:155: mode=aggressive exact_echo_bytes=786432 native_path_changes=2 client_controllers=3 server_controllers=3\n"}
+{"Time":"2026-11-07T02:36:16.459167+03:00","Action":"output","Package":"proto-x/internal/carrier","Test":"TestCC65NativeMigrationRetainsControllerAndOriginalStream/aggressive","Output":"--- PASS: TestCC65NativeMigrationRetainsControllerAndOriginalStream/aggressive (0.04s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.459176+03:00","Action":"pass","Package":"proto-x/internal/carrier","Test":"TestCC65NativeMigrationRetainsControllerAndOriginalStream/aggressive","Elapsed":0.04}
+{"Time":"2026-11-07T02:36:16.459202+03:00","Action":"run","Package":"proto-x/internal/carrier","Test":"TestCC65NativeMigrationRetainsControllerAndOriginalStream/brutal"}
+{"Time":"2026-11-07T02:36:16.459205+03:00","Action":"output","Package":"proto-x/internal/carrier","Test":"TestCC65NativeMigrationRetainsControllerAndOriginalStream/brutal","Output":"=== RUN   TestCC65NativeMigrationRetainsControllerAndOriginalStream/brutal\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.539263+03:00","Action":"output","Package":"proto-x/internal/app","Output":"ok  \tproto-x/internal/app\t1.650s\n"}
+{"Time":"2026-11-07T02:36:16.539281+03:00","Action":"pass","Package":"proto-x/internal/app","Elapsed":1.65}
+{"Time":"2026-11-07T02:36:16.649675+03:00","Action":"run","Package":"proto-x/internal/session","Test":"TestBidirectionalBytesAndTCPHalfClose"}
+{"Time":"2026-11-07T02:36:16.649707+03:00","Action":"output","Package":"proto-x/internal/session","Test":"TestBidirectionalBytesAndTCPHalfClose","Output":"=== RUN   TestBidirectionalBytesAndTCPHalfClose\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.720671+03:00","Action":"output","Package":"proto-x/internal/bench","Test":"TestRunUsesSOCKSForEveryWorkload","Output":"--- PASS: TestRunUsesSOCKSForEveryWorkload (0.50s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.72069+03:00","Action":"pass","Package":"proto-x/internal/bench","Test":"TestRunUsesSOCKSForEveryWorkload","Elapsed":0.5}
+{"Time":"2026-11-07T02:36:16.720696+03:00","Action":"run","Package":"proto-x/internal/bench","Test":"ExampleRunConfig"}
+{"Time":"2026-11-07T02:36:16.720699+03:00","Action":"output","Package":"proto-x/internal/bench","Test":"ExampleRunConfig","Output":"=== RUN   ExampleRunConfig\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.72072+03:00","Action":"output","Package":"proto-x/internal/bench","Test":"ExampleRunConfig","Output":"--- PASS: ExampleRunConfig (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.720724+03:00","Action":"pass","Package":"proto-x/internal/bench","Test":"ExampleRunConfig","Elapsed":0}
+{"Time":"2026-11-07T02:36:16.720726+03:00","Action":"output","Package":"proto-x/internal/bench","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.7791+03:00","Action":"output","Package":"proto-x/internal/session","Test":"TestBidirectionalBytesAndTCPHalfClose","Output":"--- PASS: TestBidirectionalBytesAndTCPHalfClose (0.13s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.77913+03:00","Action":"pass","Package":"proto-x/internal/session","Test":"TestBidirectionalBytesAndTCPHalfClose","Elapsed":0.13}
+{"Time":"2026-11-07T02:36:16.779135+03:00","Action":"run","Package":"proto-x/internal/session","Test":"TestCarrierReplacementPreservesOriginalSocketAndBytes"}
+{"Time":"2026-11-07T02:36:16.779141+03:00","Action":"output","Package":"proto-x/internal/session","Test":"TestCarrierReplacementPreservesOriginalSocketAndBytes","Output":"=== RUN   TestCarrierReplacementPreservesOriginalSocketAndBytes\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.903419+03:00","Action":"output","Package":"proto-x/internal/session","Test":"TestCarrierReplacementPreservesOriginalSocketAndBytes","Output":"--- PASS: TestCarrierReplacementPreservesOriginalSocketAndBytes (0.12s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.903447+03:00","Action":"pass","Package":"proto-x/internal/session","Test":"TestCarrierReplacementPreservesOriginalSocketAndBytes","Elapsed":0.12}
+{"Time":"2026-11-07T02:36:16.903453+03:00","Action":"run","Package":"proto-x/internal/session","Test":"TestDetachedExpiryUnblocksReadersAndWriters"}
+{"Time":"2026-11-07T02:36:16.903456+03:00","Action":"output","Package":"proto-x/internal/session","Test":"TestDetachedExpiryUnblocksReadersAndWriters","Output":"=== RUN   TestDetachedExpiryUnblocksReadersAndWriters\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.922238+03:00","Action":"run","Package":"proto-x/internal/wire","Test":"TestRejectOversizeBeforeAllocation"}
+{"Time":"2026-11-07T02:36:16.922274+03:00","Action":"output","Package":"proto-x/internal/wire","Test":"TestRejectOversizeBeforeAllocation","Output":"=== RUN   TestRejectOversizeBeforeAllocation\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.922344+03:00","Action":"output","Package":"proto-x/internal/wire","Test":"TestRejectOversizeBeforeAllocation","Output":"--- PASS: TestRejectOversizeBeforeAllocation (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.922351+03:00","Action":"pass","Package":"proto-x/internal/wire","Test":"TestRejectOversizeBeforeAllocation","Elapsed":0}
+{"Time":"2026-11-07T02:36:16.922356+03:00","Action":"run","Package":"proto-x/internal/wire","Test":"TestTruncatedRecordCannotSucceed"}
+{"Time":"2026-11-07T02:36:16.922358+03:00","Action":"output","Package":"proto-x/internal/wire","Test":"TestTruncatedRecordCannotSucceed","Output":"=== RUN   TestTruncatedRecordCannotSucceed\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.922421+03:00","Action":"output","Package":"proto-x/internal/wire","Test":"TestTruncatedRecordCannotSucceed","Output":"--- PASS: TestTruncatedRecordCannotSucceed (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.922445+03:00","Action":"pass","Package":"proto-x/internal/wire","Test":"TestTruncatedRecordCannotSucceed","Elapsed":0}
+{"Time":"2026-11-07T02:36:16.922449+03:00","Action":"run","Package":"proto-x/internal/wire","Test":"FuzzRead"}
+{"Time":"2026-11-07T02:36:16.922452+03:00","Action":"output","Package":"proto-x/internal/wire","Test":"FuzzRead","Output":"=== RUN   FuzzRead\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.922597+03:00","Action":"run","Package":"proto-x/internal/wire","Test":"FuzzRead/seed#0"}
+{"Time":"2026-11-07T02:36:16.9226+03:00","Action":"output","Package":"proto-x/internal/wire","Test":"FuzzRead/seed#0","Output":"=== RUN   FuzzRead/seed#0\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.922712+03:00","Action":"output","Package":"proto-x/internal/wire","Test":"FuzzRead/seed#0","Output":"--- PASS: FuzzRead/seed#0 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.922718+03:00","Action":"pass","Package":"proto-x/internal/wire","Test":"FuzzRead/seed#0","Elapsed":0}
+{"Time":"2026-11-07T02:36:16.922733+03:00","Action":"run","Package":"proto-x/internal/wire","Test":"FuzzRead/seed#1"}
+{"Time":"2026-11-07T02:36:16.922742+03:00","Action":"output","Package":"proto-x/internal/wire","Test":"FuzzRead/seed#1","Output":"=== RUN   FuzzRead/seed#1\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.922749+03:00","Action":"output","Package":"proto-x/internal/wire","Test":"FuzzRead/seed#1","Output":"--- PASS: FuzzRead/seed#1 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.922753+03:00","Action":"pass","Package":"proto-x/internal/wire","Test":"FuzzRead/seed#1","Elapsed":0}
+{"Time":"2026-11-07T02:36:16.922768+03:00","Action":"output","Package":"proto-x/internal/wire","Test":"FuzzRead","Output":"--- PASS: FuzzRead (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:16.922774+03:00","Action":"pass","Package":"proto-x/internal/wire","Test":"FuzzRead","Elapsed":0}
+{"Time":"2026-11-07T02:36:16.922778+03:00","Action":"output","Package":"proto-x/internal/wire","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:17.122929+03:00","Action":"output","Package":"proto-x/internal/hycc/bbr","Output":"ok  \tproto-x/internal/hycc/bbr\t2.233s\n"}
+{"Time":"2026-11-07T02:36:17.12302+03:00","Action":"pass","Package":"proto-x/internal/hycc/bbr","Elapsed":2.233}
+{"Time":"2026-11-07T02:36:17.276269+03:00","Action":"run","Package":"proto-x/internal/hycc/brutal","Test":"TestBrutalLossCompensation"}
+{"Time":"2026-11-07T02:36:17.276322+03:00","Action":"output","Package":"proto-x/internal/hycc/brutal","Test":"TestBrutalLossCompensation","Output":"=== RUN   TestBrutalLossCompensation\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:17.276334+03:00","Action":"run","Package":"proto-x/internal/hycc/brutal","Test":"TestBrutalLossCompensation/no_loss"}
+{"Time":"2026-11-07T02:36:17.276338+03:00","Action":"output","Package":"proto-x/internal/hycc/brutal","Test":"TestBrutalLossCompensation/no_loss","Output":"=== RUN   TestBrutalLossCompensation/no_loss\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:17.276497+03:00","Action":"output","Package":"proto-x/internal/hycc/brutal","Test":"TestBrutalLossCompensation/no_loss","Output":"--- PASS: TestBrutalLossCompensation/no_loss (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:17.276522+03:00","Action":"pass","Package":"proto-x/internal/hycc/brutal","Test":"TestBrutalLossCompensation/no_loss","Elapsed":0}
+{"Time":"2026-11-07T02:36:17.27653+03:00","Action":"run","Package":"proto-x/internal/hycc/brutal","Test":"TestBrutalLossCompensation/20%_loss"}
+{"Time":"2026-11-07T02:36:17.276535+03:00","Action":"output","Package":"proto-x/internal/hycc/brutal","Test":"TestBrutalLossCompensation/20%_loss","Output":"=== RUN   TestBrutalLossCompensation/20%_loss\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:17.276582+03:00","Action":"output","Package":"proto-x/internal/hycc/brutal","Test":"TestBrutalLossCompensation/20%_loss","Output":"--- PASS: TestBrutalLossCompensation/20%_loss (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:17.276605+03:00","Action":"pass","Package":"proto-x/internal/hycc/brutal","Test":"TestBrutalLossCompensation/20%_loss","Elapsed":0}
+{"Time":"2026-11-07T02:36:17.276611+03:00","Action":"run","Package":"proto-x/internal/hycc/brutal","Test":"TestBrutalLossCompensation/50%_loss_clamps_to_floor"}
+{"Time":"2026-11-07T02:36:17.276615+03:00","Action":"output","Package":"proto-x/internal/hycc/brutal","Test":"TestBrutalLossCompensation/50%_loss_clamps_to_floor","Output":"=== RUN   TestBrutalLossCompensation/50%_loss_clamps_to_floor\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:17.276661+03:00","Action":"output","Package":"proto-x/internal/hycc/brutal","Test":"TestBrutalLossCompensation/50%_loss_clamps_to_floor","Output":"--- PASS: TestBrutalLossCompensation/50%_loss_clamps_to_floor (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:17.276673+03:00","Action":"pass","Package":"proto-x/internal/hycc/brutal","Test":"TestBrutalLossCompensation/50%_loss_clamps_to_floor","Elapsed":0}
+{"Time":"2026-11-07T02:36:17.276678+03:00","Action":"run","Package":"proto-x/internal/hycc/brutal","Test":"TestBrutalLossCompensation/few_samples_stays_1"}
+{"Time":"2026-11-07T02:36:17.276682+03:00","Action":"output","Package":"proto-x/internal/hycc/brutal","Test":"TestBrutalLossCompensation/few_samples_stays_1","Output":"=== RUN   TestBrutalLossCompensation/few_samples_stays_1\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:17.27672+03:00","Action":"output","Package":"proto-x/internal/hycc/brutal","Test":"TestBrutalLossCompensation/few_samples_stays_1","Output":"--- PASS: TestBrutalLossCompensation/few_samples_stays_1 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:17.276728+03:00","Action":"pass","Package":"proto-x/internal/hycc/brutal","Test":"TestBrutalLossCompensation/few_samples_stays_1","Elapsed":0}
+{"Time":"2026-11-07T02:36:17.276752+03:00","Action":"output","Package":"proto-x/internal/hycc/brutal","Test":"TestBrutalLossCompensation","Output":"--- PASS: TestBrutalLossCompensation (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:17.276758+03:00","Action":"pass","Package":"proto-x/internal/hycc/brutal","Test":"TestBrutalLossCompensation","Elapsed":0}
+{"Time":"2026-11-07T02:36:17.276777+03:00","Action":"output","Package":"proto-x/internal/hycc/brutal","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:17.304895+03:00","Action":"output","Package":"proto-x/internal/session","Test":"TestDetachedExpiryUnblocksReadersAndWriters","Output":"--- PASS: TestDetachedExpiryUnblocksReadersAndWriters (0.40s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:17.304914+03:00","Action":"pass","Package":"proto-x/internal/session","Test":"TestDetachedExpiryUnblocksReadersAndWriters","Elapsed":0.4}
+{"Time":"2026-11-07T02:36:17.304948+03:00","Action":"run","Package":"proto-x/internal/session","Test":"TestDuplicateDataAndFlowControlValidation"}
+{"Time":"2026-11-07T02:36:17.304968+03:00","Action":"output","Package":"proto-x/internal/session","Test":"TestDuplicateDataAndFlowControlValidation","Output":"=== RUN   TestDuplicateDataAndFlowControlValidation\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:17.305088+03:00","Action":"output","Package":"proto-x/internal/session","Test":"TestDuplicateDataAndFlowControlValidation","Output":"--- PASS: TestDuplicateDataAndFlowControlValidation (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:17.3051+03:00","Action":"pass","Package":"proto-x/internal/session","Test":"TestDuplicateDataAndFlowControlValidation","Elapsed":0}
+{"Time":"2026-11-07T02:36:17.305108+03:00","Action":"run","Package":"proto-x/internal/session","Test":"TestNormalFlowsRetireSendersAndPruneOldTombstones"}
+{"Time":"2026-11-07T02:36:17.305112+03:00","Action":"output","Package":"proto-x/internal/session","Test":"TestNormalFlowsRetireSendersAndPruneOldTombstones","Output":"=== RUN   TestNormalFlowsRetireSendersAndPruneOldTombstones\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:17.585891+03:00","Action":"output","Package":"proto-x/internal/carrier","Test":"TestCC65NativeMigrationRetainsControllerAndOriginalStream/brutal","Output":"    experimental_cc_test.go:155: mode=brutal exact_echo_bytes=786432 native_path_changes=2 client_controllers=3 server_controllers=3\n"}
+{"Time":"2026-11-07T02:36:17.586407+03:00","Action":"output","Package":"proto-x/internal/carrier","Test":"TestCC65NativeMigrationRetainsControllerAndOriginalStream/brutal","Output":"--- PASS: TestCC65NativeMigrationRetainsControllerAndOriginalStream/brutal (1.13s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:17.58657+03:00","Action":"pass","Package":"proto-x/internal/carrier","Test":"TestCC65NativeMigrationRetainsControllerAndOriginalStream/brutal","Elapsed":1.13}
+{"Time":"2026-11-07T02:36:17.586982+03:00","Action":"output","Package":"proto-x/internal/carrier","Test":"TestCC65NativeMigrationRetainsControllerAndOriginalStream","Output":"--- PASS: TestCC65NativeMigrationRetainsControllerAndOriginalStream (1.28s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:17.587014+03:00","Action":"pass","Package":"proto-x/internal/carrier","Test":"TestCC65NativeMigrationRetainsControllerAndOriginalStream","Elapsed":1.28}
+{"Time":"2026-11-07T02:36:17.587028+03:00","Action":"run","Package":"proto-x/internal/carrier","Test":"TestCC65ConcurrentSettersDuringTraffic"}
+{"Time":"2026-11-07T02:36:17.587036+03:00","Action":"output","Package":"proto-x/internal/carrier","Test":"TestCC65ConcurrentSettersDuringTraffic","Output":"=== RUN   TestCC65ConcurrentSettersDuringTraffic\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:17.615579+03:00","Action":"output","Package":"proto-x/internal/carrier","Test":"TestCC65ConcurrentSettersDuringTraffic","Output":"--- PASS: TestCC65ConcurrentSettersDuringTraffic (0.03s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:17.615618+03:00","Action":"pass","Package":"proto-x/internal/carrier","Test":"TestCC65ConcurrentSettersDuringTraffic","Elapsed":0.03}
+{"Time":"2026-11-07T02:36:17.615625+03:00","Action":"run","Package":"proto-x/internal/carrier","Test":"TestCC65MigrationFactoryFailureClosesConnection"}
+{"Time":"2026-11-07T02:36:17.615628+03:00","Action":"output","Package":"proto-x/internal/carrier","Test":"TestCC65MigrationFactoryFailureClosesConnection","Output":"=== RUN   TestCC65MigrationFactoryFailureClosesConnection\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:17.615631+03:00","Action":"run","Package":"proto-x/internal/carrier","Test":"TestCC65MigrationFactoryFailureClosesConnection/client"}
+{"Time":"2026-11-07T02:36:17.615633+03:00","Action":"output","Package":"proto-x/internal/carrier","Test":"TestCC65MigrationFactoryFailureClosesConnection/client","Output":"=== RUN   TestCC65MigrationFactoryFailureClosesConnection/client\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:17.622271+03:00","Action":"output","Package":"proto-x/internal/carrier","Test":"TestCC65MigrationFactoryFailureClosesConnection/client","Output":"--- PASS: TestCC65MigrationFactoryFailureClosesConnection/client (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:17.62229+03:00","Action":"pass","Package":"proto-x/internal/carrier","Test":"TestCC65MigrationFactoryFailureClosesConnection/client","Elapsed":0.01}
+{"Time":"2026-11-07T02:36:17.622293+03:00","Action":"run","Package":"proto-x/internal/carrier","Test":"TestCC65MigrationFactoryFailureClosesConnection/server"}
+{"Time":"2026-11-07T02:36:17.622296+03:00","Action":"output","Package":"proto-x/internal/carrier","Test":"TestCC65MigrationFactoryFailureClosesConnection/server","Output":"=== RUN   TestCC65MigrationFactoryFailureClosesConnection/server\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:17.628439+03:00","Action":"output","Package":"proto-x/internal/carrier","Test":"TestCC65MigrationFactoryFailureClosesConnection/server","Output":"--- PASS: TestCC65MigrationFactoryFailureClosesConnection/server (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:17.628452+03:00","Action":"pass","Package":"proto-x/internal/carrier","Test":"TestCC65MigrationFactoryFailureClosesConnection/server","Elapsed":0.01}
+{"Time":"2026-11-07T02:36:17.628457+03:00","Action":"output","Package":"proto-x/internal/carrier","Test":"TestCC65MigrationFactoryFailureClosesConnection","Output":"--- PASS: TestCC65MigrationFactoryFailureClosesConnection (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:17.628472+03:00","Action":"pass","Package":"proto-x/internal/carrier","Test":"TestCC65MigrationFactoryFailureClosesConnection","Elapsed":0.01}
+{"Time":"2026-11-07T02:36:17.628489+03:00","Action":"output","Package":"proto-x/internal/carrier","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:17.72727+03:00","Action":"output","Package":"proto-x/internal/bench","Output":"ok  \tproto-x/internal/bench\t2.838s\n"}
+{"Time":"2026-11-07T02:36:17.727313+03:00","Action":"pass","Package":"proto-x/internal/bench","Elapsed":2.838}
+{"Time":"2026-11-07T02:36:17.73965+03:00","Action":"output","Package":"proto-x/internal/session","Test":"TestNormalFlowsRetireSendersAndPruneOldTombstones","Output":"--- PASS: TestNormalFlowsRetireSendersAndPruneOldTombstones (0.43s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:17.739688+03:00","Action":"pass","Package":"proto-x/internal/session","Test":"TestNormalFlowsRetireSendersAndPruneOldTombstones","Elapsed":0.43}
+{"Time":"2026-11-07T02:36:17.739696+03:00","Action":"run","Package":"proto-x/internal/session","Test":"TestCloseWriteUnblocksAFullSendBuffer"}
+{"Time":"2026-11-07T02:36:17.739701+03:00","Action":"output","Package":"proto-x/internal/session","Test":"TestCloseWriteUnblocksAFullSendBuffer","Output":"=== RUN   TestCloseWriteUnblocksAFullSendBuffer\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:17.744814+03:00","Action":"output","Package":"proto-x/internal/session","Test":"TestCloseWriteUnblocksAFullSendBuffer","Output":"--- PASS: TestCloseWriteUnblocksAFullSendBuffer (0.01s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:17.74483+03:00","Action":"pass","Package":"proto-x/internal/session","Test":"TestCloseWriteUnblocksAFullSendBuffer","Elapsed":0.01}
+{"Time":"2026-11-07T02:36:17.744836+03:00","Action":"run","Package":"proto-x/internal/session","Test":"TestCompletedTombstoneRecoversAnUndeliveredFinalFINAck"}
+{"Time":"2026-11-07T02:36:17.74484+03:00","Action":"output","Package":"proto-x/internal/session","Test":"TestCompletedTombstoneRecoversAnUndeliveredFinalFINAck","Output":"=== RUN   TestCompletedTombstoneRecoversAnUndeliveredFinalFINAck\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:17.93068+03:00","Action":"output","Package":"proto-x/internal/wire","Output":"ok  \tproto-x/internal/wire\t3.041s\n"}
+{"Time":"2026-11-07T02:36:17.930712+03:00","Action":"pass","Package":"proto-x/internal/wire","Elapsed":3.041}
+{"Time":"2026-11-07T02:36:17.946777+03:00","Action":"output","Package":"proto-x/internal/session","Test":"TestCompletedTombstoneRecoversAnUndeliveredFinalFINAck","Output":"--- PASS: TestCompletedTombstoneRecoversAnUndeliveredFinalFINAck (0.20s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:17.94685+03:00","Action":"pass","Package":"proto-x/internal/session","Test":"TestCompletedTombstoneRecoversAnUndeliveredFinalFINAck","Elapsed":0.2}
+{"Time":"2026-11-07T02:36:17.946859+03:00","Action":"run","Package":"proto-x/internal/session","Test":"TestSimultaneousControlResponsesDoNotBlockSessionReceivers"}
+{"Time":"2026-11-07T02:36:17.946863+03:00","Action":"output","Package":"proto-x/internal/session","Test":"TestSimultaneousControlResponsesDoNotBlockSessionReceivers","Output":"=== RUN   TestSimultaneousControlResponsesDoNotBlockSessionReceivers\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:17.947888+03:00","Action":"output","Package":"proto-x/internal/session","Test":"TestSimultaneousControlResponsesDoNotBlockSessionReceivers","Output":"--- PASS: TestSimultaneousControlResponsesDoNotBlockSessionReceivers (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:17.9479+03:00","Action":"pass","Package":"proto-x/internal/session","Test":"TestSimultaneousControlResponsesDoNotBlockSessionReceivers","Elapsed":0}
+{"Time":"2026-11-07T02:36:17.947911+03:00","Action":"output","Package":"proto-x/internal/session","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-11-07T02:36:18.28724+03:00","Action":"output","Package":"proto-x/internal/hycc/brutal","Output":"ok  \tproto-x/internal/hycc/brutal\t3.398s\n"}
+{"Time":"2026-11-07T02:36:18.287278+03:00","Action":"pass","Package":"proto-x/internal/hycc/brutal","Elapsed":3.398}
+{"Time":"2026-11-07T02:36:18.630462+03:00","Action":"output","Package":"proto-x/internal/carrier","Output":"ok  \tproto-x/internal/carrier\t3.741s\n"}
+{"Time":"2026-11-07T02:36:18.630542+03:00","Action":"pass","Package":"proto-x/internal/carrier","Elapsed":3.741}
+{"Time":"2026-11-07T02:36:18.951814+03:00","Action":"output","Package":"proto-x/internal/session","Output":"ok  \tproto-x/internal/session\t4.062s\n"}
+{"Time":"2026-11-07T02:36:18.951872+03:00","Action":"pass","Package":"proto-x/internal/session","Elapsed":4.062}

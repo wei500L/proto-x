@@ -1,0 +1,178 @@
+{
+  "trial_id": "01-loss1-jitter5-px-fork-brutal6-s227",
+  "variant": "px-fork-brutal6",
+  "profile": "loss1-jitter5",
+  "seed": 227,
+  "stage": "discovery",
+  "utc_start": "2026-11-06T23:27:40.269238+00:00",
+  "status": "completed",
+  "duration_s": 25.0,
+  "warmup_s": 3.0,
+  "gomaxprocs": 1,
+  "background_workers": 1,
+  "background_mbps_source_budget": null,
+  "warmup_exit_code": 0,
+  "process_ids": {
+    "fixture": 6805,
+    "server": 6806,
+    "client": 6816,
+    "workload": 6842
+  },
+  "commands": {
+    "fixture": [
+      "ip",
+      "netns",
+      "exec",
+      "px-server",
+      "env",
+      "GOMAXPROCS=1",
+      "/tmp/pxlab-cc/bin/pxbench",
+      "serve",
+      "-http",
+      "",
+      "-https",
+      "127.0.0.1:18443",
+      "-echo",
+      "127.0.0.1:18081",
+      "-cert",
+      "/tmp/pxlab-cc/private/baseline/tls-cert.pem",
+      "-key",
+      "/tmp/pxlab-cc/private/baseline/tls-key.pem"
+    ],
+    "server": [
+      "ip",
+      "netns",
+      "exec",
+      "px-server",
+      "env",
+      "GOMAXPROCS=1",
+      "env",
+      "PROTOX_CC=hy-brutal",
+      "PROTOX_CC_DISABLE_LOSS_COMPENSATION=false",
+      "PROTOX_CC_BRUTAL_MBPS=6",
+      "/tmp/pxlab-cc/bin/protox-cc",
+      "server",
+      "-config",
+      "/tmp/pxlab-cc/private/px/server-px-priority.json"
+    ],
+    "client": [
+      "ip",
+      "netns",
+      "exec",
+      "px-client",
+      "env",
+      "GOMAXPROCS=1",
+      "env",
+      "PROTOX_CC=hy-brutal",
+      "PROTOX_CC_DISABLE_LOSS_COMPENSATION=false",
+      "PROTOX_CC_BRUTAL_MBPS=1.5",
+      "/tmp/pxlab-cc/bin/protox-cc",
+      "client",
+      "-config",
+      "/tmp/pxlab-cc/private/px/client-px-priority.json"
+    ],
+    "workload": [
+      "ip",
+      "netns",
+      "exec",
+      "px-client",
+      "env",
+      "GOMAXPROCS=1",
+      "/tmp/pxlab-cc/bin/pxbench",
+      "run",
+      "-proxy",
+      "127.0.0.1:1088",
+      "-http-target",
+      "https://protox-baseline.test:18443",
+      "-echo-target",
+      "127.0.0.1:18081",
+      "-ca",
+      "/tmp/pxlab-cc/private/baseline/tls-cert.pem",
+      "-duration",
+      "25.0s",
+      "-timeout",
+      "3s",
+      "-rps",
+      "5",
+      "-echo-interval",
+      "100ms",
+      "-stream-interval",
+      "50ms",
+      "-background",
+      "1",
+      "-uploads",
+      "0",
+      "-output",
+      "/tmp/pxlab-cc/results/cc-window-w131072-s227-20261106T232738Z/01-loss1-jitter5-px-fork-brutal6-s227/events.jsonl",
+      "-summary",
+      "/tmp/pxlab-cc/results/cc-window-w131072-s227-20261106T232738Z/01-loss1-jitter5-px-fork-brutal6-s227/events.summary.json",
+      "-run-id",
+      "01-loss1-jitter5-px-fork-brutal6-s227"
+    ]
+  },
+  "workload_exit_code": 0,
+  "observed": {
+    "http_success": 125,
+    "http_total": 125,
+    "http_fail": 0,
+    "http_timeout": 0,
+    "http_censored": 0,
+    "http_p95_ms": 154.245351,
+    "http_p99_ms": 161.605501,
+    "echo_success": 226,
+    "echo_total": 227,
+    "echo_timeout": 0,
+    "echo_p95_ms": 156.216727,
+    "sse_tokens": 496,
+    "sse_sequence_errors": 0,
+    "sse_source_errors": 0,
+    "sse_gap_p95_ms": 59.820018,
+    "sse_gap_p99_ms": 126.392176,
+    "sse_gap_gt250": 0,
+    "sse_gap_gt1000": 0,
+    "download_goodput_mbps": 5.165374273099755
+  },
+  "utc_end": "2026-11-06T23:28:09.048452+00:00",
+  "protocol_binary": "protox-cc",
+  "congestion_control": "hy-brutal",
+  "controller_validation": {
+    "required_controller": "hy-brutal",
+    "roles": {
+      "server": {
+        "passed": true,
+        "carrier_attachments": [
+          "quic"
+        ],
+        "installation_records": [
+          {
+            "time": "2026-11-07T02:27:40.63535514+03:00",
+            "level": "INFO",
+            "msg": "experimental QUIC controller installed",
+            "controller": "hy-brutal",
+            "hysteria_source": "ca8fbd874fd6ca82413948de6dc5924405e103e1",
+            "brutal_bytes_per_second": 750000,
+            "disable_loss_compensation": false
+          }
+        ]
+      },
+      "client": {
+        "passed": true,
+        "carrier_attachments": [
+          "quic"
+        ],
+        "installation_records": [
+          {
+            "time": "2026-11-07T02:27:40.669824382+03:00",
+            "level": "INFO",
+            "msg": "experimental QUIC controller installed",
+            "controller": "hy-brutal",
+            "hysteria_source": "ca8fbd874fd6ca82413948de6dc5924405e103e1",
+            "brutal_bytes_per_second": 187500,
+            "disable_loss_compensation": false
+          }
+        ]
+      }
+    },
+    "passed": true
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "measured_wall_seconds": 600.332088708,
+  "requested_benchmark_seconds": 600,
+  "benchmark_exit": 0,
+  "resource_samples": 117,
+  "resource_samples_valid": 117,
+  "max_sampled_memory_bytes": 12443648,
+  "kernel_recorded_memory_peak_bytes": 13058048,
+  "same_pid_all_valid_samples": true,
+  "restart_count_first_last": [
+    0,
+    0
+  ],
+  "mean_cpu_percent_one_core": 13.577616239867849,
+  "benchmark_sha256": "25a9012a4ede4f2687ba40cce6dbe25cfe70736804d698fb75d08ccbde70e7be",
+  "notes": [
+    "One authorized VPS path; no inference about all Russian networks.",
+    "Cold HTTP POST creates repeated flows; background source is paced per worker.",
+    "Service was not restarted by this script; MemoryPeak may include prior activity.",
+    "Resource SSH uses the management path outside the measured proxy.",
+    "Completed duration is evidence only for this finite trial, not day-long reliability."
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "sampling_interval_s": 0.1,
+  "roles": {
+    "fixture": {
+      "samples": 249,
+      "sampled_seconds": 24.988190236000264,
+      "cpu_seconds_delta": 0.22,
+      "cpu_percent_one_core": 0.8804159001601002,
+      "rss_peak_bytes": 11661312,
+      "rss_mean_bytes": 11539698.634538153,
+      "rss_last_bytes": 11661312
+    },
+    "server": {
+      "samples": 249,
+      "sampled_seconds": 24.988190236000264,
+      "cpu_seconds_delta": 1.0299999999999998,
+      "cpu_percent_one_core": 4.121947168931378,
+      "rss_peak_bytes": 28078080,
+      "rss_mean_bytes": 26879613.429718874,
+      "rss_last_bytes": 28078080
+    },
+    "client": {
+      "samples": 249,
+      "sampled_seconds": 24.988190236000264,
+      "cpu_seconds_delta": 0.8,
+      "cpu_percent_one_core": 3.201512364218546,
+      "rss_peak_bytes": 28467200,
+      "rss_mean_bytes": 28257942.10441767,
+      "rss_last_bytes": 28467200
+    },
+    "workload": {
+      "samples": 249,
+      "sampled_seconds": 24.988190236000264,
+      "cpu_seconds_delta": 0.23,
+      "cpu_percent_one_core": 0.920434804712832,
+      "rss_peak_bytes": 16998400,
+      "rss_mean_bytes": 16674865.34939759,
+      "rss_last_bytes": 16998400
+    }
+  }
+}

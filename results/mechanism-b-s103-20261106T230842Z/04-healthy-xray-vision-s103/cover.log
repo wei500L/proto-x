@@ -1,0 +1,32 @@
+2026/11/07 02:10:12 http: TLS handshake error from 127.0.0.1:32852: remote error: tls: bad certificate
+2026/11/07 02:10:12 http: TLS handshake error from 127.0.0.1:32876: remote error: tls: bad certificate
+2026/11/07 02:10:12 http: TLS handshake error from 127.0.0.1:32842: remote error: tls: bad certificate
+2026/11/07 02:10:13 http: TLS handshake error from 127.0.0.1:32880: EOF
+2026/11/07 02:10:13 http: TLS handshake error from 127.0.0.1:32954: EOF
+2026/11/07 02:10:13 http: TLS handshake error from 127.0.0.1:32946: EOF
+2026/11/07 02:10:13 http: TLS handshake error from 127.0.0.1:32940: EOF
+2026/11/07 02:10:13 http: TLS handshake error from 127.0.0.1:32934: EOF
+2026/11/07 02:10:13 http: TLS handshake error from 127.0.0.1:32918: EOF
+2026/11/07 02:10:13 http: TLS handshake error from 127.0.0.1:32910: EOF
+2026/11/07 02:10:13 http: TLS handshake error from 127.0.0.1:32894: EOF
+2026/11/07 02:10:13 http: TLS handshake error from 127.0.0.1:32888: EOF
+2026/11/07 02:10:13 http: TLS handshake error from 127.0.0.1:32840: tls: too many ignored records
+2026/11/07 02:10:13 http: TLS handshake error from 127.0.0.1:32850: tls: too many ignored records
+2026/11/07 02:10:13 http: TLS handshake error from 127.0.0.1:32860: tls: too many ignored records
+2026/11/07 02:10:13 http: TLS handshake error from 127.0.0.1:32970: EOF
+2026/11/07 02:10:15 http: TLS handshake error from 127.0.0.1:47328: EOF
+2026/11/07 02:10:15 http: TLS handshake error from 127.0.0.1:47344: EOF
+2026/11/07 02:10:16 http: TLS handshake error from 127.0.0.1:47356: EOF
+2026/11/07 02:10:16 http: TLS handshake error from 127.0.0.1:47366: EOF
+2026/11/07 02:10:16 http: TLS handshake error from 127.0.0.1:47412: EOF
+2026/11/07 02:10:16 http: TLS handshake error from 127.0.0.1:47428: EOF
+2026/11/07 02:10:16 http: TLS handshake error from 127.0.0.1:47402: EOF
+2026/11/07 02:10:16 http: TLS handshake error from 127.0.0.1:47386: EOF
+2026/11/07 02:10:16 http: TLS handshake error from 127.0.0.1:47442: EOF
+2026/11/07 02:10:16 http: TLS handshake error from 127.0.0.1:47448: EOF
+2026/11/07 02:10:17 http: TLS handshake error from 127.0.0.1:47454: EOF
+2026/11/07 02:10:17 http: TLS handshake error from 127.0.0.1:47470: EOF
+2026/11/07 02:10:17 http: TLS handshake error from 127.0.0.1:47482: EOF
+2026/11/07 02:10:17 http: TLS handshake error from 127.0.0.1:47484: EOF
+2026/11/07 02:10:17 http: TLS handshake error from 127.0.0.1:47498: EOF
+2026/11/07 02:10:17 http: TLS handshake error from 127.0.0.1:47376: EOF

@@ -1,0 +1,21 @@
+[
+  {
+    "time": "2026-11-07T02:55:06.332312+03:00",
+    "msg": "carrier attached",
+    "carrier": "quic",
+    "generation": 1,
+    "resumed_flows": 0
+  },
+  {
+    "time": "2026-11-07T02:55:16.197662+03:00",
+    "msg": "carrier detached",
+    "carrier": "quic"
+  },
+  {
+    "time": "2026-11-07T02:55:16.531546+03:00",
+    "msg": "carrier attached",
+    "carrier": "tls",
+    "generation": 2,
+    "resumed_flows": 17
+  }
+]

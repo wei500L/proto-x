@@ -1,0 +1,9 @@
+2026-11-07T01:45:25+03:00	[34mINFO[0m	server mode
+2026-11-07T01:45:25+03:00	[34mINFO[0m	server up and running	{"listen": "0.0.0.0:33401"}
+2026-11-07T01:45:25+03:00	[34mINFO[0m	client connected	{"addr": "10.203.0.1:58495", "id": "user", "tx": 0}
+2026-11-07T01:45:28+03:00	[33mWARN[0m	TCP error	{"addr": "10.203.0.1:58495", "id": "user", "reqAddr": "protox-baseline.test:18443", "error": "writeto tcp4 127.0.0.1:50692->127.0.0.1:18443: stream 20 canceled by remote with error code 0"}
+2026-11-07T01:45:53+03:00	[33mWARN[0m	TCP error	{"addr": "10.203.0.1:58495", "id": "user", "reqAddr": "protox-baseline.test:18443", "error": "writeto tcp4 127.0.0.1:55262->127.0.0.1:18443: stream 40 canceled by remote with error code 0"}
+2026-11-07T01:45:53+03:00	[34mINFO[0m	received signal, shutting down gracefully
+2026-11-07T01:45:53+03:00	[33mWARN[0m	TCP error	{"addr": "10.203.0.1:58495", "id": "user", "reqAddr": "api.hy2.io:443", "error": "readfrom tcp4 10.204.0.6:47024->104.21.69.135:443: quic: transport closed"}
+2026-11-07T01:45:53+03:00	[34mINFO[0m	client disconnected	{"addr": "10.203.0.1:58495", "id": "user", "error": "accepting stream failed: quic: transport closed"}
+2026-11-07T01:45:53+03:00	[34mINFO[0m	server stopped	{"error": "quic: server closed"}

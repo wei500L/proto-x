@@ -1,0 +1,16 @@
+{
+  "fault": "rebind",
+  "bench_exit": 0,
+  "ssh_exit": 0,
+  "ssh_expected_lines": 220,
+  "ssh_received_lines": 220,
+  "ssh_sequence_correct": true,
+  "ssh_max_receive_gap_ms": 356.361083,
+  "duration_seconds": 31.253770584,
+  "notes": [
+    "Actual client-to-authorized-VPS path; no claim about other networks.",
+    "UDP relay applies only to this trial; TLS alternate connects directly.",
+    "SSH stdout is from one authenticated SSH process over one original proxy flow.",
+    "Prototype server restarted before this trial, not during its measured workload."
+  ]
+}

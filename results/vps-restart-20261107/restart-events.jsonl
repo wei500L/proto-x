@@ -1,0 +1,2 @@
+{"event": "restart_requested", "elapsed_ns": 8005065042}
+{"event": "restart_returned", "elapsed_ns": 8248064000, "exit": 0}

@@ -1,0 +1,103 @@
+{
+  "kind": "experimental-cc-factory-on-quic-go-v0.65.0",
+  "recorded_utc": "2026-11-06T23:43:30.698296+00:00",
+  "prototype_base": "5d80253d057b5004a3fad77d50ea4ed315eb0b85",
+  "go_version": "go version go1.27.1 darwin/arm64",
+  "source_sha256": {
+    "cmd/protox/main.go": "c314bb56af6ae0331d76dcceb94d7ce34e7c6ef59984697e5dbe459a865805b2",
+    "cmd/pxbench/main.go": "9e139ba49264571061de1b29f99f3a691fd3f687d815ed6599591a62ea09b6df",
+    "go.mod": "455c96b2278c254a698ab70f36f826f24bae1cfb5baf6e198c695a8ecf924ca3",
+    "go.sum": "d1b933283b0f18d3ab8433dfb7737115cc4db1461632561013848d217832653b",
+    "internal/app/client.go": "91e23b44dc5af01db3d360adaaba69ad9068faad9e0ddd86e29d9a6445d9df28",
+    "internal/app/config.go": "c626e4e5a839fa024d718d94efdc1a93add3983c23ca524ee32cf787e13c497c",
+    "internal/app/integration_test.go": "ac6a19fc4dbbef01aecde3160304b93150f0d29e16e4163e54ac9254d2570f44",
+    "internal/app/server.go": "93aa90141e2b25dd3aaafa77c9479636178b779e363fdd84eb728b6ab944bc29",
+    "internal/bench/bench_test.go": "360e4e4aa7eaafdeaa80708bede0b43db0a6dd4cbcf0789e1fb6452b0dd372d0",
+    "internal/bench/events.go": "3407be85842e46e26f9d2b78f94b4da0dea356d1675ef09b828845f5d755e389",
+    "internal/bench/payload.go": "e81ab00e863b6f0cd567727e2c1bd31f832a0235997fd2a8b4599c6a975aa577",
+    "internal/bench/run.go": "6956c37a3653c4ed02c29840a7e81be7a23e5eb9f4bb02b21e52e25e01e37620",
+    "internal/bench/serve.go": "fdced44b2e507cc0c8db5891b22fd694161df80d71c4b31d64a1533162c34aba",
+    "internal/bench/socks.go": "fe2ad579300172d260233772ed4e5917ec5b062151104f9fedff42b90f5ead69",
+    "internal/carrier/carrier.go": "6eadf4488969df2735cba0ca917ba83aba306d4304e818687c74d08b9a206d36",
+    "internal/carrier/experimental_cc.go": "e6abfe900b81065a6738db563b4fd63509ae85605b0258a20e7a5c88b1011547",
+    "internal/carrier/experimental_cc_test.go": "2d3644234923341db2f54bee72781c5be27bc7dc8ed9bb5e54c1b3fb914bd914",
+    "internal/hycc/SOURCE.json": "20dea103e339b5d7e7bd14ab5947e0a5d4e3c1bf59476f237f8da53ff4de05a9",
+    "internal/hycc/bbr/bandwidth.go": "bb1a2bb3081986da7651b20761f16a9cdb1f49eabfdaae360e95e6c0d2dfce60",
+    "internal/hycc/bbr/bandwidth_sampler.go": "c5a5e033c75dd2b21545908e696ec696180c18caa67567309927c6f5f01e5541",
+    "internal/hycc/bbr/bbr_sender.go": "279048ca7b9c0d4c8eef51a976c1690f6c47d2fc08f72be8d2cbc50a55a6842c",
+    "internal/hycc/bbr/bbr_sender_test.go": "5767ff7c3ceaf4e9d2d5598dbe2c51d17acdaa8fcd0992a598132f163fc49c44",
+    "internal/hycc/bbr/clock.go": "5e1a6600c9040d024e4a4c8009dbcabb29e1c5e38b74670b0e850b0cee159b3f",
+    "internal/hycc/bbr/packet_number_indexed_queue.go": "77d9b22ab69df386b203afbacc6c0cd8e716d3a0806f5ec5ef18d9f42cedf15e",
+    "internal/hycc/bbr/ringbuffer.go": "0a0ff11bd56a8c64a53db421b0d71560144c8690db7c726bc9fbc93465b0e589",
+    "internal/hycc/bbr/windowed_filter.go": "e573928f676d7ab9a6b8bbfd3530eb4a99fa96bc2861e7c271e242f6d2becce2",
+    "internal/hycc/brutal/brutal.go": "8e5d2df7c6241247a3479e808b9db8a4fe0ee39210fb19766eb7d85502cfcd8f",
+    "internal/hycc/brutal/brutal_test.go": "3900bafc5993f87c12e46ad268f46e8d01e7fb7fde9273c898b228383eec9846",
+    "internal/hycc/common/pacer.go": "59149928c79271ea6dd46f1a99472bef839e80687ff78862f9198b45bdf62c4d",
+    "internal/hycc/utils.go": "19b171967e6d476a1df055f50576fbd30573853e87264c2554df5291bb919825",
+    "internal/scheduler/budget.go": "6205179eb8d05938e1429a15ffd182af86596a7ec2a53316c3e5b21394543bbe",
+    "internal/session/session.go": "d92453fcda56bb63534094cd0aae7e343f1d1925580fc8636730de1bcf1a4a18",
+    "internal/session/session_test.go": "ec580e7917d4a16f9868aabdc556286081e1c1e59dd3e8a796e37817eaf7ee13",
+    "internal/wire/frame.go": "bc1d02545261a1171e26f1aa7edb81c577199c4bb98fde3b5bf768f5ea3dafad",
+    "internal/wire/frame_test.go": "7d3a973468cb1c236583cf33d16e92c68b63e6691a95ec364672bb5ca3bae621",
+    "patches/quic-go-v0.65.0-cc.patch": "fd0175fc63d7dbe455bf0dcd34d3475fe7776767a0f0bb8aae88c66841cf9125",
+    "scripts/baselines/tlscover.go": "4ef6e03e31306fea5c86ad8eda0da948db2ea6a594397283be3871e3b3fe3dd6",
+    "scripts/research/prepare_cc65.py": "3a1a8ff5ba710a874c60a4c930a0f159bec4556e8c5dbc3be5ee9391887c8ee4",
+    "tools/securitycheck/main.go": "2d9fe63c7a4f57c37289ba661c0468dfe76765d6facec21af478a9824afcb769"
+  },
+  "dependency_manifest": "docs/research/cc65-evidence/dependency-manifest.json",
+  "binaries": "docs/research/cc65-evidence/binary-manifest.json",
+  "tests": "docs/research/cc65-evidence/tests/summary.json",
+  "commands": [
+    {
+      "cwd": "project",
+      "command": "go test -race -json -count=1 ./...",
+      "exit_code": 0,
+      "evidence": "tests/protox-race.jsonl"
+    },
+    {
+      "cwd": ".local/quic-go-v0.65.0",
+      "command": "go test -race -json -count=1 ./internal/ackhandler ./internal/congestion .",
+      "exit_code": 0,
+      "evidence": "tests/upstream-race.jsonl"
+    },
+    {
+      "cwd": ".local/quic-go-v0.65.0",
+      "command": "go test -race -json -count=1 ./integrationtests/self -run 'Test.*(Migration|Rebinding|MTU)'",
+      "exit_code": 0,
+      "evidence": "tests/upstream-migration-mtu-race.jsonl"
+    },
+    {
+      "cwd": "project",
+      "command": "go vet ./...",
+      "exit_code": 0,
+      "evidence": "tests/protox-vet.stderr.txt"
+    },
+    {
+      "cwd": ".local/quic-go-v0.65.0",
+      "command": "go vet . ./internal/ackhandler ./internal/congestion",
+      "exit_code": 0,
+      "evidence": "tests/upstream-vet.stderr.txt"
+    },
+    {
+      "cwd": "project",
+      "command": "python3 scripts/research/prepare_cc65.py --directory .local/cc65-replay-check",
+      "exit_code": 0,
+      "evidence": "replay.stdout.txt"
+    },
+    {
+      "cwd": "project",
+      "command": "bin/protox-cc65-darwin-arm64 version",
+      "exit_code": 0,
+      "observed_stdout": "PROTO-X 0.1.0-research-cc65"
+    }
+  ],
+  "mode_recovery_commands": "docs/research/cc65-evidence/tests/mode-recovery-summary.json",
+  "limits": [
+    "No weak-network performance measurement in this branch.",
+    "Linux ARM64 cross-compiled, not executed by this agent.",
+    "Three existing upstream Linux/GSO-specific tests skip on macOS.",
+    "Custom controllers disable outgoing ECN and do not implement spurious-loss rollback.",
+    "Initial empty-slice versus nil assertion failure is retained.",
+    "No VPS or matrix VM operation performed."
+  ]
+}

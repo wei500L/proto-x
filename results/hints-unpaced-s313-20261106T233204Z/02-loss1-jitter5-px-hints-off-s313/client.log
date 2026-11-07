@@ -1,0 +1,2 @@
+{"time":"2026-11-07T02:32:35.356339858+03:00","level":"INFO","msg":"SOCKS5 listener ready","listen":"127.0.0.1:1088"}
+{"time":"2026-11-07T02:32:35.520767274+03:00","level":"INFO","msg":"carrier attached","carrier":"quic","generation":1,"resumed_flows":0}

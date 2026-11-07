@@ -1,0 +1,1030 @@
+diff --git a/congestion/interface.go b/congestion/interface.go
+new file mode 100644
+index 0000000..5e969a3
+--- /dev/null
++++ b/congestion/interface.go
+@@ -0,0 +1,96 @@
++// Package congestion is an experimental extension for externally implemented
++// congestion controllers. It is not part of upstream quic-go's public API.
++package congestion
++
++import (
++	"time"
++
++	"github.com/quic-go/quic-go/internal/protocol"
++	"github.com/quic-go/quic-go/monotime"
++)
++
++type (
++	ByteCount    protocol.ByteCount
++	PacketNumber protocol.PacketNumber
++)
++
++// Expose some constants from protocol that congestion control algorithms may need.
++const (
++	InitialPacketSize = protocol.InitialPacketSize
++	// MinPacingDelay preserves the 1 ms pacing floor used by the Hysteria
++	// controller sources. Upstream moved its equivalent constant in v0.64.
++	MinPacingDelay             = time.Millisecond
++	MaxPacketBufferSize        = protocol.MaxPacketBufferSize
++	MinInitialPacketSize       = protocol.MinInitialPacketSize
++	MaxCongestionWindowPackets = protocol.MaxCongestionWindowPackets
++	PacketsPerConnectionID     = protocol.PacketsPerConnectionID
++)
++
++type AckedPacketInfo struct {
++	PacketNumber PacketNumber
++	BytesAcked   ByteCount
++	// ReceivedTime is the local time at which the ACK was received, not the
++	// receiver's packet arrival time.
++	ReceivedTime monotime.Time
++}
++
++type LostPacketInfo struct {
++	PacketNumber PacketNumber
++	BytesLost    ByteCount
++	// IsMTUProbe marks loss from a PMTU probe. Such loss is included in batch
++	// accounting but does not invoke the single-packet congestion callback.
++	IsMTUProbe bool
++}
++
++// Factory creates a fresh controller for a connection or a newly active path.
++// The controller must be seeded at or below maxDatagramSize. The factory and
++// controller callbacks run on the connection event loop; they must not block,
++// call Conn methods synchronously, or retain callback slices / RTT providers
++// for access from another goroutine. A controller must belong to one Conn only.
++// Factories may also be called after a decrease in the permitted datagram size.
++type Factory func(maxDatagramSize ByteCount) (CongestionControl, error)
++
++// SpuriousLossAware optionally rolls back the effect of a loss declaration.
++// Controllers that do not implement it receive no rollback notification.
++type SpuriousLossAware interface {
++	OnSpuriousLoss(PacketNumber)
++}
++
++type CongestionControl interface {
++	SetRTTStatsProvider(provider RTTStatsProvider)
++	TimeUntilSend(bytesInFlight ByteCount) monotime.Time
++	HasPacingBudget(now monotime.Time) bool
++	OnPacketSent(sentTime monotime.Time, bytesInFlight ByteCount, packetNumber PacketNumber, bytes ByteCount, isRetransmittable bool)
++	CanSend(bytesInFlight ByteCount) bool
++	MaybeExitSlowStart()
++	OnPacketAcked(number PacketNumber, ackedBytes ByteCount, priorInFlight ByteCount, eventTime monotime.Time)
++	OnCongestionEvent(number PacketNumber, lostBytes ByteCount, priorInFlight ByteCount)
++	OnRetransmissionTimeout(packetsRetransmitted bool)
++	SetMaxDatagramSize(size ByteCount)
++	InSlowStart() bool
++	InRecovery() bool
++	GetCongestionWindow() ByteCount
++}
++
++type CongestionControlEx interface {
++	CongestionControl
++	// OnCongestionEventEx is called once per nonempty ACK/loss event, including
++	// timer-only loss. ACKs include only newly removed in-flight packets. Losses
++	// include PMTU probes, but never path-validation probes. The slices are
++	// borrowed until this call returns. Spurious-loss callbacks follow this
++	// batch. Per-packet callbacks still run: an extended controller should not
++	// account the same bytes in both callback forms.
++	OnCongestionEventEx(priorInFlight ByteCount, eventTime monotime.Time, ackedPackets []AckedPacketInfo, lostPackets []LostPacketInfo)
++}
++
++type RTTStatsProvider interface {
++	MinRTT() time.Duration
++	LatestRTT() time.Duration
++	SmoothedRTT() time.Duration
++	MeanDeviation() time.Duration
++	MaxAckDelay() time.Duration
++	PTO(includeMaxAckDelay bool) time.Duration
++	UpdateRTT(sendDelta, ackDelay time.Duration)
++	SetMaxAckDelay(mad time.Duration)
++	SetInitialRTT(t time.Duration)
++}
+diff --git a/congestion_control.go b/congestion_control.go
+new file mode 100644
+index 0000000..f061c8d
+--- /dev/null
++++ b/congestion_control.go
+@@ -0,0 +1,100 @@
++package quic
++
++import (
++	"context"
++	"errors"
++	"fmt"
++	"reflect"
++
++	"github.com/quic-go/quic-go/congestion"
++	"github.com/quic-go/quic-go/internal/monotime"
++	"github.com/quic-go/quic-go/internal/protocol"
++)
++
++type congestionUpdate struct {
++	factory congestion.Factory
++	result  chan error
++}
++
++// SetCongestionControlFactory installs an experimental external controller.
++// It waits until the connection event loop has applied the update, or the
++// connection closes. Calls may be concurrent. The queue holds at most one
++// pending update; blocked callers must not hold resources needed by the Conn.
++// The factory also creates a fresh controller after native path migration or
++// a reduction of the datagram size, so neither silently restores default Reno.
++// A factory failure during those resets closes the connection.
++//
++// Calling this method does not authenticate a peer. Applications should wait
++// for their own authentication before installing resource-intensive senders.
++// Factories and controllers run on the event loop and must follow the lifetime
++// and nonblocking requirements of congestion.Factory. Custom controllers
++// disable outgoing ECN in this research extension. This API is not upstream.
++func (c *Conn) SetCongestionControlFactory(factory congestion.Factory) error {
++	if factory == nil {
++		return errors.New("nil congestion control factory")
++	}
++	if err := context.Cause(c.ctx); err != nil {
++		return err
++	}
++	request := congestionUpdate{factory: factory, result: make(chan error, 1)}
++	select {
++	case c.congestionUpdates <- request:
++	case <-c.ctx.Done():
++		return context.Cause(c.ctx)
++	}
++	select {
++	case err := <-request.result:
++		return err
++	case <-c.ctx.Done():
++		return context.Cause(c.ctx)
++	}
++}
++
++// All methods below execute exclusively on the connection event loop.
++func (c *Conn) applyCongestionUpdate(request congestionUpdate) {
++	request.result <- c.installCongestionFactory(request.factory, c.maxPacketSize())
++}
++
++func (c *Conn) installCongestionFactory(factory congestion.Factory, size protocol.ByteCount) error {
++	cc, err := factory(congestion.ByteCount(size))
++	if err != nil {
++		return fmt.Errorf("create congestion controller: %w", err)
++	}
++	if cc == nil {
++		return errors.New("congestion control factory returned nil")
++	}
++	// A typed nil is non-nil when stored in an interface.
++	v := reflect.ValueOf(cc)
++	switch v.Kind() {
++	case reflect.Chan, reflect.Func, reflect.Interface, reflect.Map, reflect.Pointer, reflect.Slice:
++		if v.IsNil() {
++			return errors.New("congestion control factory returned typed nil")
++		}
++	}
++	c.sentPacketHandler.SetCongestionControl(cc, size)
++	c.congestionFactory = factory
++	c.congestionDatagramSize = size
++	c.pacingDeadline = deadlineSendImmediately
++	return nil
++}
++
++func (c *Conn) migrateCongestionPath(now monotime.Time, size protocol.ByteCount) error {
++	c.sentPacketHandler.MigratedPath(now, size)
++	if c.congestionFactory == nil {
++		return nil
++	}
++	return c.installCongestionFactory(c.congestionFactory, size)
++}
++
++func (c *Conn) setCongestionDatagramSize(size protocol.ByteCount) error {
++	if c.congestionFactory != nil && size < c.congestionDatagramSize {
++		// Some imported controllers panic on a size decrease. A fresh controller
++		// keeps the upstream Initial-size fallback usable without editing them.
++		return c.installCongestionFactory(c.congestionFactory, size)
++	}
++	c.sentPacketHandler.SetMaxDatagramSize(size)
++	if c.congestionFactory != nil {
++		c.congestionDatagramSize = size
++	}
++	return nil
++}
+diff --git a/congestion_control_test.go b/congestion_control_test.go
+new file mode 100644
+index 0000000..3d66ecb
+--- /dev/null
++++ b/congestion_control_test.go
+@@ -0,0 +1,170 @@
++package quic
++
++import (
++	"context"
++	"errors"
++	"sync"
++	"testing"
++	"time"
++
++	"github.com/quic-go/quic-go/congestion"
++	"github.com/quic-go/quic-go/internal/ackhandler"
++	"github.com/quic-go/quic-go/internal/monotime"
++	"github.com/quic-go/quic-go/internal/protocol"
++	"github.com/quic-go/quic-go/internal/utils"
++	"github.com/stretchr/testify/require"
++)
++
++type factoryTestController struct {
++	size congestion.ByteCount
++	rtt  congestion.RTTStatsProvider
++}
++
++func (c *factoryTestController) SetRTTStatsProvider(rtt congestion.RTTStatsProvider) { c.rtt = rtt }
++func (*factoryTestController) TimeUntilSend(congestion.ByteCount) monotime.Time      { return 0 }
++func (*factoryTestController) HasPacingBudget(monotime.Time) bool                    { return true }
++func (*factoryTestController) OnPacketSent(monotime.Time, congestion.ByteCount, congestion.PacketNumber, congestion.ByteCount, bool) {
++}
++func (*factoryTestController) CanSend(congestion.ByteCount) bool { return true }
++func (*factoryTestController) MaybeExitSlowStart()               {}
++func (*factoryTestController) OnPacketAcked(congestion.PacketNumber, congestion.ByteCount, congestion.ByteCount, monotime.Time) {
++}
++func (*factoryTestController) OnCongestionEvent(congestion.PacketNumber, congestion.ByteCount, congestion.ByteCount) {
++}
++func (*factoryTestController) OnRetransmissionTimeout(bool) {}
++func (c *factoryTestController) SetMaxDatagramSize(size congestion.ByteCount) {
++	if size < c.size {
++		panic("legacy controller cannot decrease MTU")
++	}
++	c.size = size
++}
++func (*factoryTestController) InSlowStart() bool                           { return false }
++func (*factoryTestController) InRecovery() bool                            { return false }
++func (c *factoryTestController) GetCongestionWindow() congestion.ByteCount { return 32 * c.size }
++
++func newFactoryTestConn(t *testing.T) *Conn {
++	t.Helper()
++	ctx, cancel := context.WithCancelCause(context.Background())
++	t.Cleanup(func() { cancel(context.Canceled) })
++	c := &Conn{ctx: ctx, ctxCancel: cancel, congestionUpdates: make(chan congestionUpdate, 1),
++		config: populateConfig(&Config{}), perspective: protocol.PerspectiveClient,
++		rttStats: utils.NewRTTStats()}
++	c.sentPacketHandler = ackhandler.NewSentPacketHandler(0, 1280, c.rttStats, &c.connStats, true, true,
++		nil, protocol.PerspectiveClient, nil, utils.DefaultLogger)
++	return c
++}
++
++func TestCongestionFactoryRejectsInvalidControllerWithoutReplacement(t *testing.T) {
++	c := newFactoryTestConn(t)
++	require.Error(t, c.SetCongestionControlFactory(nil))
++	require.Nil(t, c.congestionFactory)
++	for _, factory := range []congestion.Factory{
++		func(congestion.ByteCount) (congestion.CongestionControl, error) {
++			return nil, errors.New("factory failure")
++		},
++		func(congestion.ByteCount) (congestion.CongestionControl, error) { return nil, nil },
++		func(congestion.ByteCount) (congestion.CongestionControl, error) {
++			var cc *factoryTestController
++			return cc, nil
++		},
++	} {
++		require.Error(t, c.installCongestionFactory(factory, 1200))
++		require.Nil(t, c.congestionFactory)
++		require.Zero(t, c.congestionDatagramSize)
++	}
++	valid := func(size congestion.ByteCount) (congestion.CongestionControl, error) {
++		return &factoryTestController{size: size}, nil
++	}
++	require.NoError(t, c.installCongestionFactory(valid, 1200))
++	require.Error(t, c.installCongestionFactory(func(congestion.ByteCount) (congestion.CongestionControl, error) { return nil, nil }, 1500))
++	require.Equal(t, protocol.ByteCount(1200), c.congestionDatagramSize)
++	require.Equal(t, uint64(32*1200), c.connStats.CongestionWindow.Load())
++}
++
++func TestCongestionFactoryFreshAfterMigrationAndMTUDecrease(t *testing.T) {
++	c := newFactoryTestConn(t)
++	var controllers []*factoryTestController
++	factory := func(size congestion.ByteCount) (congestion.CongestionControl, error) {
++		controller := &factoryTestController{size: size}
++		controllers = append(controllers, controller)
++		return controller, nil
++	}
++	require.NoError(t, c.installCongestionFactory(factory, 1280))
++	require.NoError(t, c.setCongestionDatagramSize(1450))
++	require.Len(t, controllers, 1)
++	require.Equal(t, congestion.ByteCount(1450), controllers[0].size)
++	require.NoError(t, c.setCongestionDatagramSize(1200))
++	require.Len(t, controllers, 2)
++	require.Equal(t, congestion.ByteCount(1450), controllers[0].size, "old controller must not see a decrease")
++	require.Equal(t, congestion.ByteCount(1200), controllers[1].size)
++	require.NoError(t, c.migrateCongestionPath(monotime.Now(), 1200))
++	require.NoError(t, c.migrateCongestionPath(monotime.Now(), 1200))
++	require.Len(t, controllers, 4, "each path reset must create its own instance")
++	for i, controller := range controllers {
++		require.Same(t, c.rttStats, controller.rtt)
++		if i > 0 {
++			require.NotSame(t, controllers[i-1], controller)
++		}
++	}
++	require.Equal(t, uint64(32*1200), c.connStats.CongestionWindow.Load())
++	require.Equal(t, protocol.ECNUnsupported, c.sentPacketHandler.ECNMode(true))
++}
++
++func TestCongestionFactoryResetReportsFailure(t *testing.T) {
++	for _, reset := range []string{"mtu", "path"} {
++		t.Run(reset, func(t *testing.T) {
++			c := newFactoryTestConn(t)
++			calls := 0
++			factory := func(size congestion.ByteCount) (congestion.CongestionControl, error) {
++				calls++
++				if calls > 1 {
++					return nil, errors.New("cannot create next controller")
++				}
++				return &factoryTestController{size: size}, nil
++			}
++			require.NoError(t, c.installCongestionFactory(factory, 1280))
++			var err error
++			if reset == "mtu" {
++				err = c.setCongestionDatagramSize(1200)
++			} else {
++				err = c.migrateCongestionPath(monotime.Now(), 1200)
++			}
++			require.ErrorContains(t, err, "cannot create next controller")
++			require.Equal(t, 2, calls)
++		})
++	}
++}
++
++func TestCongestionFactoryPendingSettersUnblockOnClose(t *testing.T) {
++	c := newFactoryTestConn(t)
++	const n = 32
++	var wg sync.WaitGroup
++	errorsCh := make(chan error, n)
++	for range n {
++		wg.Go(func() {
++			errorsCh <- c.SetCongestionControlFactory(func(size congestion.ByteCount) (congestion.CongestionControl, error) {
++				return &factoryTestController{size: size}, nil
++			})
++		})
++	}
++	// Taking the first request proves a setter is waiting for its result;
++	// the other callers can be queued or waiting for the bounded queue.
++	select {
++	case <-c.congestionUpdates:
++	case <-time.After(time.Second):
++		t.Fatal("setter did not queue")
++	}
++	want := errors.New("test connection closed")
++	c.ctxCancel(want)
++	finished := make(chan struct{})
++	go func() { wg.Wait(); close(finished) }()
++	select {
++	case <-finished:
++	case <-time.After(time.Second):
++		t.Fatal("setters blocked after close")
++	}
++	close(errorsCh)
++	for err := range errorsCh {
++		require.ErrorIs(t, err, want)
++	}
++}
+diff --git a/connection.go b/connection.go
+index 5a9f5cb..91c9d43 100644
+--- a/connection.go
++++ b/connection.go
+@@ -16,6 +16,7 @@ import (
+ 	"sync/atomic"
+ 	"time"
+ 
++	"github.com/quic-go/quic-go/congestion"
+ 	"github.com/quic-go/quic-go/internal/ackhandler"
+ 	"github.com/quic-go/quic-go/internal/handshake"
+ 	"github.com/quic-go/quic-go/internal/monotime"
+@@ -184,9 +185,12 @@ type Conn struct {
+ 	oneRTTStream        *cryptoStream // only set for the server
+ 	cryptoStreamHandler cryptoStreamHandler
+ 
+-	notifyReceivedPacket chan struct{}
+-	sendingScheduled     chan struct{}
+-	receivedPackets      receivedPacketQueue
++	notifyReceivedPacket   chan struct{}
++	sendingScheduled       chan struct{}
++	congestionUpdates      chan congestionUpdate
++	congestionFactory      congestion.Factory // accessed only on the event loop
++	congestionDatagramSize protocol.ByteCount
++	receivedPackets        receivedPacketQueue
+ 
+ 	// closeChan is used to notify the run loop that it should terminate
+ 	closeChan chan struct{}
+@@ -559,6 +563,7 @@ func (c *Conn) preSetup(r *pathReceiver) {
+ 	c.notifyReceivedPacket = make(chan struct{}, 1)
+ 	c.closeChan = make(chan struct{}, 1)
+ 	c.sendingScheduled = make(chan struct{}, 1)
++	c.congestionUpdates = make(chan congestionUpdate, 1)
+ 	c.handshakeCompleteChan = make(chan struct{})
+ 
+ 	now := monotime.Now()
+@@ -611,6 +616,14 @@ runLoop:
+ 		default:
+ 		}
+ 
++		// Process at most one CC update per iteration, including while traffic
++		// keeps the loop busy. A caller cannot race a packet callback or starve it.
++		select {
++		case request := <-c.congestionUpdates:
++			c.applyCongestionUpdate(request)
++		default:
++		}
++
+ 		// no need to set a timer if we can send packets immediately
+ 		if c.pacingDeadline != deadlineSendImmediately {
+ 			c.maybeResetTimer()
+@@ -662,6 +675,8 @@ runLoop:
+ 				break runLoop
+ 			case <-c.timer.C:
+ 			case <-c.sendingScheduled:
++			case request := <-c.congestionUpdates:
++				c.applyCongestionUpdate(request)
+ 			case <-sendQueueAvailable:
+ 			case <-c.notifyReceivedPacket:
+ 				wasProcessed, err := c.handlePackets()
+@@ -934,7 +949,10 @@ func (c *Conn) switchToNewPath(tr *Transport, now monotime.Time) {
+ 	}
+ 
+ 	initialPacketSize := protocol.ByteCount(cmp.Or(c.config.InitialPacketSize, protocol.MinInitialPacketSize))
+-	c.sentPacketHandler.MigratedPath(now, initialPacketSize)
++	if err := c.migrateCongestionPath(now, initialPacketSize); err != nil {
++		c.setCloseError(&closeError{err: err})
++		return
++	}
+ 	c.maxPayloadSizeEstimate.Store(uint32(estimateMaxPayloadSize(initialPacketSize)))
+ 	c.mtuDiscoverer.Reset(initialPacketSize, c.maxMTU())
+ 	c.conn = newSendConn(tr.conn, c.conn.RemoteAddr(), packetInfo{}, utils.DefaultLogger) // TODO: find a better way
+@@ -1323,7 +1341,9 @@ func (c *Conn) handleShortHeaderPacket(
+ 	c.pathManager.SwitchToPath(p.remoteAddr)
+ 	c.connIDManager.SwitchToPath(path)
+ 	initialPacketSize := protocol.ByteCount(cmp.Or(c.config.InitialPacketSize, protocol.MinInitialPacketSize))
+-	c.sentPacketHandler.MigratedPath(p.rcvTime, initialPacketSize)
++	if err := c.migrateCongestionPath(p.rcvTime, initialPacketSize); err != nil {
++		return true, err
++	}
+ 	c.maxPayloadSizeEstimate.Store(uint32(estimateMaxPayloadSize(initialPacketSize)))
+ 	c.mtuDiscoverer.Reset(initialPacketSize, c.maxMTU())
+ 	if !c.config.DisablePathMTUDiscovery && c.conn.capabilities().DF {
+@@ -2233,7 +2253,9 @@ func (c *Conn) handleAckFrame(frame *wire.AckFrame, encLevel protocol.Encryption
+ 		maxPayloadSize := estimateMaxPayloadSize(mtu)
+ 		if maxPayloadSize > protocol.ByteCount(c.maxPayloadSizeEstimate.Load()) {
+ 			c.maxPayloadSizeEstimate.Store(uint32(maxPayloadSize))
+-			c.sentPacketHandler.SetMaxDatagramSize(mtu)
++			if err := c.setCongestionDatagramSize(mtu); err != nil {
++				return err
++			}
+ 		}
+ 	}
+ 	return c.cryptoStreamHandler.SetLargest1RTTAcked(frame.LargestAcked())
+@@ -2937,7 +2959,9 @@ func (c *Conn) sendPackedCoalescedPacket(packet *coalescedPacket, ecn protocol.E
+ 		if err != nil {
+ 			initialPacketSize = protocol.MinInitialPacketSize
+ 			c.maxPayloadSizeEstimate.Store(uint32(estimateMaxPayloadSize(protocol.MinInitialPacketSize)))
+-			c.sentPacketHandler.SetMaxDatagramSize(protocol.MinInitialPacketSize)
++			if err := c.setCongestionDatagramSize(protocol.MinInitialPacketSize); err != nil {
++				return err
++			}
+ 		}
+ 		c.mtuDiscoverer = newMTUDiscoverer(c.rttStats, initialPacketSize, c.maxMTU(), c.qlogger)
+ 	}
+diff --git a/internal/ackhandler/cc_adapter.go b/internal/ackhandler/cc_adapter.go
+new file mode 100644
+index 0000000..2b50468
+--- /dev/null
++++ b/internal/ackhandler/cc_adapter.go
+@@ -0,0 +1,81 @@
++package ackhandler
++
++import (
++	"github.com/quic-go/quic-go/congestion"
++	cgInternal "github.com/quic-go/quic-go/internal/congestion"
++	"github.com/quic-go/quic-go/internal/monotime"
++	"github.com/quic-go/quic-go/internal/protocol"
++	"github.com/quic-go/quic-go/internal/utils"
++)
++
++var _ cgInternal.SendAlgorithmWithDebugInfos = &ccAdapter{}
++
++type ccAdapter struct {
++	CC    congestion.CongestionControl
++	stats *utils.ConnectionStats
++}
++
++func (a *ccAdapter) updateStats() {
++	a.stats.CongestionWindow.Store(uint64(max(0, a.CC.GetCongestionWindow())))
++}
++
++func (a *ccAdapter) OnSpuriousLoss(number protocol.PacketNumber) {
++	if cc, ok := a.CC.(congestion.SpuriousLossAware); ok {
++		cc.OnSpuriousLoss(congestion.PacketNumber(number))
++		a.updateStats()
++	}
++}
++
++func (a *ccAdapter) TimeUntilSend(bytesInFlight protocol.ByteCount) monotime.Time {
++	return a.CC.TimeUntilSend(congestion.ByteCount(bytesInFlight))
++}
++
++func (a *ccAdapter) HasPacingBudget(now monotime.Time) bool {
++	return a.CC.HasPacingBudget(now)
++}
++
++func (a *ccAdapter) OnPacketSent(sentTime monotime.Time, bytesInFlight protocol.ByteCount, packetNumber protocol.PacketNumber, bytes protocol.ByteCount, isRetransmittable bool) {
++	a.CC.OnPacketSent(sentTime, congestion.ByteCount(bytesInFlight), congestion.PacketNumber(packetNumber), congestion.ByteCount(bytes), isRetransmittable)
++	a.updateStats()
++}
++
++func (a *ccAdapter) CanSend(bytesInFlight protocol.ByteCount) bool {
++	return a.CC.CanSend(congestion.ByteCount(bytesInFlight))
++}
++
++func (a *ccAdapter) MaybeExitSlowStart() {
++	a.CC.MaybeExitSlowStart()
++	a.updateStats()
++}
++
++func (a *ccAdapter) OnPacketAcked(number protocol.PacketNumber, ackedBytes protocol.ByteCount, priorInFlight protocol.ByteCount, eventTime monotime.Time) {
++	a.CC.OnPacketAcked(congestion.PacketNumber(number), congestion.ByteCount(ackedBytes), congestion.ByteCount(priorInFlight), eventTime)
++	a.updateStats()
++}
++
++func (a *ccAdapter) OnCongestionEvent(number protocol.PacketNumber, lostBytes protocol.ByteCount, priorInFlight protocol.ByteCount) {
++	a.CC.OnCongestionEvent(congestion.PacketNumber(number), congestion.ByteCount(lostBytes), congestion.ByteCount(priorInFlight))
++	a.updateStats()
++}
++
++func (a *ccAdapter) OnRetransmissionTimeout(packetsRetransmitted bool) {
++	a.CC.OnRetransmissionTimeout(packetsRetransmitted)
++	a.updateStats()
++}
++
++func (a *ccAdapter) SetMaxDatagramSize(size protocol.ByteCount) {
++	a.CC.SetMaxDatagramSize(congestion.ByteCount(size))
++	a.updateStats()
++}
++
++func (a *ccAdapter) InSlowStart() bool {
++	return a.CC.InSlowStart()
++}
++
++func (a *ccAdapter) InRecovery() bool {
++	return a.CC.InRecovery()
++}
++
++func (a *ccAdapter) GetCongestionWindow() protocol.ByteCount {
++	return protocol.ByteCount(a.CC.GetCongestionWindow())
++}
+diff --git a/internal/ackhandler/congestion_extension.go b/internal/ackhandler/congestion_extension.go
+new file mode 100644
+index 0000000..c444b5b
+--- /dev/null
++++ b/internal/ackhandler/congestion_extension.go
+@@ -0,0 +1,47 @@
++package ackhandler
++
++import (
++	congestionExt "github.com/quic-go/quic-go/congestion"
++	"github.com/quic-go/quic-go/internal/monotime"
++	"github.com/quic-go/quic-go/internal/protocol"
++)
++
++// SetCongestionControl must only be called from the owning connection's event
++// loop. The caller has checked that cc is non-nil and was freshly constructed.
++func (h *sentPacketHandler) SetCongestionControl(cc congestionExt.CongestionControl, size protocol.ByteCount) {
++	cc.SetRTTStatsProvider(h.rttStats)
++	cc.SetMaxDatagramSize(congestionExt.ByteCount(size))
++	a := &ccAdapter{CC: cc, stats: h.connStats}
++	a.updateStats()
++	h.congestion = a
++	h.congestionBatch, _ = cc.(congestionExt.CongestionControlEx)
++	h.congestionAcked = h.congestionAcked[:0]
++	h.congestionLost = h.congestionLost[:0]
++	// The imported batch algorithms have no ECN response. Do not mark packets
++	// as ECN-capable when the selected controller cannot react to CE signals.
++	// This prototype intentionally has no custom-CC opt-in to ECN.
++	h.enableECN = false
++	h.ecnTracker = nil
++	h.qlogRecoveryParametersSet(true)
++}
++
++func (h *sentPacketHandler) reportCongestionBatch(priorInFlight protocol.ByteCount, now monotime.Time, acked []packetWithPacketNumber) {
++	if h.congestionBatch == nil {
++		return
++	}
++	for _, p := range acked {
++		if p.includedInBytesInFlight {
++			h.congestionAcked = append(h.congestionAcked, congestionExt.AckedPacketInfo{
++				PacketNumber: congestionExt.PacketNumber(p.PacketNumber),
++				BytesAcked:   congestionExt.ByteCount(p.Length),
++				ReceivedTime: now,
++			})
++		}
++	}
++	if len(h.congestionAcked) != 0 || len(h.congestionLost) != 0 {
++		h.congestionBatch.OnCongestionEventEx(congestionExt.ByteCount(priorInFlight), now, h.congestionAcked, h.congestionLost)
++		h.connStats.CongestionWindow.Store(uint64(max(0, h.congestion.GetCongestionWindow())))
++	}
++	h.congestionAcked = h.congestionAcked[:0]
++	h.congestionLost = h.congestionLost[:0]
++}
+diff --git a/internal/ackhandler/congestion_extension_test.go b/internal/ackhandler/congestion_extension_test.go
+new file mode 100644
+index 0000000..57ee234
+--- /dev/null
++++ b/internal/ackhandler/congestion_extension_test.go
+@@ -0,0 +1,194 @@
++package ackhandler
++
++import (
++	"fmt"
++	"slices"
++	"testing"
++	"time"
++
++	cc "github.com/quic-go/quic-go/congestion"
++	"github.com/quic-go/quic-go/internal/monotime"
++	"github.com/quic-go/quic-go/internal/protocol"
++	"github.com/quic-go/quic-go/internal/utils"
++	"github.com/quic-go/quic-go/internal/wire"
++	"github.com/stretchr/testify/require"
++)
++
++type congestionBatchRecord struct {
++	prior cc.ByteCount
++	time  monotime.Time
++	acked []cc.AckedPacketInfo
++	lost  []cc.LostPacketInfo
++}
++
++type externalRecorder struct {
++	batches  []congestionBatchRecord
++	order    []string
++	size     cc.ByteCount
++	provider cc.RTTStatsProvider
++}
++
++func (c *externalRecorder) SetRTTStatsProvider(p cc.RTTStatsProvider) { c.provider = p }
++func (*externalRecorder) TimeUntilSend(cc.ByteCount) monotime.Time    { return 0 }
++func (*externalRecorder) HasPacingBudget(monotime.Time) bool          { return true }
++func (*externalRecorder) OnPacketSent(monotime.Time, cc.ByteCount, cc.PacketNumber, cc.ByteCount, bool) {
++}
++func (*externalRecorder) CanSend(cc.ByteCount) bool                                                { return true }
++func (*externalRecorder) MaybeExitSlowStart()                                                      {}
++func (*externalRecorder) OnPacketAcked(cc.PacketNumber, cc.ByteCount, cc.ByteCount, monotime.Time) {}
++func (c *externalRecorder) OnCongestionEvent(pn cc.PacketNumber, _, _ cc.ByteCount) {
++	c.order = append(c.order, fmt.Sprintf("loss:%d", pn))
++}
++func (c *externalRecorder) OnSpuriousLoss(pn cc.PacketNumber) {
++	c.order = append(c.order, fmt.Sprintf("spurious:%d", pn))
++}
++func (*externalRecorder) OnRetransmissionTimeout(bool)           {}
++func (c *externalRecorder) SetMaxDatagramSize(size cc.ByteCount) { c.size = size }
++func (*externalRecorder) InSlowStart() bool                      { return false }
++func (*externalRecorder) InRecovery() bool                       { return false }
++func (c *externalRecorder) GetCongestionWindow() cc.ByteCount {
++	return 32*c.size + cc.ByteCount(len(c.batches))
++}
++func (c *externalRecorder) OnCongestionEventEx(prior cc.ByteCount, now monotime.Time, acked []cc.AckedPacketInfo, lost []cc.LostPacketInfo) {
++	c.order = append(c.order, "batch")
++	c.batches = append(c.batches, congestionBatchRecord{prior, now, slices.Clone(acked), slices.Clone(lost)})
++}
++
++func newExternalHandler(t *testing.T) (*sentPacketHandler, *externalRecorder) {
++	t.Helper()
++	h := NewSentPacketHandler(0, 1200, utils.NewRTTStats(), &utils.ConnectionStats{}, true, true, nil,
++		protocol.PerspectiveClient, nil, utils.DefaultLogger).(*sentPacketHandler)
++	h.handshakeConfirmed = true
++	require.NotEqual(t, protocol.ECNUnsupported, h.ECNMode(true))
++	c := &externalRecorder{}
++	h.SetCongestionControl(c, 1200)
++	require.Same(t, h.rttStats, c.provider)
++	require.Equal(t, cc.ByteCount(1200), c.size)
++	require.Equal(t, protocol.ECNUnsupported, h.ECNMode(true))
++	return h, c
++}
++
++func sendExternal(h *sentPacketHandler, now monotime.Time, size protocol.ByteCount, kind string) protocol.PacketNumber {
++	pn := h.PopPacketNumber(protocol.PacketNumberSpaceAppData)
++	var frames []Frame
++	if kind != "ack-only" {
++		frames = []Frame{{Frame: &wire.PingFrame{}}}
++	}
++	h.SentPacket(now, pn, protocol.InvalidPacketNumber, nil, frames, protocol.Encryption1RTT, protocol.ECNNon, size, kind == "mtu", kind == "path")
++	return pn
++}
++
++func ackExternal(t *testing.T, h *sentPacketHandler, now monotime.Time, pns ...protocol.PacketNumber) {
++	t.Helper()
++	_, err := h.ReceivedAck(&wire.AckFrame{AckRanges: ackRanges(pns...)}, protocol.Encryption1RTT, now)
++	require.NoError(t, err)
++}
++
++func TestExternalCongestionACKLossAndDuplicates(t *testing.T) {
++	h, c := newExternalHandler(t)
++	now := monotime.Now()
++	pns := make([]protocol.PacketNumber, 5)
++	for i := range pns {
++		pns[i] = sendExternal(h, now, 1000, "data")
++	}
++	ackTime := now.Add(100 * time.Millisecond)
++	ackExternal(t, h, ackTime, pns[0], pns[4])
++	require.Len(t, c.batches, 1)
++	require.Equal(t, congestionBatchRecord{
++		prior: 5000, time: ackTime,
++		acked: []cc.AckedPacketInfo{{PacketNumber: cc.PacketNumber(pns[0]), BytesAcked: 1000, ReceivedTime: ackTime}, {PacketNumber: cc.PacketNumber(pns[4]), BytesAcked: 1000, ReceivedTime: ackTime}},
++		lost:  []cc.LostPacketInfo{{PacketNumber: cc.PacketNumber(pns[1]), BytesLost: 1000}},
++	}, c.batches[0])
++	require.Equal(t, protocol.ByteCount(2000), h.bytesInFlight)
++	require.Equal(t, uint64(c.GetCongestionWindow()), h.connStats.CongestionWindow.Load())
++	ackExternal(t, h, ackTime, pns[0], pns[4])
++	require.Len(t, c.batches, 1, "duplicate ACK must not duplicate delivery or loss accounting")
++	_, err := h.ReceivedAck(&wire.AckFrame{AckRanges: ackRanges(pns[4] + 100)}, protocol.Encryption1RTT, ackTime)
++	require.Error(t, err)
++	require.Len(t, c.batches, 1)
++	ackExternal(t, h, ackTime, pns[2], pns[3])
++	require.Len(t, c.batches, 2)
++	require.Empty(t, c.batches[1].lost, "previous loss batch must not leak into the next event")
++	require.Equal(t, cc.ByteCount(2000), c.batches[1].prior)
++	require.Zero(t, h.bytesInFlight)
++}
++
++func TestExternalCongestionTimerOnlyLoss(t *testing.T) {
++	h, c := newExternalHandler(t)
++	now := monotime.Now()
++	p0 := sendExternal(h, now, 1000, "data")
++	p1 := sendExternal(h, now, 1000, "data")
++	ackExternal(t, h, now.Add(100*time.Millisecond), p1)
++	require.Len(t, c.batches, 1)
++	require.Empty(t, c.batches[0].lost)
++	timeout := h.GetLossDetectionTimeout()
++	require.False(t, timeout.IsZero())
++	require.NoError(t, h.OnLossDetectionTimeout(timeout))
++	require.Len(t, c.batches, 2)
++	require.Equal(t, cc.ByteCount(1000), c.batches[1].prior)
++	require.Equal(t, timeout, c.batches[1].time)
++	require.Empty(t, c.batches[1].acked)
++	require.Equal(t, []cc.LostPacketInfo{{PacketNumber: cc.PacketNumber(p0), BytesLost: 1000}}, c.batches[1].lost)
++	require.Zero(t, h.bytesInFlight)
++	require.NoError(t, h.OnLossDetectionTimeout(timeout.Add(time.Millisecond)))
++	require.Len(t, c.batches, 2, "stale timer must not duplicate losses")
++}
++
++func TestExternalCongestionSpuriousOnlyACKCanAlsoCauseLoss(t *testing.T) {
++	h, c := newExternalHandler(t)
++	now := monotime.Now()
++	p0 := sendExternal(h, now, 1000, "data")
++	p1 := sendExternal(h, now.Add(100*time.Millisecond), 1000, "data")
++	p2 := sendExternal(h, now.Add(100*time.Millisecond), 1000, "data")
++	ackExternal(t, h, now.Add(200*time.Millisecond), p2)
++	require.Len(t, c.batches, 1)
++	require.Equal(t, []cc.LostPacketInfo{{PacketNumber: cc.PacketNumber(p0), BytesLost: 1000}}, c.batches[0].lost)
++	c.order = nil
++	// This ACK newly acknowledges no outstanding packet. Spurious-loss
++	// adaptation also runs loss detection, which now declares p1 lost.
++	ackExternal(t, h, now.Add(250*time.Millisecond), p0)
++	require.Len(t, c.batches, 2)
++	require.Empty(t, c.batches[1].acked)
++	require.Equal(t, cc.ByteCount(1000), c.batches[1].prior)
++	require.Equal(t, []cc.LostPacketInfo{{PacketNumber: cc.PacketNumber(p1), BytesLost: 1000}}, c.batches[1].lost)
++	require.Equal(t, []string{fmt.Sprintf("loss:%d", p1), "batch", fmt.Sprintf("spurious:%d", p0)}, c.order)
++	require.True(t, h.packetThresholdDisabled)
++	require.Equal(t, uint8(2), h.timeThresholdEighths)
++	ackExternal(t, h, now.Add(260*time.Millisecond), p1)
++	require.Len(t, c.batches, 2, "pure spurious ACK must not create an empty batch")
++	require.Zero(t, h.bytesInFlight)
++}
++
++func TestExternalCongestionProbeAccounting(t *testing.T) {
++	h, c := newExternalHandler(t)
++	now := monotime.Now()
++	mtu := sendExternal(h, now, 1400, "mtu")
++	path := sendExternal(h, now, 1200, "path")
++	ackOnly := sendExternal(h, now, 100, "ack-only")
++	data := sendExternal(h, now.Add(100*time.Millisecond), 1000, "data")
++	ackExternal(t, h, now.Add(200*time.Millisecond), data)
++	require.Len(t, c.batches, 1)
++	require.Equal(t, cc.ByteCount(2400), c.batches[0].prior)
++	require.Equal(t, []cc.LostPacketInfo{{PacketNumber: cc.PacketNumber(mtu), BytesLost: 1400, IsMTUProbe: true}}, c.batches[0].lost)
++	require.Equal(t, []string{"batch"}, c.order, "MTU loss must not invoke ordinary per-packet congestion callback")
++	require.Zero(t, h.bytesInFlight)
++	ackExternal(t, h, now.Add(210*time.Millisecond), path, ackOnly)
++	require.Len(t, c.batches, 1, "path-validation and ACK-only packets are not in-flight data")
++}
++
++func TestExternalCongestionMigrationClearsOldBatch(t *testing.T) {
++	h, c := newExternalHandler(t)
++	now := monotime.Now()
++	sendExternal(h, now, 1000, "data")
++	h.MigratedPath(now.Add(time.Millisecond), 1200)
++	require.Nil(t, h.congestionBatch)
++	require.Zero(t, h.bytesInFlight)
++	next := &externalRecorder{}
++	h.SetCongestionControl(next, 1200)
++	p := sendExternal(h, now.Add(2*time.Millisecond), 1200, "data")
++	ackExternal(t, h, now.Add(100*time.Millisecond), p)
++	require.Empty(t, c.batches)
++	require.Len(t, next.batches, 1)
++	require.Empty(t, next.batches[0].lost)
++	require.Equal(t, cc.ByteCount(1200), next.batches[0].prior)
++}
+diff --git a/internal/ackhandler/interfaces.go b/internal/ackhandler/interfaces.go
+index d50b478..eac5b71 100644
+--- a/internal/ackhandler/interfaces.go
++++ b/internal/ackhandler/interfaces.go
+@@ -1,6 +1,7 @@
+ package ackhandler
+ 
+ import (
++	"github.com/quic-go/quic-go/congestion"
+ 	"github.com/quic-go/quic-go/internal/monotime"
+ 	"github.com/quic-go/quic-go/internal/protocol"
+ 	"github.com/quic-go/quic-go/internal/wire"
+@@ -24,6 +25,7 @@ type SentPacketHandler interface {
+ 	// It is used for pacing packets.
+ 	TimeUntilSend() monotime.Time
+ 	SetMaxDatagramSize(count protocol.ByteCount)
++	SetCongestionControl(congestion.CongestionControl, protocol.ByteCount)
+ 
+ 	// only to be called once the handshake is complete
+ 	QueueProbePacket(protocol.PacketNumberSpace) bool /* was a packet queued */
+diff --git a/internal/ackhandler/sent_packet_handler.go b/internal/ackhandler/sent_packet_handler.go
+index fade6b7..d02e7a8 100644
+--- a/internal/ackhandler/sent_packet_handler.go
++++ b/internal/ackhandler/sent_packet_handler.go
+@@ -5,6 +5,7 @@ import (
+ 	"fmt"
+ 	"time"
+ 
++	congestionExt "github.com/quic-go/quic-go/congestion"
+ 	"github.com/quic-go/quic-go/internal/congestion"
+ 	"github.com/quic-go/quic-go/internal/monotime"
+ 	"github.com/quic-go/quic-go/internal/protocol"
+@@ -112,9 +113,12 @@ type sentPacketHandler struct {
+ 
+ 	bytesInFlight protocol.ByteCount
+ 
+-	congestion congestion.SendAlgorithmWithDebugInfos
+-	rttStats   *utils.RTTStats
+-	connStats  *utils.ConnectionStats
++	congestion      congestion.SendAlgorithmWithDebugInfos
++	congestionBatch congestionExt.CongestionControlEx
++	congestionAcked []congestionExt.AckedPacketInfo
++	congestionLost  []congestionExt.LostPacketInfo
++	rttStats        *utils.RTTStats
++	connStats       *utils.ConnectionStats
+ 
+ 	// The number of times a PTO has been sent without receiving an ack.
+ 	ptoCount uint32
+@@ -501,6 +505,9 @@ func (h *sentPacketHandler) ReceivedAck(ack *wire.AckFrame, encLevel protocol.En
+ 			h.detectLostPathProbes(rcvTime)
+ 		}
+ 	}
++	// Copy numeric ACK data and deliver a complete batch before buffers are
++	// pooled, even when loss adaptation ran without newly acknowledged packets.
++	h.reportCongestionBatch(priorInFlight, rcvTime, ackedPackets)
+ 	// report spurious losses after any new congestion events from this ACK
+ 	for _, pn := range spuriousLosses {
+ 		h.congestion.OnSpuriousLoss(pn)
+@@ -973,6 +980,13 @@ func (h *sentPacketHandler) detectLostPackets(now monotime.Time, encLevel protoc
+ 			h.hist.DeclareLost(pn)
+ 			if !p.isPathProbePacket && p.IsAckEliciting() {
+ 				// the bytes in flight need to be reduced no matter if the frames in this packet will be retransmitted
++				if h.congestionBatch != nil {
++					h.congestionLost = append(h.congestionLost, congestionExt.LostPacketInfo{
++						PacketNumber: congestionExt.PacketNumber(pn),
++						BytesLost:    congestionExt.ByteCount(p.Length),
++						IsMTUProbe:   p.IsPathMTUProbePacket,
++					})
++				}
+ 				h.removeFromBytesInFlight(p)
+ 				h.queueFramesForRetransmission(p)
+ 				if !p.IsPathMTUProbePacket {
+@@ -1013,7 +1027,9 @@ func (h *sentPacketHandler) OnLossDetectionTimeout(now monotime.Time) error {
+ 			})
+ 		}
+ 		// Early retransmit or time loss detection
++		priorInFlight := h.bytesInFlight
+ 		h.detectLostPackets(now, encLevel)
++		h.reportCongestionBatch(priorInFlight, now, nil)
+ 		return nil
+ 	}
+ 
+@@ -1236,6 +1252,11 @@ func (h *sentPacketHandler) ResetForRetry(now monotime.Time) {
+ }
+ 
+ func (h *sentPacketHandler) MigratedPath(now monotime.Time, initialMaxDatagramSize protocol.ByteCount) {
++	// The connection reinstalls a fresh custom controller after this transport
++	// reset. Never route a batch from the new path to the old controller.
++	h.congestionBatch = nil
++	h.congestionAcked = h.congestionAcked[:0]
++	h.congestionLost = h.congestionLost[:0]
+ 	h.rttStats.ResetForPathMigration()
+ 	h.lastMetrics = qlog.MetricsUpdated{}
+ 	h.packetThresholdDisabled = false
+diff --git a/internal/mocks/ackhandler/sent_packet_handler.go b/internal/mocks/ackhandler/sent_packet_handler.go
+index f0833bf..18d5bd9 100644
+--- a/internal/mocks/ackhandler/sent_packet_handler.go
++++ b/internal/mocks/ackhandler/sent_packet_handler.go
+@@ -3,7 +3,7 @@
+ //
+ // Generated by this command:
+ //
+-//	mockgen -typed -build_flags=-tags=gomock -package mockackhandler -destination ackhandler/sent_packet_handler.go github.com/quic-go/quic-go/internal/ackhandler SentPacketHandler
++//	mockgen -typed -build_flags=-tags=gomock -package mockackhandler -destination internal/mocks/ackhandler/sent_packet_handler.go github.com/quic-go/quic-go/internal/ackhandler SentPacketHandler
+ //
+ 
+ // Package mockackhandler is a generated GoMock package.
+@@ -12,6 +12,7 @@ package mockackhandler
+ import (
+ 	reflect "reflect"
+ 
++	congestion "github.com/quic-go/quic-go/congestion"
+ 	ackhandler "github.com/quic-go/quic-go/internal/ackhandler"
+ 	monotime "github.com/quic-go/quic-go/internal/monotime"
+ 	protocol "github.com/quic-go/quic-go/internal/protocol"
+@@ -565,6 +566,42 @@ func (c *MockSentPacketHandlerSentPacketCall) DoAndReturn(f func(monotime.Time,
+ 	return c
+ }
+ 
++// SetCongestionControl mocks base method.
++func (m *MockSentPacketHandler) SetCongestionControl(arg0 congestion.CongestionControl, arg1 protocol.ByteCount) {
++	m.ctrl.T.Helper()
++	m.ctrl.Call(m, "SetCongestionControl", arg0, arg1)
++}
++
++// SetCongestionControl indicates an expected call of SetCongestionControl.
++func (mr *MockSentPacketHandlerMockRecorder) SetCongestionControl(arg0, arg1 any) *MockSentPacketHandlerSetCongestionControlCall {
++	mr.mock.ctrl.T.Helper()
++	call := mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SetCongestionControl", reflect.TypeOf((*MockSentPacketHandler)(nil).SetCongestionControl), arg0, arg1)
++	return &MockSentPacketHandlerSetCongestionControlCall{Call: call}
++}
++
++// MockSentPacketHandlerSetCongestionControlCall wrap *gomock.Call
++type MockSentPacketHandlerSetCongestionControlCall struct {
++	*gomock.Call
++}
++
++// Return rewrite *gomock.Call.Return
++func (c *MockSentPacketHandlerSetCongestionControlCall) Return() *MockSentPacketHandlerSetCongestionControlCall {
++	c.Call = c.Call.Return()
++	return c
++}
++
++// Do rewrite *gomock.Call.Do
++func (c *MockSentPacketHandlerSetCongestionControlCall) Do(f func(congestion.CongestionControl, protocol.ByteCount)) *MockSentPacketHandlerSetCongestionControlCall {
++	c.Call = c.Call.Do(f)
++	return c
++}
++
++// DoAndReturn rewrite *gomock.Call.DoAndReturn
++func (c *MockSentPacketHandlerSetCongestionControlCall) DoAndReturn(f func(congestion.CongestionControl, protocol.ByteCount)) *MockSentPacketHandlerSetCongestionControlCall {
++	c.Call = c.Call.DoAndReturn(f)
++	return c
++}
++
+ // SetMaxDatagramSize mocks base method.
+ func (m *MockSentPacketHandler) SetMaxDatagramSize(count protocol.ByteCount) {
+ 	m.ctrl.T.Helper()
+diff --git a/monotime/time.go b/monotime/time.go
+new file mode 100644
+index 0000000..b7cffe9
+--- /dev/null
++++ b/monotime/time.go
+@@ -0,0 +1,37 @@
++package monotime
++
++import (
++	"time"
++
++	"github.com/quic-go/quic-go/internal/monotime"
++)
++
++// A Time represents an instant in monotonic time.
++// Times can be compared using the comparison operators, but the specific
++// value is implementation-dependent and should not be relied upon.
++// The zero value of Time doesn't have any specific meaning.
++type Time = monotime.Time
++
++// Now returns the current monotonic time.
++func Now() Time {
++	return monotime.Now()
++}
++
++// Since returns the time elapsed since t. It is shorthand for Now().Sub(t).
++func Since(t Time) time.Duration {
++	return monotime.Since(t)
++}
++
++// Until returns the duration until t.
++// It is shorthand for t.Sub(Now()).
++// If t is in the past, the returned duration will be negative.
++func Until(t Time) time.Duration {
++	return monotime.Until(t)
++}
++
++// FromTime converts a time.Time to a monotonic Time.
++// The conversion is relative to the package's start time and may lose
++// precision if the time.Time is far from the start time.
++func FromTime(t time.Time) Time {
++	return monotime.FromTime(t)
++}

@@ -1,0 +1,75 @@
+{
+  "date": "2026-11-07",
+  "mode": "offline replay and counterexamples",
+  "source_and_input_sha256": {
+    "scripts/vps-fault.py": "a111684721b23397179317bfadec1b0b0408cf03119954fa2e61ff5c0b150228",
+    "results/vps-restart-20261107/ssh-events.jsonl": "f23f300060691603329fa94082ecde3d65511552eea3cb7916646bd1b70cdd87",
+    "results/vps-restart-20261107/restart-events.jsonl": "0941a6f33526dcc019af719c19002e77ec8c6643af932037c46db69d3c68f7b6",
+    "results/vps-restart-20261107/fault-summary.json": "5bc72abe76fd6ca7e23b54b86dc360f1414864c3397e489079fc6728bd3c8bdb"
+  },
+  "historical_run_evidence": {
+    "ssh_received_prefix_correct": true,
+    "ssh_lines_before_restart": 54,
+    "restart_command_succeeded": true,
+    "observed_old_ssh_connection_failure": true
+  },
+  "checks": [
+    {
+      "case": "historical_established_stream",
+      "expected_old_stream_failure": true,
+      "actual": true
+    },
+    {
+      "case": "never_authenticated",
+      "expected_old_stream_failure": false,
+      "actual": false
+    },
+    {
+      "case": "all_output_after_restart",
+      "expected_old_stream_failure": false,
+      "actual": false
+    },
+    {
+      "case": "missing_first_line",
+      "expected_old_stream_failure": false,
+      "actual": false
+    },
+    {
+      "case": "duplicated_line",
+      "expected_old_stream_failure": false,
+      "actual": false
+    },
+    {
+      "case": "normal_exit",
+      "expected_old_stream_failure": false,
+      "actual": false
+    },
+    {
+      "case": "complete_220_lines",
+      "expected_old_stream_failure": false,
+      "actual": false
+    },
+    {
+      "case": "no_restart_request",
+      "expected_old_stream_failure": false,
+      "actual": false
+    },
+    {
+      "case": "failed_restart_command",
+      "expected_old_stream_failure": false,
+      "actual": false
+    },
+    {
+      "case": "return_before_request",
+      "expected_old_stream_failure": false,
+      "actual": false
+    }
+  ],
+  "passed": true,
+  "notes": [
+    "No VPS command or network experiment ran for this tool change. Historical raw events and summaries remain unchanged.",
+    "SSH and restart elapsed times share the Python controller epoch. No benchmark monotonic times were subtracted.",
+    "This check establishes an existing SSH stream and a failed exit around a successful restart, not the causal attribution or subsequent new-request recovery.",
+    "The synthetic counterexamples validate the checker, not protocol performance."
+  ]
+}

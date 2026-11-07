@@ -1,0 +1,127 @@
+{
+  "modules": [
+    {
+      "module": "github.com/andybalholm/brotli",
+      "version": "v1.1.0",
+      "sum": "h1:eLKJA0d02Lf0mVpIDgYnqXcUn0GqVmEFny3VuID1U3M=",
+      "compiled_packages": 2,
+      "license_files": [
+        {
+          "module_relative_path": "LICENSE",
+          "local_path": "docs/research/cc-source-evidence/licenses/dependencies/github.com/andybalholm/brotli/LICENSE",
+          "sha256": "3d180008e36922a4e8daec11c34c7af264fed5962d07924aea928c38e8663c94"
+        }
+      ]
+    },
+    {
+      "module": "github.com/apernet/quic-go",
+      "version": "v0.63.1-0.20261004180939-a10df75c260c",
+      "sum": "h1:cxK8qTA0YCsj68A7zLYDCfPgMTOyt3ePkHh+oXEmYU0=",
+      "compiled_packages": 19,
+      "license_files": [
+        {
+          "module_relative_path": "LICENSE",
+          "local_path": "docs/research/cc-source-evidence/licenses/dependencies/github.com/apernet/quic-go/LICENSE",
+          "sha256": "77d0b7b53e8abb84cf4dd3f9945a7fdf27044240d2e8023966a721a9a46fe96e"
+        }
+      ]
+    },
+    {
+      "module": "github.com/klauspost/compress",
+      "version": "v1.17.9",
+      "sum": "h1:6KIumPrER1LHsvBVuDa0r5xaG0Es51mhhB9BQB2qeMA=",
+      "compiled_packages": 6,
+      "license_files": [
+        {
+          "module_relative_path": "LICENSE",
+          "local_path": "docs/research/cc-source-evidence/licenses/dependencies/github.com/klauspost/compress/LICENSE",
+          "sha256": "0d9e582ee4bff57bf1189c9e514e6da7ce277f9cd3bc2d488b22fbb39a6d87cf"
+        },
+        {
+          "module_relative_path": "internal/snapref/LICENSE",
+          "local_path": "docs/research/cc-source-evidence/licenses/dependencies/github.com/klauspost/compress/internal/snapref/LICENSE",
+          "sha256": "f69f157b0be75da373605dbc8bbf142e8924ee82d8f44f11bcaf351335bf98cf"
+        },
+        {
+          "module_relative_path": "zstd/internal/xxhash/LICENSE.txt",
+          "local_path": "docs/research/cc-source-evidence/licenses/dependencies/github.com/klauspost/compress/zstd/internal/xxhash/LICENSE.txt",
+          "sha256": "f566a9f97bacdaf00d9f21dd991e81dc11201c4e016c86b470799429a1c9a79c"
+        }
+      ]
+    },
+    {
+      "module": "github.com/refraction-networking/utls",
+      "version": "v1.8.2",
+      "sum": "h1:j4Q1gJj0xngdeH+Ox/qND11aEfhpgoEvV+S9iJ2IdQo=",
+      "compiled_packages": 12,
+      "license_files": [
+        {
+          "module_relative_path": "LICENSE",
+          "local_path": "docs/research/cc-source-evidence/licenses/dependencies/github.com/refraction-networking/utls/LICENSE",
+          "sha256": "2d36597f7117c38b006835ae7f537487207d8ec407aa9d9980794b2030cbc067"
+        },
+        {
+          "module_relative_path": "dicttls/LICENSE",
+          "local_path": "docs/research/cc-source-evidence/licenses/dependencies/github.com/refraction-networking/utls/dicttls/LICENSE",
+          "sha256": "ac089a3cb515b32ba1c8c2b401646527f55815a9022013693d515f2e2e4fb6ec"
+        }
+      ]
+    },
+    {
+      "module": "golang.org/x/crypto",
+      "version": "v0.54.0",
+      "sum": "h1:YLIA59K4fiNzHzjnZt2tUJQjQtUWfWbeHBqKtk3eScw=",
+      "compiled_packages": 8,
+      "license_files": [
+        {
+          "module_relative_path": "LICENSE",
+          "local_path": "docs/research/cc-source-evidence/licenses/dependencies/golang.org/x/crypto/LICENSE",
+          "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad"
+        }
+      ]
+    },
+    {
+      "module": "golang.org/x/exp",
+      "version": "v0.0.0-20250711185948-6ae5c78190dc",
+      "sum": "h1:TS73t7x3KarrNd5qAipmspBDS1rkMcgVG/fS1aRb4Rc=",
+      "compiled_packages": 1,
+      "license_files": [
+        {
+          "module_relative_path": "LICENSE",
+          "local_path": "docs/research/cc-source-evidence/licenses/dependencies/golang.org/x/exp/LICENSE",
+          "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad"
+        }
+      ]
+    },
+    {
+      "module": "golang.org/x/net",
+      "version": "v0.57.0",
+      "sum": "h1:K5+3DljvIuDG9/Jv9rvyMywYNFCQ9RSUY6OOTTkT+tE=",
+      "compiled_packages": 5,
+      "license_files": [
+        {
+          "module_relative_path": "LICENSE",
+          "local_path": "docs/research/cc-source-evidence/licenses/dependencies/golang.org/x/net/LICENSE",
+          "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad"
+        }
+      ]
+    },
+    {
+      "module": "golang.org/x/sys",
+      "version": "v0.47.0",
+      "sum": "h1:o7XGOvZQCADBQQ4Y7VNq2dRWQR7JmOUW8Kxx4ZsNgWs=",
+      "compiled_packages": 2,
+      "license_files": [
+        {
+          "module_relative_path": "LICENSE",
+          "local_path": "docs/research/cc-source-evidence/licenses/dependencies/golang.org/x/sys/LICENSE",
+          "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad"
+        }
+      ]
+    }
+  ],
+  "go_standard_library_license": {
+    "local_path": "docs/research/cc-source-evidence/licenses/Go.LICENSE",
+    "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad"
+  }
+}

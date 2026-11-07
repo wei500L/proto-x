@@ -384,9 +384,14 @@ func (s *Session) maintenance() {
 		case now := <-t.C:
 			l, _, _ := s.Current()
 			if l != nil {
-				if time.Since(s.started)-time.Duration(s.lastRX.Load()) > s.cfg.DeadAfter {
+				quiet := time.Since(s.started) - time.Duration(s.lastRX.Load())
+				if quiet > s.cfg.DeadAfter {
 					s.Drop(l)
-				} else {
+				} else if !s.Server || s.cfg.Adaptive || quiet >= s.cfg.DeadAfter/2 {
+					// Client probes and server replies keep both directions live.
+					// The adaptive sender needs its own RTT samples. Otherwise a
+					// server probes only after prolonged silence, also allowing a
+					// peer whose configured heartbeat is slower than our timeout.
 					if !l.QueueControl(wire.Frame{Kind: wire.Ping, Offset: uint64(time.Since(s.started))}) {
 						s.Drop(l)
 					}

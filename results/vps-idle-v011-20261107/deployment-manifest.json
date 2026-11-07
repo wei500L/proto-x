@@ -1,0 +1,36 @@
+{
+  "verified_utc": "2026-11-06T23:50:31.709009+00:00",
+  "version": "PROTO-X 0.1.1-experimental",
+  "server_binary_sha256": "ee662f85a083d29843fc6cfe32c867ccde76d9f79983d5a2bdd52cf7dec30d65",
+  "client_binary_sha256": "90a4682ac8f3c66af7f79092e65b584510b9c685d6f77f625238f9baa6f7862c",
+  "protox_xr_sb_active": [
+    "active",
+    "active",
+    "active"
+  ],
+  "allow_private_targets": false,
+  "backup_directory": "/opt/proto-x/backups/20261106T235030Z",
+  "source_sha256": {
+    "cmd/protox/main.go": "0ecb75171015ddf71e641339ae2d7f6f7478127314a8885e3757d990380b63f7",
+    "internal/app/client.go": "5fe317675fc70e032727c4e625cfa57c55d116395f8fda64af5c335305b016bb",
+    "internal/app/client_shutdown_test.go": "29d54cf0c1ec5ee9c330a7535fed19fa9ab3cc761c078097c6e7c0f4a99f9288",
+    "internal/app/config.go": "c626e4e5a839fa024d718d94efdc1a93add3983c23ca524ee32cf787e13c497c",
+    "internal/app/integration_test.go": "ac6a19fc4dbbef01aecde3160304b93150f0d29e16e4163e54ac9254d2570f44",
+    "internal/app/server.go": "93aa90141e2b25dd3aaafa77c9479636178b779e363fdd84eb728b6ab944bc29",
+    "internal/bench/bench_test.go": "360e4e4aa7eaafdeaa80708bede0b43db0a6dd4cbcf0789e1fb6452b0dd372d0",
+    "internal/bench/events.go": "3407be85842e46e26f9d2b78f94b4da0dea356d1675ef09b828845f5d755e389",
+    "internal/bench/payload.go": "e81ab00e863b6f0cd567727e2c1bd31f832a0235997fd2a8b4599c6a975aa577",
+    "internal/bench/run.go": "6956c37a3653c4ed02c29840a7e81be7a23e5eb9f4bb02b21e52e25e01e37620",
+    "internal/bench/serve.go": "fdced44b2e507cc0c8db5891b22fd694161df80d71c4b31d64a1533162c34aba",
+    "internal/bench/socks.go": "fe2ad579300172d260233772ed4e5917ec5b062151104f9fedff42b90f5ead69",
+    "internal/carrier/carrier.go": "1f83cb4f692dac4490a12bbab92bc2e0483535f6fde58cde70f83e96fe020eeb",
+    "internal/scheduler/budget.go": "6205179eb8d05938e1429a15ffd182af86596a7ec2a53316c3e5b21394543bbe",
+    "internal/session/heartbeat_test.go": "d407ecf25237e23d09fea1e0d5bd787b4ac33efbf620c0b812a26e6431969e19",
+    "internal/session/session.go": "783a8455a63a6b8be279b9026f467a5041271f2d83fec7aa472dba5e27c073f3",
+    "internal/session/session_test.go": "ec580e7917d4a16f9868aabdc556286081e1c1e59dd3e8a796e37817eaf7ee13",
+    "internal/wire/frame.go": "bc1d02545261a1171e26f1aa7edb81c577199c4bb98fde3b5bf768f5ea3dafad",
+    "internal/wire/frame_test.go": "7d3a973468cb1c236583cf33d16e92c68b63e6691a95ec364672bb5ca3bae621",
+    "go.mod": "f74ed957837b47fe3c782a27947eed0ba133bfe75ff6bb9c3cd07214b3bae33c",
+    "go.sum": "eee3207734fdb37d8c9b2c695698472633058bde515fba9b53e610891c38889b"
+  }
+}

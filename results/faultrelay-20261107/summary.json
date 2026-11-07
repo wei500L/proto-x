@@ -1,0 +1,75 @@
+{
+  "kind": "owned-loopback-faultrelay-fixture-checks",
+  "time_utc": "2026-11-06T22:59:50.607597+00:00",
+  "platform": "Darwin/arm64",
+  "go_version": "go version go1.27.1 darwin/arm64",
+  "command": [
+    "go",
+    "test",
+    "-race",
+    "-count=1",
+    "-json",
+    "./tools/faultrelay"
+  ],
+  "exit_code": 0,
+  "checks": [
+    {
+      "test": "TestBytePreservingForwardingAndClientPortHandoff",
+      "action": "pass",
+      "elapsed_seconds": 0.01
+    },
+    {
+      "test": "TestBlackholeBothDirectionsAndRecovery",
+      "action": "pass",
+      "elapsed_seconds": 0.29
+    },
+    {
+      "test": "TestScheduledRebindChangesObservedPort",
+      "action": "pass",
+      "elapsed_seconds": 0.11
+    },
+    {
+      "test": "TestOversizedDatagramsDiscardedBothDirections",
+      "action": "pass",
+      "elapsed_seconds": 0.04
+    },
+    {
+      "test": "TestDifferentClientIPRejected",
+      "action": "skip",
+      "elapsed_seconds": 0.01
+    },
+    {
+      "test": "TestDurationStopsAndClosesSockets",
+      "action": "pass",
+      "elapsed_seconds": 0.05
+    },
+    {
+      "test": "TestRejectsUnsafeListenersAndInvalidLimits",
+      "action": "pass",
+      "elapsed_seconds": 0
+    },
+    {
+      "test": "TestSignalHelper",
+      "action": "pass",
+      "elapsed_seconds": 0
+    },
+    {
+      "test": "TestSIGTERMFlushesEndCountersDuringBlackhole",
+      "action": "pass",
+      "elapsed_seconds": 1.18
+    }
+  ],
+  "source_sha256": {
+    "tools/faultrelay/main.go": "0710ae2f821b59e62bae68f0160dd850017f8d506c270ef5a4f10b7d497d2111",
+    "tools/faultrelay/main_test.go": "b1d46ed0b9bffcfa0aaffc7897906c138a2ee880f669c936b8268e1bf574b522",
+    "tools/faultrelay/README.md": "1421d76a3e41a4e83fa6d3cfaa5b8935761c5b0668ba8ed32b5488340dea5392",
+    "go.mod": "f74ed957837b47fe3c782a27947eed0ba133bfe75ff6bb9c3cd07214b3bae33c",
+    "go.sum": "eee3207734fdb37d8c9b2c695698472633058bde515fba9b53e610891c38889b"
+  },
+  "binary_sha256": "95ab68db39d651de7843261b6af7a79f76c97c9f249d77d31c0899033841d0e2",
+  "limitations": [
+    "Different-source-IP test skips if 127.0.0.2 is unavailable.",
+    "Initial 16000-byte oversize smoke was rejected by macOS before relay; corrected to 4096 bytes.",
+    "This tests fixture behavior, not WAN recovery or protocol performance."
+  ]
+}

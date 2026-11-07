@@ -1,0 +1,177 @@
+{
+  "run_id": "hints-unpaced-s313-20261106T233204Z",
+  "stage": "discovery",
+  "created_utc": "2026-11-06T23:32:06.199878+00:00",
+  "source": "local Linux VM packet-level emulation; not Russian field data",
+  "kernel": "Linux lima-protox-lab 6.12.115+deb13.1-cloud-arm64 #1 SMP Debian 6.12.115-2 (2026-11-01) aarch64 GNU/Linux",
+  "cpu_count": 2,
+  "gomaxprocs": 1,
+  "binaries_sha256": {
+    "protox": "0b42f0a8fc63165ed1e9e99d4eb650da6af4e3c097a2a08913fa6e50595d98fe",
+    "pxbench": "e01e8df7756512820dc823b7b42f7f4fe58ad952ad3f76f95b7c610f3692353a",
+    "hysteria": "a68a61a84452ca250ce0368202521965ca9cc9d801a404f1dc9008ac6cf677a7"
+  },
+  "matrix_script_sha256": "85e1d8cf7a9b9545395d4d5e5d50bba48e44495815b96110b76c6250372c7fa5",
+  "netlab_script_sha256": "aff761f96aba34f6b61eca7d343060c856c27cefc8575e3e0675fe37dbfe2ba5",
+  "go_buildinfo": ".local/hint-matrix/stage/bin/protox: go1.27.1\n\tpath\tproto-x/cmd/protox\n\tmod\tproto-x\tv0.0.0-20261106225511-5d80253d057b+dirty\t\n\tdep\tgithub.com/quic-go/quic-go\tv0.65.0\th1:BJQSjdTvLPLmWtaCupUphRbgxgpZhdO/GMpr9Eoe3B4=\n\tdep\tgolang.org/x/crypto\tv0.54.0\th1:YLIA59K4fiNzHzjnZt2tUJQjQtUWfWbeHBqKtk3eScw=\n\tdep\tgolang.org/x/net\tv0.56.0\th1:Rw8j/hFzGvJUZwNBXnAtf5sVDVt+65SK2C7IxCxZt5o=\n\tdep\tgolang.org/x/sys\tv0.47.0\th1:o7XGOvZQCADBQQ4Y7VNq2dRWQR7JmOUW8Kxx4ZsNgWs=\n\tbuild\t-buildmode=exe\n\tbuild\t-compiler=gc\n\tbuild\t-trimpath=true\n\tbuild\tDefaultGODEBUG=tracebacklabels=0,x509sslcertoverrideplatform=0\n\tbuild\tCGO_ENABLED=0\n\tbuild\tGOARCH=arm64\n\tbuild\tGOOS=linux\n\tbuild\tGOARM64=v8.0\n\tbuild\tvcs=git\n\tbuild\tvcs.revision=5d80253d057b5004a3fad77d50ea4ed315eb0b85\n\tbuild\tvcs.time=2026-11-06T22:55:11Z\n\tbuild\tvcs.modified=true\n.local/hint-matrix/stage/bin/pxbench: go1.27.1\n\tpath\tproto-x/cmd/pxbench\n\tmod\tproto-x\t(devel)\t\n\tbuild\t-buildmode=exe\n\tbuild\t-compiler=gc\n\tbuild\t-trimpath=true\n\tbuild\tDefaultGODEBUG=tracebacklabels=0,x509sslcertoverrideplatform=0\n\tbuild\tCGO_ENABLED=0\n\tbuild\tGOARCH=arm64\n\tbuild\tGOOS=linux\n\tbuild\tGOARM64=v8.0\n\tbuild\tvcs=git\n\tbuild\tvcs.modified=true\n.local/hint-matrix/stage/bin/hysteria: go1.26.8\n\tpath\tgithub.com/apernet/hysteria/app/v2\n\tmod\tgithub.com/apernet/hysteria/app/v2\t(devel)\t\n\tdep\tgithub.com/andybalholm/brotli\tv1.1.0\th1:eLKJA0d02Lf0mVpIDgYnqXcUn0GqVmEFny3VuID1U3M=\n\tdep\tgithub.com/apernet/go-tproxy\tv0.0.0-20230809025308-8f4723fd742f\th1:uVh0qpEslrWjgzx9vOcyCqsOY3c9kofDZ1n+qaw35ZY=\n\tdep\tgithub.com/apernet/hysteria/core/v2\t(devel)\t\n\tdep\tgithub.com/apernet/hysteria/extras/v2\t(devel)\t\n\tdep\tgithub.com/apernet/quic-go\tv0.63.1-0.20261004180939-a10df75c260c\th1:cxK8qTA0YCsj68A7zLYDCfPgMTOyt3ePkHh+oXEmYU0=\n\tdep\tgithub.com/caddyserver/certmagic\tv0.25.4\th1:8eIXh0HC3MsGnNo8One+BCxMGTbe5zb/oz+2KsxBFQg=\n\tdep\tgithub.com/caddyserver/zerossl\tv0.1.5\th1:dkvOjBAEEtY6LIGAHei7sw2UgqSD6TrWweXpV7lvEvE=\n\tdep\tgithub.com/database64128/netx-go\tv0.1.1\th1:dT5LG7Gs7zFZBthFBbzWE6K8wAHjSNAaK7wCYZT7NzM=\n\tdep\tgithub.com/database64128/tfo-go/v2\tv2.3.3\th1:M0X1SgOirhSvMKI8VQfgUtNVM53L6Rzg9Z+DN6fLA50=\n\tdep\tgithub.com/florianl/go-nfqueue/v2\tv2.1.0\th1:Fywt30TY/evxyDySpXjxQ1jsRW7nQbLpOhELqpr4068=\n\tdep\tgithub.com/fsnotify/fsnotify\tv1.9.0\th1:2Ml+OJNzbYCTzsxtv8vKSFD9PbJjmhYF14k/jKC7S9k=\n\tdep\tgithub.com/go-viper/mapstructure/v2\tv2.5.0\th1:vM5IJoUAy3d7zRSVtIwQgBj7BiWtMPfmPEgAXnvj1Ro=\n\tdep\tgithub.com/google/btree\tv1.1.3\th1:CVpQJjYgC4VbzxeGVHfvZrv1ctoYCAI8vbl07Fcxlyg=\n\tdep\tgithub.com/google/go-querystring\tv1.1.0\th1:AnCroh3fv4ZBgVIf1Iwtovgjaw/GiKJo8M8yD/fhyJ8=\n\tdep\tgithub.com/google/gopacket\tv1.1.19\th1:ves8RnFZPGiFnTS0uPQStjwru6uO6h+nlr9j6fL7kF8=\n\tdep\tgithub.com/hashicorp/go-cleanhttp\tv0.5.2\th1:035FKYIWjmULyFRBKPs8TBQoi0x6d9G4xc9neXJWAZQ=\n\tdep\tgithub.com/hashicorp/go-retryablehttp\tv0.7.7\th1:C8hUCYzor8PIfXHa4UrZkU4VvK8o9ISHxT2Q8+VepXU=\n\tdep\tgithub.com/hashicorp/golang-lru/v2\tv2.0.7\th1:a+bsQ5rvGLjzHuww6tVxozPZFVghXaHOwFs4luLUK2k=\n\tdep\tgithub.com/huin/goupnp\tv1.2.0\th1:uOKW26NG1hsSSbXIZ1IR7XP9Gjd1U8pnLaCMgntmkmY=\n\tdep\tgithub.com/jackpal/go-nat-pmp\tv1.0.2\th1:KzKSgb7qkJvOUTqYl9/Hg/me3pWgBmERKrTGD7BdWus=\n\tdep\tgithub.com/klauspost/compress\tv1.17.9\th1:6KIumPrER1LHsvBVuDa0r5xaG0Es51mhhB9BQB2qeMA=\n\tdep\tgithub.com/klauspost/cpuid/v2\tv2.3.0\th1:S4CRMLnYUhGeDFDqkGriYKdfoFlDnMtqTiI/sFzhA9Y=\n\tdep\tgithub.com/koron/go-ssdp\tv0.0.4\th1:1IDwrghSKYM7yLf7XCzbByg2sJ/JcNOZRXS2jczTwz0=\n\tdep\tgithub.com/libdns/cloudflare\tv0.2.2\th1:XWHv+C1dDcApqazlh08Q6pjytYLgR2a+Y3xrXFu0vsI=\n\tdep\tgithub.com/libdns/duckdns\tv0.3.0\th1:YsNlEDrA/F6dOjOCPewS9wqA9OKE5Rduk5eVpAPdcQA=\n\tdep\tgithub.com/libdns/gandi\tv1.1.0\th1:gBBbx23xejvOpbUX7HRqCYsROYag5+OUMGhQXzAkol4=\n\tdep\tgithub.com/libdns/godaddy\tv1.1.0\th1:mxB107yFulEGApacljrCfaR4faR/9d9SyrGmjD2VubU=\n\tdep\tgithub.com/libdns/libdns\tv1.1.1\th1:wPrHrXILoSHKWJKGd0EiAVmiJbFShguILTg9leS/P/U=\n\tdep\tgithub.com/libdns/namecheap\tv1.0.0\th1:cZK8w4Y1AJQCtL5bjqnFpYBnI1k/mzJhljcKAP5vPd8=\n\tdep\tgithub.com/libdns/njalla\tv0.0.0-20250815081032-a55a87a8f20f\th1:BG7UdnPkQGW4jK9mB73cFfRbxnYARF4BtRvD8gj2sxY=\n\tdep\tgithub.com/libdns/porkbun\tv1.1.0\th1:X763NqXjW26VEl7GvBtF/3CGeuGt9JqoQ35mwIlx40E=\n\tdep\tgithub.com/libdns/vultr/v2\tv2.0.4\th1:4V1OSiUnYvFfpFBicdM27JEnAF0D694cmmQ3AyNqobA=\n\tdep\tgithub.com/libp2p/go-nat\tv1.0.1-0.20250821073202-01afc089f138\th1:YohuNPT/1k3VcThCQlBZ43PCPWPfMRS1zcxWBF2SLK8=\n\tdep\tgithub.com/libp2p/go-netroute\tv0.2.1\th1:V8kVrpD8GK0Riv15/7VN6RbUQ3URNZVosw7H2v9tksU=\n\tdep\tgithub.com/mdlayher/netlink\tv1.11.2\th1:HKh2jqe+omdSWcQ88nrT7INE61B0NXfiSPFdgL4YbNI=\n\tdep\tgithub.com/mdlayher/socket\tv0.6.0\th1:ScZPaAGyO1icQnbFrhPM8mnXyMu9qukC1K4ZoM2IQKU=\n\tdep\tgithub.com/mdp/qrterminal/v3\tv3.2.1\th1:6+yQjiiOsSuXT5n9/m60E54vdgFsw0zhADHhHLrFet4=\n\tdep\tgithub.com/mholt/acmez/v3\tv3.1.6\th1:eGVQNObP0pBN4sxqrXeg7MYqTOWyoiYpQqITVWlrevk=\n\tdep\tgithub.com/miekg/dns\tv1.1.72\th1:vhmr+TF2A3tuoGNkLDFK9zi36F2LS+hKTRW0Uf8kbzI=\n\tdep\tgithub.com/patrickmn/go-cache\tv2.1.0+incompatible\th1:HRMgzkcYKYpi3C8ajMPV8OFXaaRUnok+kx1WdO15EQc=\n\tdep\tgithub.com/pelletier/go-toml/v2\tv2.2.4\th1:mye9XuhQ6gvn5h28+VilKrrPoQVanw5PMw/TB0t5Ec4=\n\tdep\tgithub.com/pion/dtls/v3\tv3.1.4\th1:QhvtMflMfu9Kf0RcDC5BJBle4caPskByrKQR6uuYqpY=\n\tdep\tgithub.com/pion/logging\tv0.2.4\th1:tTew+7cmQ+Mc1pTBLKH2puKsOvhm32dROumOZ655zB8=\n\tdep\tgithub.com/pion/stun/v3\tv3.1.6\th1:WnhsD0eHCiwCfKNkVx0VJJwr2Y3eV4Ueih3KJ+dfZy8=\n\tdep\tgithub.com/pion/transport/v4\tv4.0.2\th1:ifYlPqNwsy6aKQ9y8yzxXlHae5431ZrH2avkD/Rn6Tk=\n\tdep\tgithub.com/quic-go/qpack\tv0.6.0\th1:g7W+BMYynC1LbYLSqRt8PBg5Tgwxn214ZZR34VIOjz8=\n\tdep\tgithub.com/refraction-networking/utls\tv1.8.2\th1:j4Q1gJj0xngdeH+Ox/qND11aEfhpgoEvV+S9iJ2IdQo=\n\tdep\tgithub.com/sagernet/netlink\tv0.0.0-20240612041022-b9a21c07ac6a\th1:ObwtHN2VpqE0ZNjr6sGeT00J8uU7JF4cNUdb44/Duis=\n\tdep\tgithub.com/sagernet/nftables\tv0.3.0-mod.4\th1:vnOtcDYeSXv2e5RoRuGH0lrpttQFJ8iC4ICS2nhlDSo=\n\tdep\tgithub.com/sagernet/sing\tv0.8.12-0.20260717023913-84ab32b56cb8\th1:dyRIj+MZ2rc9JVzJoG04jxu+MpvHrLIZLJr0QjNAMGg=\n\tdep\tgithub.com/sagernet/sing-tun\tv0.9.6\th1:6NfiiT7FZMTnqs+Vvn/APQPMvdOGJ00DM4GPCe9mw1U=\n\tdep\tgithub.com/sagikazarmark/locafero\tv0.12.0\th1:/NQhBAkUb4+fH1jivKHWusDYFjMOOKU88eegjfxfHb4=\n\tdep\tgithub.com/spf13/afero\tv1.15.0\th1:b/YBCLWAJdFWJTN9cLhiXXcD7mzKn9Dm86dNnfyQw1I=\n\tdep\tgithub.com/spf13/cast\tv1.10.0\th1:h2x0u2shc1QuLHfxi+cTJvs30+ZAHOGRic8uyGTDWxY=\n\tdep\tgithub.com/spf13/cobra\tv1.10.2\th1:DMTTonx5m65Ic0GOoRY2c16WCbHxOOw6xxezuLaBpcU=\n\tdep\tgithub.com/spf13/pflag\tv1.0.10\th1:4EBh2KAYBwaONj6b2Ye1GiHfwjqyROoF4RwYO+vPwFk=\n\tdep\tgithub.com/spf13/viper\tv1.21.0\th1:x5S+0EU27Lbphp4UKm1C+1oQO+rKx36vfCoaVebLFSU=\n\tdep\tgithub.com/stretchr/objx\tv0.5.3\th1:jmXUvGomnU1o3W/V5h2VEradbpJDwGrzugQQvL0POH4=\n\tdep\tgithub.com/stretchr/testify\tv1.12.1\th1:EuwCh5fleGS7H32xRwO3wRGT7DxrDhLAT6FF8MpWDWE=\n\tdep\tgithub.com/subosito/gotenv\tv1.6.0\th1:9NlTDc1FTs4qu0DDq7AEtTPNw6SVm7uBMsUCUjABIf8=\n\tdep\tgithub.com/txthinking/runnergroup\tv0.0.0-20210608031112-152c7c4432bf\th1:7PflaKRtU4np/epFxRXlFhlzLXZzKFrH5/I4so5Ove0=\n\tdep\tgithub.com/txthinking/socks5\tv0.0.0-20230325130024-4230056ae301\th1:d/Wr/Vl/wiJHc3AHYbYs5I3PucJvRuw3SvbmlIRf+oM=\n\tdep\tgithub.com/vishvananda/netns\tv0.0.4\th1:Oeaw1EM2JMxD51g9uhtC0D7erkIjgmj8+JZc26m1YX8=\n\tdep\tgithub.com/vultr/govultr/v3\tv3.20.0\th1:O+Om6gXpN6ehwAIIKq5DyGuekpyHaoRlwrxTb44bDzA=\n\tdep\tgithub.com/wlynxg/anet\tv0.0.5\th1:J3VJGi1gvo0JwZ/P1/Yc/8p63SoW98B5dHkYDmpgvvU=\n\tdep\tgithub.com/zeebo/blake3\tv0.2.4\th1:KYQPkhpRtcqh0ssGYcKLG1JYvddkEA8QwCM/yBqhaZI=\n\tdep\tgo.uber.org/multierr\tv1.11.0\th1:blXXJkSxSSfBVBlC76pxqeO+LN3aDfLQo+309xJstO0=\n\tdep\tgo.uber.org/zap\tv1.28.0\th1:IZzaP1Fv73/T/pBMLk4VutPl36uNC+OSUh3JLG3FIjo=\n\tdep\tgo.uber.org/zap/exp\tv0.3.0\th1:6JYzdifzYkGmTdRR59oYH+Ng7k49H9qVpWwNSsGJj3U=\n\tdep\tgo.yaml.in/yaml/v3\tv3.0.5\th1:N6y/pJk8buWs9NY5ERU2HSMfm+IuD/OtfdAnq6kESPw=\n\tdep\tgo4.org/netipx\tv0.0.0-20231129151722-fdeea329fbba\th1:0b9z3AuHCjxk0x/opv64kcgZLBseWJUpBw5I82+2U4M=\n\tdep\tgolang.org/x/crypto\tv0.54.0\th1:YLIA59K4fiNzHzjnZt2tUJQjQtUWfWbeHBqKtk3eScw=\n\tdep\tgolang.org/x/exp\tv0.0.0-20250711185948-6ae5c78190dc\th1:TS73t7x3KarrNd5qAipmspBDS1rkMcgVG/fS1aRb4Rc=\n\tdep\tgolang.org/x/net\tv0.57.0\th1:K5+3DljvIuDG9/Jv9rvyMywYNFCQ9RSUY6OOTTkT+tE=\n\tdep\tgolang.org/x/oauth2\tv0.30.0\th1:dnDm7JmhM45NNpd8FDDeLhK6FwqbOf4MLCM9zb1BOHI=\n\tdep\tgolang.org/x/sync\tv0.22.0\th1:SZjpbeLmrCk4xhRSZFNZW5gFUeCeFgjekvI/+gfScek=\n\tdep\tgolang.org/x/sys\tv0.47.0\th1:o7XGOvZQCADBQQ4Y7VNq2dRWQR7JmOUW8Kxx4ZsNgWs=\n\tdep\tgolang.org/x/term\tv0.45.0\th1:NwWyBmoJCbfTHpxrWoZ9C6/VxOf7ic219I8xZZFdrf0=\n\tdep\tgolang.org/x/text\tv0.40.0\th1:Ub2Z6/xjgF1WrYQz2nuITOEegKFtiIy+rieRJ5lHZKs=\n\tdep\tgoogle.golang.org/protobuf\tv1.36.11\th1:fV6ZwhNocDyBLK0dj+fg8ektcVegBBuEolpbTQyBNVE=\n\tdep\trsc.io/qr\tv0.2.0\th1:6vBLea5/NRMVTz8V66gipeLycZMl/+UlFmk8DvqQ6WY=\n\tbuild\t-buildmode=exe\n\tbuild\t-compiler=gc\n\tbuild\t-trimpath=true\n\tbuild\tCGO_ENABLED=0\n\tbuild\tGOARCH=arm64\n\tbuild\tGOOS=linux\n\tbuild\tGOARM64=v8.0\n\tbuild\tvcs=git\n\tbuild\tvcs.revision=ca8fbd874fd6ca82413948de6dc5924405e103e1\n\tbuild\tvcs.time=2026-10-05T04:00:22Z\n\tbuild\tvcs.modified=true\n",
+  "schedule": [
+    {
+      "variant": "px-hints-on",
+      "profile": "loss1-jitter5",
+      "seed": 313
+    },
+    {
+      "variant": "px-hints-off",
+      "profile": "loss1-jitter5",
+      "seed": 313
+    },
+    {
+      "variant": "hy-brutal6",
+      "profile": "loss1-jitter5",
+      "seed": 313
+    }
+  ],
+  "parameters": {
+    "root": "/tmp/pxlab-hints",
+    "run_id": "hints-unpaced-s313-20261106T233204Z",
+    "stage": "discovery",
+    "seed": 313,
+    "duration": 25.0,
+    "warmup": 3.0,
+    "queue_ms": 100,
+    "background": 1,
+    "background_mbps": null,
+    "variants": [
+      "px-hints-off",
+      "px-hints-on",
+      "hy-brutal6"
+    ],
+    "profiles": [
+      "loss1-jitter5"
+    ]
+  },
+  "config_parameters": {
+    "px": {
+      "server_rate_mbps": 8,
+      "client_rate_mbps": 2,
+      "window_bytes": 65536,
+      "variants": [
+        "priority=true,adaptive=false",
+        "priority=false,adaptive=false",
+        "priority=true,adaptive=true"
+      ],
+      "transport": "QUIC preferred with authenticated TLS fallback",
+      "sparse_variants": {
+        "px-hints-off": false,
+        "px-hints-on": true
+      },
+      "congestion_control": "quic-go v0.65.0 default Reno"
+    },
+    "xray": {
+      "version": "26.10.31",
+      "protocol": "VLESS+REALITY+Vision",
+      "mux": false,
+      "fingerprint": "chrome",
+      "target": "owned TLS1.3 cover on loopback",
+      "inner_application": "HTTPS TLS with verified owned CA"
+    },
+    "hysteria": {
+      "version": "2.13.0",
+      "profiles": [
+        "BBR standard",
+        "BBR conservative",
+        "Brutal8/2Mbps",
+        "Brutal6/1.5Mbps"
+      ],
+      "brutal_disable_loss_compensation": false,
+      "fastOpen": false
+    },
+    "addresses": {
+      "client": "10.203.0.1",
+      "server": "10.203.0.2",
+      "origin": "127.0.0.1"
+    },
+    "secrets": "omitted; regenerate private configs with provided scripts"
+  },
+  "notes": [
+    "Every protocol uses the same fixed physical link budget; PX also has an application frame pacer.",
+    "A common source-paced background follow-up is needed to isolate generic rate-limiting gains.",
+    "Warmup runs a separate application workload; reusable proxy outer sessions persist into measurement.",
+    "All operation failures/timeouts/censoring are retained; successful-only percentiles cannot be read alone.",
+    "nstat TCP retransmission deltas include all namespace TCP sockets, including loopback proxy/fixture sockets; they do not measure QUIC retransmissions.",
+    "Resource CPU is percent of one core; guest has two vCPUs; GOMAXPROCS=1 per process.",
+    "On/off uses the same sparse-copy binary. Both endpoints explicitly set sparse_redundancy to the selected mode.",
+    "Both PX modes use default Reno, window64KiB, priority=true, adaptive=false and the same8/2Mbps app pacer.",
+    "Copy datagrams may win because of scheduling or packaging; first-delivered counters do not prove loss recovery.",
+    "Successful datagram submission can precede actual transmission. Missing shutdown counters are recorded as missing, not zero activity.",
+    "Counter logs include startup/warmup; their values are not measurement-window wire-overhead accounting."
+  ],
+  "finished_utc": "2026-11-06T23:33:32.680138+00:00",
+  "completed_trials": 3,
+  "hint_experiment_script_sha256": "49efc5700fed743b157e89579b83cedfde06803cb0f50531c30aeece328a998d",
+  "redactor_module_sha256": "78c7d23fd8f263d39ab4a30eceae4f07b7b3266283861f1c29d909f9bec5c859",
+  "private_config_sha256": {
+    "baseline/credentials.json": "1e6e22366c5d106f1410f5a8c96e3be54354b31d649cd40fcb43bd6cf7ba95e8",
+    "baseline/hysteria-client-bbr-conservative.json": "cfe4fe991083de2a30ebce00400356a92abeeea09e940dc63c45a755f4e7aa11",
+    "baseline/hysteria-client-bbr-standard.json": "1d67230f086b9ec7f516e6baeb751d21eae46a5ae6a6bc603bc9b9e59ba861b7",
+    "baseline/hysteria-client-brutal.json": "5211f925928e55bae0a01a0e1f401f315f9cca2a3de44437e6908fd36d9b3e5d",
+    "baseline/hysteria-client-brutal6.json": "cb7f4872a0da09981f1cf79299861e88d1ff9a2e56885481b67e307e0e976302",
+    "baseline/hysteria-client-brutal8.json": "5211f925928e55bae0a01a0e1f401f315f9cca2a3de44437e6908fd36d9b3e5d",
+    "baseline/hysteria-server-bbr-conservative.json": "6e960e02382f1c0d0843035f39c1e3febaffcfb5d255b3c7e8d09dfa80a712f5",
+    "baseline/hysteria-server-bbr-standard.json": "6a23cb4091ca44bc5231bfd3c8dd34744057c2e3abeff646d40e1c394f4cae8e",
+    "baseline/hysteria-server-brutal.json": "05be29dc049ad05985826153e79afa0643d1b568e64d2559fbcc59dd504d649a",
+    "baseline/hysteria-server-brutal6.json": "83d8bf83cad39e99c3d0cb8b420285a1f1870b44ae0f33e35216bba8f24623f0",
+    "baseline/hysteria-server-brutal8.json": "05be29dc049ad05985826153e79afa0643d1b568e64d2559fbcc59dd504d649a",
+    "baseline/parameters.json": "1430247fcffdb03a57c963bd830c60ecb9c1ec32af338ecdebe92d98e56de7ea",
+    "baseline/xray-client.json": "29ad510e684c0df52e084b64de2dfb558193e24bea749585dbab843e7ea30a83",
+    "baseline/xray-server.json": "05116a2ddd3ac0b444149934a53abcf8f12f557aa5f42c47365fbf1f0c59eeca",
+    "px/client-px-adaptive.json": "6bdffc56d9efbf73dbef478a51495540e4bd3185525e611eeab87757542f3a6b",
+    "px/client-px-fifo.json": "073509d32ae3be9c0467e69dc4b0696d1e515fb0d87a8aa3b4f0e144480dcf28",
+    "px/client-px-hints-off.json": "977f983f45213706724a0ce3d0337df942d3dbbcbd6e7fb2c9f3e5632da97518",
+    "px/client-px-hints-on.json": "560daf42833fd29d5139c5da8c35ef3b59b0296ab5c479ca077cae52cc624467",
+    "px/client-px-priority.json": "e0082cdd2573b6a32a6207bcf7032bdf92b8fdd23b4fd90e459e18e437a46426",
+    "px/client.json": "c3b3ec9f6b36576772be7ac59e64080651c0a2c39e13e9c9a6fcfb2a73a36e58",
+    "px/server-px-adaptive.json": "ea5dd2e6580a82d8a9058b8b32c3520742d955931d73c0912003e2990a934e00",
+    "px/server-px-fifo.json": "3908c094382066a2f6de8c448144c5a544ad284a8797303b64ae19953f7c2348",
+    "px/server-px-hints-off.json": "b8ed43366bf95305530537d9cc995c1a2a3b1eb631ec5d247d1f9fb811d43893",
+    "px/server-px-hints-on.json": "277783ccfcf7b3871afa52b199297aeaa36c2be189bc935241f8238febba76a7",
+    "px/server-px-priority.json": "9f6dd274904c8fc7f54a2f3746fb3fdbc99a038686b0b2222b876a5515a79fbb",
+    "px/server.json": "421e15dacdc62ef986ea44852db794476bcaaa4238dda99da5f4c53953953ee6"
+  },
+  "hint_provenance": {
+    "prototype": "sparse delayed datagram copies; same executable in both modes",
+    "source_files_sha256": {
+      "go.mod": "f74ed957837b47fe3c782a27947eed0ba133bfe75ff6bb9c3cd07214b3bae33c",
+      "go.sum": "eee3207734fdb37d8c9b2c695698472633058bde515fba9b53e610891c38889b",
+      "internal/app/client.go": "91e23b44dc5af01db3d360adaaba69ad9068faad9e0ddd86e29d9a6445d9df28",
+      "internal/app/config.go": "ff513a224f68d8270fc289ce083cb4b3f0365def01bb7ba2d0ed1ca6b4025bc2",
+      "internal/app/integration_test.go": "efb56b335a388ce3c296def2a86ffe49b8264c295f3e0d27d1b127b5f761cf46",
+      "internal/app/server.go": "93aa90141e2b25dd3aaafa77c9479636178b779e363fdd84eb728b6ab944bc29",
+      "internal/bench/bench_test.go": "360e4e4aa7eaafdeaa80708bede0b43db0a6dd4cbcf0789e1fb6452b0dd372d0",
+      "internal/bench/events.go": "3407be85842e46e26f9d2b78f94b4da0dea356d1675ef09b828845f5d755e389",
+      "internal/bench/payload.go": "e81ab00e863b6f0cd567727e2c1bd31f832a0235997fd2a8b4599c6a975aa577",
+      "internal/bench/run.go": "6956c37a3653c4ed02c29840a7e81be7a23e5eb9f4bb02b21e52e25e01e37620",
+      "internal/bench/serve.go": "fdced44b2e507cc0c8db5891b22fd694161df80d71c4b31d64a1533162c34aba",
+      "internal/bench/socks.go": "fe2ad579300172d260233772ed4e5917ec5b062151104f9fedff42b90f5ead69",
+      "internal/carrier/carrier.go": "381c9e7630e0104c3db441b406e0c23494ce8a5addf74ad1dffd78f6aafc6e6e",
+      "internal/carrier/hints_test.go": "34a214ccc38250ae9601f769b1c0986a88a79f1ce6d5faae7d37162169fab994",
+      "internal/scheduler/budget.go": "6205179eb8d05938e1429a15ffd182af86596a7ec2a53316c3e5b21394543bbe",
+      "internal/session/hints.go": "288fe61ae98c19563d74425ba3f2b1b001e885f94b995ebadccabdfc896f111e",
+      "internal/session/hints_resume_test.go": "0f92bfb38f530cea0c84b1364cf59459a39520c06110be37c80065847c37b9b7",
+      "internal/session/hints_test.go": "cce62c8be9b2192e8a168d94fb8e80fab81d559a0dd6820189dfd02d24a4dcab",
+      "internal/session/session.go": "15a51ecde9708c221a8fe68436cdc83c356f6e0ca6aee44978707d4125ecedb3",
+      "internal/session/session_test.go": "ec580e7917d4a16f9868aabdc556286081e1c1e59dd3e8a796e37817eaf7ee13",
+      "internal/wire/frame.go": "9efa3c0cdcdd7ab05388f0e937f805167f96c9afd411ff808470bc6ee0e8be11",
+      "internal/wire/frame_test.go": "7d3a973468cb1c236583cf33d16e92c68b63e6691a95ec364672bb5ca3bae621",
+      "cmd/protox/main.go": "c314bb56af6ae0331d76dcceb94d7ce34e7c6ef59984697e5dbe459a865805b2",
+      "cmd/pxbench/main.go": "9e139ba49264571061de1b29f99f3a691fd3f687d815ed6599591a62ea09b6df"
+    },
+    "expected_sha256": {
+      "protox": "0b42f0a8fc63165ed1e9e99d4eb650da6af4e3c097a2a08913fa6e50595d98fe",
+      "pxbench": "e01e8df7756512820dc823b7b42f7f4fe58ad952ad3f76f95b7c610f3692353a",
+      "hysteria": "a68a61a84452ca250ce0368202521965ca9cc9d801a404f1dc9008ac6cf677a7"
+    },
+    "counter_interpretation": "sent_datagrams means accepted by QUIC; first_delivered_bytes means copy delivered first; neither proves physical loss recovery",
+    "counter_scope": "session lifetime including warmup; use qdisc deltas for measurement-window external byte costs"
+  }
+}

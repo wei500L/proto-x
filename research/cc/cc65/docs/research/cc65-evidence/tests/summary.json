@@ -1,0 +1,241 @@
+[
+  {
+    "events": "docs/research/cc65-evidence/tests/extension-first.jsonl",
+    "sha256": "4640561bcc655ddbe69bd6282d75ca846616433496762fb1a576ecc2dc8d9310",
+    "top_level_tests_passed": 4,
+    "failed_tests": [
+      "TestExternalCongestionTimerOnlyLoss"
+    ],
+    "skipped_tests": [],
+    "packages": [
+      {
+        "package": "github.com/quic-go/quic-go/internal/ackhandler",
+        "result": "fail",
+        "elapsed": 0.548
+      }
+    ]
+  },
+  {
+    "events": "docs/research/cc65-evidence/tests/hy-bbr-aggressive-recovery.jsonl",
+    "sha256": "1bbe6c94cfb63ce220d7588c458b197079b2415ac43ad49083ec3b6b3e8173e5",
+    "top_level_tests_passed": 1,
+    "failed_tests": [],
+    "skipped_tests": [],
+    "packages": [
+      {
+        "package": "proto-x/internal/app",
+        "result": "pass",
+        "elapsed": 1.2730000000000001
+      }
+    ]
+  },
+  {
+    "events": "docs/research/cc65-evidence/tests/hy-bbr-conservative-recovery.jsonl",
+    "sha256": "28e5547d9999dc382094c3157978052207eebd392ee523aad341808e7900ea4a",
+    "top_level_tests_passed": 1,
+    "failed_tests": [],
+    "skipped_tests": [],
+    "packages": [
+      {
+        "package": "proto-x/internal/app",
+        "result": "pass",
+        "elapsed": 2.431
+      }
+    ]
+  },
+  {
+    "events": "docs/research/cc65-evidence/tests/hy-bbr-standard-recovery.jsonl",
+    "sha256": "ab264c61a1bc0df6cbecd72f56724d14a6dfed6fec5f30b349250453c79e8ebb",
+    "top_level_tests_passed": 1,
+    "failed_tests": [],
+    "skipped_tests": [],
+    "packages": [
+      {
+        "package": "proto-x/internal/app",
+        "result": "pass",
+        "elapsed": 1.448
+      }
+    ]
+  },
+  {
+    "events": "docs/research/cc65-evidence/tests/hy-brutal-recovery.jsonl",
+    "sha256": "519fe11e3c1fbb59f61213c10579546fb0e532632544b4b3ade032e96aadd98b",
+    "top_level_tests_passed": 1,
+    "failed_tests": [],
+    "skipped_tests": [],
+    "packages": [
+      {
+        "package": "proto-x/internal/app",
+        "result": "pass",
+        "elapsed": 1.349
+      }
+    ]
+  },
+  {
+    "events": "docs/research/cc65-evidence/tests/native-migration-race.jsonl",
+    "sha256": "5bcd6f932c31c07055f3e7c41b69a5902eb10c811cb3fea57d53cb608f266a5d",
+    "top_level_tests_passed": 3,
+    "failed_tests": [],
+    "skipped_tests": [],
+    "packages": [
+      {
+        "package": "proto-x/internal/carrier",
+        "result": "pass",
+        "elapsed": 2.771
+      }
+    ]
+  },
+  {
+    "events": "docs/research/cc65-evidence/tests/protox-initial.jsonl",
+    "sha256": "f97da7db4f937a1425f922913074afdaedd6f134c2d5ff27223f9f205a118ffc",
+    "top_level_tests_passed": 28,
+    "failed_tests": [],
+    "skipped_tests": [],
+    "packages": [
+      {
+        "package": "proto-x/internal/app",
+        "result": "pass",
+        "elapsed": 0.817
+      },
+      {
+        "package": "proto-x/internal/hycc/brutal",
+        "result": "pass",
+        "elapsed": 1.687
+      },
+      {
+        "package": "proto-x/internal/hycc/bbr",
+        "result": "pass",
+        "elapsed": 1.9649999999999999
+      },
+      {
+        "package": "proto-x/internal/bench",
+        "result": "pass",
+        "elapsed": 2.005
+      },
+      {
+        "package": "proto-x/internal/wire",
+        "result": "pass",
+        "elapsed": 2.276
+      },
+      {
+        "package": "proto-x/internal/session",
+        "result": "pass",
+        "elapsed": 2.6959999999999997
+      }
+    ]
+  },
+  {
+    "events": "docs/research/cc65-evidence/tests/protox-race.jsonl",
+    "sha256": "6e3848d3a779c85c016a55a25ed281eba55021cdb3403d9743892d1cd0e67acc",
+    "top_level_tests_passed": 31,
+    "failed_tests": [],
+    "skipped_tests": [],
+    "packages": [
+      {
+        "package": "proto-x/internal/app",
+        "result": "pass",
+        "elapsed": 1.65
+      },
+      {
+        "package": "proto-x/internal/hycc/bbr",
+        "result": "pass",
+        "elapsed": 2.233
+      },
+      {
+        "package": "proto-x/internal/bench",
+        "result": "pass",
+        "elapsed": 2.838
+      },
+      {
+        "package": "proto-x/internal/wire",
+        "result": "pass",
+        "elapsed": 3.041
+      },
+      {
+        "package": "proto-x/internal/hycc/brutal",
+        "result": "pass",
+        "elapsed": 3.398
+      },
+      {
+        "package": "proto-x/internal/carrier",
+        "result": "pass",
+        "elapsed": 3.741
+      },
+      {
+        "package": "proto-x/internal/session",
+        "result": "pass",
+        "elapsed": 4.062
+      }
+    ]
+  },
+  {
+    "events": "docs/research/cc65-evidence/tests/upstream-initial.jsonl",
+    "sha256": "15de4b20e06a77a2d19fdb662343540b6c93b151673b9693e7509f3b28ecbc14",
+    "top_level_tests_passed": 466,
+    "failed_tests": [],
+    "skipped_tests": [
+      "TestSendConnDetectGSOFailure",
+      "TestSendConnSendmsgFailures",
+      "TestSysConnSendGSO"
+    ],
+    "packages": [
+      {
+        "package": "github.com/quic-go/quic-go/internal/congestion",
+        "result": "pass",
+        "elapsed": 0.452
+      },
+      {
+        "package": "github.com/quic-go/quic-go/internal/ackhandler",
+        "result": "pass",
+        "elapsed": 0.752
+      },
+      {
+        "package": "github.com/quic-go/quic-go",
+        "result": "pass",
+        "elapsed": 2.355
+      }
+    ]
+  },
+  {
+    "events": "docs/research/cc65-evidence/tests/upstream-migration-mtu-race.jsonl",
+    "sha256": "67a59fb71cb3824bd34985d413fc2fead5ff9e99047daa22835dc7e41bb38709",
+    "top_level_tests_passed": 5,
+    "failed_tests": [],
+    "skipped_tests": [],
+    "packages": [
+      {
+        "package": "github.com/quic-go/quic-go/integrationtests/self",
+        "result": "pass",
+        "elapsed": 5.45
+      }
+    ]
+  },
+  {
+    "events": "docs/research/cc65-evidence/tests/upstream-race.jsonl",
+    "sha256": "6ab10d2369a09e737dbdb6f4bf18688813ab10325ef35d5afb63ffbd66902bba",
+    "top_level_tests_passed": 475,
+    "failed_tests": [],
+    "skipped_tests": [
+      "TestSendConnDetectGSOFailure",
+      "TestSendConnSendmsgFailures",
+      "TestSysConnSendGSO"
+    ],
+    "packages": [
+      {
+        "package": "github.com/quic-go/quic-go/internal/ackhandler",
+        "result": "pass",
+        "elapsed": 1.631
+      },
+      {
+        "package": "github.com/quic-go/quic-go/internal/congestion",
+        "result": "pass",
+        "elapsed": 1.862
+      },
+      {
+        "package": "github.com/quic-go/quic-go",
+        "result": "pass",
+        "elapsed": 2.425
+      }
+    ]
+  }
+]

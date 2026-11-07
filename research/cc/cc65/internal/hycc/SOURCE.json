@@ -1,0 +1,130 @@
+{
+  "upstream_repository": "https://github.com/HyNetworkS/hysteria",
+  "upstream_tag": "app/v2.13.0",
+  "upstream_commit": "ca8fbd874fd6ca82413948de6dc5924405e103e1",
+  "transformation": "Eleven algorithm/test files change only documented import prefixes. utils.go is PROTO-X-specific factory glue. Original BBR and Brutal equations, profiles, timing and tests are retained.",
+  "licenses": {
+    "internal/hycc/LICENSE.hysteria": "b279cfdac4db4b077f0660b5d8156d50a8bc7bd410036dc356499af43c4e84f5",
+    "internal/hycc/LICENSE.quic-go": "77d0b7b53e8abb84cf4dd3f9945a7fdf27044240d2e8023966a721a9a46fe96e"
+  },
+  "files": [
+    {
+      "upstream_path": "core/internal/congestion/bbr/bandwidth.go",
+      "local_path": "internal/hycc/bbr/bandwidth.go",
+      "upstream_sha256": "88c1645d59e0ef379cee2f3b40f32c5f9a9b83a1973a70c2874c75112057145c",
+      "local_sha256": "bb1a2bb3081986da7651b20761f16a9cdb1f49eabfdaae360e95e6c0d2dfce60",
+      "namespace_replacements": 0,
+      "transformation": "Only replace Hysteria internal congestion and apernet QUIC import path prefixes.",
+      "quic_namespace_replacements": 1
+    },
+    {
+      "upstream_path": "core/internal/congestion/bbr/bandwidth_sampler.go",
+      "local_path": "internal/hycc/bbr/bandwidth_sampler.go",
+      "upstream_sha256": "16fb21e17af2750d0687f13eceab1d2eba61e4be7c8cff520dc873d556d9bb7e",
+      "local_sha256": "c5a5e033c75dd2b21545908e696ec696180c18caa67567309927c6f5f01e5541",
+      "namespace_replacements": 0,
+      "transformation": "Only replace Hysteria internal congestion and apernet QUIC import path prefixes.",
+      "quic_namespace_replacements": 2
+    },
+    {
+      "upstream_path": "core/internal/congestion/bbr/bbr_sender.go",
+      "local_path": "internal/hycc/bbr/bbr_sender.go",
+      "upstream_sha256": "f01c0059914aec04626007b1469d3866c0420cc1f03b293e847a3396767cdf1e",
+      "local_sha256": "279048ca7b9c0d4c8eef51a976c1690f6c47d2fc08f72be8d2cbc50a55a6842c",
+      "namespace_replacements": 1,
+      "transformation": "Only replace Hysteria internal congestion and apernet QUIC import path prefixes.",
+      "quic_namespace_replacements": 2
+    },
+    {
+      "upstream_path": "core/internal/congestion/bbr/bbr_sender_test.go",
+      "local_path": "internal/hycc/bbr/bbr_sender_test.go",
+      "upstream_sha256": "227e9a78359c09d3514247ab81d181c7c29abacc3e5ad746eb21bd43f6165f8b",
+      "local_sha256": "5767ff7c3ceaf4e9d2d5598dbe2c51d17acdaa8fcd0992a598132f163fc49c44",
+      "namespace_replacements": 0,
+      "transformation": "Only replace Hysteria internal congestion and apernet QUIC import path prefixes.",
+      "quic_namespace_replacements": 1
+    },
+    {
+      "upstream_path": "core/internal/congestion/bbr/clock.go",
+      "local_path": "internal/hycc/bbr/clock.go",
+      "upstream_sha256": "189e4ad09b252e33505b67760d4e362ee34fb7b000bf69903e2747dec3bacaab",
+      "local_sha256": "5e1a6600c9040d024e4a4c8009dbcabb29e1c5e38b74670b0e850b0cee159b3f",
+      "namespace_replacements": 0,
+      "transformation": "Only replace Hysteria internal congestion and apernet QUIC import path prefixes.",
+      "quic_namespace_replacements": 1
+    },
+    {
+      "upstream_path": "core/internal/congestion/bbr/packet_number_indexed_queue.go",
+      "local_path": "internal/hycc/bbr/packet_number_indexed_queue.go",
+      "upstream_sha256": "f01bdc184723d7b153713128e48758ca18fca9e4ffb157f18c2b2edecfbf7f1a",
+      "local_sha256": "77d9b22ab69df386b203afbacc6c0cd8e716d3a0806f5ec5ef18d9f42cedf15e",
+      "namespace_replacements": 0,
+      "transformation": "Only replace Hysteria internal congestion and apernet QUIC import path prefixes.",
+      "quic_namespace_replacements": 1
+    },
+    {
+      "upstream_path": "core/internal/congestion/bbr/ringbuffer.go",
+      "local_path": "internal/hycc/bbr/ringbuffer.go",
+      "upstream_sha256": "0a0ff11bd56a8c64a53db421b0d71560144c8690db7c726bc9fbc93465b0e589",
+      "local_sha256": "0a0ff11bd56a8c64a53db421b0d71560144c8690db7c726bc9fbc93465b0e589",
+      "namespace_replacements": 0,
+      "transformation": "Only replace Hysteria internal congestion and apernet QUIC import path prefixes.",
+      "quic_namespace_replacements": 0
+    },
+    {
+      "upstream_path": "core/internal/congestion/bbr/windowed_filter.go",
+      "local_path": "internal/hycc/bbr/windowed_filter.go",
+      "upstream_sha256": "e573928f676d7ab9a6b8bbfd3530eb4a99fa96bc2861e7c271e242f6d2becce2",
+      "local_sha256": "e573928f676d7ab9a6b8bbfd3530eb4a99fa96bc2861e7c271e242f6d2becce2",
+      "namespace_replacements": 0,
+      "transformation": "Only replace Hysteria internal congestion and apernet QUIC import path prefixes.",
+      "quic_namespace_replacements": 0
+    },
+    {
+      "upstream_path": "core/internal/congestion/brutal/brutal.go",
+      "local_path": "internal/hycc/brutal/brutal.go",
+      "upstream_sha256": "c620671ca0bfff791c512fda1b0a3cda48e44688430e30c8ab57677e4a87f83a",
+      "local_sha256": "8e5d2df7c6241247a3479e808b9db8a4fe0ee39210fb19766eb7d85502cfcd8f",
+      "namespace_replacements": 1,
+      "transformation": "Only replace Hysteria internal congestion and apernet QUIC import path prefixes.",
+      "quic_namespace_replacements": 2
+    },
+    {
+      "upstream_path": "core/internal/congestion/brutal/brutal_test.go",
+      "local_path": "internal/hycc/brutal/brutal_test.go",
+      "upstream_sha256": "74beab811fa33daca11a664315960e97dc48f7306d132f6b30a7e5a147be83a7",
+      "local_sha256": "3900bafc5993f87c12e46ad268f46e8d01e7fb7fde9273c898b228383eec9846",
+      "namespace_replacements": 0,
+      "transformation": "Only replace Hysteria internal congestion and apernet QUIC import path prefixes.",
+      "quic_namespace_replacements": 2
+    },
+    {
+      "upstream_path": "core/internal/congestion/common/pacer.go",
+      "local_path": "internal/hycc/common/pacer.go",
+      "upstream_sha256": "ca7cb0bd5897e573050522d7c8ec85b21964843d7cd2ac2fb0929f375442ed3c",
+      "local_sha256": "59149928c79271ea6dd46f1a99472bef839e80687ff78862f9198b45bdf62c4d",
+      "namespace_replacements": 0,
+      "transformation": "Only replace Hysteria internal congestion and apernet QUIC import path prefixes.",
+      "quic_namespace_replacements": 2
+    },
+    {
+      "upstream_path": "core/internal/congestion/utils.go",
+      "local_path": "internal/hycc/utils.go",
+      "upstream_sha256": "83df6db7655400b3919a53fb94b20d0a0bdedc8df1e6bc6dd70aeed957bc544e",
+      "local_sha256": "19b171967e6d476a1df055f50576fbd30573853e87264c2554df5291bb919825",
+      "transformation": "Replaced original connection-specific glue with explicit controller factories for v0.65; not algorithm code."
+    }
+  ],
+  "original_quic_dependency": {
+    "module": "github.com/apernet/quic-go",
+    "version": "v0.63.1-0.20261004180939-a10df75c260c",
+    "commit": "a10df75c260cee8161f3261d63a37bd125a6bb2a",
+    "module_sum": "h1:cxK8qTA0YCsj68A7zLYDCfPgMTOyt3ePkHh+oXEmYU0="
+  },
+  "actual_quic_dependency": {
+    "module": "github.com/quic-go/quic-go",
+    "version": "v0.65.0",
+    "commit": "aa265c3fc6489e3bfa8071b333be95e0e887a51d",
+    "extension": "patches/quic-go-v0.65.0-cc.patch"
+  }
+}

@@ -1,0 +1,1 @@
+Prepared /Users/oo/project/proto-x/.local/cc65-prototype/.local/cc65-archive-replay/protox-cc65/.local/quic-go-v0.65.0 at aa265c3fc6489e3bfa8071b333be95e0e887a51d with verified CC patch.

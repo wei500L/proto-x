@@ -1,0 +1,29 @@
+{
+  "fault": "restart",
+  "bench_exit": 0,
+  "ssh_exit": 255,
+  "ssh_expected_lines": 220,
+  "ssh_received_lines": 56,
+  "ssh_sequence_correct": false,
+  "ssh_max_receive_gap_ms": 162.426208,
+  "duration_seconds": 31.277555584,
+  "notes": [
+    "Actual client-to-authorized-VPS path; no claim about other networks.",
+    "UDP relay applies only to relay trials; TLS alternate connects directly.",
+    "SSH stdout is from one authenticated SSH process over one original proxy flow.",
+    "Prototype server restarted before this trial; restart fault intentionally restarts it again during measurement."
+  ],
+  "expected_old_ssh_connection_failure": true,
+  "observed_old_ssh_connection_failure": true,
+  "restart_events": [
+    {
+      "event": "restart_requested",
+      "elapsed_ns": 8005065042
+    },
+    {
+      "event": "restart_returned",
+      "elapsed_ns": 8248064000,
+      "exit": 0
+    }
+  ]
+}

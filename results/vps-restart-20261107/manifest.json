@@ -1,0 +1,22 @@
+{
+  "fault": "restart",
+  "source_sha256": "9d0537ef5fa83b0a6f77bd39805d43fcb88fb4bfda7f29a7b7351552fb62b931",
+  "binaries_sha256": {
+    "protox": "3bd16d56b35335af7464d68a617bbf24d3de599ae1cdc5f9e17dc4861b19895d",
+    "pxbench": "25a9012a4ede4f2687ba40cce6dbe25cfe70736804d698fb75d08ccbde70e7be",
+    "faultrelay": "95ab68db39d651de7843261b6af7a79f76c97c9f249d77d31c0899033841d0e2"
+  },
+  "redacted_config": {
+    "socks_listen": "127.0.0.1:1089",
+    "rate_mbps": 2,
+    "priority": true,
+    "adaptive": false,
+    "window_bytes": 65536,
+    "max_flows": 32,
+    "max_sessions": 2,
+    "heartbeat_ms": 500,
+    "dead_ms": 2000,
+    "resume_seconds": 90,
+    "dial_timeout_ms": 1200
+  }
+}

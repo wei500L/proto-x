@@ -1,0 +1,44 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "tag": "socks",
+      "listen": "127.0.0.1",
+      "port": 10801,
+      "protocol": "socks",
+      "settings": {
+        "auth": "<redacted>",
+        "udp": false
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "vless-reality-vision",
+      "protocol": "vless",
+      "settings": {
+        "address": "10.203.0.2",
+        "port": 33400,
+        "id": "<redacted>",
+        "flow": "xtls-rprx-vision",
+        "encryption": "none"
+      },
+      "streamSettings": {
+        "network": "raw",
+        "security": "reality",
+        "realitySettings": {
+          "fingerprint": "chrome",
+          "serverName": "protox-baseline.test",
+          "password": "<redacted>",
+          "shortId": "<redacted>",
+          "spiderX": "/"
+        }
+      },
+      "mux": {
+        "enabled": false
+      }
+    }
+  ]
+}

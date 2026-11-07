@@ -1,0 +1,4 @@
+2026-11-07T01:51:12+03:00	[34mINFO[0m	client mode
+2026-11-07T01:51:12+03:00	[34mINFO[0m	connected to server	{"addr": "10.203.0.2:33401", "udpEnabled": false, "tx": 250000, "ech": false, "count": 1}
+2026-11-07T01:51:12+03:00	[34mINFO[0m	SOCKS5 server listening	{"addr": "127.0.0.1:10802"}
+2026-11-07T01:51:40+03:00	[34mINFO[0m	received signal, shutting down gracefully

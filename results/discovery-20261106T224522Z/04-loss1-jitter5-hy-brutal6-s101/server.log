@@ -1,0 +1,2 @@
+2026-11-07T01:46:51+03:00	[34mINFO[0m	server mode
+2026-11-07T01:46:51+03:00	[31mFATAL[0m	failed to load server config	{"error": "invalid config: bandwidth.down: unsupported unit"}

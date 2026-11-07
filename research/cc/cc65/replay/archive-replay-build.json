@@ -1,0 +1,17 @@
+{
+  "source": "protox-cc65-source.tar.gz",
+  "command": [
+    "go",
+    "build",
+    "-trimpath",
+    "-buildvcs=false",
+    "-ldflags=-X=main.version=0.1.0-research-cc65",
+    "-o",
+    "bin/protox-cc65-linux-arm64",
+    "./cmd/protox"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 0.20139598846435547,
+  "binary_sha256": "61e9036c1acb9aee3843e5a0e964c00a8949bc5809b4b8ef162a62ab7888b2f6",
+  "matches_recorded_binary": true
+}

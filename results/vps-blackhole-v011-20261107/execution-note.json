@@ -1,0 +1,10 @@
+{
+  "kind": "test_harness_configuration_failure",
+  "reason": "Incorrect explicit host-key alias caused strict SSH host verification to reject the tunneled SSH session before user authentication. No SSH output was received.",
+  "bench_exit": 0,
+  "ssh_exit": 255,
+  "retained": true,
+  "repair": "Derive the already trusted key name from effective management SSH config and run a direct strict host-key preflight. Do not disable verification.",
+  "repeat_run": "vps-blackhole-v011-repair-20261107",
+  "comparability": "Original HTTP/echo/SSE events retained; no successful SSH recovery claim for this trial. Repaired trial includes the intended SSH load."
+}

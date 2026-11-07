@@ -1,0 +1,16 @@
+{
+  "fault": "blackhole",
+  "bench_exit": 0,
+  "ssh_exit": 255,
+  "ssh_expected_lines": 220,
+  "ssh_received_lines": 0,
+  "ssh_sequence_correct": false,
+  "ssh_max_receive_gap_ms": 0,
+  "duration_seconds": 31.706327625,
+  "notes": [
+    "Actual client-to-authorized-VPS path; no claim about other networks.",
+    "UDP relay applies only to relay trials; TLS alternate connects directly.",
+    "SSH stdout is from one authenticated SSH process over one original proxy flow.",
+    "Prototype server restarted before this trial; restart fault intentionally restarts it again during measurement."
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "fault": "blackhole",
+  "ssh_host_key_preflight_passed": true,
+  "ssh_host_key_alias_source": "effective_management_config",
+  "source_sha256": "d4943c8f9aacdf62cd9a80c73e08ad611a87b7036d7dd6d31f9771123cbe46a9",
+  "binaries_sha256": {
+    "protox": "90a4682ac8f3c66af7f79092e65b584510b9c685d6f77f625238f9baa6f7862c",
+    "pxbench": "b9c4aed50e9f56d18e334490a21870f6e9756e85cf3e6b5943101fdddc557410",
+    "faultrelay": "95ab68db39d651de7843261b6af7a79f76c97c9f249d77d31c0899033841d0e2"
+  },
+  "redacted_config": {
+    "socks_listen": "127.0.0.1:1089",
+    "rate_mbps": 2,
+    "priority": true,
+    "adaptive": false,
+    "window_bytes": 65536,
+    "max_flows": 32,
+    "max_sessions": 2,
+    "heartbeat_ms": 500,
+    "dead_ms": 2000,
+    "resume_seconds": 90,
+    "dial_timeout_ms": 1200
+  }
+}
