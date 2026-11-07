@@ -1,0 +1,228 @@
+{
+  "mode": "active",
+  "network": "https_openssl_tcp",
+  "candidate_attempts": 12,
+  "reference_attempts": 12,
+  "candidate_status_counts": {
+    "request_failed": 12
+  },
+  "reference_status_counts": {
+    "request_failed": 12
+  },
+  "pair_status_counts": {
+    "normalized_match": 12
+  },
+  "pairs": [
+    {
+      "repeat": 0,
+      "case": "openssl_http11_explicit_alpn_root_get",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "request_failed",
+      "reference_status": "request_failed",
+      "candidate_times": {
+        "complete_elapsed_ms": 8.610417000000009
+      },
+      "reference_times": {
+        "complete_elapsed_ms": 8.541416999999996
+      }
+    },
+    {
+      "repeat": 0,
+      "case": "openssl_http11_explicit_alpn_root_head",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "request_failed",
+      "reference_status": "request_failed",
+      "candidate_times": {
+        "complete_elapsed_ms": 7.347416999999995
+      },
+      "reference_times": {
+        "complete_elapsed_ms": 7.241625000000002
+      }
+    },
+    {
+      "repeat": 0,
+      "case": "openssl_https_no_alpn_root_get",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "request_failed",
+      "reference_status": "request_failed",
+      "candidate_times": {
+        "complete_elapsed_ms": 10.068665999999997
+      },
+      "reference_times": {
+        "complete_elapsed_ms": 10.131833
+      }
+    },
+    {
+      "repeat": 0,
+      "case": "openssl_https_no_alpn_root_head",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "request_failed",
+      "reference_status": "request_failed",
+      "candidate_times": {
+        "complete_elapsed_ms": 8.511999999999999
+      },
+      "reference_times": {
+        "complete_elapsed_ms": 8.310666000000001
+      }
+    },
+    {
+      "repeat": 1,
+      "case": "openssl_http11_explicit_alpn_root_get",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "request_failed",
+      "reference_status": "request_failed",
+      "candidate_times": {
+        "complete_elapsed_ms": 7.847375000000004
+      },
+      "reference_times": {
+        "complete_elapsed_ms": 7.858124999999994
+      }
+    },
+    {
+      "repeat": 1,
+      "case": "openssl_http11_explicit_alpn_root_head",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "request_failed",
+      "reference_status": "request_failed",
+      "candidate_times": {
+        "complete_elapsed_ms": 6.538792000000002
+      },
+      "reference_times": {
+        "complete_elapsed_ms": 6.4711669999999994
+      }
+    },
+    {
+      "repeat": 1,
+      "case": "openssl_https_no_alpn_root_get",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "request_failed",
+      "reference_status": "request_failed",
+      "candidate_times": {
+        "complete_elapsed_ms": 6.275542000000009
+      },
+      "reference_times": {
+        "complete_elapsed_ms": 6.366166999999992
+      }
+    },
+    {
+      "repeat": 1,
+      "case": "openssl_https_no_alpn_root_head",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "request_failed",
+      "reference_status": "request_failed",
+      "candidate_times": {
+        "complete_elapsed_ms": 6.115665999999992
+      },
+      "reference_times": {
+        "complete_elapsed_ms": 6.186042000000002
+      }
+    },
+    {
+      "repeat": 2,
+      "case": "openssl_http11_explicit_alpn_root_get",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "request_failed",
+      "reference_status": "request_failed",
+      "candidate_times": {
+        "complete_elapsed_ms": 6.233791999999988
+      },
+      "reference_times": {
+        "complete_elapsed_ms": 6.156292000000008
+      }
+    },
+    {
+      "repeat": 2,
+      "case": "openssl_http11_explicit_alpn_root_head",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "request_failed",
+      "reference_status": "request_failed",
+      "candidate_times": {
+        "complete_elapsed_ms": 6.074333000000015
+      },
+      "reference_times": {
+        "complete_elapsed_ms": 6.194791000000005
+      }
+    },
+    {
+      "repeat": 2,
+      "case": "openssl_https_no_alpn_root_get",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "request_failed",
+      "reference_status": "request_failed",
+      "candidate_times": {
+        "complete_elapsed_ms": 6.296999999999997
+      },
+      "reference_times": {
+        "complete_elapsed_ms": 6.3742500000000115
+      }
+    },
+    {
+      "repeat": 2,
+      "case": "openssl_https_no_alpn_root_head",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "request_failed",
+      "reference_status": "request_failed",
+      "candidate_times": {
+        "complete_elapsed_ms": 6.199833000000002
+      },
+      "reference_times": {
+        "complete_elapsed_ms": 6.3385829999999945
+      }
+    }
+  ],
+  "comparison_fields": [
+    "case",
+    "method",
+    "authentication_class",
+    "status",
+    "error",
+    "body_error",
+    "http_status",
+    "http_protocol",
+    "headers",
+    "content_length",
+    "negotiated_alpn",
+    "tls_version",
+    "certificate_chain_verified",
+    "body_bytes_observed",
+    "body_truncated_at_bound",
+    "body_sha256",
+    "offered_alpn",
+    "payload_class",
+    "legacy_record_bytes",
+    "response_bytes",
+    "response_sha256",
+    "response_truncated_at_bound",
+    "read_error",
+    "process_exit_code",
+    "certificate_verification_reported",
+    "visitor_profile",
+    "tls_client_stack"
+  ],
+  "timing_samples_retained_but_not_used_for_response_match": true,
+  "limitations": [
+    "A normalized match can include two rejected or failed requests. Status counts and every pair remain visible.",
+    "Only declared status/protocol/header/body/error fields are compared. Date and private header values are outside this comparison.",
+    "Different listeners and executions add timing variance; these samples do not prove timing indistinguishability.",
+    "This comparison does not test authenticated proxy interoperability, arbitrary active probes, real-world DPI, or Russian reachability.",
+    "A same-stack ordinary control isolates the effect of the candidate's HTTP gate; it is not a diverse cover-traffic corpus."
+  ],
+  "schema": 1,
+  "created_utc": "2026-11-07T03:46:35.669308+00:00",
+  "candidate_label": "candidate-active-h2",
+  "reference_label": "ordinary-active-h2",
+  "candidate_report_sha256": "09765a2cf5367c94264628325844c8aa46d6e4fe30d60f97ec2113ac04b994a3",
+  "reference_report_sha256": "4d37f18fa23f99360481b213850b159f0144516c0f2c7c42de6c7135af7a0813"
+}

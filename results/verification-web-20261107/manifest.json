@@ -1,0 +1,108 @@
+{
+  "created_utc": "2026-11-07T04:37:39.058580+00:00",
+  "version": "0.2.0-experimental",
+  "go_version": "go version go1.27.1 darwin/arm64",
+  "base_commit": "a7fe191f07ac1824148294f46c33f3ad782e00fc",
+  "source_identity": "source-sha256.json; buildvcs disabled; final commit is not embedded",
+  "source_delta_from_measured_snapshot": {
+    "internal/app/config.go": {
+      "measured": "1b6556770f0acea73f773369c6083f81409d8111737653f6ed9df3e4716aa158",
+      "delivered": "ec9c8d27c138ccdcb2e684f855cf33f5d3a27b08eb6cfed265f35b042839609d"
+    },
+    "internal/app/web_init.go": {
+      "measured": "ad0325a89b6956da28e4af57fd12418df253d2177695b07f02d728b15bb58d18",
+      "delivered": "1d5cebc4397e4c15b7f55581a63470ab5bd1fb2a20f4655ccb18369055eb7367"
+    }
+  },
+  "added_go_files": [
+    "internal/app/private_files.go",
+    "internal/app/web_init_security_test.go"
+  ],
+  "binaries_sha256": {
+    "bin/protox": "8a8fd8b25be1eed3882d0396c5ca311fb51048fb75ba190dc9cfebdde63f4c2d",
+    "bin/protox-linux-amd64": "35f066d0b2b7f906e972d35df8b4727c31876c16136c6475b5a7846dd5c685b7",
+    "bin/protox-linux-arm64": "a5855444ee5c45bd667cc4c9f8fd69f83dc648166199809d2b63ae5d70351679",
+    "bin/pxbench": "d02bc17f6aca81d5330baa190b72e15cdce7b11964540eeff3deed68e9505584"
+  },
+  "build_flags": {
+    "protox": [
+      "-trimpath",
+      "-buildvcs=false",
+      "-ldflags=-s -w"
+    ],
+    "linux_env": {
+      "CGO_ENABLED": "0",
+      "GOOS": "linux",
+      "GOARCH": [
+        "amd64",
+        "arm64"
+      ]
+    }
+  },
+  "checks": [
+    {
+      "command": "go test -race -count=1 -timeout=120s ./...",
+      "exit": 0,
+      "output": "race.txt",
+      "scope": "final delivery source, including initializer fix"
+    },
+    {
+      "command": "go vet ./...",
+      "exit": 0,
+      "output": "vet.txt",
+      "scope": "final delivery source"
+    },
+    {
+      "command": "GOTOOLCHAIN=go1.26.0 go test -race ./internal/carrier ./internal/app",
+      "exit": 0,
+      "output": "go126-web-race.txt",
+      "scope": "measured candidate after initial-body fix, before initializer fix"
+    },
+    {
+      "command": "GOTOOLCHAIN=go1.26.0 go test -race ./internal/app -run '^TestPrivateInitializersReject' -count=1",
+      "exit": 0,
+      "output": "go126-initializer-race.txt",
+      "scope": "final delivery initializer fix; 24 leaf cases"
+    },
+    {
+      "command": "go build -trimpath -buildvcs=false -ldflags='-s -w' -o .local/web-research/protox-delivery-rebuilt ./cmd/protox",
+      "exit": 0,
+      "matches_delivered_sha256": "8a8fd8b25be1eed3882d0396c5ca311fb51048fb75ba190dc9cfebdde63f4c2d"
+    },
+    {
+      "scope": "init and ech-keygen positive CLI checks plus 7 output permissions",
+      "result": "init-cli.json"
+    },
+    {
+      "scope": "record fuzz, measured candidate, parser unchanged in delivery",
+      "executions": 33180,
+      "package_wall_seconds": 12.514,
+      "output": "record-fuzz.txt"
+    },
+    {
+      "scope": "cover auth race x10, fuzz, vet; implementation unchanged in delivery",
+      "evidence": "../cover-auth-20261107/checks.txt"
+    },
+    {
+      "scope": "local mocked deployment transactions, not remote fault injection",
+      "checks_passed": 21,
+      "wall_seconds": 29.221,
+      "description": "../../docs/deployment-web.md"
+    },
+    {
+      "scope": "independent initializer regression and narrow code review",
+      "checks_passed": 24,
+      "description": "independent-review.md"
+    },
+    {
+      "scope": "deployed final binary, ordinary HTTPS plus authenticated H2 and H3, required ECH",
+      "evidence": "../deployment-web-20261107/final-state.json"
+    }
+  ],
+  "limitations": [
+    "Final generator fix was tested and redeployed; old measurements retain their actual cff89b2 binary identity.",
+    "Linux arm64 is cross-built; this iteration executed the VPS amd64 build, not the arm64 build.",
+    "Short local and one-VPS evidence is not general anti-DPI, public-CA, browser-equivalence, performance-superiority or multi-day reliability evidence."
+  ],
+  "packaging_checks": "delivery-checks.json"
+}

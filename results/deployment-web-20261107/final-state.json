@@ -1,0 +1,118 @@
+{
+  "checked_utc": "2026-11-07T04:34:22.714366+00:00",
+  "version": "PROTO-X 0.2.0-experimental",
+  "architecture": "x86_64",
+  "scope": "one authorized dedicated VPS; no production changes",
+  "binaries_sha256": {
+    "client_macos_arm64": "8a8fd8b25be1eed3882d0396c5ca311fb51048fb75ba190dc9cfebdde63f4c2d",
+    "server_linux_amd64": "35f066d0b2b7f906e972d35df8b4727c31876c16136c6475b5a7846dd5c685b7",
+    "linux_arm64_built_not_VPS_executed": "a5855444ee5c45bd667cc4c9f8fd69f83dc648166199809d2b63ae5d70351679"
+  },
+  "public_entrypoints": {
+    "TCP": 33290,
+    "UDP": 33290
+  },
+  "client_listen": "127.0.0.1:1088",
+  "client_running_verified": true,
+  "allow_private_targets": false,
+  "native_legacy_listeners": false,
+  "web_padding": 127,
+  "ECH_enabled": true,
+  "services": {
+    "protox.service": {
+      "MainPID": "4078",
+      "NRestarts": "0",
+      "MemoryCurrent": "7270400",
+      "MemoryPeak": "8974336",
+      "CPUUsageNSec": "89046000",
+      "LoadState": "loaded",
+      "ActiveState": "active",
+      "SubState": "running"
+    },
+    "xr.service": {
+      "MainPID": "1093",
+      "NRestarts": "1",
+      "MemoryCurrent": "33988608",
+      "MemoryPeak": "95014912",
+      "CPUUsageNSec": "458503849000",
+      "LoadState": "loaded",
+      "ActiveState": "active",
+      "SubState": "running"
+    },
+    "sb.service": {
+      "MainPID": "1096",
+      "NRestarts": "1",
+      "MemoryCurrent": "36249600",
+      "MemoryPeak": "77647872",
+      "CPUUsageNSec": "562114991000",
+      "LoadState": "loaded",
+      "ActiveState": "active",
+      "SubState": "running"
+    },
+    "ssh.service": {
+      "MainPID": "122",
+      "NRestarts": "0",
+      "MemoryCurrent": "13299712",
+      "MemoryPeak": "111362048",
+      "CPUUsageNSec": "70928744000",
+      "LoadState": "loaded",
+      "ActiveState": "active",
+      "SubState": "running"
+    },
+    "protox-bench.service": {
+      "MainPID": "0",
+      "NRestarts": "0",
+      "MemoryCurrent": "[not set]",
+      "MemoryPeak": "[not set]",
+      "CPUUsageNSec": "[not set]",
+      "LoadState": "not-found",
+      "ActiveState": "inactive",
+      "SubState": "dead"
+    }
+  },
+  "server_process_snapshot": {
+    "FDSize": "128",
+    "VmHWM": "11928 kB",
+    "VmRSS": "11928 kB",
+    "Threads": "6"
+  },
+  "probes": [
+    {
+      "kind": "ordinary_https_cover",
+      "client": "curl",
+      "http_status": 200,
+      "ssl_verify_result": 0,
+      "http_version": "2",
+      "trust_model": "explicit_private_CA",
+      "ECH_used": false
+    },
+    {
+      "kind": "SOCKS_public_https",
+      "carrier": "h2",
+      "http_status": 200,
+      "curl_exit": 0,
+      "trust_model": "explicit_private_CA_plus_hostname_plus_leaf_pin",
+      "ech_required": true,
+      "ech_acceptance_evidence": "success requires current client fail-closed policy; no TLS-state callback instrumented"
+    },
+    {
+      "kind": "SOCKS_public_https",
+      "carrier": "h3",
+      "http_status": 200,
+      "curl_exit": 0,
+      "trust_model": "explicit_private_CA_plus_hostname_plus_leaf_pin",
+      "ech_required": true,
+      "ech_acceptance_evidence": "success requires current client fail-closed policy; no TLS-state callback instrumented"
+    }
+  ],
+  "deployment_check": "complete package install; five active/PID/restart checks passed; latest SSH log also contains one recovered stale-multiplex-master diagnostic",
+  "notes": [
+    "Current delivery differs from the measured cff89b2 candidate only in initialization file creation, with added regression tests.",
+    "A fresh prior inventory found no /opt/proto-x installation; historical v0.1.1 uptime is not inferred.",
+    "Remote Python is absent. Configuration was read over authenticated SSH and verified locally.",
+    "A valid private CA does not establish a publicly trusted HTTPS identity.",
+    "Process resource snapshot is a single point after probes; it is not a peak or long-run limit.",
+    "Existing service active states were checked; their application health was not exhaustively re-tested.",
+    "Server restart during deployment discards old retained sessions; these final probes create new sessions."
+  ]
+}

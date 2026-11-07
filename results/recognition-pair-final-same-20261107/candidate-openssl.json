@@ -1,0 +1,285 @@
+{
+  "schema": 1,
+  "label": "candidate-active-h2",
+  "network": "https_openssl_tcp",
+  "created_utc": "2026-11-07T03:46:35.173114+00:00",
+  "observations": [
+    {
+      "case": "openssl_https_no_alpn_root_get",
+      "repeat": 0,
+      "method": "GET",
+      "visitor_profile": "https_no_alpn",
+      "authentication_class": "absent",
+      "offered_alpn": [],
+      "tls_client_stack": "installed OpenSSL s_client",
+      "process_exit_code": 0,
+      "complete_elapsed_ms": 10.068665999999997,
+      "certificate_verification_reported": true,
+      "tls_version": "TLSv1.3",
+      "status": "request_failed",
+      "error": {
+        "types": [
+          "RemoteDisconnected"
+        ],
+        "timeout": false,
+        "message_redacted": true
+      }
+    },
+    {
+      "case": "openssl_https_no_alpn_root_head",
+      "repeat": 0,
+      "method": "HEAD",
+      "visitor_profile": "https_no_alpn",
+      "authentication_class": "absent",
+      "offered_alpn": [],
+      "tls_client_stack": "installed OpenSSL s_client",
+      "process_exit_code": 0,
+      "complete_elapsed_ms": 8.511999999999999,
+      "certificate_verification_reported": true,
+      "tls_version": "TLSv1.3",
+      "status": "request_failed",
+      "error": {
+        "types": [
+          "RemoteDisconnected"
+        ],
+        "timeout": false,
+        "message_redacted": true
+      }
+    },
+    {
+      "case": "openssl_http11_explicit_alpn_root_get",
+      "repeat": 0,
+      "method": "GET",
+      "visitor_profile": "http11_explicit_alpn",
+      "authentication_class": "absent",
+      "offered_alpn": [
+        "http/1.1"
+      ],
+      "tls_client_stack": "installed OpenSSL s_client",
+      "process_exit_code": 0,
+      "complete_elapsed_ms": 8.610417000000009,
+      "certificate_verification_reported": true,
+      "tls_version": "TLSv1.3",
+      "status": "request_failed",
+      "error": {
+        "types": [
+          "RemoteDisconnected"
+        ],
+        "timeout": false,
+        "message_redacted": true
+      }
+    },
+    {
+      "case": "openssl_http11_explicit_alpn_root_head",
+      "repeat": 0,
+      "method": "HEAD",
+      "visitor_profile": "http11_explicit_alpn",
+      "authentication_class": "absent",
+      "offered_alpn": [
+        "http/1.1"
+      ],
+      "tls_client_stack": "installed OpenSSL s_client",
+      "process_exit_code": 0,
+      "complete_elapsed_ms": 7.347416999999995,
+      "certificate_verification_reported": true,
+      "tls_version": "TLSv1.3",
+      "status": "request_failed",
+      "error": {
+        "types": [
+          "RemoteDisconnected"
+        ],
+        "timeout": false,
+        "message_redacted": true
+      }
+    },
+    {
+      "case": "openssl_https_no_alpn_root_get",
+      "repeat": 1,
+      "method": "GET",
+      "visitor_profile": "https_no_alpn",
+      "authentication_class": "absent",
+      "offered_alpn": [],
+      "tls_client_stack": "installed OpenSSL s_client",
+      "process_exit_code": 0,
+      "complete_elapsed_ms": 6.275542000000009,
+      "certificate_verification_reported": true,
+      "tls_version": "TLSv1.3",
+      "status": "request_failed",
+      "error": {
+        "types": [
+          "RemoteDisconnected"
+        ],
+        "timeout": false,
+        "message_redacted": true
+      }
+    },
+    {
+      "case": "openssl_https_no_alpn_root_head",
+      "repeat": 1,
+      "method": "HEAD",
+      "visitor_profile": "https_no_alpn",
+      "authentication_class": "absent",
+      "offered_alpn": [],
+      "tls_client_stack": "installed OpenSSL s_client",
+      "process_exit_code": 0,
+      "complete_elapsed_ms": 6.115665999999992,
+      "certificate_verification_reported": true,
+      "tls_version": "TLSv1.3",
+      "status": "request_failed",
+      "error": {
+        "types": [
+          "RemoteDisconnected"
+        ],
+        "timeout": false,
+        "message_redacted": true
+      }
+    },
+    {
+      "case": "openssl_http11_explicit_alpn_root_get",
+      "repeat": 1,
+      "method": "GET",
+      "visitor_profile": "http11_explicit_alpn",
+      "authentication_class": "absent",
+      "offered_alpn": [
+        "http/1.1"
+      ],
+      "tls_client_stack": "installed OpenSSL s_client",
+      "process_exit_code": 0,
+      "complete_elapsed_ms": 7.847375000000004,
+      "certificate_verification_reported": true,
+      "tls_version": "TLSv1.3",
+      "status": "request_failed",
+      "error": {
+        "types": [
+          "RemoteDisconnected"
+        ],
+        "timeout": false,
+        "message_redacted": true
+      }
+    },
+    {
+      "case": "openssl_http11_explicit_alpn_root_head",
+      "repeat": 1,
+      "method": "HEAD",
+      "visitor_profile": "http11_explicit_alpn",
+      "authentication_class": "absent",
+      "offered_alpn": [
+        "http/1.1"
+      ],
+      "tls_client_stack": "installed OpenSSL s_client",
+      "process_exit_code": 0,
+      "complete_elapsed_ms": 6.538792000000002,
+      "certificate_verification_reported": true,
+      "tls_version": "TLSv1.3",
+      "status": "request_failed",
+      "error": {
+        "types": [
+          "RemoteDisconnected"
+        ],
+        "timeout": false,
+        "message_redacted": true
+      }
+    },
+    {
+      "case": "openssl_https_no_alpn_root_get",
+      "repeat": 2,
+      "method": "GET",
+      "visitor_profile": "https_no_alpn",
+      "authentication_class": "absent",
+      "offered_alpn": [],
+      "tls_client_stack": "installed OpenSSL s_client",
+      "process_exit_code": 0,
+      "complete_elapsed_ms": 6.296999999999997,
+      "certificate_verification_reported": true,
+      "tls_version": "TLSv1.3",
+      "status": "request_failed",
+      "error": {
+        "types": [
+          "RemoteDisconnected"
+        ],
+        "timeout": false,
+        "message_redacted": true
+      }
+    },
+    {
+      "case": "openssl_https_no_alpn_root_head",
+      "repeat": 2,
+      "method": "HEAD",
+      "visitor_profile": "https_no_alpn",
+      "authentication_class": "absent",
+      "offered_alpn": [],
+      "tls_client_stack": "installed OpenSSL s_client",
+      "process_exit_code": 0,
+      "complete_elapsed_ms": 6.199833000000002,
+      "certificate_verification_reported": true,
+      "tls_version": "TLSv1.3",
+      "status": "request_failed",
+      "error": {
+        "types": [
+          "RemoteDisconnected"
+        ],
+        "timeout": false,
+        "message_redacted": true
+      }
+    },
+    {
+      "case": "openssl_http11_explicit_alpn_root_get",
+      "repeat": 2,
+      "method": "GET",
+      "visitor_profile": "http11_explicit_alpn",
+      "authentication_class": "absent",
+      "offered_alpn": [
+        "http/1.1"
+      ],
+      "tls_client_stack": "installed OpenSSL s_client",
+      "process_exit_code": 0,
+      "complete_elapsed_ms": 6.233791999999988,
+      "certificate_verification_reported": true,
+      "tls_version": "TLSv1.3",
+      "status": "request_failed",
+      "error": {
+        "types": [
+          "RemoteDisconnected"
+        ],
+        "timeout": false,
+        "message_redacted": true
+      }
+    },
+    {
+      "case": "openssl_http11_explicit_alpn_root_head",
+      "repeat": 2,
+      "method": "HEAD",
+      "visitor_profile": "http11_explicit_alpn",
+      "authentication_class": "absent",
+      "offered_alpn": [
+        "http/1.1"
+      ],
+      "tls_client_stack": "installed OpenSSL s_client",
+      "process_exit_code": 0,
+      "complete_elapsed_ms": 6.074333000000015,
+      "certificate_verification_reported": true,
+      "tls_version": "TLSv1.3",
+      "status": "request_failed",
+      "error": {
+        "types": [
+          "RemoteDisconnected"
+        ],
+        "timeout": false,
+        "message_redacted": true
+      }
+    }
+  ],
+  "attempted_cases": 12,
+  "tool": {
+    "openssl_version": "OpenSSL 3.6.3 9 Jun 2026 (Library: OpenSSL 3.6.3 9 Jun 2026)",
+    "openssl_binary_sha256": "103fc7706cf6646f226d96f29242d81890363499afc730e7ef1fadd64b3a123c"
+  },
+  "certificate_policy": "OpenSSL chain and expected-name verification with verify_return_error; explicit CA file when configured",
+  "pin_policy": "this independent client does not apply the optional Go-probe additional pin",
+  "limitations": [
+    "These are installed OpenSSL HTTP/1.1 visitors, not browser or native proxy traffic.",
+    "ALPN offered is also observable at the separate relay; negotiated ALPN is exported only if OpenSSL reports it.",
+    "Private stdout/stderr are retained; public reports contain selected generic headers and body hashes only.",
+    "An OpenSSL/Go comparison is not a diverse detector evaluation or an indistinguishability guarantee."
+  ]
+}

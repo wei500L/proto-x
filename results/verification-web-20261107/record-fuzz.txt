@@ -1,0 +1,8 @@
+fuzz: elapsed: 0s, gathering baseline coverage: 0/1 completed
+fuzz: elapsed: 0s, gathering baseline coverage: 1/1 completed, now fuzzing with 2 workers
+fuzz: elapsed: 3s, execs: 4767 (1588/sec), new interesting: 5 (total: 6)
+fuzz: elapsed: 6s, execs: 4767 (0/sec), new interesting: 5 (total: 6)
+fuzz: elapsed: 9s, execs: 4767 (0/sec), new interesting: 5 (total: 6)
+fuzz: elapsed: 11s, execs: 33180 (14017/sec), new interesting: 6 (total: 7)
+PASS
+ok  	proto-x/internal/carrier	12.514s

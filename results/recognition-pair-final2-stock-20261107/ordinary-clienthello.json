@@ -1,0 +1,6990 @@
+{
+  "schema": 1,
+  "label": "ordinary-active",
+  "capture_sha256": "ff1ae68bb9ddcda4e1ca3aaf725cb6d13fc378145b95f98c6e9dca988641b7c5",
+  "source": "controlled user-space relay observations; not host pcap or server callback",
+  "capture_shutdown_observed": true,
+  "observations": [
+    {
+      "flow": "tcp-1",
+      "transport": "tls_over_tcp",
+      "observation_method": "actual ordered TLS record bytes read at relay",
+      "client_hello": {
+        "handshake_bytes": 1489,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 32,
+        "cipher_suites": [
+          4865,
+          4866,
+          4867
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          65281,
+          23,
+          18,
+          5,
+          10,
+          13,
+          50,
+          16,
+          43,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 65281,
+            "bytes": 1
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 18,
+            "bytes": 0
+          },
+          {
+            "id": 5,
+            "bytes": 5
+          },
+          {
+            "id": 10,
+            "bytes": 16
+          },
+          {
+            "id": 13,
+            "bytes": 22
+          },
+          {
+            "id": 50,
+            "bytes": 32
+          },
+          {
+            "id": 16,
+            "bytes": 5
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [
+          "h2"
+        ],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          4587,
+          4589,
+          29,
+          23,
+          24,
+          25
+        ],
+        "signature_algorithms": [
+          2308,
+          2309,
+          2310,
+          2052,
+          1027,
+          2055,
+          2053,
+          2054,
+          1283,
+          1539
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "tls_record_payload_lengths_until_hello": [
+          1489
+        ],
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    },
+    {
+      "flow": "tcp-10",
+      "transport": "tls_over_tcp",
+      "observation_method": "actual ordered TLS record bytes read at relay",
+      "client_hello": {
+        "handshake_bytes": 1489,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 32,
+        "cipher_suites": [
+          4865,
+          4866,
+          4867
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          65281,
+          23,
+          18,
+          5,
+          10,
+          13,
+          50,
+          16,
+          43,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 65281,
+            "bytes": 1
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 18,
+            "bytes": 0
+          },
+          {
+            "id": 5,
+            "bytes": 5
+          },
+          {
+            "id": 10,
+            "bytes": 16
+          },
+          {
+            "id": 13,
+            "bytes": 22
+          },
+          {
+            "id": 50,
+            "bytes": 32
+          },
+          {
+            "id": 16,
+            "bytes": 5
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [
+          "h2"
+        ],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          4587,
+          4589,
+          29,
+          23,
+          24,
+          25
+        ],
+        "signature_algorithms": [
+          2308,
+          2309,
+          2310,
+          2052,
+          1027,
+          2055,
+          2053,
+          2054,
+          1283,
+          1539
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "tls_record_payload_lengths_until_hello": [
+          1489
+        ],
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    },
+    {
+      "flow": "tcp-11",
+      "transport": "tls_over_tcp",
+      "observation_method": "actual ordered TLS record bytes read at relay",
+      "client_hello": {
+        "handshake_bytes": 1495,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 32,
+        "cipher_suites": [
+          4865,
+          4866,
+          4867
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          65281,
+          23,
+          18,
+          5,
+          10,
+          13,
+          50,
+          16,
+          43,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 65281,
+            "bytes": 1
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 18,
+            "bytes": 0
+          },
+          {
+            "id": 5,
+            "bytes": 5
+          },
+          {
+            "id": 10,
+            "bytes": 16
+          },
+          {
+            "id": 13,
+            "bytes": 22
+          },
+          {
+            "id": 50,
+            "bytes": 32
+          },
+          {
+            "id": 16,
+            "bytes": 11
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [
+          "http/1.1"
+        ],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          4587,
+          4589,
+          29,
+          23,
+          24,
+          25
+        ],
+        "signature_algorithms": [
+          2308,
+          2309,
+          2310,
+          2052,
+          1027,
+          2055,
+          2053,
+          2054,
+          1283,
+          1539
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "tls_record_payload_lengths_until_hello": [
+          1495
+        ],
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    },
+    {
+      "flow": "tcp-12",
+      "transport": "tls_over_tcp",
+      "observation_method": "actual ordered TLS record bytes read at relay",
+      "client_hello": {
+        "handshake_bytes": 1489,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 32,
+        "cipher_suites": [
+          4865,
+          4866,
+          4867
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          65281,
+          23,
+          18,
+          5,
+          10,
+          13,
+          50,
+          16,
+          43,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 65281,
+            "bytes": 1
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 18,
+            "bytes": 0
+          },
+          {
+            "id": 5,
+            "bytes": 5
+          },
+          {
+            "id": 10,
+            "bytes": 16
+          },
+          {
+            "id": 13,
+            "bytes": 22
+          },
+          {
+            "id": 50,
+            "bytes": 32
+          },
+          {
+            "id": 16,
+            "bytes": 5
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [
+          "h2"
+        ],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          4587,
+          4589,
+          29,
+          23,
+          24,
+          25
+        ],
+        "signature_algorithms": [
+          2308,
+          2309,
+          2310,
+          2052,
+          1027,
+          2055,
+          2053,
+          2054,
+          1283,
+          1539
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "tls_record_payload_lengths_until_hello": [
+          1489
+        ],
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    },
+    {
+      "flow": "tcp-13",
+      "transport": "tls_over_tcp",
+      "observation_method": "actual ordered TLS record bytes read at relay",
+      "client_hello": {
+        "handshake_bytes": 1495,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 32,
+        "cipher_suites": [
+          4865,
+          4866,
+          4867
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          65281,
+          23,
+          18,
+          5,
+          10,
+          13,
+          50,
+          16,
+          43,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 65281,
+            "bytes": 1
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 18,
+            "bytes": 0
+          },
+          {
+            "id": 5,
+            "bytes": 5
+          },
+          {
+            "id": 10,
+            "bytes": 16
+          },
+          {
+            "id": 13,
+            "bytes": 22
+          },
+          {
+            "id": 50,
+            "bytes": 32
+          },
+          {
+            "id": 16,
+            "bytes": 11
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [
+          "http/1.1"
+        ],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          4587,
+          4589,
+          29,
+          23,
+          24,
+          25
+        ],
+        "signature_algorithms": [
+          2308,
+          2309,
+          2310,
+          2052,
+          1027,
+          2055,
+          2053,
+          2054,
+          1283,
+          1539
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "tls_record_payload_lengths_until_hello": [
+          1495
+        ],
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    },
+    {
+      "flow": "tcp-14",
+      "transport": "tls_over_tcp",
+      "observation_method": "actual ordered TLS record bytes read at relay",
+      "client_hello": {
+        "handshake_bytes": 1489,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 32,
+        "cipher_suites": [
+          4865,
+          4866,
+          4867
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          65281,
+          23,
+          18,
+          5,
+          10,
+          13,
+          50,
+          16,
+          43,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 65281,
+            "bytes": 1
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 18,
+            "bytes": 0
+          },
+          {
+            "id": 5,
+            "bytes": 5
+          },
+          {
+            "id": 10,
+            "bytes": 16
+          },
+          {
+            "id": 13,
+            "bytes": 22
+          },
+          {
+            "id": 50,
+            "bytes": 32
+          },
+          {
+            "id": 16,
+            "bytes": 5
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [
+          "h2"
+        ],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          4587,
+          4589,
+          29,
+          23,
+          24,
+          25
+        ],
+        "signature_algorithms": [
+          2308,
+          2309,
+          2310,
+          2052,
+          1027,
+          2055,
+          2053,
+          2054,
+          1283,
+          1539
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "tls_record_payload_lengths_until_hello": [
+          1489
+        ],
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    },
+    {
+      "flow": "tcp-15",
+      "transport": "tls_over_tcp",
+      "observation_method": "actual ordered TLS record bytes read at relay",
+      "client_hello": {
+        "handshake_bytes": 1495,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 32,
+        "cipher_suites": [
+          4865,
+          4866,
+          4867
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          65281,
+          23,
+          18,
+          5,
+          10,
+          13,
+          50,
+          16,
+          43,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 65281,
+            "bytes": 1
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 18,
+            "bytes": 0
+          },
+          {
+            "id": 5,
+            "bytes": 5
+          },
+          {
+            "id": 10,
+            "bytes": 16
+          },
+          {
+            "id": 13,
+            "bytes": 22
+          },
+          {
+            "id": 50,
+            "bytes": 32
+          },
+          {
+            "id": 16,
+            "bytes": 11
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [
+          "http/1.1"
+        ],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          4587,
+          4589,
+          29,
+          23,
+          24,
+          25
+        ],
+        "signature_algorithms": [
+          2308,
+          2309,
+          2310,
+          2052,
+          1027,
+          2055,
+          2053,
+          2054,
+          1283,
+          1539
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "tls_record_payload_lengths_until_hello": [
+          1495
+        ],
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    },
+    {
+      "flow": "tcp-16",
+      "transport": "tls_over_tcp",
+      "observation_method": "actual ordered TLS record bytes read at relay",
+      "client_hello": {
+        "handshake_bytes": 1489,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 32,
+        "cipher_suites": [
+          4865,
+          4866,
+          4867
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          65281,
+          23,
+          18,
+          5,
+          10,
+          13,
+          50,
+          16,
+          43,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 65281,
+            "bytes": 1
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 18,
+            "bytes": 0
+          },
+          {
+            "id": 5,
+            "bytes": 5
+          },
+          {
+            "id": 10,
+            "bytes": 16
+          },
+          {
+            "id": 13,
+            "bytes": 22
+          },
+          {
+            "id": 50,
+            "bytes": 32
+          },
+          {
+            "id": 16,
+            "bytes": 5
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [
+          "h2"
+        ],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          4587,
+          4589,
+          29,
+          23,
+          24,
+          25
+        ],
+        "signature_algorithms": [
+          2308,
+          2309,
+          2310,
+          2052,
+          1027,
+          2055,
+          2053,
+          2054,
+          1283,
+          1539
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "tls_record_payload_lengths_until_hello": [
+          1489
+        ],
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    },
+    {
+      "flow": "tcp-17",
+      "transport": "tls_over_tcp",
+      "observation_method": "actual ordered TLS record bytes read at relay",
+      "client_hello": {
+        "handshake_bytes": 1489,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 32,
+        "cipher_suites": [
+          4865,
+          4866,
+          4867
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          65281,
+          23,
+          18,
+          5,
+          10,
+          13,
+          50,
+          16,
+          43,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 65281,
+            "bytes": 1
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 18,
+            "bytes": 0
+          },
+          {
+            "id": 5,
+            "bytes": 5
+          },
+          {
+            "id": 10,
+            "bytes": 16
+          },
+          {
+            "id": 13,
+            "bytes": 22
+          },
+          {
+            "id": 50,
+            "bytes": 32
+          },
+          {
+            "id": 16,
+            "bytes": 5
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [
+          "h2"
+        ],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          4587,
+          4589,
+          29,
+          23,
+          24,
+          25
+        ],
+        "signature_algorithms": [
+          2308,
+          2309,
+          2310,
+          2052,
+          1027,
+          2055,
+          2053,
+          2054,
+          1283,
+          1539
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "tls_record_payload_lengths_until_hello": [
+          1489
+        ],
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    },
+    {
+      "flow": "tcp-18",
+      "transport": "tls_over_tcp",
+      "observation_method": "actual ordered TLS record bytes read at relay",
+      "client_hello": {
+        "handshake_bytes": 1489,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 32,
+        "cipher_suites": [
+          4865,
+          4866,
+          4867
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          65281,
+          23,
+          18,
+          5,
+          10,
+          13,
+          50,
+          16,
+          43,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 65281,
+            "bytes": 1
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 18,
+            "bytes": 0
+          },
+          {
+            "id": 5,
+            "bytes": 5
+          },
+          {
+            "id": 10,
+            "bytes": 16
+          },
+          {
+            "id": 13,
+            "bytes": 22
+          },
+          {
+            "id": 50,
+            "bytes": 32
+          },
+          {
+            "id": 16,
+            "bytes": 5
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [
+          "h2"
+        ],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          4587,
+          4589,
+          29,
+          23,
+          24,
+          25
+        ],
+        "signature_algorithms": [
+          2308,
+          2309,
+          2310,
+          2052,
+          1027,
+          2055,
+          2053,
+          2054,
+          1283,
+          1539
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "tls_record_payload_lengths_until_hello": [
+          1489
+        ],
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    },
+    {
+      "flow": "tcp-19",
+      "transport": "tls_over_tcp",
+      "observation_method": "actual ordered TLS record bytes read at relay",
+      "client_hello": {
+        "handshake_bytes": 1489,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 32,
+        "cipher_suites": [
+          4865,
+          4866,
+          4867
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          65281,
+          23,
+          18,
+          5,
+          10,
+          13,
+          50,
+          16,
+          43,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 65281,
+            "bytes": 1
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 18,
+            "bytes": 0
+          },
+          {
+            "id": 5,
+            "bytes": 5
+          },
+          {
+            "id": 10,
+            "bytes": 16
+          },
+          {
+            "id": 13,
+            "bytes": 22
+          },
+          {
+            "id": 50,
+            "bytes": 32
+          },
+          {
+            "id": 16,
+            "bytes": 5
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [
+          "h2"
+        ],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          4587,
+          4589,
+          29,
+          23,
+          24,
+          25
+        ],
+        "signature_algorithms": [
+          2308,
+          2309,
+          2310,
+          2052,
+          1027,
+          2055,
+          2053,
+          2054,
+          1283,
+          1539
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "tls_record_payload_lengths_until_hello": [
+          1489
+        ],
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    },
+    {
+      "flow": "tcp-2",
+      "transport": "tls_over_tcp",
+      "observation_method": "actual ordered TLS record bytes read at relay",
+      "client_hello": {
+        "handshake_bytes": 1480,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 32,
+        "cipher_suites": [
+          4865,
+          4866,
+          4867
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          65281,
+          23,
+          18,
+          5,
+          10,
+          13,
+          50,
+          43,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 65281,
+            "bytes": 1
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 18,
+            "bytes": 0
+          },
+          {
+            "id": 5,
+            "bytes": 5
+          },
+          {
+            "id": 10,
+            "bytes": 16
+          },
+          {
+            "id": 13,
+            "bytes": 22
+          },
+          {
+            "id": 50,
+            "bytes": 32
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          4587,
+          4589,
+          29,
+          23,
+          24,
+          25
+        ],
+        "signature_algorithms": [
+          2308,
+          2309,
+          2310,
+          2052,
+          1027,
+          2055,
+          2053,
+          2054,
+          1283,
+          1539
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "tls_record_payload_lengths_until_hello": [
+          1480
+        ],
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    },
+    {
+      "flow": "tcp-20",
+      "transport": "tls_over_tcp",
+      "observation_method": "actual ordered TLS record bytes read at relay",
+      "client_hello": {
+        "handshake_bytes": 1496,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 32,
+        "cipher_suites": [
+          4865,
+          4866,
+          4867
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          65281,
+          23,
+          18,
+          5,
+          10,
+          13,
+          50,
+          16,
+          43,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 65281,
+            "bytes": 1
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 18,
+            "bytes": 0
+          },
+          {
+            "id": 5,
+            "bytes": 5
+          },
+          {
+            "id": 10,
+            "bytes": 16
+          },
+          {
+            "id": 13,
+            "bytes": 22
+          },
+          {
+            "id": 50,
+            "bytes": 32
+          },
+          {
+            "id": 16,
+            "bytes": 12
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [
+          "proto-x/1"
+        ],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          4587,
+          4589,
+          29,
+          23,
+          24,
+          25
+        ],
+        "signature_algorithms": [
+          2308,
+          2309,
+          2310,
+          2052,
+          1027,
+          2055,
+          2053,
+          2054,
+          1283,
+          1539
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "tls_record_payload_lengths_until_hello": [
+          1496
+        ],
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": true
+      },
+      "status": "client_hello_decoded"
+    },
+    {
+      "flow": "tcp-21",
+      "transport": "tls_over_tcp",
+      "observation_method": "actual ordered TLS record bytes read at relay",
+      "client_hello": {
+        "handshake_bytes": 1489,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 32,
+        "cipher_suites": [
+          4865,
+          4866,
+          4867
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          65281,
+          23,
+          18,
+          5,
+          10,
+          13,
+          50,
+          16,
+          43,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 65281,
+            "bytes": 1
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 18,
+            "bytes": 0
+          },
+          {
+            "id": 5,
+            "bytes": 5
+          },
+          {
+            "id": 10,
+            "bytes": 16
+          },
+          {
+            "id": 13,
+            "bytes": 22
+          },
+          {
+            "id": 50,
+            "bytes": 32
+          },
+          {
+            "id": 16,
+            "bytes": 5
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [
+          "h2"
+        ],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          4587,
+          4589,
+          29,
+          23,
+          24,
+          25
+        ],
+        "signature_algorithms": [
+          2308,
+          2309,
+          2310,
+          2052,
+          1027,
+          2055,
+          2053,
+          2054,
+          1283,
+          1539
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "tls_record_payload_lengths_until_hello": [
+          1489
+        ],
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    },
+    {
+      "flow": "tcp-22",
+      "transport": "tls_over_tcp",
+      "observation_method": "actual ordered TLS record bytes read at relay",
+      "client_hello": {
+        "handshake_bytes": 1462,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 32,
+        "cipher_suites": [
+          4866,
+          4867,
+          4865
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          10,
+          35,
+          22,
+          23,
+          13,
+          43,
+          45,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 10,
+            "bytes": 18
+          },
+          {
+            "id": 35,
+            "bytes": 0
+          },
+          {
+            "id": 22,
+            "bytes": 0
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 13,
+            "bytes": 42
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 45,
+            "bytes": 2
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          29,
+          23,
+          30,
+          24,
+          25,
+          256,
+          257
+        ],
+        "signature_algorithms": [
+          2309,
+          2310,
+          2308,
+          1027,
+          1283,
+          1539,
+          2055,
+          2056,
+          2074,
+          2075,
+          2076,
+          2057,
+          2058,
+          2059,
+          2052,
+          2053,
+          2054,
+          1025,
+          1281,
+          1537
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "tls_record_payload_lengths_until_hello": [
+          1462
+        ],
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    },
+    {
+      "flow": "tcp-23",
+      "transport": "tls_over_tcp",
+      "observation_method": "actual ordered TLS record bytes read at relay",
+      "client_hello": {
+        "handshake_bytes": 1462,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 32,
+        "cipher_suites": [
+          4866,
+          4867,
+          4865
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          10,
+          35,
+          22,
+          23,
+          13,
+          43,
+          45,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 10,
+            "bytes": 18
+          },
+          {
+            "id": 35,
+            "bytes": 0
+          },
+          {
+            "id": 22,
+            "bytes": 0
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 13,
+            "bytes": 42
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 45,
+            "bytes": 2
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          29,
+          23,
+          30,
+          24,
+          25,
+          256,
+          257
+        ],
+        "signature_algorithms": [
+          2309,
+          2310,
+          2308,
+          1027,
+          1283,
+          1539,
+          2055,
+          2056,
+          2074,
+          2075,
+          2076,
+          2057,
+          2058,
+          2059,
+          2052,
+          2053,
+          2054,
+          1025,
+          1281,
+          1537
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "tls_record_payload_lengths_until_hello": [
+          1462
+        ],
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    },
+    {
+      "flow": "tcp-24",
+      "transport": "tls_over_tcp",
+      "observation_method": "actual ordered TLS record bytes read at relay",
+      "client_hello": {
+        "handshake_bytes": 1477,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 32,
+        "cipher_suites": [
+          4866,
+          4867,
+          4865
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          10,
+          35,
+          16,
+          22,
+          23,
+          13,
+          43,
+          45,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 10,
+            "bytes": 18
+          },
+          {
+            "id": 35,
+            "bytes": 0
+          },
+          {
+            "id": 16,
+            "bytes": 11
+          },
+          {
+            "id": 22,
+            "bytes": 0
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 13,
+            "bytes": 42
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 45,
+            "bytes": 2
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [
+          "http/1.1"
+        ],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          29,
+          23,
+          30,
+          24,
+          25,
+          256,
+          257
+        ],
+        "signature_algorithms": [
+          2309,
+          2310,
+          2308,
+          1027,
+          1283,
+          1539,
+          2055,
+          2056,
+          2074,
+          2075,
+          2076,
+          2057,
+          2058,
+          2059,
+          2052,
+          2053,
+          2054,
+          1025,
+          1281,
+          1537
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "tls_record_payload_lengths_until_hello": [
+          1477
+        ],
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    },
+    {
+      "flow": "tcp-25",
+      "transport": "tls_over_tcp",
+      "observation_method": "actual ordered TLS record bytes read at relay",
+      "client_hello": {
+        "handshake_bytes": 1477,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 32,
+        "cipher_suites": [
+          4866,
+          4867,
+          4865
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          10,
+          35,
+          16,
+          22,
+          23,
+          13,
+          43,
+          45,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 10,
+            "bytes": 18
+          },
+          {
+            "id": 35,
+            "bytes": 0
+          },
+          {
+            "id": 16,
+            "bytes": 11
+          },
+          {
+            "id": 22,
+            "bytes": 0
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 13,
+            "bytes": 42
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 45,
+            "bytes": 2
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [
+          "http/1.1"
+        ],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          29,
+          23,
+          30,
+          24,
+          25,
+          256,
+          257
+        ],
+        "signature_algorithms": [
+          2309,
+          2310,
+          2308,
+          1027,
+          1283,
+          1539,
+          2055,
+          2056,
+          2074,
+          2075,
+          2076,
+          2057,
+          2058,
+          2059,
+          2052,
+          2053,
+          2054,
+          1025,
+          1281,
+          1537
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "tls_record_payload_lengths_until_hello": [
+          1477
+        ],
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    },
+    {
+      "flow": "tcp-3",
+      "transport": "tls_over_tcp",
+      "observation_method": "actual ordered TLS record bytes read at relay",
+      "client_hello": {
+        "handshake_bytes": 1480,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 32,
+        "cipher_suites": [
+          4865,
+          4866,
+          4867
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          65281,
+          23,
+          18,
+          5,
+          10,
+          13,
+          50,
+          43,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 65281,
+            "bytes": 1
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 18,
+            "bytes": 0
+          },
+          {
+            "id": 5,
+            "bytes": 5
+          },
+          {
+            "id": 10,
+            "bytes": 16
+          },
+          {
+            "id": 13,
+            "bytes": 22
+          },
+          {
+            "id": 50,
+            "bytes": 32
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          4587,
+          4589,
+          29,
+          23,
+          24,
+          25
+        ],
+        "signature_algorithms": [
+          2308,
+          2309,
+          2310,
+          2052,
+          1027,
+          2055,
+          2053,
+          2054,
+          1283,
+          1539
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "tls_record_payload_lengths_until_hello": [
+          1480
+        ],
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    },
+    {
+      "flow": "tcp-4",
+      "transport": "tls_over_tcp",
+      "observation_method": "actual ordered TLS record bytes read at relay",
+      "client_hello": {
+        "handshake_bytes": 1489,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 32,
+        "cipher_suites": [
+          4865,
+          4866,
+          4867
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          65281,
+          23,
+          18,
+          5,
+          10,
+          13,
+          50,
+          16,
+          43,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 65281,
+            "bytes": 1
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 18,
+            "bytes": 0
+          },
+          {
+            "id": 5,
+            "bytes": 5
+          },
+          {
+            "id": 10,
+            "bytes": 16
+          },
+          {
+            "id": 13,
+            "bytes": 22
+          },
+          {
+            "id": 50,
+            "bytes": 32
+          },
+          {
+            "id": 16,
+            "bytes": 5
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [
+          "h2"
+        ],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          4587,
+          4589,
+          29,
+          23,
+          24,
+          25
+        ],
+        "signature_algorithms": [
+          2308,
+          2309,
+          2310,
+          2052,
+          1027,
+          2055,
+          2053,
+          2054,
+          1283,
+          1539
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "tls_record_payload_lengths_until_hello": [
+          1489
+        ],
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    },
+    {
+      "flow": "tcp-5",
+      "transport": "tls_over_tcp",
+      "observation_method": "actual ordered TLS record bytes read at relay",
+      "client_hello": {
+        "handshake_bytes": 1480,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 32,
+        "cipher_suites": [
+          4865,
+          4866,
+          4867
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          65281,
+          23,
+          18,
+          5,
+          10,
+          13,
+          50,
+          43,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 65281,
+            "bytes": 1
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 18,
+            "bytes": 0
+          },
+          {
+            "id": 5,
+            "bytes": 5
+          },
+          {
+            "id": 10,
+            "bytes": 16
+          },
+          {
+            "id": 13,
+            "bytes": 22
+          },
+          {
+            "id": 50,
+            "bytes": 32
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          4587,
+          4589,
+          29,
+          23,
+          24,
+          25
+        ],
+        "signature_algorithms": [
+          2308,
+          2309,
+          2310,
+          2052,
+          1027,
+          2055,
+          2053,
+          2054,
+          1283,
+          1539
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "tls_record_payload_lengths_until_hello": [
+          1480
+        ],
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    },
+    {
+      "flow": "tcp-6",
+      "transport": "tls_over_tcp",
+      "observation_method": "actual ordered TLS record bytes read at relay",
+      "client_hello": {
+        "handshake_bytes": 1489,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 32,
+        "cipher_suites": [
+          4865,
+          4866,
+          4867
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          65281,
+          23,
+          18,
+          5,
+          10,
+          13,
+          50,
+          16,
+          43,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 65281,
+            "bytes": 1
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 18,
+            "bytes": 0
+          },
+          {
+            "id": 5,
+            "bytes": 5
+          },
+          {
+            "id": 10,
+            "bytes": 16
+          },
+          {
+            "id": 13,
+            "bytes": 22
+          },
+          {
+            "id": 50,
+            "bytes": 32
+          },
+          {
+            "id": 16,
+            "bytes": 5
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [
+          "h2"
+        ],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          4587,
+          4589,
+          29,
+          23,
+          24,
+          25
+        ],
+        "signature_algorithms": [
+          2308,
+          2309,
+          2310,
+          2052,
+          1027,
+          2055,
+          2053,
+          2054,
+          1283,
+          1539
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "tls_record_payload_lengths_until_hello": [
+          1489
+        ],
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    },
+    {
+      "flow": "tcp-7",
+      "transport": "tls_over_tcp",
+      "observation_method": "actual ordered TLS record bytes read at relay",
+      "client_hello": {
+        "handshake_bytes": 1480,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 32,
+        "cipher_suites": [
+          4865,
+          4866,
+          4867
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          65281,
+          23,
+          18,
+          5,
+          10,
+          13,
+          50,
+          43,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 65281,
+            "bytes": 1
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 18,
+            "bytes": 0
+          },
+          {
+            "id": 5,
+            "bytes": 5
+          },
+          {
+            "id": 10,
+            "bytes": 16
+          },
+          {
+            "id": 13,
+            "bytes": 22
+          },
+          {
+            "id": 50,
+            "bytes": 32
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          4587,
+          4589,
+          29,
+          23,
+          24,
+          25
+        ],
+        "signature_algorithms": [
+          2308,
+          2309,
+          2310,
+          2052,
+          1027,
+          2055,
+          2053,
+          2054,
+          1283,
+          1539
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "tls_record_payload_lengths_until_hello": [
+          1480
+        ],
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    },
+    {
+      "flow": "tcp-8",
+      "transport": "tls_over_tcp",
+      "observation_method": "actual ordered TLS record bytes read at relay",
+      "client_hello": {
+        "handshake_bytes": 1489,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 32,
+        "cipher_suites": [
+          4865,
+          4866,
+          4867
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          65281,
+          23,
+          18,
+          5,
+          10,
+          13,
+          50,
+          16,
+          43,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 65281,
+            "bytes": 1
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 18,
+            "bytes": 0
+          },
+          {
+            "id": 5,
+            "bytes": 5
+          },
+          {
+            "id": 10,
+            "bytes": 16
+          },
+          {
+            "id": 13,
+            "bytes": 22
+          },
+          {
+            "id": 50,
+            "bytes": 32
+          },
+          {
+            "id": 16,
+            "bytes": 5
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [
+          "h2"
+        ],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          4587,
+          4589,
+          29,
+          23,
+          24,
+          25
+        ],
+        "signature_algorithms": [
+          2308,
+          2309,
+          2310,
+          2052,
+          1027,
+          2055,
+          2053,
+          2054,
+          1283,
+          1539
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "tls_record_payload_lengths_until_hello": [
+          1489
+        ],
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    },
+    {
+      "flow": "tcp-9",
+      "transport": "tls_over_tcp",
+      "observation_method": "actual ordered TLS record bytes read at relay",
+      "client_hello": {
+        "handshake_bytes": 1495,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 32,
+        "cipher_suites": [
+          4865,
+          4866,
+          4867
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          65281,
+          23,
+          18,
+          5,
+          10,
+          13,
+          50,
+          16,
+          43,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 65281,
+            "bytes": 1
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 18,
+            "bytes": 0
+          },
+          {
+            "id": 5,
+            "bytes": 5
+          },
+          {
+            "id": 10,
+            "bytes": 16
+          },
+          {
+            "id": 13,
+            "bytes": 22
+          },
+          {
+            "id": 50,
+            "bytes": 32
+          },
+          {
+            "id": 16,
+            "bytes": 11
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [
+          "http/1.1"
+        ],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          4587,
+          4589,
+          29,
+          23,
+          24,
+          25
+        ],
+        "signature_algorithms": [
+          2308,
+          2309,
+          2310,
+          2052,
+          1027,
+          2055,
+          2053,
+          2054,
+          1283,
+          1539
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "tls_record_payload_lengths_until_hello": [
+          1495
+        ],
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    },
+    {
+      "flow": "udp-1",
+      "initial_context": 1,
+      "transport": "quic_initial",
+      "quic_version": "0x00000001",
+      "destination_cid_length": 19,
+      "observation_method": "actual UDP payload; public Initial-key AEAD decryption and CRYPTO reassembly",
+      "initial_keys_are_public": true,
+      "statistics": {
+        "authenticated_initial_packets": 3,
+        "initial_packet_bytes": 3735
+      },
+      "client_hello": {
+        "handshake_bytes": 1517,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 0,
+        "cipher_suites": [
+          4865,
+          4866,
+          4867
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          65281,
+          23,
+          18,
+          57,
+          5,
+          10,
+          13,
+          50,
+          16,
+          43,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 65281,
+            "bytes": 1
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 18,
+            "bytes": 0
+          },
+          {
+            "id": 57,
+            "bytes": 56
+          },
+          {
+            "id": 5,
+            "bytes": 5
+          },
+          {
+            "id": 10,
+            "bytes": 16
+          },
+          {
+            "id": 13,
+            "bytes": 22
+          },
+          {
+            "id": 50,
+            "bytes": 32
+          },
+          {
+            "id": 16,
+            "bytes": 5
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [
+          "h3"
+        ],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          4587,
+          4589,
+          29,
+          23,
+          24,
+          25
+        ],
+        "signature_algorithms": [
+          2308,
+          2309,
+          2310,
+          2052,
+          1027,
+          2055,
+          2053,
+          2054,
+          1283,
+          1539
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "quic_transport_parameters": [
+          {
+            "id": 3096,
+            "length": 4,
+            "value_redacted": true
+          },
+          {
+            "id": 5,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 6,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 7,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 4,
+            "length": 4,
+            "numeric_value": 786432
+          },
+          {
+            "id": 8,
+            "length": 1,
+            "numeric_value": 0
+          },
+          {
+            "id": 9,
+            "length": 2,
+            "numeric_value": 100
+          },
+          {
+            "id": 1,
+            "length": 4,
+            "numeric_value": 30000
+          },
+          {
+            "id": 3,
+            "length": 2,
+            "numeric_value": 1452
+          },
+          {
+            "id": 11,
+            "length": 1,
+            "numeric_value": 26
+          },
+          {
+            "id": 14,
+            "length": 1,
+            "numeric_value": 4
+          },
+          {
+            "id": 15,
+            "length": 0,
+            "value_redacted": true
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    },
+    {
+      "flow": "udp-2",
+      "initial_context": 2,
+      "transport": "quic_initial",
+      "quic_version": "0x00000001",
+      "destination_cid_length": 13,
+      "observation_method": "actual UDP payload; public Initial-key AEAD decryption and CRYPTO reassembly",
+      "initial_keys_are_public": true,
+      "statistics": {
+        "authenticated_initial_packets": 3,
+        "initial_packet_bytes": 3735
+      },
+      "client_hello": {
+        "handshake_bytes": 1527,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 0,
+        "cipher_suites": [
+          4865,
+          4866,
+          4867
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          65281,
+          23,
+          18,
+          57,
+          5,
+          10,
+          13,
+          50,
+          16,
+          43,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 65281,
+            "bytes": 1
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 18,
+            "bytes": 0
+          },
+          {
+            "id": 57,
+            "bytes": 66
+          },
+          {
+            "id": 5,
+            "bytes": 5
+          },
+          {
+            "id": 10,
+            "bytes": 16
+          },
+          {
+            "id": 13,
+            "bytes": 22
+          },
+          {
+            "id": 50,
+            "bytes": 32
+          },
+          {
+            "id": 16,
+            "bytes": 5
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [
+          "h3"
+        ],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          4587,
+          4589,
+          29,
+          23,
+          24,
+          25
+        ],
+        "signature_algorithms": [
+          2308,
+          2309,
+          2310,
+          2052,
+          1027,
+          2055,
+          2053,
+          2054,
+          1283,
+          1539
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "quic_transport_parameters": [
+          {
+            "id": 4212,
+            "length": 14,
+            "value_redacted": true
+          },
+          {
+            "id": 5,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 6,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 7,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 4,
+            "length": 4,
+            "numeric_value": 786432
+          },
+          {
+            "id": 8,
+            "length": 1,
+            "numeric_value": 0
+          },
+          {
+            "id": 9,
+            "length": 2,
+            "numeric_value": 100
+          },
+          {
+            "id": 1,
+            "length": 4,
+            "numeric_value": 30000
+          },
+          {
+            "id": 3,
+            "length": 2,
+            "numeric_value": 1452
+          },
+          {
+            "id": 11,
+            "length": 1,
+            "numeric_value": 26
+          },
+          {
+            "id": 14,
+            "length": 1,
+            "numeric_value": 4
+          },
+          {
+            "id": 15,
+            "length": 0,
+            "value_redacted": true
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    },
+    {
+      "flow": "udp-3",
+      "initial_context": 3,
+      "transport": "quic_initial",
+      "quic_version": "0x00000001",
+      "destination_cid_length": 19,
+      "observation_method": "actual UDP payload; public Initial-key AEAD decryption and CRYPTO reassembly",
+      "initial_keys_are_public": true,
+      "statistics": {
+        "authenticated_initial_packets": 3,
+        "initial_packet_bytes": 3735
+      },
+      "client_hello": {
+        "handshake_bytes": 1528,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 0,
+        "cipher_suites": [
+          4865,
+          4866,
+          4867
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          65281,
+          23,
+          18,
+          57,
+          5,
+          10,
+          13,
+          50,
+          16,
+          43,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 65281,
+            "bytes": 1
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 18,
+            "bytes": 0
+          },
+          {
+            "id": 57,
+            "bytes": 67
+          },
+          {
+            "id": 5,
+            "bytes": 5
+          },
+          {
+            "id": 10,
+            "bytes": 16
+          },
+          {
+            "id": 13,
+            "bytes": 22
+          },
+          {
+            "id": 50,
+            "bytes": 32
+          },
+          {
+            "id": 16,
+            "bytes": 5
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [
+          "h3"
+        ],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          4587,
+          4589,
+          29,
+          23,
+          24,
+          25
+        ],
+        "signature_algorithms": [
+          2308,
+          2309,
+          2310,
+          2052,
+          1027,
+          2055,
+          2053,
+          2054,
+          1283,
+          1539
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "quic_transport_parameters": [
+          {
+            "id": 7312,
+            "length": 15,
+            "value_redacted": true
+          },
+          {
+            "id": 5,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 6,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 7,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 4,
+            "length": 4,
+            "numeric_value": 786432
+          },
+          {
+            "id": 8,
+            "length": 1,
+            "numeric_value": 0
+          },
+          {
+            "id": 9,
+            "length": 2,
+            "numeric_value": 100
+          },
+          {
+            "id": 1,
+            "length": 4,
+            "numeric_value": 30000
+          },
+          {
+            "id": 3,
+            "length": 2,
+            "numeric_value": 1452
+          },
+          {
+            "id": 11,
+            "length": 1,
+            "numeric_value": 26
+          },
+          {
+            "id": 14,
+            "length": 1,
+            "numeric_value": 4
+          },
+          {
+            "id": 15,
+            "length": 0,
+            "value_redacted": true
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    },
+    {
+      "flow": "udp-4",
+      "initial_context": 4,
+      "transport": "quic_initial",
+      "quic_version": "0x00000001",
+      "destination_cid_length": 9,
+      "observation_method": "actual UDP payload; public Initial-key AEAD decryption and CRYPTO reassembly",
+      "initial_keys_are_public": true,
+      "statistics": {
+        "authenticated_initial_packets": 3,
+        "initial_packet_bytes": 3735
+      },
+      "client_hello": {
+        "handshake_bytes": 1513,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 0,
+        "cipher_suites": [
+          4865,
+          4866,
+          4867
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          65281,
+          23,
+          18,
+          57,
+          5,
+          10,
+          13,
+          50,
+          16,
+          43,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 65281,
+            "bytes": 1
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 18,
+            "bytes": 0
+          },
+          {
+            "id": 57,
+            "bytes": 52
+          },
+          {
+            "id": 5,
+            "bytes": 5
+          },
+          {
+            "id": 10,
+            "bytes": 16
+          },
+          {
+            "id": 13,
+            "bytes": 22
+          },
+          {
+            "id": 50,
+            "bytes": 32
+          },
+          {
+            "id": 16,
+            "bytes": 5
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [
+          "h3"
+        ],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          4587,
+          4589,
+          29,
+          23,
+          24,
+          25
+        ],
+        "signature_algorithms": [
+          2308,
+          2309,
+          2310,
+          2052,
+          1027,
+          2055,
+          2053,
+          2054,
+          1283,
+          1539
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "quic_transport_parameters": [
+          {
+            "id": 5731,
+            "length": 0,
+            "value_redacted": true
+          },
+          {
+            "id": 5,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 6,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 7,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 4,
+            "length": 4,
+            "numeric_value": 786432
+          },
+          {
+            "id": 8,
+            "length": 1,
+            "numeric_value": 0
+          },
+          {
+            "id": 9,
+            "length": 2,
+            "numeric_value": 100
+          },
+          {
+            "id": 1,
+            "length": 4,
+            "numeric_value": 30000
+          },
+          {
+            "id": 3,
+            "length": 2,
+            "numeric_value": 1452
+          },
+          {
+            "id": 11,
+            "length": 1,
+            "numeric_value": 26
+          },
+          {
+            "id": 14,
+            "length": 1,
+            "numeric_value": 4
+          },
+          {
+            "id": 15,
+            "length": 0,
+            "value_redacted": true
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    },
+    {
+      "flow": "udp-5",
+      "initial_context": 5,
+      "transport": "quic_initial",
+      "quic_version": "0x00000001",
+      "destination_cid_length": 18,
+      "observation_method": "actual UDP payload; public Initial-key AEAD decryption and CRYPTO reassembly",
+      "initial_keys_are_public": true,
+      "statistics": {
+        "authenticated_initial_packets": 3,
+        "initial_packet_bytes": 3735
+      },
+      "client_hello": {
+        "handshake_bytes": 1528,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 0,
+        "cipher_suites": [
+          4865,
+          4866,
+          4867
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          65281,
+          23,
+          18,
+          57,
+          5,
+          10,
+          13,
+          50,
+          16,
+          43,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 65281,
+            "bytes": 1
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 18,
+            "bytes": 0
+          },
+          {
+            "id": 57,
+            "bytes": 67
+          },
+          {
+            "id": 5,
+            "bytes": 5
+          },
+          {
+            "id": 10,
+            "bytes": 16
+          },
+          {
+            "id": 13,
+            "bytes": 22
+          },
+          {
+            "id": 50,
+            "bytes": 32
+          },
+          {
+            "id": 16,
+            "bytes": 5
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [
+          "h3"
+        ],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          4587,
+          4589,
+          29,
+          23,
+          24,
+          25
+        ],
+        "signature_algorithms": [
+          2308,
+          2309,
+          2310,
+          2052,
+          1027,
+          2055,
+          2053,
+          2054,
+          1283,
+          1539
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "quic_transport_parameters": [
+          {
+            "id": 4770,
+            "length": 15,
+            "value_redacted": true
+          },
+          {
+            "id": 5,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 6,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 7,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 4,
+            "length": 4,
+            "numeric_value": 786432
+          },
+          {
+            "id": 8,
+            "length": 1,
+            "numeric_value": 0
+          },
+          {
+            "id": 9,
+            "length": 2,
+            "numeric_value": 100
+          },
+          {
+            "id": 1,
+            "length": 4,
+            "numeric_value": 30000
+          },
+          {
+            "id": 3,
+            "length": 2,
+            "numeric_value": 1452
+          },
+          {
+            "id": 11,
+            "length": 1,
+            "numeric_value": 26
+          },
+          {
+            "id": 14,
+            "length": 1,
+            "numeric_value": 4
+          },
+          {
+            "id": 15,
+            "length": 0,
+            "value_redacted": true
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    },
+    {
+      "flow": "udp-6",
+      "initial_context": 6,
+      "transport": "quic_initial",
+      "quic_version": "0x00000001",
+      "destination_cid_length": 16,
+      "observation_method": "actual UDP payload; public Initial-key AEAD decryption and CRYPTO reassembly",
+      "initial_keys_are_public": true,
+      "statistics": {
+        "authenticated_initial_packets": 3,
+        "initial_packet_bytes": 3735
+      },
+      "client_hello": {
+        "handshake_bytes": 1526,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 0,
+        "cipher_suites": [
+          4865,
+          4866,
+          4867
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          65281,
+          23,
+          18,
+          57,
+          5,
+          10,
+          13,
+          50,
+          16,
+          43,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 65281,
+            "bytes": 1
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 18,
+            "bytes": 0
+          },
+          {
+            "id": 57,
+            "bytes": 65
+          },
+          {
+            "id": 5,
+            "bytes": 5
+          },
+          {
+            "id": 10,
+            "bytes": 16
+          },
+          {
+            "id": 13,
+            "bytes": 22
+          },
+          {
+            "id": 50,
+            "bytes": 32
+          },
+          {
+            "id": 16,
+            "bytes": 5
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [
+          "h3"
+        ],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          4587,
+          4589,
+          29,
+          23,
+          24,
+          25
+        ],
+        "signature_algorithms": [
+          2308,
+          2309,
+          2310,
+          2052,
+          1027,
+          2055,
+          2053,
+          2054,
+          1283,
+          1539
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "quic_transport_parameters": [
+          {
+            "id": 1670,
+            "length": 13,
+            "value_redacted": true
+          },
+          {
+            "id": 5,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 6,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 7,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 4,
+            "length": 4,
+            "numeric_value": 786432
+          },
+          {
+            "id": 8,
+            "length": 1,
+            "numeric_value": 0
+          },
+          {
+            "id": 9,
+            "length": 2,
+            "numeric_value": 100
+          },
+          {
+            "id": 1,
+            "length": 4,
+            "numeric_value": 30000
+          },
+          {
+            "id": 3,
+            "length": 2,
+            "numeric_value": 1452
+          },
+          {
+            "id": 11,
+            "length": 1,
+            "numeric_value": 26
+          },
+          {
+            "id": 14,
+            "length": 1,
+            "numeric_value": 4
+          },
+          {
+            "id": 15,
+            "length": 0,
+            "value_redacted": true
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    },
+    {
+      "flow": "udp-7",
+      "initial_context": 7,
+      "transport": "quic_initial",
+      "quic_version": "0x00000001",
+      "destination_cid_length": 18,
+      "observation_method": "actual UDP payload; public Initial-key AEAD decryption and CRYPTO reassembly",
+      "initial_keys_are_public": true,
+      "statistics": {
+        "authenticated_initial_packets": 3,
+        "initial_packet_bytes": 3735
+      },
+      "client_hello": {
+        "handshake_bytes": 1523,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 0,
+        "cipher_suites": [
+          4865,
+          4866,
+          4867
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          65281,
+          23,
+          18,
+          57,
+          5,
+          10,
+          13,
+          50,
+          16,
+          43,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 65281,
+            "bytes": 1
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 18,
+            "bytes": 0
+          },
+          {
+            "id": 57,
+            "bytes": 62
+          },
+          {
+            "id": 5,
+            "bytes": 5
+          },
+          {
+            "id": 10,
+            "bytes": 16
+          },
+          {
+            "id": 13,
+            "bytes": 22
+          },
+          {
+            "id": 50,
+            "bytes": 32
+          },
+          {
+            "id": 16,
+            "bytes": 5
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [
+          "h3"
+        ],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          4587,
+          4589,
+          29,
+          23,
+          24,
+          25
+        ],
+        "signature_algorithms": [
+          2308,
+          2309,
+          2310,
+          2052,
+          1027,
+          2055,
+          2053,
+          2054,
+          1283,
+          1539
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "quic_transport_parameters": [
+          {
+            "id": 7064,
+            "length": 10,
+            "value_redacted": true
+          },
+          {
+            "id": 5,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 6,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 7,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 4,
+            "length": 4,
+            "numeric_value": 786432
+          },
+          {
+            "id": 8,
+            "length": 1,
+            "numeric_value": 0
+          },
+          {
+            "id": 9,
+            "length": 2,
+            "numeric_value": 100
+          },
+          {
+            "id": 1,
+            "length": 4,
+            "numeric_value": 30000
+          },
+          {
+            "id": 3,
+            "length": 2,
+            "numeric_value": 1452
+          },
+          {
+            "id": 11,
+            "length": 1,
+            "numeric_value": 26
+          },
+          {
+            "id": 14,
+            "length": 1,
+            "numeric_value": 4
+          },
+          {
+            "id": 15,
+            "length": 0,
+            "value_redacted": true
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    },
+    {
+      "flow": "udp-8",
+      "initial_context": 8,
+      "transport": "quic_initial",
+      "quic_version": "0x00000001",
+      "destination_cid_length": 16,
+      "observation_method": "actual UDP payload; public Initial-key AEAD decryption and CRYPTO reassembly",
+      "initial_keys_are_public": true,
+      "statistics": {
+        "authenticated_initial_packets": 3,
+        "initial_packet_bytes": 3735
+      },
+      "client_hello": {
+        "handshake_bytes": 1515,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 0,
+        "cipher_suites": [
+          4865,
+          4866,
+          4867
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          65281,
+          23,
+          18,
+          57,
+          5,
+          10,
+          13,
+          50,
+          16,
+          43,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 65281,
+            "bytes": 1
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 18,
+            "bytes": 0
+          },
+          {
+            "id": 57,
+            "bytes": 54
+          },
+          {
+            "id": 5,
+            "bytes": 5
+          },
+          {
+            "id": 10,
+            "bytes": 16
+          },
+          {
+            "id": 13,
+            "bytes": 22
+          },
+          {
+            "id": 50,
+            "bytes": 32
+          },
+          {
+            "id": 16,
+            "bytes": 5
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [
+          "h3"
+        ],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          4587,
+          4589,
+          29,
+          23,
+          24,
+          25
+        ],
+        "signature_algorithms": [
+          2308,
+          2309,
+          2310,
+          2052,
+          1027,
+          2055,
+          2053,
+          2054,
+          1283,
+          1539
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "quic_transport_parameters": [
+          {
+            "id": 1205,
+            "length": 2,
+            "value_redacted": true
+          },
+          {
+            "id": 5,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 6,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 7,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 4,
+            "length": 4,
+            "numeric_value": 786432
+          },
+          {
+            "id": 8,
+            "length": 1,
+            "numeric_value": 0
+          },
+          {
+            "id": 9,
+            "length": 2,
+            "numeric_value": 100
+          },
+          {
+            "id": 1,
+            "length": 4,
+            "numeric_value": 30000
+          },
+          {
+            "id": 3,
+            "length": 2,
+            "numeric_value": 1452
+          },
+          {
+            "id": 11,
+            "length": 1,
+            "numeric_value": 26
+          },
+          {
+            "id": 14,
+            "length": 1,
+            "numeric_value": 4
+          },
+          {
+            "id": 15,
+            "length": 0,
+            "value_redacted": true
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    },
+    {
+      "flow": "udp-9",
+      "initial_context": 9,
+      "transport": "quic_initial",
+      "quic_version": "0x00000001",
+      "destination_cid_length": 14,
+      "observation_method": "actual UDP payload; public Initial-key AEAD decryption and CRYPTO reassembly",
+      "initial_keys_are_public": true,
+      "statistics": {
+        "authenticated_initial_packets": 3,
+        "initial_packet_bytes": 3735
+      },
+      "client_hello": {
+        "handshake_bytes": 1517,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 0,
+        "cipher_suites": [
+          4865,
+          4866,
+          4867
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          65281,
+          23,
+          18,
+          57,
+          5,
+          10,
+          13,
+          50,
+          16,
+          43,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 65281,
+            "bytes": 1
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 18,
+            "bytes": 0
+          },
+          {
+            "id": 57,
+            "bytes": 56
+          },
+          {
+            "id": 5,
+            "bytes": 5
+          },
+          {
+            "id": 10,
+            "bytes": 16
+          },
+          {
+            "id": 13,
+            "bytes": 22
+          },
+          {
+            "id": 50,
+            "bytes": 32
+          },
+          {
+            "id": 16,
+            "bytes": 5
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [
+          "h3"
+        ],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          4587,
+          4589,
+          29,
+          23,
+          24,
+          25
+        ],
+        "signature_algorithms": [
+          2308,
+          2309,
+          2310,
+          2052,
+          1027,
+          2055,
+          2053,
+          2054,
+          1283,
+          1539
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "quic_transport_parameters": [
+          {
+            "id": 275,
+            "length": 4,
+            "value_redacted": true
+          },
+          {
+            "id": 5,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 6,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 7,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 4,
+            "length": 4,
+            "numeric_value": 786432
+          },
+          {
+            "id": 8,
+            "length": 1,
+            "numeric_value": 0
+          },
+          {
+            "id": 9,
+            "length": 2,
+            "numeric_value": 100
+          },
+          {
+            "id": 1,
+            "length": 4,
+            "numeric_value": 30000
+          },
+          {
+            "id": 3,
+            "length": 2,
+            "numeric_value": 1452
+          },
+          {
+            "id": 11,
+            "length": 1,
+            "numeric_value": 26
+          },
+          {
+            "id": 14,
+            "length": 1,
+            "numeric_value": 4
+          },
+          {
+            "id": 15,
+            "length": 0,
+            "value_redacted": true
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    },
+    {
+      "flow": "udp-10",
+      "initial_context": 10,
+      "transport": "quic_initial",
+      "quic_version": "0x00000001",
+      "destination_cid_length": 19,
+      "observation_method": "actual UDP payload; public Initial-key AEAD decryption and CRYPTO reassembly",
+      "initial_keys_are_public": true,
+      "statistics": {
+        "authenticated_initial_packets": 3,
+        "initial_packet_bytes": 3735
+      },
+      "client_hello": {
+        "handshake_bytes": 1520,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 0,
+        "cipher_suites": [
+          4865,
+          4866,
+          4867
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          65281,
+          23,
+          18,
+          57,
+          5,
+          10,
+          13,
+          50,
+          16,
+          43,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 65281,
+            "bytes": 1
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 18,
+            "bytes": 0
+          },
+          {
+            "id": 57,
+            "bytes": 59
+          },
+          {
+            "id": 5,
+            "bytes": 5
+          },
+          {
+            "id": 10,
+            "bytes": 16
+          },
+          {
+            "id": 13,
+            "bytes": 22
+          },
+          {
+            "id": 50,
+            "bytes": 32
+          },
+          {
+            "id": 16,
+            "bytes": 5
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [
+          "h3"
+        ],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          4587,
+          4589,
+          29,
+          23,
+          24,
+          25
+        ],
+        "signature_algorithms": [
+          2308,
+          2309,
+          2310,
+          2052,
+          1027,
+          2055,
+          2053,
+          2054,
+          1283,
+          1539
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "quic_transport_parameters": [
+          {
+            "id": 6258,
+            "length": 7,
+            "value_redacted": true
+          },
+          {
+            "id": 5,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 6,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 7,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 4,
+            "length": 4,
+            "numeric_value": 786432
+          },
+          {
+            "id": 8,
+            "length": 1,
+            "numeric_value": 0
+          },
+          {
+            "id": 9,
+            "length": 2,
+            "numeric_value": 100
+          },
+          {
+            "id": 1,
+            "length": 4,
+            "numeric_value": 30000
+          },
+          {
+            "id": 3,
+            "length": 2,
+            "numeric_value": 1452
+          },
+          {
+            "id": 11,
+            "length": 1,
+            "numeric_value": 26
+          },
+          {
+            "id": 14,
+            "length": 1,
+            "numeric_value": 4
+          },
+          {
+            "id": 15,
+            "length": 0,
+            "value_redacted": true
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    },
+    {
+      "flow": "udp-11",
+      "initial_context": 11,
+      "transport": "quic_initial",
+      "quic_version": "0x00000001",
+      "destination_cid_length": 19,
+      "observation_method": "actual UDP payload; public Initial-key AEAD decryption and CRYPTO reassembly",
+      "initial_keys_are_public": true,
+      "statistics": {
+        "authenticated_initial_packets": 3,
+        "initial_packet_bytes": 3735
+      },
+      "client_hello": {
+        "handshake_bytes": 1524,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 0,
+        "cipher_suites": [
+          4865,
+          4866,
+          4867
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          65281,
+          23,
+          18,
+          57,
+          5,
+          10,
+          13,
+          50,
+          16,
+          43,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 65281,
+            "bytes": 1
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 18,
+            "bytes": 0
+          },
+          {
+            "id": 57,
+            "bytes": 63
+          },
+          {
+            "id": 5,
+            "bytes": 5
+          },
+          {
+            "id": 10,
+            "bytes": 16
+          },
+          {
+            "id": 13,
+            "bytes": 22
+          },
+          {
+            "id": 50,
+            "bytes": 32
+          },
+          {
+            "id": 16,
+            "bytes": 5
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [
+          "h3"
+        ],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          4587,
+          4589,
+          29,
+          23,
+          24,
+          25
+        ],
+        "signature_algorithms": [
+          2308,
+          2309,
+          2310,
+          2052,
+          1027,
+          2055,
+          2053,
+          2054,
+          1283,
+          1539
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "quic_transport_parameters": [
+          {
+            "id": 5855,
+            "length": 11,
+            "value_redacted": true
+          },
+          {
+            "id": 5,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 6,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 7,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 4,
+            "length": 4,
+            "numeric_value": 786432
+          },
+          {
+            "id": 8,
+            "length": 1,
+            "numeric_value": 0
+          },
+          {
+            "id": 9,
+            "length": 2,
+            "numeric_value": 100
+          },
+          {
+            "id": 1,
+            "length": 4,
+            "numeric_value": 30000
+          },
+          {
+            "id": 3,
+            "length": 2,
+            "numeric_value": 1452
+          },
+          {
+            "id": 11,
+            "length": 1,
+            "numeric_value": 26
+          },
+          {
+            "id": 14,
+            "length": 1,
+            "numeric_value": 4
+          },
+          {
+            "id": 15,
+            "length": 0,
+            "value_redacted": true
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    },
+    {
+      "flow": "udp-12",
+      "initial_context": 12,
+      "transport": "quic_initial",
+      "quic_version": "0x00000001",
+      "destination_cid_length": 15,
+      "observation_method": "actual UDP payload; public Initial-key AEAD decryption and CRYPTO reassembly",
+      "initial_keys_are_public": true,
+      "statistics": {
+        "authenticated_initial_packets": 2,
+        "initial_packet_bytes": 2560
+      },
+      "client_hello": {
+        "handshake_bytes": 1521,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 0,
+        "cipher_suites": [
+          4865,
+          4866,
+          4867
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          65281,
+          23,
+          18,
+          57,
+          5,
+          10,
+          13,
+          50,
+          16,
+          43,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 65281,
+            "bytes": 1
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 18,
+            "bytes": 0
+          },
+          {
+            "id": 57,
+            "bytes": 53
+          },
+          {
+            "id": 5,
+            "bytes": 5
+          },
+          {
+            "id": 10,
+            "bytes": 16
+          },
+          {
+            "id": 13,
+            "bytes": 22
+          },
+          {
+            "id": 50,
+            "bytes": 32
+          },
+          {
+            "id": 16,
+            "bytes": 12
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [
+          "proto-x/1"
+        ],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          4587,
+          4589,
+          29,
+          23,
+          24,
+          25
+        ],
+        "signature_algorithms": [
+          2308,
+          2309,
+          2310,
+          2052,
+          1027,
+          2055,
+          2053,
+          2054,
+          1283,
+          1539
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "quic_transport_parameters": [
+          {
+            "id": 3995,
+            "length": 0,
+            "value_redacted": true
+          },
+          {
+            "id": 5,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 6,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 7,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 4,
+            "length": 4,
+            "numeric_value": 786432
+          },
+          {
+            "id": 8,
+            "length": 2,
+            "numeric_value": 100
+          },
+          {
+            "id": 9,
+            "length": 2,
+            "numeric_value": 100
+          },
+          {
+            "id": 1,
+            "length": 4,
+            "numeric_value": 30000
+          },
+          {
+            "id": 3,
+            "length": 2,
+            "numeric_value": 1452
+          },
+          {
+            "id": 11,
+            "length": 1,
+            "numeric_value": 26
+          },
+          {
+            "id": 14,
+            "length": 1,
+            "numeric_value": 4
+          },
+          {
+            "id": 15,
+            "length": 0,
+            "value_redacted": true
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": true
+      },
+      "status": "client_hello_decoded"
+    },
+    {
+      "flow": "udp-13",
+      "initial_context": 13,
+      "transport": "quic_initial",
+      "quic_version": "0x00000001",
+      "destination_cid_length": 14,
+      "observation_method": "actual UDP payload; public Initial-key AEAD decryption and CRYPTO reassembly",
+      "initial_keys_are_public": true,
+      "statistics": {
+        "authenticated_initial_packets": 3,
+        "initial_packet_bytes": 3735
+      },
+      "client_hello": {
+        "handshake_bytes": 1520,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 0,
+        "cipher_suites": [
+          4865,
+          4866,
+          4867
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          65281,
+          23,
+          18,
+          57,
+          5,
+          10,
+          13,
+          50,
+          16,
+          43,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 14
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 65281,
+            "bytes": 1
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 18,
+            "bytes": 0
+          },
+          {
+            "id": 57,
+            "bytes": 59
+          },
+          {
+            "id": 5,
+            "bytes": 5
+          },
+          {
+            "id": 10,
+            "bytes": 16
+          },
+          {
+            "id": 13,
+            "bytes": 22
+          },
+          {
+            "id": 50,
+            "bytes": 32
+          },
+          {
+            "id": 16,
+            "bytes": 5
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [
+          "h3"
+        ],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          4587,
+          4589,
+          29,
+          23,
+          24,
+          25
+        ],
+        "signature_algorithms": [
+          2308,
+          2309,
+          2310,
+          2052,
+          1027,
+          2055,
+          2053,
+          2054,
+          1283,
+          1539
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "quic_transport_parameters": [
+          {
+            "id": 4305,
+            "length": 6,
+            "value_redacted": true
+          },
+          {
+            "id": 5,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 6,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 7,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 4,
+            "length": 4,
+            "numeric_value": 786432
+          },
+          {
+            "id": 8,
+            "length": 2,
+            "numeric_value": 100
+          },
+          {
+            "id": 9,
+            "length": 2,
+            "numeric_value": 100
+          },
+          {
+            "id": 1,
+            "length": 4,
+            "numeric_value": 30000
+          },
+          {
+            "id": 3,
+            "length": 2,
+            "numeric_value": 1452
+          },
+          {
+            "id": 11,
+            "length": 1,
+            "numeric_value": 26
+          },
+          {
+            "id": 14,
+            "length": 1,
+            "numeric_value": 4
+          },
+          {
+            "id": 15,
+            "length": 0,
+            "value_redacted": true
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_cover_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    }
+  ],
+  "capture_flow_counts": {
+    "tcp": 25,
+    "udp": 13
+  },
+  "decoded_client_hello_count": 38,
+  "quic_unparsed_packet_categories": {
+    "other_long_header_or_unsupported_version": 12,
+    "non_initial_or_short_header": 54
+  },
+  "inspection_errors": [],
+  "relay_counts": [
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-1",
+      "direction": "client_to_server",
+      "bytes": 1762,
+      "chunks": 5,
+      "captured_bytes": 1762,
+      "captured_chunks": 5,
+      "capture_truncated": false,
+      "elapsed_ns": 112646917
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-1",
+      "direction": "server_to_client",
+      "bytes": 2641,
+      "chunks": 4,
+      "captured_bytes": 2641,
+      "captured_chunks": 4,
+      "capture_truncated": false,
+      "elapsed_ns": 112670875
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-10",
+      "direction": "client_to_server",
+      "bytes": 1853,
+      "chunks": 7,
+      "captured_bytes": 1853,
+      "captured_chunks": 7,
+      "capture_truncated": false,
+      "elapsed_ns": 112677250
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-10",
+      "direction": "server_to_client",
+      "bytes": 2133,
+      "chunks": 4,
+      "captured_bytes": 2133,
+      "captured_chunks": 4,
+      "capture_truncated": false,
+      "elapsed_ns": 112682334
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-11",
+      "direction": "client_to_server",
+      "bytes": 1697,
+      "chunks": 3,
+      "captured_bytes": 1697,
+      "captured_chunks": 3,
+      "capture_truncated": false,
+      "elapsed_ns": 112686917
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-11",
+      "direction": "server_to_client",
+      "bytes": 2087,
+      "chunks": 2,
+      "captured_bytes": 2087,
+      "captured_chunks": 2,
+      "capture_truncated": false,
+      "elapsed_ns": 112691709
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-12",
+      "direction": "client_to_server",
+      "bytes": 1920,
+      "chunks": 3,
+      "captured_bytes": 1920,
+      "captured_chunks": 3,
+      "capture_truncated": false,
+      "elapsed_ns": 112695792
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-12",
+      "direction": "server_to_client",
+      "bytes": 2133,
+      "chunks": 3,
+      "captured_bytes": 2133,
+      "captured_chunks": 3,
+      "capture_truncated": false,
+      "elapsed_ns": 112699959
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-13",
+      "direction": "client_to_server",
+      "bytes": 1782,
+      "chunks": 3,
+      "captured_bytes": 1782,
+      "captured_chunks": 3,
+      "capture_truncated": false,
+      "elapsed_ns": 112704250
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-13",
+      "direction": "server_to_client",
+      "bytes": 2104,
+      "chunks": 2,
+      "captured_bytes": 2104,
+      "captured_chunks": 2,
+      "capture_truncated": false,
+      "elapsed_ns": 112708417
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-14",
+      "direction": "client_to_server",
+      "bytes": 1865,
+      "chunks": 4,
+      "captured_bytes": 1865,
+      "captured_chunks": 4,
+      "capture_truncated": false,
+      "elapsed_ns": 112712459
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-14",
+      "direction": "server_to_client",
+      "bytes": 2112,
+      "chunks": 3,
+      "captured_bytes": 2112,
+      "captured_chunks": 3,
+      "capture_truncated": false,
+      "elapsed_ns": 112716500
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-15",
+      "direction": "client_to_server",
+      "bytes": 1882,
+      "chunks": 3,
+      "captured_bytes": 1882,
+      "captured_chunks": 3,
+      "capture_truncated": false,
+      "elapsed_ns": 112720417
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-15",
+      "direction": "server_to_client",
+      "bytes": 2103,
+      "chunks": 2,
+      "captured_bytes": 2103,
+      "captured_chunks": 2,
+      "capture_truncated": false,
+      "elapsed_ns": 112724375
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-16",
+      "direction": "client_to_server",
+      "bytes": 1857,
+      "chunks": 5,
+      "captured_bytes": 1857,
+      "captured_chunks": 5,
+      "capture_truncated": false,
+      "elapsed_ns": 112728292
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-16",
+      "direction": "server_to_client",
+      "bytes": 2133,
+      "chunks": 5,
+      "captured_bytes": 2133,
+      "captured_chunks": 5,
+      "capture_truncated": false,
+      "elapsed_ns": 112732209
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-17",
+      "direction": "client_to_server",
+      "bytes": 1784,
+      "chunks": 3,
+      "captured_bytes": 1784,
+      "captured_chunks": 3,
+      "capture_truncated": false,
+      "elapsed_ns": 112736125
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-17",
+      "direction": "server_to_client",
+      "bytes": 2119,
+      "chunks": 4,
+      "captured_bytes": 2119,
+      "captured_chunks": 4,
+      "capture_truncated": false,
+      "elapsed_ns": 112740042
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-18",
+      "direction": "client_to_server",
+      "bytes": 1847,
+      "chunks": 5,
+      "captured_bytes": 1847,
+      "captured_chunks": 5,
+      "capture_truncated": false,
+      "elapsed_ns": 112743917
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-18",
+      "direction": "server_to_client",
+      "bytes": 2156,
+      "chunks": 5,
+      "captured_bytes": 2156,
+      "captured_chunks": 5,
+      "capture_truncated": false,
+      "elapsed_ns": 112752250
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-19",
+      "direction": "client_to_server",
+      "bytes": 1770,
+      "chunks": 4,
+      "captured_bytes": 1770,
+      "captured_chunks": 4,
+      "capture_truncated": false,
+      "elapsed_ns": 112756375
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-19",
+      "direction": "server_to_client",
+      "bytes": 2133,
+      "chunks": 4,
+      "captured_bytes": 2133,
+      "captured_chunks": 4,
+      "capture_truncated": false,
+      "elapsed_ns": 112760209
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-2",
+      "direction": "client_to_server",
+      "bytes": 1681,
+      "chunks": 3,
+      "captured_bytes": 1681,
+      "captured_chunks": 3,
+      "capture_truncated": false,
+      "elapsed_ns": 112764334
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-2",
+      "direction": "server_to_client",
+      "bytes": 2604,
+      "chunks": 2,
+      "captured_bytes": 2604,
+      "captured_chunks": 2,
+      "capture_truncated": false,
+      "elapsed_ns": 112768250
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-20",
+      "direction": "client_to_server",
+      "bytes": 1501,
+      "chunks": 1,
+      "captured_bytes": 1501,
+      "captured_chunks": 1,
+      "capture_truncated": false,
+      "elapsed_ns": 112772167
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-20",
+      "direction": "server_to_client",
+      "bytes": 7,
+      "chunks": 1,
+      "captured_bytes": 7,
+      "captured_chunks": 1,
+      "capture_truncated": false,
+      "elapsed_ns": 112776125
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-21",
+      "direction": "client_to_server",
+      "bytes": 1636,
+      "chunks": 3,
+      "captured_bytes": 1636,
+      "captured_chunks": 3,
+      "capture_truncated": false,
+      "elapsed_ns": 112780084
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-21",
+      "direction": "server_to_client",
+      "bytes": 1854,
+      "chunks": 2,
+      "captured_bytes": 1854,
+      "captured_chunks": 2,
+      "capture_truncated": false,
+      "elapsed_ns": 112783917
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-22",
+      "direction": "client_to_server",
+      "bytes": 1631,
+      "chunks": 4,
+      "captured_bytes": 1631,
+      "captured_chunks": 4,
+      "capture_truncated": false,
+      "elapsed_ns": 112787917
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-22",
+      "direction": "server_to_client",
+      "bytes": 2748,
+      "chunks": 2,
+      "captured_bytes": 2748,
+      "captured_chunks": 2,
+      "capture_truncated": false,
+      "elapsed_ns": 112791834
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-23",
+      "direction": "client_to_server",
+      "bytes": 1632,
+      "chunks": 4,
+      "captured_bytes": 1632,
+      "captured_chunks": 4,
+      "capture_truncated": false,
+      "elapsed_ns": 112795750
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-23",
+      "direction": "server_to_client",
+      "bytes": 2216,
+      "chunks": 2,
+      "captured_bytes": 2216,
+      "captured_chunks": 2,
+      "capture_truncated": false,
+      "elapsed_ns": 112799625
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-24",
+      "direction": "client_to_server",
+      "bytes": 1646,
+      "chunks": 4,
+      "captured_bytes": 1646,
+      "captured_chunks": 4,
+      "capture_truncated": false,
+      "elapsed_ns": 112803500
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-24",
+      "direction": "server_to_client",
+      "bytes": 2764,
+      "chunks": 2,
+      "captured_bytes": 2764,
+      "captured_chunks": 2,
+      "capture_truncated": false,
+      "elapsed_ns": 112807334
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-25",
+      "direction": "client_to_server",
+      "bytes": 1647,
+      "chunks": 4,
+      "captured_bytes": 1647,
+      "captured_chunks": 4,
+      "capture_truncated": false,
+      "elapsed_ns": 112811250
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-25",
+      "direction": "server_to_client",
+      "bytes": 2230,
+      "chunks": 2,
+      "captured_bytes": 2230,
+      "captured_chunks": 2,
+      "capture_truncated": false,
+      "elapsed_ns": 112815042
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-3",
+      "direction": "client_to_server",
+      "bytes": 1682,
+      "chunks": 3,
+      "captured_bytes": 1682,
+      "captured_chunks": 3,
+      "capture_truncated": false,
+      "elapsed_ns": 112818917
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-3",
+      "direction": "server_to_client",
+      "bytes": 2072,
+      "chunks": 2,
+      "captured_bytes": 2072,
+      "captured_chunks": 2,
+      "capture_truncated": false,
+      "elapsed_ns": 112822792
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-4",
+      "direction": "client_to_server",
+      "bytes": 1767,
+      "chunks": 4,
+      "captured_bytes": 1767,
+      "captured_chunks": 4,
+      "capture_truncated": false,
+      "elapsed_ns": 112826667
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-4",
+      "direction": "server_to_client",
+      "bytes": 2098,
+      "chunks": 4,
+      "captured_bytes": 2098,
+      "captured_chunks": 4,
+      "capture_truncated": false,
+      "elapsed_ns": 112830459
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-5",
+      "direction": "client_to_server",
+      "bytes": 1767,
+      "chunks": 3,
+      "captured_bytes": 1767,
+      "captured_chunks": 3,
+      "capture_truncated": false,
+      "elapsed_ns": 112834334
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-5",
+      "direction": "server_to_client",
+      "bytes": 2090,
+      "chunks": 2,
+      "captured_bytes": 2090,
+      "captured_chunks": 2,
+      "capture_truncated": false,
+      "elapsed_ns": 112841584
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-6",
+      "direction": "client_to_server",
+      "bytes": 1790,
+      "chunks": 4,
+      "captured_bytes": 1790,
+      "captured_chunks": 4,
+      "capture_truncated": false,
+      "elapsed_ns": 112845667
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-6",
+      "direction": "server_to_client",
+      "bytes": 2118,
+      "chunks": 4,
+      "captured_bytes": 2118,
+      "captured_chunks": 4,
+      "capture_truncated": false,
+      "elapsed_ns": 112849584
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-7",
+      "direction": "client_to_server",
+      "bytes": 1867,
+      "chunks": 3,
+      "captured_bytes": 1867,
+      "captured_chunks": 3,
+      "capture_truncated": false,
+      "elapsed_ns": 112853584
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-7",
+      "direction": "server_to_client",
+      "bytes": 2088,
+      "chunks": 2,
+      "captured_bytes": 2088,
+      "captured_chunks": 2,
+      "capture_truncated": false,
+      "elapsed_ns": 112857375
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-8",
+      "direction": "client_to_server",
+      "bytes": 1795,
+      "chunks": 4,
+      "captured_bytes": 1795,
+      "captured_chunks": 4,
+      "capture_truncated": false,
+      "elapsed_ns": 112861250
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-8",
+      "direction": "server_to_client",
+      "bytes": 2070,
+      "chunks": 4,
+      "captured_bytes": 2070,
+      "captured_chunks": 4,
+      "capture_truncated": false,
+      "elapsed_ns": 112865084
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-9",
+      "direction": "client_to_server",
+      "bytes": 1696,
+      "chunks": 3,
+      "captured_bytes": 1696,
+      "captured_chunks": 3,
+      "capture_truncated": false,
+      "elapsed_ns": 112868959
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-9",
+      "direction": "server_to_client",
+      "bytes": 2621,
+      "chunks": 2,
+      "captured_bytes": 2621,
+      "captured_chunks": 2,
+      "capture_truncated": false,
+      "elapsed_ns": 112872959
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "udp-1",
+      "direction": "client_to_server",
+      "bytes": 3981,
+      "chunks": 7,
+      "captured_bytes": 3981,
+      "captured_chunks": 7,
+      "capture_truncated": false,
+      "elapsed_ns": 112876792
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "udp-1",
+      "direction": "server_to_client",
+      "bytes": 3013,
+      "chunks": 6,
+      "captured_bytes": 3013,
+      "captured_chunks": 6,
+      "capture_truncated": false,
+      "elapsed_ns": 112880625
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "udp-10",
+      "direction": "client_to_server",
+      "bytes": 4102,
+      "chunks": 9,
+      "captured_bytes": 4102,
+      "captured_chunks": 9,
+      "capture_truncated": false,
+      "elapsed_ns": 112884334
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "udp-10",
+      "direction": "server_to_client",
+      "bytes": 2520,
+      "chunks": 6,
+      "captured_bytes": 2520,
+      "captured_chunks": 6,
+      "capture_truncated": false,
+      "elapsed_ns": 112888167
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "udp-11",
+      "direction": "client_to_server",
+      "bytes": 3959,
+      "chunks": 6,
+      "captured_bytes": 3959,
+      "captured_chunks": 6,
+      "capture_truncated": false,
+      "elapsed_ns": 112891959
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "udp-11",
+      "direction": "server_to_client",
+      "bytes": 2481,
+      "chunks": 5,
+      "captured_bytes": 2481,
+      "captured_chunks": 5,
+      "capture_truncated": false,
+      "elapsed_ns": 112895834
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "udp-12",
+      "direction": "client_to_server",
+      "bytes": 2560,
+      "chunks": 2,
+      "captured_bytes": 2560,
+      "captured_chunks": 2,
+      "capture_truncated": false,
+      "elapsed_ns": 112899709
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "udp-12",
+      "direction": "server_to_client",
+      "bytes": 37,
+      "chunks": 1,
+      "captured_bytes": 37,
+      "captured_chunks": 1,
+      "capture_truncated": false,
+      "elapsed_ns": 112903459
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "udp-13",
+      "direction": "client_to_server",
+      "bytes": 3970,
+      "chunks": 6,
+      "captured_bytes": 3970,
+      "captured_chunks": 6,
+      "capture_truncated": false,
+      "elapsed_ns": 112907375
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "udp-13",
+      "direction": "server_to_client",
+      "bytes": 2412,
+      "chunks": 6,
+      "captured_bytes": 2412,
+      "captured_chunks": 6,
+      "capture_truncated": false,
+      "elapsed_ns": 112911209
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "udp-2",
+      "direction": "client_to_server",
+      "bytes": 3981,
+      "chunks": 7,
+      "captured_bytes": 3981,
+      "captured_chunks": 7,
+      "capture_truncated": false,
+      "elapsed_ns": 112914959
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "udp-2",
+      "direction": "server_to_client",
+      "bytes": 2436,
+      "chunks": 5,
+      "captured_bytes": 2436,
+      "captured_chunks": 5,
+      "capture_truncated": false,
+      "elapsed_ns": 112918709
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "udp-3",
+      "direction": "client_to_server",
+      "bytes": 4009,
+      "chunks": 7,
+      "captured_bytes": 4009,
+      "captured_chunks": 7,
+      "capture_truncated": false,
+      "elapsed_ns": 112922542
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "udp-3",
+      "direction": "server_to_client",
+      "bytes": 2465,
+      "chunks": 5,
+      "captured_bytes": 2465,
+      "captured_chunks": 5,
+      "capture_truncated": false,
+      "elapsed_ns": 112926375
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "udp-4",
+      "direction": "client_to_server",
+      "bytes": 4009,
+      "chunks": 7,
+      "captured_bytes": 4009,
+      "captured_chunks": 7,
+      "capture_truncated": false,
+      "elapsed_ns": 112932167
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "udp-4",
+      "direction": "server_to_client",
+      "bytes": 2428,
+      "chunks": 5,
+      "captured_bytes": 2428,
+      "captured_chunks": 5,
+      "capture_truncated": false,
+      "elapsed_ns": 112936084
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "udp-5",
+      "direction": "client_to_server",
+      "bytes": 4081,
+      "chunks": 8,
+      "captured_bytes": 4081,
+      "captured_chunks": 8,
+      "capture_truncated": false,
+      "elapsed_ns": 112939834
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "udp-5",
+      "direction": "server_to_client",
+      "bytes": 2508,
+      "chunks": 6,
+      "captured_bytes": 2508,
+      "captured_chunks": 6,
+      "capture_truncated": false,
+      "elapsed_ns": 112943667
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "udp-6",
+      "direction": "client_to_server",
+      "bytes": 4150,
+      "chunks": 8,
+      "captured_bytes": 4150,
+      "captured_chunks": 8,
+      "capture_truncated": false,
+      "elapsed_ns": 112947542
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "udp-6",
+      "direction": "server_to_client",
+      "bytes": 2500,
+      "chunks": 6,
+      "captured_bytes": 2500,
+      "captured_chunks": 6,
+      "capture_truncated": false,
+      "elapsed_ns": 112951459
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "udp-7",
+      "direction": "client_to_server",
+      "bytes": 4118,
+      "chunks": 9,
+      "captured_bytes": 4118,
+      "captured_chunks": 9,
+      "capture_truncated": false,
+      "elapsed_ns": 112955292
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "udp-7",
+      "direction": "server_to_client",
+      "bytes": 2502,
+      "chunks": 6,
+      "captured_bytes": 2502,
+      "captured_chunks": 6,
+      "capture_truncated": false,
+      "elapsed_ns": 112959167
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "udp-8",
+      "direction": "client_to_server",
+      "bytes": 4103,
+      "chunks": 9,
+      "captured_bytes": 4103,
+      "captured_chunks": 9,
+      "capture_truncated": false,
+      "elapsed_ns": 112963084
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "udp-8",
+      "direction": "server_to_client",
+      "bytes": 2482,
+      "chunks": 5,
+      "captured_bytes": 2482,
+      "captured_chunks": 5,
+      "capture_truncated": false,
+      "elapsed_ns": 112966917
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "udp-9",
+      "direction": "client_to_server",
+      "bytes": 4009,
+      "chunks": 7,
+      "captured_bytes": 4009,
+      "captured_chunks": 7,
+      "capture_truncated": false,
+      "elapsed_ns": 112970792
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "udp-9",
+      "direction": "server_to_client",
+      "bytes": 2490,
+      "chunks": 7,
+      "captured_bytes": 2490,
+      "captured_chunks": 7,
+      "capture_truncated": false,
+      "elapsed_ns": 112974625
+    }
+  ],
+  "interpretation": [
+    "SNI values are redacted to configured-name classes; only the visible outer ClientHello is inspected.",
+    "An ECH extension can be real or GREASE; its presence does not prove ECH acceptance or reveal the inner name.",
+    "Offered ALPN is a ClientHello observation. Negotiated ALPN requires the active client's connection state.",
+    "TCP relay reads preserve byte order but do not preserve IP packets, retransmissions, segmentation or NIC timestamps.",
+    "QUIC Initial decryption requires no TLS secret; later encrypted traffic is not decrypted here.",
+    "A missing legacy ALPN match defeats only that declared rule, not classifiers, all DPI or active detection.",
+    "Capture truncation and undecoded observations remain visible. Legacy-ALPN probes must not be mislabeled as native client traffic."
+  ]
+}

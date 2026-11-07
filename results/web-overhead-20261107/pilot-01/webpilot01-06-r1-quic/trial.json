@@ -1,0 +1,268 @@
+{
+  "trial_id": "webpilot01-06-r1-quic",
+  "case": "quic",
+  "network": "quic",
+  "padding": 0,
+  "repeat": 1,
+  "order": 6,
+  "started_utc": "2026-11-07T03:56:19.342097+00:00",
+  "status": "completed",
+  "configured_duration_seconds": 1.5,
+  "prebenchmark_idle_seconds": 0.3,
+  "config_summary": {
+    "server": {
+      "rate_mbps": 8,
+      "priority": true,
+      "adaptive": false,
+      "window_bytes": 65536,
+      "max_flows": 32,
+      "max_sessions": 2,
+      "heartbeat_ms": 500,
+      "dead_ms": 2000,
+      "resume_seconds": 90,
+      "dial_timeout_ms": 1200,
+      "allow_private_targets": true,
+      "web_padding": 0
+    },
+    "client": {
+      "rate_mbps": 2,
+      "priority": true,
+      "adaptive": false,
+      "window_bytes": 65536,
+      "max_flows": 32,
+      "max_sessions": 2,
+      "heartbeat_ms": 500,
+      "dead_ms": 2000,
+      "resume_seconds": 90,
+      "dial_timeout_ms": 1200,
+      "web_padding": 0
+    },
+    "single_endpoint": "quic",
+    "ech": false,
+    "http_keepalive": true,
+    "capture_bytes": 0,
+    "capture_packets": 0,
+    "trust": "explicit development leaf pin; no public CA/ECH claim"
+  },
+  "private_config_sha256": {
+    "server": "6e1dd5485fad50c175cbe7f376b486bfc66d43bc6eb2401ad46e21d223d28656",
+    "client": "b7ba74829625b8b85627f78367a86928a6843e2457ff4891f1715cf24e6824e0"
+  },
+  "benchmark_started_utc": "2026-11-07T03:56:19.874993+00:00",
+  "benchmark_ended_utc": "2026-11-07T03:56:21.407673+00:00",
+  "processes": {
+    "init": {
+      "pid": 47343,
+      "started_utc": "2026-11-07T03:56:19.345231+00:00",
+      "started_elapsed_ns": 3167625,
+      "forced_kill": false,
+      "exit_code": 0,
+      "observed_stopped_utc": "2026-11-07T03:56:21.428820+00:00"
+    },
+    "origin": {
+      "pid": 47344,
+      "started_utc": "2026-11-07T03:56:19.358494+00:00",
+      "started_elapsed_ns": 16420167,
+      "forced_kill": false,
+      "sigterm_utc": "2026-11-07T03:56:21.416634+00:00",
+      "exit_code": 0,
+      "observed_stopped_utc": "2026-11-07T03:56:21.418165+00:00"
+    },
+    "server": {
+      "pid": 47345,
+      "started_utc": "2026-11-07T03:56:19.411081+00:00",
+      "started_elapsed_ns": 69008583,
+      "forced_kill": false,
+      "sigterm_utc": "2026-11-07T03:56:21.412092+00:00",
+      "exit_code": 0,
+      "observed_stopped_utc": "2026-11-07T03:56:21.416625+00:00"
+    },
+    "relay": {
+      "pid": 47346,
+      "started_utc": "2026-11-07T03:56:19.463738+00:00",
+      "started_elapsed_ns": 121672083,
+      "forced_kill": false,
+      "sigterm_utc": "2026-11-07T03:56:21.418175+00:00",
+      "exit_code": 0,
+      "observed_stopped_utc": "2026-11-07T03:56:21.428793+00:00"
+    },
+    "client": {
+      "pid": 47347,
+      "started_utc": "2026-11-07T03:56:19.515414+00:00",
+      "started_elapsed_ns": 173328958,
+      "forced_kill": false,
+      "sigterm_utc": "2026-11-07T03:56:21.407751+00:00",
+      "exit_code": 0,
+      "observed_stopped_utc": "2026-11-07T03:56:21.412080+00:00"
+    },
+    "benchmark": {
+      "pid": 47350,
+      "started_utc": "2026-11-07T03:56:19.877680+00:00",
+      "started_elapsed_ns": 535637792,
+      "forced_kill": false,
+      "exit_code": 0,
+      "observed_stopped_utc": "2026-11-07T03:56:21.407739+00:00"
+    }
+  },
+  "resources": {
+    "init": {
+      "samples": 0,
+      "rss_sampled_peak_kib": null
+    },
+    "origin": {
+      "samples": 9,
+      "rss_sampled_peak_kib": 13296
+    },
+    "server": {
+      "samples": 9,
+      "rss_sampled_peak_kib": 19552
+    },
+    "relay": {
+      "samples": 9,
+      "rss_sampled_peak_kib": 18336
+    },
+    "client": {
+      "samples": 9,
+      "rss_sampled_peak_kib": 17568
+    },
+    "benchmark": {
+      "samples": 7,
+      "rss_sampled_peak_kib": 14464
+    }
+  },
+  "resource_notes": [
+    "200ms requested sampling interval; actual timestamps retained.",
+    "Sampled RSS peak is a lower bound, not OS high-water RSS.",
+    "ps %cpu is not interval CPU accounting; raw values are diagnostic only."
+  ],
+  "commands": [
+    {
+      "role": "init",
+      "argv": [
+        "$PRIVATE/frozen/protox",
+        "init",
+        "-dir",
+        "$PRIVATE/webpilot01-06-r1-quic/config",
+        "-host",
+        "127.0.0.1",
+        "-server-name",
+        "webbench.example.test",
+        "-tls-port",
+        "63755",
+        "-quic-port",
+        "63755",
+        "--legacy"
+      ]
+    },
+    {
+      "role": "origin",
+      "argv": [
+        "$PRIVATE/frozen/pxbench",
+        "serve",
+        "-http",
+        "127.0.0.1:59581",
+        "-echo",
+        "127.0.0.1:59582"
+      ]
+    },
+    {
+      "role": "server",
+      "argv": [
+        "$PRIVATE/frozen/protox",
+        "server",
+        "-config",
+        "$PRIVATE/webpilot01-06-r1-quic/config/server.json"
+      ]
+    },
+    {
+      "role": "relay",
+      "argv": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "$PRIVATE/frozen/relay.py",
+        "--out",
+        "$PRIVATE/webpilot01-06-r1-quic/capture",
+        "--label",
+        "quic",
+        "--udp-target",
+        "127.0.0.1:63755",
+        "--capture-bytes",
+        "0",
+        "--capture-packets",
+        "0"
+      ]
+    },
+    {
+      "role": "client",
+      "argv": [
+        "$PRIVATE/frozen/protox",
+        "client",
+        "-config",
+        "$PRIVATE/webpilot01-06-r1-quic/config/client.json"
+      ]
+    },
+    {
+      "role": "benchmark",
+      "argv": [
+        "$PRIVATE/frozen/pxbench",
+        "run",
+        "-proxy",
+        "127.0.0.1:59580",
+        "-http-target",
+        "http://127.0.0.1:59581",
+        "-echo-target",
+        "127.0.0.1:59582",
+        "-duration",
+        "1.5s",
+        "-timeout",
+        "3s",
+        "-rps",
+        "5",
+        "-http-method",
+        "POST",
+        "-http-bytes",
+        "1024",
+        "-concurrency",
+        "32",
+        "-echo-interval",
+        "100ms",
+        "-stream-interval",
+        "50ms",
+        "-background",
+        "1",
+        "-background-mbps",
+        "2",
+        "-uploads",
+        "0",
+        "-run-id",
+        "webpilot01-06-r1-quic",
+        "-output",
+        "$PRIVATE/webpilot01-06-r1-quic/events.jsonl",
+        "-summary",
+        "$PRIVATE/webpilot01-06-r1-quic/events.summary.json"
+      ]
+    }
+  ],
+  "evidence_files": {
+    "events.jsonl": {
+      "private_original_sha256": "46797ccc8f3003d6426310e1b629f5e53a38a5a5b657291653071c6b500ef3f4",
+      "published_sha256": "fb3aa72dd7ddc0145a1e216ba15b88f09f57f0e45a55c9ae10b5e86f5c8dad1e",
+      "redaction": "paths only; workload values, failures and censoring unchanged"
+    },
+    "events.summary.json": {
+      "private_original_sha256": "0236c89326aa4eed630626c5c4f14c5e9129a63f517b24ef294bde17bad1660f",
+      "published_sha256": "baad12f0829b07270c4503e41ce760e3369e51ca453a61a9470529222906b025",
+      "redaction": "paths only; workload values, failures and censoring unchanged"
+    },
+    "resources.jsonl": {
+      "private_original_sha256": "3d8c348f17a241bb065434e5d6bf5e35ea904a770d4b712fb034a67edec88e71",
+      "published_sha256": "298c83cddd70be369567493feb388aa19a1b15c8a1a686c66bc4744e4cca2793",
+      "redaction": "paths only; workload values, failures and censoring unchanged"
+    },
+    "relay-events.jsonl": {
+      "private_original_sha256": "70aa52e590227e7b2062a3d703217380a750a6b475513ef421134f140e8739e0",
+      "published_sha256": "5020f6ae0a0fd969f244bb9f5f674cb3c43a2a5d86b8644607bc5146acded00f",
+      "redaction": "private_udp_mapping events omitted; all count/error/lifecycle events retained"
+    }
+  },
+  "ended_utc": "2026-11-07T03:56:21.433614+00:00"
+}

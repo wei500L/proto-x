@@ -1,0 +1,522 @@
+{
+  "schema": 1,
+  "created_utc": "2026-11-07T03:53:42.462611+00:00",
+  "status": "failed",
+  "scenarios": [
+    {
+      "label": "native-h2-ech-off",
+      "network": "h2",
+      "ech_configured": false,
+      "checks": {
+        "four_proxy_requests_succeeded": true,
+        "origin_observed_four_requests": true,
+        "sixteen_stream_events_received": true,
+        "tls_state_completed_and_ca_verified": true,
+        "actual_tls_ech_acceptance_matches_setting": true,
+        "tls_negotiated_requested_alpn": true,
+        "all_observed_clienthellos_decoded": true,
+        "no_legacy_custom_alpn": true,
+        "visible_name_class_matches_ech_setting": true,
+        "native_ech_extension_matches_setting": true,
+        "capture_clean_and_no_inspection_errors": true,
+        "capture_not_truncated": true
+      },
+      "status": "passed",
+      "requests": [
+        {
+          "workload": "fixed_response",
+          "request_started_monotonic_ns": 1004080375,
+          "http_status": 200,
+          "headers_elapsed_ms": 3.32725,
+          "status": "success",
+          "elapsed_ms": 47.598125,
+          "body_bytes": 32768,
+          "body_sha256": "2a94172735d6340f75bd6f5186fc4f6538c98dae05e221616a411b702656525b",
+          "expected_body_sha256": "2a94172735d6340f75bd6f5186fc4f6538c98dae05e221616a411b702656525b"
+        },
+        {
+          "workload": "fixed_response",
+          "request_started_monotonic_ns": 1051724708,
+          "http_status": 200,
+          "headers_elapsed_ms": 5.970208,
+          "status": "success",
+          "elapsed_ms": 50.615917,
+          "body_bytes": 32768,
+          "body_sha256": "2a94172735d6340f75bd6f5186fc4f6538c98dae05e221616a411b702656525b",
+          "expected_body_sha256": "2a94172735d6340f75bd6f5186fc4f6538c98dae05e221616a411b702656525b"
+        },
+        {
+          "workload": "fixed_response",
+          "request_started_monotonic_ns": 1102368291,
+          "http_status": 200,
+          "headers_elapsed_ms": 5.942292,
+          "status": "success",
+          "elapsed_ms": 50.633709,
+          "body_bytes": 32768,
+          "body_sha256": "2a94172735d6340f75bd6f5186fc4f6538c98dae05e221616a411b702656525b",
+          "expected_body_sha256": "2a94172735d6340f75bd6f5186fc4f6538c98dae05e221616a411b702656525b"
+        },
+        {
+          "workload": "paced_event_stream",
+          "request_started_monotonic_ns": 1153032041,
+          "http_status": 200,
+          "headers_elapsed_ms": 5.9685,
+          "event_arrival_elapsed_ms": [
+            5.97525,
+            31.088459,
+            61.141667,
+            91.128125,
+            121.140917,
+            143.940084,
+            168.241042,
+            191.447084,
+            213.278292,
+            237.602834,
+            260.803375,
+            282.746959,
+            312.719,
+            342.80675,
+            372.838625,
+            402.92775
+          ],
+          "event_count": 16,
+          "status": "success",
+          "elapsed_ms": 402.951667,
+          "body_bytes": 934,
+          "body_sha256": "26aa75010cd322e835de42915eb8d6287a42e7eca348765e994c0997990b5eed",
+          "expected_body_sha256": "26aa75010cd322e835de42915eb8d6287a42e7eca348765e994c0997990b5eed"
+        }
+      ],
+      "origin_observations": [
+        {
+          "workload": "fixed_response",
+          "generated_monotonic_ns": [],
+          "status": "produced"
+        },
+        {
+          "workload": "fixed_response",
+          "generated_monotonic_ns": [],
+          "status": "produced"
+        },
+        {
+          "workload": "fixed_response",
+          "generated_monotonic_ns": [],
+          "status": "produced"
+        },
+        {
+          "workload": "paced_event_stream",
+          "generated_monotonic_ns": [
+            1158644666,
+            1183786708,
+            1213835083,
+            1243885166,
+            1273909458,
+            1296716333,
+            1320906333,
+            1344189916,
+            1366010208,
+            1390355041,
+            1413573291,
+            1435540666,
+            1465564125,
+            1495593375,
+            1525625875,
+            1555654916
+          ],
+          "status": "produced"
+        }
+      ],
+      "decoded_native_clienthellos": 1,
+      "tls_state_diagnostic_is_a_separate_direct_connection": true
+    },
+    {
+      "label": "native-h2-ech-on",
+      "network": "h2",
+      "ech_configured": true,
+      "checks": {
+        "four_proxy_requests_succeeded": true,
+        "origin_observed_four_requests": true,
+        "sixteen_stream_events_received": true,
+        "tls_state_completed_and_ca_verified": true,
+        "actual_tls_ech_acceptance_matches_setting": true,
+        "tls_negotiated_requested_alpn": true,
+        "all_observed_clienthellos_decoded": true,
+        "no_legacy_custom_alpn": true,
+        "visible_name_class_matches_ech_setting": true,
+        "native_ech_extension_matches_setting": true,
+        "capture_clean_and_no_inspection_errors": true,
+        "capture_not_truncated": true
+      },
+      "status": "passed",
+      "requests": [
+        {
+          "workload": "fixed_response",
+          "request_started_monotonic_ns": 1759060916,
+          "http_status": 200,
+          "headers_elapsed_ms": 3.081375,
+          "status": "success",
+          "elapsed_ms": 48.057542,
+          "body_bytes": 32768,
+          "body_sha256": "2a94172735d6340f75bd6f5186fc4f6538c98dae05e221616a411b702656525b",
+          "expected_body_sha256": "2a94172735d6340f75bd6f5186fc4f6538c98dae05e221616a411b702656525b"
+        },
+        {
+          "workload": "fixed_response",
+          "request_started_monotonic_ns": 1807160166,
+          "http_status": 200,
+          "headers_elapsed_ms": 6.012584,
+          "status": "success",
+          "elapsed_ms": 50.916167,
+          "body_bytes": 32768,
+          "body_sha256": "2a94172735d6340f75bd6f5186fc4f6538c98dae05e221616a411b702656525b",
+          "expected_body_sha256": "2a94172735d6340f75bd6f5186fc4f6538c98dae05e221616a411b702656525b"
+        },
+        {
+          "workload": "fixed_response",
+          "request_started_monotonic_ns": 1858119666,
+          "http_status": 200,
+          "headers_elapsed_ms": 6.095417,
+          "status": "success",
+          "elapsed_ms": 50.768292,
+          "body_bytes": 32768,
+          "body_sha256": "2a94172735d6340f75bd6f5186fc4f6538c98dae05e221616a411b702656525b",
+          "expected_body_sha256": "2a94172735d6340f75bd6f5186fc4f6538c98dae05e221616a411b702656525b"
+        },
+        {
+          "workload": "paced_event_stream",
+          "request_started_monotonic_ns": 1908935166,
+          "http_status": 200,
+          "headers_elapsed_ms": 5.98275,
+          "event_arrival_elapsed_ms": [
+            5.990667,
+            35.903542,
+            60.966417,
+            86.9105,
+            109.016584,
+            129.559125,
+            157.910584,
+            181.085625,
+            201.3795,
+            231.351709,
+            258.7995,
+            280.087625,
+            307.611959,
+            337.6455,
+            365.671209,
+            386.671292
+          ],
+          "event_count": 16,
+          "status": "success",
+          "elapsed_ms": 386.717125,
+          "body_bytes": 934,
+          "body_sha256": "26aa75010cd322e835de42915eb8d6287a42e7eca348765e994c0997990b5eed",
+          "expected_body_sha256": "26aa75010cd322e835de42915eb8d6287a42e7eca348765e994c0997990b5eed"
+        }
+      ],
+      "origin_observations": [
+        {
+          "workload": "fixed_response",
+          "generated_monotonic_ns": [],
+          "status": "produced"
+        },
+        {
+          "workload": "fixed_response",
+          "generated_monotonic_ns": [],
+          "status": "produced"
+        },
+        {
+          "workload": "fixed_response",
+          "generated_monotonic_ns": [],
+          "status": "produced"
+        },
+        {
+          "workload": "paced_event_stream",
+          "generated_monotonic_ns": [
+            1914525208,
+            1944544458,
+            1969389250,
+            1995455916,
+            2017598333,
+            2038169625,
+            2066450791,
+            2089724666,
+            2110017583,
+            2140037291,
+            2167448708,
+            2188777416,
+            2216342625,
+            2246358625,
+            2274372875,
+            2295413041
+          ],
+          "status": "produced"
+        }
+      ],
+      "decoded_native_clienthellos": 1,
+      "tls_state_diagnostic_is_a_separate_direct_connection": true
+    },
+    {
+      "label": "native-h3-ech-off",
+      "network": "h3",
+      "ech_configured": false,
+      "checks": {
+        "four_proxy_requests_succeeded": true,
+        "origin_observed_four_requests": true,
+        "sixteen_stream_events_received": true,
+        "tls_state_completed_and_ca_verified": true,
+        "actual_tls_ech_acceptance_matches_setting": true,
+        "tls_negotiated_requested_alpn": true,
+        "all_observed_clienthellos_decoded": true,
+        "no_legacy_custom_alpn": true,
+        "visible_name_class_matches_ech_setting": true,
+        "native_ech_extension_matches_setting": true,
+        "capture_clean_and_no_inspection_errors": true,
+        "capture_not_truncated": false
+      },
+      "status": "failed",
+      "requests": [
+        {
+          "workload": "fixed_response",
+          "request_started_monotonic_ns": 2584874708,
+          "http_status": 200,
+          "headers_elapsed_ms": 3.147875,
+          "status": "success",
+          "elapsed_ms": 47.927958,
+          "body_bytes": 32768,
+          "body_sha256": "2a94172735d6340f75bd6f5186fc4f6538c98dae05e221616a411b702656525b",
+          "expected_body_sha256": "2a94172735d6340f75bd6f5186fc4f6538c98dae05e221616a411b702656525b"
+        },
+        {
+          "workload": "fixed_response",
+          "request_started_monotonic_ns": 2632850750,
+          "http_status": 200,
+          "headers_elapsed_ms": 6.000125,
+          "status": "success",
+          "elapsed_ms": 50.852125,
+          "body_bytes": 32768,
+          "body_sha256": "2a94172735d6340f75bd6f5186fc4f6538c98dae05e221616a411b702656525b",
+          "expected_body_sha256": "2a94172735d6340f75bd6f5186fc4f6538c98dae05e221616a411b702656525b"
+        },
+        {
+          "workload": "fixed_response",
+          "request_started_monotonic_ns": 2683747833,
+          "http_status": 200,
+          "headers_elapsed_ms": 6.052542,
+          "status": "success",
+          "elapsed_ms": 50.697125,
+          "body_bytes": 32768,
+          "body_sha256": "2a94172735d6340f75bd6f5186fc4f6538c98dae05e221616a411b702656525b",
+          "expected_body_sha256": "2a94172735d6340f75bd6f5186fc4f6538c98dae05e221616a411b702656525b"
+        },
+        {
+          "workload": "paced_event_stream",
+          "request_started_monotonic_ns": 2734500416,
+          "http_status": 200,
+          "headers_elapsed_ms": 5.919084,
+          "event_arrival_elapsed_ms": [
+            5.927667,
+            34.901167,
+            58.661292,
+            86.181667,
+            113.465625,
+            138.7475,
+            161.923334,
+            189.197417,
+            210.814167,
+            238.089375,
+            259.310709,
+            285.834209,
+            313.075084,
+            341.400459,
+            364.073917,
+            393.458584
+          ],
+          "event_count": 16,
+          "status": "success",
+          "elapsed_ms": 393.5095,
+          "body_bytes": 934,
+          "body_sha256": "26aa75010cd322e835de42915eb8d6287a42e7eca348765e994c0997990b5eed",
+          "expected_body_sha256": "26aa75010cd322e835de42915eb8d6287a42e7eca348765e994c0997990b5eed"
+        }
+      ],
+      "origin_observations": [
+        {
+          "workload": "fixed_response",
+          "generated_monotonic_ns": [],
+          "status": "produced"
+        },
+        {
+          "workload": "fixed_response",
+          "generated_monotonic_ns": [],
+          "status": "produced"
+        },
+        {
+          "workload": "fixed_response",
+          "generated_monotonic_ns": [],
+          "status": "produced"
+        },
+        {
+          "workload": "paced_event_stream",
+          "generated_monotonic_ns": [
+            2740080250,
+            2769123625,
+            2792888416,
+            2820440375,
+            2847622458,
+            2872978750,
+            2896144541,
+            2923492583,
+            2945134916,
+            2972385166,
+            2993645750,
+            3020125916,
+            3047335250,
+            3075644416,
+            3098239708,
+            3127789666
+          ],
+          "status": "produced"
+        }
+      ],
+      "decoded_native_clienthellos": 1,
+      "tls_state_diagnostic_is_a_separate_direct_connection": true
+    },
+    {
+      "label": "native-h3-ech-on",
+      "network": "h3",
+      "ech_configured": true,
+      "checks": {
+        "four_proxy_requests_succeeded": true,
+        "origin_observed_four_requests": true,
+        "sixteen_stream_events_received": true,
+        "tls_state_completed_and_ca_verified": true,
+        "actual_tls_ech_acceptance_matches_setting": true,
+        "tls_negotiated_requested_alpn": true,
+        "all_observed_clienthellos_decoded": true,
+        "no_legacy_custom_alpn": true,
+        "visible_name_class_matches_ech_setting": true,
+        "native_ech_extension_matches_setting": true,
+        "capture_clean_and_no_inspection_errors": true,
+        "capture_not_truncated": false
+      },
+      "status": "failed",
+      "requests": [
+        {
+          "workload": "fixed_response",
+          "request_started_monotonic_ns": 3395015041,
+          "http_status": 200,
+          "headers_elapsed_ms": 3.142709,
+          "status": "success",
+          "elapsed_ms": 47.491875,
+          "body_bytes": 32768,
+          "body_sha256": "2a94172735d6340f75bd6f5186fc4f6538c98dae05e221616a411b702656525b",
+          "expected_body_sha256": "2a94172735d6340f75bd6f5186fc4f6538c98dae05e221616a411b702656525b"
+        },
+        {
+          "workload": "fixed_response",
+          "request_started_monotonic_ns": 3442550708,
+          "http_status": 200,
+          "headers_elapsed_ms": 6.109625,
+          "status": "success",
+          "elapsed_ms": 50.855583,
+          "body_bytes": 32768,
+          "body_sha256": "2a94172735d6340f75bd6f5186fc4f6538c98dae05e221616a411b702656525b",
+          "expected_body_sha256": "2a94172735d6340f75bd6f5186fc4f6538c98dae05e221616a411b702656525b"
+        },
+        {
+          "workload": "fixed_response",
+          "request_started_monotonic_ns": 3493449791,
+          "http_status": 200,
+          "headers_elapsed_ms": 6.026084,
+          "status": "success",
+          "elapsed_ms": 50.767625,
+          "body_bytes": 32768,
+          "body_sha256": "2a94172735d6340f75bd6f5186fc4f6538c98dae05e221616a411b702656525b",
+          "expected_body_sha256": "2a94172735d6340f75bd6f5186fc4f6538c98dae05e221616a411b702656525b"
+        },
+        {
+          "workload": "paced_event_stream",
+          "request_started_monotonic_ns": 3544272208,
+          "http_status": 200,
+          "headers_elapsed_ms": 5.941792,
+          "event_arrival_elapsed_ms": [
+            5.951167,
+            35.632292,
+            62.75,
+            83.202958,
+            109.732708,
+            137.364625,
+            163.778542,
+            190.66,
+            211.496208,
+            238.166958,
+            265.431417,
+            294.594833,
+            321.837708,
+            348.830833,
+            376.228333,
+            401.780792
+          ],
+          "event_count": 16,
+          "status": "success",
+          "elapsed_ms": 401.833833,
+          "body_bytes": 934,
+          "body_sha256": "26aa75010cd322e835de42915eb8d6287a42e7eca348765e994c0997990b5eed",
+          "expected_body_sha256": "26aa75010cd322e835de42915eb8d6287a42e7eca348765e994c0997990b5eed"
+        }
+      ],
+      "origin_observations": [
+        {
+          "workload": "fixed_response",
+          "generated_monotonic_ns": [],
+          "status": "produced"
+        },
+        {
+          "workload": "fixed_response",
+          "generated_monotonic_ns": [],
+          "status": "produced"
+        },
+        {
+          "workload": "fixed_response",
+          "generated_monotonic_ns": [],
+          "status": "produced"
+        },
+        {
+          "workload": "paced_event_stream",
+          "generated_monotonic_ns": [
+            3549864833,
+            3579580416,
+            3606784125,
+            3627168416,
+            3653689208,
+            3681415541,
+            3707858958,
+            3734749208,
+            3755496583,
+            3782166500,
+            3809383125,
+            3838604500,
+            3865784666,
+            3892855250,
+            3920185625,
+            3945791250
+          ],
+          "status": "produced"
+        }
+      ],
+      "decoded_native_clienthellos": 1,
+      "tls_state_diagnostic_is_a_separate_direct_connection": true
+    }
+  ],
+  "candidate_binary_sha256": "cff89b2f1b9819482b90c85cd54d420e280475bc23ddafe62cc904aa67dc0ca9",
+  "measurement_binary_sha256": "0d0d2faa1b7e1b70b0c8c2ff5876a1f2a24eda28f3eb31ef0699c5b133d1e5e8",
+  "scope": "real native client/server over owned loopback H2/H3, ECH off/on, controlled HTTP/SSE target through SOCKS5",
+  "trust_policy": "generated local CA plus expected inner name and additional pin; no pin-only mode, no public-CA claim",
+  "fixture_server_session_limit": 8,
+  "ech_evidence": "native outer ClientHello bytes and successful proxy requests; separate direct TLS state explicitly reports ECHAccepted",
+  "limitations": [
+    "This is a functional local experiment, not a loss/latency comparison, a long soak, a cover classifier, or Russian reachability evidence.",
+    "The native client's configured ECH is fail-closed in WebClientTLS. The TLS state diagnostic is a separate connection, not an instrumented native-client callback.",
+    "Off/on captures use different configured handshake behavior; the ECH extension itself remains observable."
+  ]
+}

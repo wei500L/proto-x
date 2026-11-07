@@ -1,0 +1,6 @@
+{"kind":"capture_started","label":"h2-p127","schema":1,"observation":"actual bytes read by a user-space forwarding relay","is_host_pcap":false,"tcp_segmentation_preserved":false,"capture_byte_limit_per_direction":0,"capture_udp_packet_limit_per_direction":0,"elapsed_ns":1625}
+{"kind":"flow_started","flow":"tcp-1","transport":"tcp","elapsed_ns":47007334}
+{"kind":"tcp_flow_ended","flow":"tcp-1","error_class":"OSError","elapsed_ns":12449198542}
+{"kind":"flow_counts","flow":"tcp-1","direction":"client_to_server","bytes":399545,"chunks":3265,"captured_bytes":0,"captured_chunks":0,"capture_truncated":true,"elapsed_ns":12462217125}
+{"kind":"flow_counts","flow":"tcp-1","direction":"server_to_client","bytes":3252493,"chunks":2801,"captured_bytes":0,"captured_chunks":0,"capture_truncated":true,"elapsed_ns":12462273000}
+{"kind":"capture_stopped","elapsed_ns":12462290459}

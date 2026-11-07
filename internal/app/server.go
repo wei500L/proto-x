@@ -42,6 +42,11 @@ type Server struct {
 }
 
 func RunServer(ctx context.Context, cfg Config) error {
+	if err := cfg.validateWeb(true); err != nil {
+		return err
+	}
+	ctx, cancel := context.WithCancel(ctx)
+	defer cancel()
 	cert, e := tls.LoadX509KeyPair(cfg.CertFile, cfg.KeyFile)
 	if e != nil {
 		return e
@@ -50,7 +55,7 @@ func RunServer(ctx context.Context, cfg Config) error {
 	if e != nil {
 		return e
 	}
-	if cfg.TLSListen == "" && cfg.QUICListen == "" {
+	if cfg.TLSListen == "" && cfg.QUICListen == "" && cfg.WebListen == "" && cfg.HTTP3Listen == "" {
 		return errors.New("at least one listener required")
 	}
 	s := &Server{cfg: cfg, token: token, sessions: make(map[string]*session.Session), slots: make(chan struct{}, 8)}
@@ -65,7 +70,12 @@ func RunServer(ctx context.Context, cfg Config) error {
 			ss.Close(context.Canceled)
 		}
 	}()
-	errs := make(chan error, 2)
+	errs := make(chan error, 4)
+	webClosers, e := s.serveWeb(ctx, cert, errs)
+	if e != nil {
+		return e
+	}
+	closers = append(closers, webClosers...)
 	if cfg.TLSListen != "" {
 		ln, e := tls.Listen("tcp", cfg.TLSListen, carrier.TLSConfig(cert))
 		if e != nil {

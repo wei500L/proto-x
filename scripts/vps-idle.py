@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Measure one idle QUIC client through a counting relay to its authorized server.
+"""Measure one idle QUIC/H3 client through a relay to its authorized server.
 
 No application target is opened. Credentials and full client logs stay private.
 Counts cover UDP payloads observed locally, including setup and shutdown; they
@@ -29,10 +29,12 @@ def main():
     private.mkdir(parents=True, mode=0o700, exist_ok=False)
     source = Path(a.client_config).resolve()
     cfg = json.loads(source.read_text())
-    endpoint = next(e for e in cfg['endpoints'] if e['network'] == 'quic')
+    endpoint = next(e for e in cfg['endpoints'] if e['network'] in ('quic', 'h3'))
     target = endpoint['address']
     cfg['endpoints'] = [dict(endpoint, address='127.0.0.1:16662')]
-    cfg['token_file'] = str((source.parent / cfg['token_file']).resolve())
+    for field in ('token_file', 'ca_file', 'ech_config_file'):
+        if cfg.get(field):
+            cfg[field] = str((source.parent / cfg[field]).resolve())
     cfg['socks_listen'] = '127.0.0.1:1090'
     cp = private / 'client.json'
     cp.write_text(json.dumps(cfg, indent=2))
@@ -89,7 +91,9 @@ def main():
                                  ipv4_udp_estimated_bytes_per_second=(c['bytes']+28*c['packets'])/seconds)
     result = {'measured_seconds':seconds,'requested_seconds':a.seconds,'application_flows_opened':0,
               'carriers':attached,'directions':metrics,'heartbeat_ms':cfg['heartbeat_ms'],
-              'dead_ms':cfg['dead_ms'],
+              'dead_ms':cfg['dead_ms'], 'ech_required':bool(cfg.get('ech_config_file')),
+              'web_padding':cfg.get('web_padding') if endpoint['network']=='h3' else None,
+              'source_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
               'binary_sha256':hashlib.sha256((ROOT/'bin/protox').read_bytes()).hexdigest(),
               'notes':['Counts include this one connection startup and shutdown.',
                        'Relay bytes are observed UDP payloads; IPv4+UDP adds an estimate of 28 bytes per packet.',
@@ -97,7 +101,7 @@ def main():
                        'The configured fault occurs after the observation and must never execute.']}
     (out/'idle-summary.json').write_text(json.dumps(result,indent=2)+'\n')
     print(json.dumps(result),flush=True)
-    if len(attached)!=1 or attached[0].get('carrier')!='quic':
+    if len(attached)!=1 or attached[0].get('carrier')!=endpoint['network']:
         raise SystemExit(1)
 
 

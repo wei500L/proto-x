@@ -1,0 +1,1498 @@
+{
+  "mode": "active",
+  "network": "https_visitor_tcp",
+  "candidate_attempts": 24,
+  "reference_attempts": 24,
+  "candidate_status_counts": {
+    "request_failed": 12,
+    "response_observed": 12
+  },
+  "reference_status_counts": {
+    "response_observed": 24
+  },
+  "pair_status_counts": {
+    "normalized_match": 12,
+    "different": 12
+  },
+  "pairs": [
+    {
+      "repeat": 0,
+      "case": "http11_explicit_alpn_protocol_post_no_auth",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.622625,
+        "handshake_elapsed_ms": 1.275625,
+        "complete_elapsed_ms": 1.625333
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.482334,
+        "handshake_elapsed_ms": 1.177042,
+        "complete_elapsed_ms": 1.484709
+      }
+    },
+    {
+      "repeat": 0,
+      "case": "http11_explicit_alpn_protocol_post_wrong_auth",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.586666,
+        "handshake_elapsed_ms": 1.281625,
+        "complete_elapsed_ms": 1.59025
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.469125,
+        "handshake_elapsed_ms": 1.123917,
+        "complete_elapsed_ms": 1.48275
+      }
+    },
+    {
+      "repeat": 0,
+      "case": "http11_explicit_alpn_root_get",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 2.102916,
+        "handshake_elapsed_ms": 1.446416,
+        "complete_elapsed_ms": 2.110875
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.612291,
+        "handshake_elapsed_ms": 1.358166,
+        "complete_elapsed_ms": 1.615208
+      }
+    },
+    {
+      "repeat": 0,
+      "case": "http11_explicit_alpn_root_head",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.7305,
+        "handshake_elapsed_ms": 1.3895,
+        "complete_elapsed_ms": 1.733625
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.535833,
+        "handshake_elapsed_ms": 1.244458,
+        "complete_elapsed_ms": 1.552333
+      }
+    },
+    {
+      "repeat": 0,
+      "case": "https_no_alpn_protocol_post_no_auth",
+      "status": "different",
+      "differences": [
+        {
+          "field": "status",
+          "candidate_present": true,
+          "reference_present": true,
+          "candidate": "request_failed",
+          "reference": "response_observed"
+        },
+        {
+          "field": "error",
+          "candidate_present": true,
+          "reference_present": false,
+          "candidate": {
+            "message_redacted": true,
+            "timeout": false,
+            "types": [
+              "*tls.permanentError",
+              "*net.OpError",
+              "tls.alert"
+            ]
+          },
+          "reference": null
+        },
+        {
+          "field": "http_status",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": 405
+        },
+        {
+          "field": "http_protocol",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": "HTTP/1.1"
+        },
+        {
+          "field": "headers",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": {
+            "Allow": [
+              "GET, HEAD"
+            ],
+            "Content-Length": [
+              "19"
+            ],
+            "Content-Type": [
+              "text/plain; charset=utf-8"
+            ],
+            "X-Content-Type-Options": [
+              "nosniff"
+            ]
+          }
+        },
+        {
+          "field": "content_length",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": 19
+        },
+        {
+          "field": "body_bytes_observed",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": 19
+        },
+        {
+          "field": "body_truncated_at_bound",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": false
+        },
+        {
+          "field": "body_sha256",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": "c40aa69f0b306cea296dd1193c334bc0781587ed51aab579c0433698ba9e0c4b"
+        }
+      ],
+      "candidate_status": "request_failed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.43875,
+        "handshake_elapsed_ms": 1.39775
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.847083,
+        "handshake_elapsed_ms": 1.358417,
+        "complete_elapsed_ms": 1.85125
+      }
+    },
+    {
+      "repeat": 0,
+      "case": "https_no_alpn_protocol_post_wrong_auth",
+      "status": "different",
+      "differences": [
+        {
+          "field": "status",
+          "candidate_present": true,
+          "reference_present": true,
+          "candidate": "request_failed",
+          "reference": "response_observed"
+        },
+        {
+          "field": "error",
+          "candidate_present": true,
+          "reference_present": false,
+          "candidate": {
+            "message_redacted": true,
+            "timeout": false,
+            "types": [
+              "*tls.permanentError",
+              "*net.OpError",
+              "tls.alert"
+            ]
+          },
+          "reference": null
+        },
+        {
+          "field": "http_status",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": 405
+        },
+        {
+          "field": "http_protocol",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": "HTTP/1.1"
+        },
+        {
+          "field": "headers",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": {
+            "Allow": [
+              "GET, HEAD"
+            ],
+            "Content-Length": [
+              "19"
+            ],
+            "Content-Type": [
+              "text/plain; charset=utf-8"
+            ],
+            "X-Content-Type-Options": [
+              "nosniff"
+            ]
+          }
+        },
+        {
+          "field": "content_length",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": 19
+        },
+        {
+          "field": "body_bytes_observed",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": 19
+        },
+        {
+          "field": "body_truncated_at_bound",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": false
+        },
+        {
+          "field": "body_sha256",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": "c40aa69f0b306cea296dd1193c334bc0781587ed51aab579c0433698ba9e0c4b"
+        }
+      ],
+      "candidate_status": "request_failed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.438833,
+        "handshake_elapsed_ms": 1.423875
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.556333,
+        "handshake_elapsed_ms": 1.161875,
+        "complete_elapsed_ms": 1.559625
+      }
+    },
+    {
+      "repeat": 0,
+      "case": "https_no_alpn_root_get",
+      "status": "different",
+      "differences": [
+        {
+          "field": "status",
+          "candidate_present": true,
+          "reference_present": true,
+          "candidate": "request_failed",
+          "reference": "response_observed"
+        },
+        {
+          "field": "error",
+          "candidate_present": true,
+          "reference_present": false,
+          "candidate": {
+            "message_redacted": true,
+            "timeout": false,
+            "types": [
+              "*tls.permanentError",
+              "*net.OpError",
+              "tls.alert"
+            ]
+          },
+          "reference": null
+        },
+        {
+          "field": "http_status",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": 200
+        },
+        {
+          "field": "http_protocol",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": "HTTP/1.1"
+        },
+        {
+          "field": "headers",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": {
+            "Accept-Ranges": [
+              "bytes"
+            ],
+            "Content-Length": [
+              "534"
+            ],
+            "Content-Type": [
+              "text/html; charset=utf-8"
+            ],
+            "Last-Modified": [
+              "Sat, 07 Nov 2026 03:38:14 GMT"
+            ]
+          }
+        },
+        {
+          "field": "content_length",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": 534
+        },
+        {
+          "field": "body_bytes_observed",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": 534
+        },
+        {
+          "field": "body_truncated_at_bound",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": false
+        },
+        {
+          "field": "body_sha256",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": "ffc5bf52d0ed4565e8250f5c1445df681f30bf28d079abb8de4f036ebde8ebea"
+        }
+      ],
+      "candidate_status": "request_failed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.60725,
+        "handshake_elapsed_ms": 1.505334
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.888916,
+        "handshake_elapsed_ms": 1.461291,
+        "complete_elapsed_ms": 1.892583
+      }
+    },
+    {
+      "repeat": 0,
+      "case": "https_no_alpn_root_head",
+      "status": "different",
+      "differences": [
+        {
+          "field": "status",
+          "candidate_present": true,
+          "reference_present": true,
+          "candidate": "request_failed",
+          "reference": "response_observed"
+        },
+        {
+          "field": "error",
+          "candidate_present": true,
+          "reference_present": false,
+          "candidate": {
+            "message_redacted": true,
+            "timeout": false,
+            "types": [
+              "*tls.permanentError",
+              "*net.OpError",
+              "tls.alert"
+            ]
+          },
+          "reference": null
+        },
+        {
+          "field": "http_status",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": 200
+        },
+        {
+          "field": "http_protocol",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": "HTTP/1.1"
+        },
+        {
+          "field": "headers",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": {
+            "Accept-Ranges": [
+              "bytes"
+            ],
+            "Content-Length": [
+              "534"
+            ],
+            "Content-Type": [
+              "text/html; charset=utf-8"
+            ],
+            "Last-Modified": [
+              "Sat, 07 Nov 2026 03:38:14 GMT"
+            ]
+          }
+        },
+        {
+          "field": "content_length",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": 534
+        },
+        {
+          "field": "body_bytes_observed",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": 0
+        },
+        {
+          "field": "body_truncated_at_bound",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": false
+        },
+        {
+          "field": "body_sha256",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "candidate_status": "request_failed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.338084,
+        "handshake_elapsed_ms": 1.318667
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.615875,
+        "handshake_elapsed_ms": 1.092792,
+        "complete_elapsed_ms": 1.619375
+      }
+    },
+    {
+      "repeat": 1,
+      "case": "http11_explicit_alpn_protocol_post_no_auth",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.461375,
+        "handshake_elapsed_ms": 1.225958,
+        "complete_elapsed_ms": 1.464125
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.169833,
+        "handshake_elapsed_ms": 0.93775,
+        "complete_elapsed_ms": 1.171917
+      }
+    },
+    {
+      "repeat": 1,
+      "case": "http11_explicit_alpn_protocol_post_wrong_auth",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.592417,
+        "handshake_elapsed_ms": 1.287917,
+        "complete_elapsed_ms": 1.59525
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.649167,
+        "handshake_elapsed_ms": 1.348084,
+        "complete_elapsed_ms": 1.651625
+      }
+    },
+    {
+      "repeat": 1,
+      "case": "http11_explicit_alpn_root_get",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.989958,
+        "handshake_elapsed_ms": 1.536666,
+        "complete_elapsed_ms": 1.992708
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.551416,
+        "handshake_elapsed_ms": 1.205083,
+        "complete_elapsed_ms": 1.557333
+      }
+    },
+    {
+      "repeat": 1,
+      "case": "http11_explicit_alpn_root_head",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.46625,
+        "handshake_elapsed_ms": 1.090083,
+        "complete_elapsed_ms": 1.470292
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.631,
+        "handshake_elapsed_ms": 1.245625,
+        "complete_elapsed_ms": 1.633625
+      }
+    },
+    {
+      "repeat": 1,
+      "case": "https_no_alpn_protocol_post_no_auth",
+      "status": "different",
+      "differences": [
+        {
+          "field": "status",
+          "candidate_present": true,
+          "reference_present": true,
+          "candidate": "request_failed",
+          "reference": "response_observed"
+        },
+        {
+          "field": "error",
+          "candidate_present": true,
+          "reference_present": false,
+          "candidate": {
+            "message_redacted": true,
+            "timeout": false,
+            "types": [
+              "*tls.permanentError",
+              "*net.OpError",
+              "tls.alert"
+            ]
+          },
+          "reference": null
+        },
+        {
+          "field": "http_status",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": 405
+        },
+        {
+          "field": "http_protocol",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": "HTTP/1.1"
+        },
+        {
+          "field": "headers",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": {
+            "Allow": [
+              "GET, HEAD"
+            ],
+            "Content-Length": [
+              "19"
+            ],
+            "Content-Type": [
+              "text/plain; charset=utf-8"
+            ],
+            "X-Content-Type-Options": [
+              "nosniff"
+            ]
+          }
+        },
+        {
+          "field": "content_length",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": 19
+        },
+        {
+          "field": "body_bytes_observed",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": 19
+        },
+        {
+          "field": "body_truncated_at_bound",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": false
+        },
+        {
+          "field": "body_sha256",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": "c40aa69f0b306cea296dd1193c334bc0781587ed51aab579c0433698ba9e0c4b"
+        }
+      ],
+      "candidate_status": "request_failed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.187666,
+        "handshake_elapsed_ms": 1.166083
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.497958,
+        "handshake_elapsed_ms": 1.066583,
+        "complete_elapsed_ms": 1.500208
+      }
+    },
+    {
+      "repeat": 1,
+      "case": "https_no_alpn_protocol_post_wrong_auth",
+      "status": "different",
+      "differences": [
+        {
+          "field": "status",
+          "candidate_present": true,
+          "reference_present": true,
+          "candidate": "request_failed",
+          "reference": "response_observed"
+        },
+        {
+          "field": "error",
+          "candidate_present": true,
+          "reference_present": false,
+          "candidate": {
+            "message_redacted": true,
+            "timeout": false,
+            "types": [
+              "*tls.permanentError",
+              "*net.OpError",
+              "tls.alert"
+            ]
+          },
+          "reference": null
+        },
+        {
+          "field": "http_status",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": 405
+        },
+        {
+          "field": "http_protocol",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": "HTTP/1.1"
+        },
+        {
+          "field": "headers",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": {
+            "Allow": [
+              "GET, HEAD"
+            ],
+            "Content-Length": [
+              "19"
+            ],
+            "Content-Type": [
+              "text/plain; charset=utf-8"
+            ],
+            "X-Content-Type-Options": [
+              "nosniff"
+            ]
+          }
+        },
+        {
+          "field": "content_length",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": 19
+        },
+        {
+          "field": "body_bytes_observed",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": 19
+        },
+        {
+          "field": "body_truncated_at_bound",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": false
+        },
+        {
+          "field": "body_sha256",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": "c40aa69f0b306cea296dd1193c334bc0781587ed51aab579c0433698ba9e0c4b"
+        }
+      ],
+      "candidate_status": "request_failed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.151875,
+        "handshake_elapsed_ms": 1.131417
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.486334,
+        "handshake_elapsed_ms": 1.023625,
+        "complete_elapsed_ms": 1.494417
+      }
+    },
+    {
+      "repeat": 1,
+      "case": "https_no_alpn_root_get",
+      "status": "different",
+      "differences": [
+        {
+          "field": "status",
+          "candidate_present": true,
+          "reference_present": true,
+          "candidate": "request_failed",
+          "reference": "response_observed"
+        },
+        {
+          "field": "error",
+          "candidate_present": true,
+          "reference_present": false,
+          "candidate": {
+            "message_redacted": true,
+            "timeout": false,
+            "types": [
+              "*tls.permanentError",
+              "*net.OpError",
+              "tls.alert"
+            ]
+          },
+          "reference": null
+        },
+        {
+          "field": "http_status",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": 200
+        },
+        {
+          "field": "http_protocol",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": "HTTP/1.1"
+        },
+        {
+          "field": "headers",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": {
+            "Accept-Ranges": [
+              "bytes"
+            ],
+            "Content-Length": [
+              "534"
+            ],
+            "Content-Type": [
+              "text/html; charset=utf-8"
+            ],
+            "Last-Modified": [
+              "Sat, 07 Nov 2026 03:38:14 GMT"
+            ]
+          }
+        },
+        {
+          "field": "content_length",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": 534
+        },
+        {
+          "field": "body_bytes_observed",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": 534
+        },
+        {
+          "field": "body_truncated_at_bound",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": false
+        },
+        {
+          "field": "body_sha256",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": "ffc5bf52d0ed4565e8250f5c1445df681f30bf28d079abb8de4f036ebde8ebea"
+        }
+      ],
+      "candidate_status": "request_failed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.490291,
+        "handshake_elapsed_ms": 1.480291
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.5915,
+        "handshake_elapsed_ms": 1.291208,
+        "complete_elapsed_ms": 1.595625
+      }
+    },
+    {
+      "repeat": 1,
+      "case": "https_no_alpn_root_head",
+      "status": "different",
+      "differences": [
+        {
+          "field": "status",
+          "candidate_present": true,
+          "reference_present": true,
+          "candidate": "request_failed",
+          "reference": "response_observed"
+        },
+        {
+          "field": "error",
+          "candidate_present": true,
+          "reference_present": false,
+          "candidate": {
+            "message_redacted": true,
+            "timeout": false,
+            "types": [
+              "*tls.permanentError",
+              "*net.OpError",
+              "tls.alert"
+            ]
+          },
+          "reference": null
+        },
+        {
+          "field": "http_status",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": 200
+        },
+        {
+          "field": "http_protocol",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": "HTTP/1.1"
+        },
+        {
+          "field": "headers",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": {
+            "Accept-Ranges": [
+              "bytes"
+            ],
+            "Content-Length": [
+              "534"
+            ],
+            "Content-Type": [
+              "text/html; charset=utf-8"
+            ],
+            "Last-Modified": [
+              "Sat, 07 Nov 2026 03:38:14 GMT"
+            ]
+          }
+        },
+        {
+          "field": "content_length",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": 534
+        },
+        {
+          "field": "body_bytes_observed",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": 0
+        },
+        {
+          "field": "body_truncated_at_bound",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": false
+        },
+        {
+          "field": "body_sha256",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "candidate_status": "request_failed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.253792,
+        "handshake_elapsed_ms": 1.243833
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.547875,
+        "handshake_elapsed_ms": 1.230625,
+        "complete_elapsed_ms": 1.550166
+      }
+    },
+    {
+      "repeat": 2,
+      "case": "http11_explicit_alpn_protocol_post_no_auth",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.667542,
+        "handshake_elapsed_ms": 1.017667,
+        "complete_elapsed_ms": 1.672792
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.702166,
+        "handshake_elapsed_ms": 1.377375,
+        "complete_elapsed_ms": 1.704791
+      }
+    },
+    {
+      "repeat": 2,
+      "case": "http11_explicit_alpn_protocol_post_wrong_auth",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.696917,
+        "handshake_elapsed_ms": 1.290667,
+        "complete_elapsed_ms": 1.699625
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.631208,
+        "handshake_elapsed_ms": 1.356041,
+        "complete_elapsed_ms": 1.635958
+      }
+    },
+    {
+      "repeat": 2,
+      "case": "http11_explicit_alpn_root_get",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.336292,
+        "handshake_elapsed_ms": 1.060459,
+        "complete_elapsed_ms": 1.340542
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.88375,
+        "handshake_elapsed_ms": 1.505584,
+        "complete_elapsed_ms": 1.8885
+      }
+    },
+    {
+      "repeat": 2,
+      "case": "http11_explicit_alpn_root_head",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.842417,
+        "handshake_elapsed_ms": 1.475958,
+        "complete_elapsed_ms": 1.844667
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.843292,
+        "handshake_elapsed_ms": 1.524583,
+        "complete_elapsed_ms": 1.846375
+      }
+    },
+    {
+      "repeat": 2,
+      "case": "https_no_alpn_protocol_post_no_auth",
+      "status": "different",
+      "differences": [
+        {
+          "field": "status",
+          "candidate_present": true,
+          "reference_present": true,
+          "candidate": "request_failed",
+          "reference": "response_observed"
+        },
+        {
+          "field": "error",
+          "candidate_present": true,
+          "reference_present": false,
+          "candidate": {
+            "message_redacted": true,
+            "timeout": false,
+            "types": [
+              "*tls.permanentError",
+              "*net.OpError",
+              "tls.alert"
+            ]
+          },
+          "reference": null
+        },
+        {
+          "field": "http_status",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": 405
+        },
+        {
+          "field": "http_protocol",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": "HTTP/1.1"
+        },
+        {
+          "field": "headers",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": {
+            "Allow": [
+              "GET, HEAD"
+            ],
+            "Content-Length": [
+              "19"
+            ],
+            "Content-Type": [
+              "text/plain; charset=utf-8"
+            ],
+            "X-Content-Type-Options": [
+              "nosniff"
+            ]
+          }
+        },
+        {
+          "field": "content_length",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": 19
+        },
+        {
+          "field": "body_bytes_observed",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": 19
+        },
+        {
+          "field": "body_truncated_at_bound",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": false
+        },
+        {
+          "field": "body_sha256",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": "c40aa69f0b306cea296dd1193c334bc0781587ed51aab579c0433698ba9e0c4b"
+        }
+      ],
+      "candidate_status": "request_failed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.098667,
+        "handshake_elapsed_ms": 1.088667
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.338125,
+        "handshake_elapsed_ms": 0.896125,
+        "complete_elapsed_ms": 1.340208
+      }
+    },
+    {
+      "repeat": 2,
+      "case": "https_no_alpn_protocol_post_wrong_auth",
+      "status": "different",
+      "differences": [
+        {
+          "field": "status",
+          "candidate_present": true,
+          "reference_present": true,
+          "candidate": "request_failed",
+          "reference": "response_observed"
+        },
+        {
+          "field": "error",
+          "candidate_present": true,
+          "reference_present": false,
+          "candidate": {
+            "message_redacted": true,
+            "timeout": false,
+            "types": [
+              "*tls.permanentError",
+              "*net.OpError",
+              "tls.alert"
+            ]
+          },
+          "reference": null
+        },
+        {
+          "field": "http_status",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": 405
+        },
+        {
+          "field": "http_protocol",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": "HTTP/1.1"
+        },
+        {
+          "field": "headers",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": {
+            "Allow": [
+              "GET, HEAD"
+            ],
+            "Content-Length": [
+              "19"
+            ],
+            "Content-Type": [
+              "text/plain; charset=utf-8"
+            ],
+            "X-Content-Type-Options": [
+              "nosniff"
+            ]
+          }
+        },
+        {
+          "field": "content_length",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": 19
+        },
+        {
+          "field": "body_bytes_observed",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": 19
+        },
+        {
+          "field": "body_truncated_at_bound",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": false
+        },
+        {
+          "field": "body_sha256",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": "c40aa69f0b306cea296dd1193c334bc0781587ed51aab579c0433698ba9e0c4b"
+        }
+      ],
+      "candidate_status": "request_failed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.3485,
+        "handshake_elapsed_ms": 1.339083
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.681042,
+        "handshake_elapsed_ms": 1.372875,
+        "complete_elapsed_ms": 1.687
+      }
+    },
+    {
+      "repeat": 2,
+      "case": "https_no_alpn_root_get",
+      "status": "different",
+      "differences": [
+        {
+          "field": "status",
+          "candidate_present": true,
+          "reference_present": true,
+          "candidate": "request_failed",
+          "reference": "response_observed"
+        },
+        {
+          "field": "error",
+          "candidate_present": true,
+          "reference_present": false,
+          "candidate": {
+            "message_redacted": true,
+            "timeout": false,
+            "types": [
+              "*tls.permanentError",
+              "*net.OpError",
+              "tls.alert"
+            ]
+          },
+          "reference": null
+        },
+        {
+          "field": "http_status",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": 200
+        },
+        {
+          "field": "http_protocol",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": "HTTP/1.1"
+        },
+        {
+          "field": "headers",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": {
+            "Accept-Ranges": [
+              "bytes"
+            ],
+            "Content-Length": [
+              "534"
+            ],
+            "Content-Type": [
+              "text/html; charset=utf-8"
+            ],
+            "Last-Modified": [
+              "Sat, 07 Nov 2026 03:38:14 GMT"
+            ]
+          }
+        },
+        {
+          "field": "content_length",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": 534
+        },
+        {
+          "field": "body_bytes_observed",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": 534
+        },
+        {
+          "field": "body_truncated_at_bound",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": false
+        },
+        {
+          "field": "body_sha256",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": "ffc5bf52d0ed4565e8250f5c1445df681f30bf28d079abb8de4f036ebde8ebea"
+        }
+      ],
+      "candidate_status": "request_failed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.22625,
+        "handshake_elapsed_ms": 1.213166
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.540958,
+        "handshake_elapsed_ms": 1.028666,
+        "complete_elapsed_ms": 1.543708
+      }
+    },
+    {
+      "repeat": 2,
+      "case": "https_no_alpn_root_head",
+      "status": "different",
+      "differences": [
+        {
+          "field": "status",
+          "candidate_present": true,
+          "reference_present": true,
+          "candidate": "request_failed",
+          "reference": "response_observed"
+        },
+        {
+          "field": "error",
+          "candidate_present": true,
+          "reference_present": false,
+          "candidate": {
+            "message_redacted": true,
+            "timeout": false,
+            "types": [
+              "*tls.permanentError",
+              "*net.OpError",
+              "tls.alert"
+            ]
+          },
+          "reference": null
+        },
+        {
+          "field": "http_status",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": 200
+        },
+        {
+          "field": "http_protocol",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": "HTTP/1.1"
+        },
+        {
+          "field": "headers",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": {
+            "Accept-Ranges": [
+              "bytes"
+            ],
+            "Content-Length": [
+              "534"
+            ],
+            "Content-Type": [
+              "text/html; charset=utf-8"
+            ],
+            "Last-Modified": [
+              "Sat, 07 Nov 2026 03:38:14 GMT"
+            ]
+          }
+        },
+        {
+          "field": "content_length",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": 534
+        },
+        {
+          "field": "body_bytes_observed",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": 0
+        },
+        {
+          "field": "body_truncated_at_bound",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": false
+        },
+        {
+          "field": "body_sha256",
+          "candidate_present": false,
+          "reference_present": true,
+          "candidate": null,
+          "reference": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "candidate_status": "request_failed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 0.98675,
+        "handshake_elapsed_ms": 0.978917
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.447583,
+        "handshake_elapsed_ms": 1.125125,
+        "complete_elapsed_ms": 1.450208
+      }
+    }
+  ],
+  "comparison_fields": [
+    "case",
+    "method",
+    "authentication_class",
+    "status",
+    "error",
+    "body_error",
+    "http_status",
+    "http_protocol",
+    "headers",
+    "content_length",
+    "negotiated_alpn",
+    "tls_version",
+    "certificate_chain_verified",
+    "body_bytes_observed",
+    "body_truncated_at_bound",
+    "body_sha256",
+    "offered_alpn",
+    "payload_class",
+    "legacy_record_bytes",
+    "response_bytes",
+    "response_sha256",
+    "response_truncated_at_bound",
+    "read_error"
+  ],
+  "timing_samples_retained_but_not_used_for_response_match": true,
+  "limitations": [
+    "A normalized match can include two rejected or failed requests. Status counts and every pair remain visible.",
+    "Only declared status/protocol/header/body/error fields are compared. Date and private header values are outside this comparison.",
+    "Different listeners and executions add timing variance; these samples do not prove timing indistinguishability.",
+    "This comparison does not test authenticated proxy interoperability, arbitrary active probes, real-world DPI, or Russian reachability.",
+    "A same-stack ordinary control isolates the effect of the candidate's HTTP gate; it is not a diverse cover-traffic corpus."
+  ],
+  "schema": 1,
+  "created_utc": "2026-11-07T03:42:35.147190+00:00",
+  "candidate_label": "candidate-active-h2",
+  "reference_label": "ordinary-active-h2",
+  "candidate_report_sha256": "7e26ed1ec0889b11fdc67efff2badf0f1fced32a527cba364d4b221699400e46",
+  "reference_report_sha256": "ec5a51a35010ea9280507cbab178429579d5d8a48d97efea469d87f20538ff92"
+}

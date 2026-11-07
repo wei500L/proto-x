@@ -1,0 +1,2 @@
+ok  	proto-x/internal/carrier	1.931s
+ok  	proto-x/internal/app	7.691s

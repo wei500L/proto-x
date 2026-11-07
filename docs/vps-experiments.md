@@ -1,8 +1,8 @@
 # 测试 VPS 实验复跑入口
 
-更新日期：2026-11-07（Europe/Moscow）。本页依据当前 [`vps-idle.py`](../scripts/vps-idle.py)、[`vps-soak.py`](../scripts/vps-soak.py)、[`vps-fault.py`](../scripts/vps-fault.py) 整理操作步骤，仅用于已授权的专用测试 VPS。编写本页没有发起新的远端实验；已完成的观测单独列在末尾。
+更新日期：2026-11-07（Europe/Moscow）。本页依据当前 [`vps-idle.py`](../scripts/vps-idle.py)、[`vps-soak.py`](../scripts/vps-soak.py)、[`vps-fault.py`](../scripts/vps-fault.py) 整理操作步骤，仅用于已授权的专用测试 VPS。当前 Web/ECH 的观测见 [v0.2 报告](recognition-v02.md)；末尾旧观测保留各自版本，不能混用。
 
-以下命令从仓库根目录执行，沿用 [部署文档](deployment.md) 中的 `.local/ssh_config`、管理 alias `protox-test`、`.local/vps/client.json` 和测试单元 `protox.service`。换环境时替换这些私密配置与 alias，不把真实地址、token、证书 pin 或 SSH 信息写入公开结果。每次将 `REPLACE_RUN_ID` 换成新的日期/序号；`--out` 目录和对应私有目录都不能已经存在。
+以下命令从仓库根目录执行，沿用 [部署文档](deployment.md) 中的 `.local/ssh_config`、管理 alias `protox-test`、`.local/vps-web/client.json` 和测试单元 `protox.service`。换环境时替换这些私密配置与 alias，不把真实地址、token、证书 pin 或 SSH 信息写入公开结果。每次将 `REPLACE_RUN_ID` 换成新的日期/序号；`--out` 目录和对应私有目录都不能已经存在。
 
 ## 三个脚本会做什么
 
@@ -16,7 +16,7 @@ fault 的测量前重启会结束重启前的所有 PROTO-X 会话和目标 sock
 
 ## 共同前提
 
-本地需要 Python 3、Go、OpenSSH，以及 fault 探针使用的 `/usr/bin/nc`；该 `nc` 必须支持 `-x host:port -X 5` 的 SOCKS5 参数。下方远端 JSON 核对命令也要求测试机有 Python 3。先构建本地程序；`build.sh` 目前不构建 faultrelay，需要下面单独的 `go build` 命令：
+本地需要 Python 3、Go、OpenSSH，以及 fault 探针使用的 `/usr/bin/nc`；该 `nc` 必须支持 `-x host:port -X 5` 的 SOCKS5 参数。JSON 核对通过本地 Python 完成；本轮小 VPS 没有 Python 3，不需为此安装。先构建本地程序；`build.sh` 目前不构建 faultrelay，需要下面单独的 `go build` 命令：
 
 ```sh
 sh scripts/build.sh
@@ -24,7 +24,7 @@ go build -trimpath -o bin/faultrelay ./tools/faultrelay
 bin/protox version
 ```
 
-已部署服务与本地配置的 token、叶证书 pin、窗口须匹配。idle/fault 的客户端配置至少包含一个 QUIC 端点；研究 QUIC→TLS 回退时还要有指向**同一服务端进程**的可用 TLS 端点。建议实验配置仅保留这个 QUIC/TLS 组合：idle 只选择第一个 QUIC，fault 的 relay 目标也取第一个 QUIC，并把配置内所有 QUIC 条目改向同一个本地 relay；这不是多 QUIC 端点竞速测试。
+已部署服务与本地配置的 token、叶证书 pin、窗口须匹配。idle/fault 支持 `h3` 和旧 `quic` UDP 端点；当前使用 H3→H2 回退，两个入口必须指向**同一服务端进程**。旧 `quic/tls` 组合仍可复跑。实验配置只保留一个 UDP 入口及其 TCP 备用：idle 选择第一个 H3/QUIC，fault 也将所有 UDP 条目改向同一个本地 relay；这不是多端点竞速测试。CA、token 和 ECH 文件路径按原配置目录解析，ECH 要求保持不变。
 
 管理 alias 必须已有可信主机键和可非交互使用的认证方式，SSH 配置须保持严格主机键验证。fault 还要求该账号能非交互重启测试单元；脚本不会配置 sudo、SSH 登录策略或新的密钥。可先做不改变远端状态的检查：
 
@@ -75,7 +75,7 @@ ssh -F .local/ssh_config protox-test \
 
 ```sh
 ssh -F .local/ssh_config protox-test \
-  'python3 -m json.tool /opt/proto-x/server.json >/dev/null'
+  'cat /opt/proto-x/server.json' | python3 -c 'import json,sys; json.load(sys.stdin)'
 ssh -F .local/ssh_config protox-test 'systemctl restart protox.service'
 ```
 
@@ -92,12 +92,12 @@ fixture 是独立进程，故障脚本重启 `protox.service` 不会重启它。
 
 ```sh
 python3 scripts/vps-idle.py \
-  --client-config .local/vps/client.json \
+  --client-config .local/vps-web/client.json \
   --seconds 60 \
   --out results/vps-idle-REPLACE_RUN_ID
 ```
 
-`--seconds` 默认 60，允许 10–3600。脚本不打开应用流，不需要 fixture 或 `allow_private_targets=true`。它故意把 relay 的故障定时器安排在观察结束以后；若数据中出现 `fault_start`，该次空闲观测无效。检查只有一次 QUIC 附加，以及 relay 最后一条事件为 `end`。
+`--seconds` 默认 60，允许 10–3600。脚本不打开应用流，不需要 fixture 或 `allow_private_targets=true`。它故意把 relay 的故障定时器安排在观察结束以后；若数据中出现 `fault_start`，该次空闲观测无效。检查只有一次配置承载的 H3/QUIC 附加，以及 relay 最后一条事件为 `end`。
 
 `idle-summary.json` 的字节是本地 relay 观察的 UDP payload，包含连接建立和关闭；IPv4+UDP 数值按每包另加 28 字节估算。它不包含 Ethernet/VPN 头，也不证明远端实际收包量、纯稳态开销或移动无线能耗。
 
@@ -106,7 +106,7 @@ python3 scripts/vps-idle.py \
 先确认远端 fixture 已运行、私网目标已临时允许，并使用已有的本地 1088 客户端。若尚未启动，在另一个本地终端执行：
 
 ```sh
-bin/protox client -config .local/vps/client.json
+bin/protox client -config .local/vps-web/client.json
 ```
 
 再运行观察：
@@ -134,17 +134,17 @@ python3 scripts/vps-soak.py \
 ```sh
 python3 scripts/vps-fault.py \
   --ssh-config .local/ssh_config --ssh-host protox-test \
-  --client-config .local/vps/client.json --fault blackhole \
+  --client-config .local/vps-web/client.json --fault blackhole \
   --out results/vps-blackhole-REPLACE_RUN_ID
 
 python3 scripts/vps-fault.py \
   --ssh-config .local/ssh_config --ssh-host protox-test \
-  --client-config .local/vps/client.json --fault rebind \
+  --client-config .local/vps-web/client.json --fault rebind \
   --out results/vps-rebind-REPLACE_RUN_ID
 
 python3 scripts/vps-fault.py \
   --ssh-config .local/ssh_config --ssh-host protox-test \
-  --client-config .local/vps/client.json --fault restart \
+  --client-config .local/vps-web/client.json --fault restart \
   --out results/vps-restart-REPLACE_RUN_ID
 ```
 

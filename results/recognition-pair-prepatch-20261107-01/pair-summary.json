@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "created_utc": "2026-11-07T03:42:35.169096+00:00",
+  "repeats": 3,
+  "scope": "actual loopback candidate versus same-stack ordinary fixture; only declared unauthenticated/legacy probes",
+  "comparisons": {
+    "h2": {
+      "candidate_attempts": 39,
+      "reference_attempts": 39,
+      "pair_status_counts": {
+        "normalized_match": 38,
+        "different": 1
+      },
+      "candidate_status_counts": {
+        "response_observed": 33,
+        "handshake_or_stream_rejected": 3,
+        "legacy_response_observed": 3
+      },
+      "reference_status_counts": {
+        "response_observed": 33,
+        "handshake_or_stream_rejected": 3,
+        "legacy_response_observed": 3
+      }
+    },
+    "h3": {
+      "candidate_attempts": 39,
+      "reference_attempts": 39,
+      "pair_status_counts": {
+        "normalized_match": 39
+      },
+      "candidate_status_counts": {
+        "response_observed": 33,
+        "handshake_or_stream_rejected": 3,
+        "legacy_response_observed": 3
+      },
+      "reference_status_counts": {
+        "response_observed": 33,
+        "handshake_or_stream_rejected": 3,
+        "legacy_response_observed": 3
+      }
+    },
+    "visitors": {
+      "candidate_attempts": 24,
+      "reference_attempts": 24,
+      "pair_status_counts": {
+        "normalized_match": 12,
+        "different": 12
+      },
+      "candidate_status_counts": {
+        "request_failed": 12,
+        "response_observed": 12
+      },
+      "reference_status_counts": {
+        "response_observed": 24
+      }
+    }
+  },
+  "positive_authenticated_native_client_tested": false,
+  "candidate_process_management": "external; this harness did not start/change/stop it",
+  "ordinary_control": "same supplied certificate and site tree; direct cover.Site handler",
+  "reference_profile": "stock_go",
+  "binary_sha256": "7c237f21a61e68f7a56e28067b6ca97ed51b1b1c53ea311d399b88ab881e2594",
+  "timing_interpretation": "retained observations, not a statistical indistinguishability claim"
+}

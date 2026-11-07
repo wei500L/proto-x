@@ -1,0 +1,195 @@
+{
+  "run_id": "webcost01-03-r1-h2-p127",
+  "started_utc": "2026-11-07T03:57:56.588536Z",
+  "duration_seconds": 12.001803208,
+  "config": {
+    "proxy": "127.0.0.1:59672",
+    "http_target": "http://127.0.0.1:59673",
+    "echo_target": "127.0.0.1:59674",
+    "duration_ns": 12000000000,
+    "request_timeout_ns": 3000000000,
+    "http_rps": 5,
+    "http_method": "POST",
+    "http_response_bytes": 1024,
+    "http_max_concurrency": 32,
+    "echo_interval_ns": 100000000,
+    "sse_interval_ns": 50000000,
+    "download_workers": 1,
+    "download_mbps_per_worker": 2,
+    "upload_workers": 0,
+    "upload_chunk_bytes": 262144,
+    "output": "$PRIVATE/events.jsonl",
+    "summary": "$PRIVATE/events.summary.json",
+    "run_id": "webcost01-03-r1-h2-p127",
+    "insecure_tls": false,
+    "cold_http": false
+  },
+  "notes": [
+    "Percentiles use nearest-rank ceil(p*N); only successful operations contribute values. Total/status counts include failures, timeouts, censored requests and concurrency rejections.",
+    "Run-end censoring checks the monotonic context deadline as well as ctx.Err(), because network deadlines may fire before cancellation publication. Recorded elapsed time is monotonic; wall-clock event times are correlation metadata.",
+    "HTTP arrivals are open-loop and scheduled latency includes load-generator delay. Echo uses one persistent connection with at most one outstanding request; it is closed-loop.",
+    "Small HTTP requests default to a side-effect-free POST fixture to prevent replay after any request bytes were written. Optional GET permits standard-library idempotent retries; connection/write attempts are logged in both modes.",
+    "SSE receipt gaps use client monotonic time; source/excess gaps and production delay use monotonic elapsed fields relative to that source connection. Wall-clock nanoseconds are only correlation metadata. Clock synchronization and one-way delivery latency are not assumed.",
+    "SSE terminal gaps are right-censored and reported separately, including run termination; a missing final token cannot hide an outage.",
+    "SSE receive-gap statistics include gaps across reconnections; source/excess gaps are only meaningful within one source connection. Inspect cross_connection_gap raw annotations before attributing a stall.",
+    "Download goodput counts validated application bytes received; upload goodput counts bytes acknowledged by the fixture's completed response. Neither is outer-wire throughput.",
+    "Optional background-mbps is source-side application pacing per download worker with 4 KiB chunks. It applies identically to every proxy, excludes interactive and protocol overhead bytes, and is not a whole-proxy wire-rate cap."
+  ],
+  "operations": {
+    "download_end": {
+      "total": 1,
+      "success": 0,
+      "failure": 0,
+      "timeout": 0,
+      "censored": 1,
+      "rejected": 0,
+      "connection_attempts": 0,
+      "success_rate_total": 0,
+      "successful_latency_ms": {
+        "n": 0,
+        "p50": 0,
+        "p95": 0,
+        "p99": 0,
+        "max": 0,
+        "mean": 0
+      },
+      "successful_scheduled_latency_ms": {
+        "n": 0,
+        "p50": 0,
+        "p95": 0,
+        "p99": 0,
+        "max": 0,
+        "mean": 0
+      },
+      "successful_ttfb_ms": {
+        "n": 0,
+        "p50": 0,
+        "p95": 0,
+        "p99": 0,
+        "max": 0,
+        "mean": 0
+      }
+    },
+    "echo": {
+      "total": 120,
+      "success": 120,
+      "failure": 0,
+      "timeout": 0,
+      "censored": 0,
+      "rejected": 0,
+      "connection_attempts": 0,
+      "success_rate_total": 1,
+      "successful_latency_ms": {
+        "n": 120,
+        "p50": 1.108083,
+        "p95": 3.27325,
+        "p99": 5.723584,
+        "max": 9.9665,
+        "mean": 1.605073966666667
+      },
+      "successful_scheduled_latency_ms": {
+        "n": 0,
+        "p50": 0,
+        "p95": 0,
+        "p99": 0,
+        "max": 0,
+        "mean": 0
+      },
+      "successful_ttfb_ms": {
+        "n": 0,
+        "p50": 0,
+        "p95": 0,
+        "p99": 0,
+        "max": 0,
+        "mean": 0
+      }
+    },
+    "http": {
+      "total": 60,
+      "success": 60,
+      "failure": 0,
+      "timeout": 0,
+      "censored": 0,
+      "rejected": 0,
+      "connection_attempts": 60,
+      "success_rate_total": 1,
+      "successful_latency_ms": {
+        "n": 60,
+        "p50": 1.542041,
+        "p95": 4.370792,
+        "p99": 17.253458,
+        "max": 17.253458,
+        "mean": 2.1218548333333334
+      },
+      "successful_scheduled_latency_ms": {
+        "n": 60,
+        "p50": 2.313166,
+        "p95": 5.479708,
+        "p99": 17.347791,
+        "max": 17.347791,
+        "mean": 2.8974725499999994
+      },
+      "successful_ttfb_ms": {
+        "n": 60,
+        "p50": 1.265834,
+        "p95": 3.821416,
+        "p99": 17.220958,
+        "max": 17.220958,
+        "mean": 2.007266683333333
+      }
+    }
+  },
+  "sse": {
+    "connections": 1,
+    "connect_failure": 0,
+    "tokens": 240,
+    "sequence_errors": 0,
+    "source_errors": 0,
+    "unexpected_ends": 0,
+    "receive_gap_ms": {
+      "n": 239,
+      "p50": 49.977625,
+      "p95": 52.761291,
+      "p99": 54.115125,
+      "max": 54.367583,
+      "mean": 49.99956206276151
+    },
+    "source_gap_ms": {
+      "n": 239,
+      "p50": 49.968625,
+      "p95": 51.827959,
+      "p99": 51.972833,
+      "max": 52.05475,
+      "mean": 50.00711558577409
+    },
+    "excess_gap_ms": {
+      "n": 239,
+      "p50": 0.0015829999999965594,
+      "p95": 2.641416999999997,
+      "p99": 2.9713319999999968,
+      "max": 3.0550839999999937,
+      "mean": 0.4226216569037658
+    },
+    "gaps_over_250ms": 0,
+    "gaps_over_1000ms": 0,
+    "excess_over_250ms": 0,
+    "excess_over_1000ms": 0,
+    "terminal_gaps_over_250ms": 0,
+    "terminal_gaps_over_1000ms": 0,
+    "max_terminal_gap_ms": 32.499625,
+    "run_tail_gap_ms": 32.549333,
+    "source_generation_delay_ms": {
+      "n": 240,
+      "p50": 1.353459,
+      "p95": 2.060167,
+      "p99": 2.087584,
+      "max": 2.167084,
+      "mean": 1.2684864541666672
+    }
+  },
+  "download_validated_bytes": 2756608,
+  "download_goodput_mbps": 1.8374625560682665,
+  "upload_server_confirmed_bytes": 0,
+  "upload_confirmed_goodput_mbps": 0,
+  "echo_connections": 1
+}

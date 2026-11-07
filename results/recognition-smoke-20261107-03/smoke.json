@@ -1,0 +1,588 @@
+{
+  "schema": 1,
+  "created_utc": "2026-11-07T03:35:02.721504+00:00",
+  "status": "passed",
+  "checks": [
+    {
+      "check": "h2_attempt_denominator",
+      "ok": true,
+      "observed": 52,
+      "expected": 52
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "root_get",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "root_head",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "protocol_get",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "protocol_head",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "protocol_post_no_auth",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "protocol_post_wrong_auth",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "protocol_post_malformed_auth",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "protocol_wrong_method_put",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "unknown_get",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "unknown_post",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "root_options",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "root_get",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "root_head",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "protocol_get",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "protocol_head",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "protocol_post_no_auth",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "protocol_post_wrong_auth",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "protocol_post_malformed_auth",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "protocol_wrong_method_put",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "unknown_get",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "unknown_post",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "root_options",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "root_get",
+      "repeat": 2,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "root_head",
+      "repeat": 2,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "protocol_get",
+      "repeat": 2,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "protocol_head",
+      "repeat": 2,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "protocol_post_no_auth",
+      "repeat": 2,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "protocol_post_wrong_auth",
+      "repeat": 2,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "protocol_post_malformed_auth",
+      "repeat": 2,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "protocol_wrong_method_put",
+      "repeat": 2,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "unknown_get",
+      "repeat": 2,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "unknown_post",
+      "repeat": 2,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "root_options",
+      "repeat": 2,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "root_get",
+      "repeat": 3,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "root_head",
+      "repeat": 3,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "protocol_get",
+      "repeat": 3,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "protocol_head",
+      "repeat": 3,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "protocol_post_no_auth",
+      "repeat": 3,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "protocol_post_wrong_auth",
+      "repeat": 3,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "protocol_post_malformed_auth",
+      "repeat": 3,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "protocol_wrong_method_put",
+      "repeat": 3,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "unknown_get",
+      "repeat": 3,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "unknown_post",
+      "repeat": 3,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "root_options",
+      "repeat": 3,
+      "ok": true
+    },
+    {
+      "check": "h3_attempt_denominator",
+      "ok": true,
+      "observed": 52,
+      "expected": 52
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "root_get",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "root_head",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "protocol_get",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "protocol_head",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "protocol_post_no_auth",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "protocol_post_wrong_auth",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "protocol_post_malformed_auth",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "protocol_wrong_method_put",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "unknown_get",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "unknown_post",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "root_options",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "root_get",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "root_head",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "protocol_get",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "protocol_head",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "protocol_post_no_auth",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "protocol_post_wrong_auth",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "protocol_post_malformed_auth",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "protocol_wrong_method_put",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "unknown_get",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "unknown_post",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "root_options",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "root_get",
+      "repeat": 2,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "root_head",
+      "repeat": 2,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "protocol_get",
+      "repeat": 2,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "protocol_head",
+      "repeat": 2,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "protocol_post_no_auth",
+      "repeat": 2,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "protocol_post_wrong_auth",
+      "repeat": 2,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "protocol_post_malformed_auth",
+      "repeat": 2,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "protocol_wrong_method_put",
+      "repeat": 2,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "unknown_get",
+      "repeat": 2,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "unknown_post",
+      "repeat": 2,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "root_options",
+      "repeat": 2,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "root_get",
+      "repeat": 3,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "root_head",
+      "repeat": 3,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "protocol_get",
+      "repeat": 3,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "protocol_head",
+      "repeat": 3,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "protocol_post_no_auth",
+      "repeat": 3,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "protocol_post_wrong_auth",
+      "repeat": 3,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "protocol_post_malformed_auth",
+      "repeat": 3,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "protocol_wrong_method_put",
+      "repeat": 3,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "unknown_get",
+      "repeat": 3,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "unknown_post",
+      "repeat": 3,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "root_options",
+      "repeat": 3,
+      "ok": true
+    },
+    {
+      "check": "clean_capture_shutdown",
+      "ok": true
+    },
+    {
+      "check": "no_initial_inspection_errors",
+      "ok": true
+    },
+    {
+      "check": "clienthello_denominator",
+      "ok": true,
+      "observed": 104,
+      "expected": 104
+    },
+    {
+      "check": "no_captured_prefix_truncation",
+      "ok": true
+    },
+    {
+      "check": "intentional_legacy_offer_count",
+      "ok": true,
+      "observed": 8,
+      "expected": 8
+    },
+    {
+      "check": "distinct_udp_backend_ports",
+      "ok": true,
+      "mapping_count": 52
+    },
+    {
+      "check": "no_byte_identical_server_udp_reflection",
+      "ok": true,
+      "observed": 0
+    }
+  ],
+  "binary_sha256": "03ec1044724e5a5ff52fb468b91675d036903ebedec5be2c7310756622f4ccb8",
+  "repeats": 4,
+  "scope": "real local ordinary HTTP fixture and controlled relay; not a candidate protocol comparison",
+  "certificate_policy": "generated private CA and name validation plus additional pin; no system trust change",
+  "candidate_authenticated_traffic_tested": false,
+  "native_client_traffic_capture": false,
+  "timing_interpretation": "loopback observations only; no link impairment or Russian-network claim"
+}

@@ -1,5 +1,17 @@
 # PROTO-X 原型安全与可部署性独立评审
 
+**版本范围更新：** v0.2 已增加真实 HTTP/2 / HTTP/3、网站回落、CA/域名验证、TLS exporter 绑定 HMAC、防重放、标准 ECH 和填充。下面原评审正文与 v0.1.1 小节保留其历史范围，不能用它们代表当前 Web 承载。新版机制见 [WEB-CARRIER.md](WEB-CARRIER.md)，实际识别检查与硬缺口见 [recognition-v02.md](recognition-v02.md)。
+
+v0.2 新增测试覆盖真实 H2/H3 SOCKS 字节和半关闭、两向恢复且原目标只拨号一次、并发短流回收、取消退出、错误 token/HELLO 不创建 Session 或目标、CA/pin/ECH 接受和拒绝、同连接/跨连接重放、填充边界。这些是有范围的工程验证，不是第三方安全认证或抗 DPI 证明。
+
+本轮发现并修复：HTTP handler 返回后仍写 ResponseWriter 的 race；正常回收被立即写截止时间转成 HTTP reset；Go 1.27 x/net H2 wrapper 在 Reserve 回调重入锁导致停顿；无 ALPN 普通 HTTPS 访客被拒绝。服务端关闭后拒绝新 Link，错误 ECH 角色和非法 padding 在启动时拒绝。TLS 终止 CDN/nginx、ECH/证书轮换、浏览器指纹及大规模 DoS 尚未解决。
+
+最终独立复核另外复现了初始化目录的悬空链接导致私钥落入公开目录的问题。Init / InitWeb / GenerateECH 及默认站点生成现改用 Lstat 检查与 `O_CREATE|O_EXCL`、0600 独占创建；24 个独立回归用例通过。父目录仍须受信，前台手工把秘密目录作为 cover 的误配置未被自动消除。详细修复前证据、当前哈希与资源限制见 [Web 独立窄审查](../results/verification-web-20261107/independent-review.md)。
+
+---
+
+以下为 v0.1 / v0.1.1 历史评审。
+
 评审日期：2026-11-07（Europe/Moscow）。范围是 `internal/carrier`、`internal/app`，以及它们依赖的记录边界、会话恢复和资源回收。评审者未修改这些实现；主开发者在评审过程中修复问题，以下状态以修复后源码复核为准。
 
 目前可以继续受控实验部署。标准 TLS 1.3、显式证书指纹、随机 bearer token 和有界输入已形成可检查的基础；本次检查没有发现认证绕过。这个结论仅限下述源码审查与 10 项小规模回环检查，**不构成生产安全审计、拒绝服务防护证明或抗 DPI 证明**。
@@ -104,9 +116,9 @@ go run ./tools/securitycheck \
 
 TLS 承载把应用流复用在一个 TCP 连接里，仍有 TCP 丢包造成的跨流队头阻塞。QUIC 独立流减少这种跨流等待，但共享连接拥塞控制、连接窗口、CPU 和线路；它也不是任意后台负载下的隔离保证。控制记录和加密重传的外层成本应进入实际字节测量，不能把配置的应用速率视为硬 wire-rate 上限。
 
-## 抗识别结论
+## v0.1 历史抗识别结论
 
-当前原型**容易被规则识别**，没有合理依据宣称优于 REALITY 或 Hysteria 的抗识别能力：
+当时的 v0.1 原型**容易被规则识别**，没有合理依据宣称优于 REALITY 或 Hysteria 的抗识别能力；这些发现推动了 v0.2 改造，旧模式仍保留作诊断：
 
 - ALPN 固定为 `proto-x/1`，默认 SNI 是 `proto-x.local`。没有 ECH；TLS ClientHello 信息以及可解码 QUIC Initial 中的 TLS ClientHello 可用于分类。
 - 服务端使用本项目生成的证书。TLS 1.3 证书并非普通被动旁观者直接可读，但主动 TLS 客户端可获取它。未认证连接等待协议 HELLO 后关闭，并没有真实网站回落行为。

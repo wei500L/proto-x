@@ -1,0 +1,1 @@
+ok  	proto-x/internal/app	1.568s

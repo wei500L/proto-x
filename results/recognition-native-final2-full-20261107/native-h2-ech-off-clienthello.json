@@ -1,0 +1,186 @@
+{
+  "schema": 1,
+  "label": "native-h2-ech-off",
+  "capture_sha256": "d42993354c7b15b2c6686a6ae4f67f2143faa8d493e1be059204e2a035d2115e",
+  "source": "controlled user-space relay observations; not host pcap or server callback",
+  "capture_shutdown_observed": true,
+  "observations": [
+    {
+      "flow": "tcp-1",
+      "transport": "tls_over_tcp",
+      "observation_method": "actual ordered TLS record bytes read at relay",
+      "client_hello": {
+        "handshake_bytes": 1534,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 32,
+        "cipher_suites": [
+          4865,
+          4866,
+          4867
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          11,
+          65281,
+          23,
+          18,
+          5,
+          10,
+          13,
+          50,
+          16,
+          43,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 50
+          },
+          {
+            "id": 11,
+            "bytes": 2
+          },
+          {
+            "id": 65281,
+            "bytes": 1
+          },
+          {
+            "id": 23,
+            "bytes": 0
+          },
+          {
+            "id": 18,
+            "bytes": 0
+          },
+          {
+            "id": 5,
+            "bytes": 5
+          },
+          {
+            "id": 10,
+            "bytes": 16
+          },
+          {
+            "id": 13,
+            "bytes": 22
+          },
+          {
+            "id": 50,
+            "bytes": 32
+          },
+          {
+            "id": 16,
+            "bytes": 14
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [
+          "h2",
+          "http/1.1"
+        ],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          4587,
+          4589,
+          29,
+          23,
+          24,
+          25
+        ],
+        "signature_algorithms": [
+          2308,
+          2309,
+          2310,
+          2052,
+          1027,
+          2055,
+          2053,
+          2054,
+          1283,
+          1539
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "ech_extension_present": false,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "tls_record_payload_lengths_until_hello": [
+          1534
+        ],
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_inner_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    }
+  ],
+  "capture_flow_counts": {
+    "tcp": 1
+  },
+  "decoded_client_hello_count": 1,
+  "quic_unparsed_packet_categories": {},
+  "inspection_errors": [],
+  "relay_counts": [
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-1",
+      "direction": "client_to_server",
+      "bytes": 15796,
+      "chunks": 101,
+      "captured_bytes": 15796,
+      "captured_chunks": 101,
+      "capture_truncated": false,
+      "elapsed_ns": 656462333
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "tcp-1",
+      "direction": "server_to_client",
+      "bytes": 114377,
+      "chunks": 102,
+      "captured_bytes": 114377,
+      "captured_chunks": 102,
+      "capture_truncated": false,
+      "elapsed_ns": 656481041
+    }
+  ],
+  "interpretation": [
+    "SNI values are redacted to configured-name classes; only the visible outer ClientHello is inspected.",
+    "An ECH extension can be real or GREASE; its presence does not prove ECH acceptance or reveal the inner name.",
+    "Offered ALPN is a ClientHello observation. Negotiated ALPN requires the active client's connection state.",
+    "TCP relay reads preserve byte order but do not preserve IP packets, retransmissions, segmentation or NIC timestamps.",
+    "QUIC Initial decryption requires no TLS secret; later encrypted traffic is not decrypted here.",
+    "A missing legacy ALPN match defeats only that declared rule, not classifiers, all DPI or active detection.",
+    "Capture truncation and undecoded observations remain visible. Legacy-ALPN probes must not be mislabeled as native client traffic."
+  ]
+}

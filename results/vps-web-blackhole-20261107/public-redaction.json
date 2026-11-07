@@ -1,0 +1,15 @@
+{
+  "operation": "replace developer absolute workspace prefix with <repo> only; original bytes retained privately",
+  "files": [
+    {
+      "file": "bench.jsonl",
+      "original_sha256": "162f4228bc9a3e19c72676866e2301e47d39dd6fba1c9d441912535d8b00ba08",
+      "public_sha256": "8757749daaa13c2139e1c0a3aa45a6ae629a1e8426c7a999b6d4c3f2b0a3f4dd"
+    },
+    {
+      "file": "bench.summary.json",
+      "original_sha256": "7eca803e51971374c96bc46b37992b21bcca6b3268c5cc8ecba93c21f48a7a5d",
+      "public_sha256": "b3ad4aa71896fbf4ff53e20dab95f9112c0fc8769fcb0b7a7c527279dc288685"
+    }
+  ]
+}

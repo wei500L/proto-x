@@ -23,23 +23,26 @@ import (
 const ALPN = "proto-x/1"
 
 type Link struct {
-	Kind         string
-	TCP          net.Conn
-	QUIC         *quic.Conn
-	control      io.ReadWriteCloser
-	ctx          context.Context
-	cancel       context.CancelFunc
-	in           chan wire.Frame
-	done         chan struct{}
-	once         sync.Once
-	mu           sync.Mutex
-	err          error
-	writers      map[uint64]*writer
-	seen         map[uint64]bool
-	controlMu    sync.Mutex
-	controlQueue chan wire.Frame
-	Sent         atomic.Uint64
-	Received     atomic.Uint64
+	Kind            string
+	TCP             net.Conn
+	QUIC            *quic.Conn
+	control         io.ReadWriteCloser
+	ctx             context.Context
+	cancel          context.CancelFunc
+	in              chan wire.Frame
+	done            chan struct{}
+	once            sync.Once
+	mu              sync.Mutex
+	err             error
+	writers         map[uint64]*writer
+	seen            map[uint64]bool
+	controlMu       sync.Mutex
+	controlQueue    chan wire.Frame
+	web             *webLink
+	Sent            atomic.Uint64
+	Received        atomic.Uint64
+	PaddingSent     atomic.Uint64
+	PaddingReceived atomic.Uint64
 }
 type writer struct {
 	mu     sync.Mutex
@@ -134,8 +137,8 @@ func AcceptQUIC(ctx context.Context, c *quic.Conn) (*Link, error) {
 
 // Handshake operations must finish before Start; application records cannot be
 // processed until the authenticated session has accepted this link.
-func (l *Link) HandshakeWrite(f wire.Frame) error  { return wire.Write(l.control, f) }
-func (l *Link) HandshakeRead() (wire.Frame, error) { return wire.Read(l.control) }
+func (l *Link) HandshakeWrite(f wire.Frame) error  { return l.writeRecord(l.control, f) }
+func (l *Link) HandshakeRead() (wire.Frame, error) { return l.readRecord(l.control) }
 func (l *Link) SetHandshakeDeadline(t time.Time) {
 	if d, ok := l.control.(interface{ SetDeadline(time.Time) error }); ok {
 		_ = d.SetDeadline(t)
@@ -143,8 +146,11 @@ func (l *Link) SetHandshakeDeadline(t time.Time) {
 }
 
 func (l *Link) Start() {
+	if l.web != nil {
+		l.web.startOnce.Do(func() { close(l.web.started) })
+	}
 	go l.controlLoop()
-	go l.readLoop(l.control, 0, l.QUIC != nil)
+	go l.readLoop(l.control, 0, l.QUIC != nil || l.web != nil)
 	if l.QUIC != nil {
 		go l.acceptStreams()
 	}
@@ -160,7 +166,9 @@ func (l *Link) fail(e error) {
 		l.mu.Unlock()
 		l.cancel()
 		close(l.done)
-		if l.QUIC != nil {
+		if l.web != nil {
+			l.web.close()
+		} else if l.QUIC != nil {
 			_ = l.QUIC.CloseWithError(0, "link closed")
 		} else if l.TCP != nil {
 			_ = l.TCP.Close()
@@ -170,7 +178,7 @@ func (l *Link) fail(e error) {
 
 func (l *Link) readLoop(r io.Reader, id uint64, bound bool) {
 	for {
-		f, e := wire.Read(r)
+		f, e := l.readRecord(r)
 		if e != nil {
 			if bound && id != 0 && errors.Is(e, io.EOF) {
 				l.mu.Lock()
@@ -218,7 +226,7 @@ func (l *Link) controlLoop() {
 			return
 		case f := <-l.controlQueue:
 			l.controlMu.Lock()
-			e := wire.Write(l.control, f)
+			e := l.writeRecord(l.control, f)
 			l.controlMu.Unlock()
 			if e != nil {
 				l.fail(e)
@@ -273,9 +281,11 @@ func (l *Link) Send(f wire.Frame) error {
 	default:
 	}
 	var err error
-	if l.QUIC == nil || f.ID == 0 {
+	if l.web != nil && f.ID != 0 {
+		err = l.web.send(f)
+	} else if l.QUIC == nil || f.ID == 0 {
 		l.controlMu.Lock()
-		err = wire.Write(l.control, f)
+		err = l.writeRecord(l.control, f)
 		l.controlMu.Unlock()
 	} else {
 		l.mu.Lock()
@@ -302,6 +312,10 @@ func (l *Link) Send(f wire.Frame) error {
 	return err
 }
 func (l *Link) Forget(id uint64) {
+	if l.web != nil {
+		l.web.forget(id)
+		return
+	}
 	l.mu.Lock()
 	w := l.writers[id]
 	delete(l.writers, id)

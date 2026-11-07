@@ -753,7 +753,7 @@ func (f *Flow) sendLoop() {
 				continue
 			}
 		}
-		if err := f.s.budget.Acquire(f.s.ctx, wire.HeaderSize+len(p.Payload)+64, high); err != nil {
+		if err := f.s.budget.Acquire(f.s.ctx, l.RecordCost(p)+64, high); err != nil {
 			return
 		}
 		current, nowGen, _ := f.s.Current()

@@ -1,0 +1,270 @@
+{
+  "mode": "active",
+  "network": "h2",
+  "candidate_attempts": 13,
+  "reference_attempts": 13,
+  "candidate_status_counts": {
+    "response_observed": 11,
+    "handshake_or_stream_rejected": 1,
+    "legacy_response_observed": 1
+  },
+  "reference_status_counts": {
+    "response_observed": 11,
+    "handshake_or_stream_rejected": 1,
+    "legacy_response_observed": 1
+  },
+  "pair_status_counts": {
+    "normalized_match": 13
+  },
+  "pairs": [
+    {
+      "repeat": 0,
+      "case": "old_bare_record_over_standard_alpn",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "legacy_response_observed",
+      "reference_status": "legacy_response_observed",
+      "candidate_times": {
+        "handshake_elapsed_ms": 1.382625,
+        "complete_elapsed_ms": 1.624417
+      },
+      "reference_times": {
+        "handshake_elapsed_ms": 1.38425,
+        "complete_elapsed_ms": 1.684125
+      }
+    },
+    {
+      "repeat": 0,
+      "case": "old_custom_alpn_offer",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "handshake_or_stream_rejected",
+      "reference_status": "handshake_or_stream_rejected",
+      "candidate_times": {
+        "handshake_elapsed_ms": 1.213875
+      },
+      "reference_times": {
+        "handshake_elapsed_ms": 0.950167
+      }
+    },
+    {
+      "repeat": 0,
+      "case": "protocol_get",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.897666,
+        "complete_elapsed_ms": 1.918875
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.775375,
+        "complete_elapsed_ms": 1.783083
+      }
+    },
+    {
+      "repeat": 0,
+      "case": "protocol_head",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.826167,
+        "complete_elapsed_ms": 1.853667
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.804042,
+        "complete_elapsed_ms": 1.806875
+      }
+    },
+    {
+      "repeat": 0,
+      "case": "protocol_post_malformed_auth",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.904666,
+        "complete_elapsed_ms": 1.908541
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 2.055708,
+        "complete_elapsed_ms": 2.066375
+      }
+    },
+    {
+      "repeat": 0,
+      "case": "protocol_post_no_auth",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.794166,
+        "complete_elapsed_ms": 1.798333
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.763375,
+        "complete_elapsed_ms": 1.766708
+      }
+    },
+    {
+      "repeat": 0,
+      "case": "protocol_post_wrong_auth",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.918041,
+        "complete_elapsed_ms": 1.921166
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.910458,
+        "complete_elapsed_ms": 1.916458
+      }
+    },
+    {
+      "repeat": 0,
+      "case": "protocol_wrong_method_put",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 2.237125,
+        "complete_elapsed_ms": 2.243208
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 2.044291,
+        "complete_elapsed_ms": 2.048583
+      }
+    },
+    {
+      "repeat": 0,
+      "case": "root_get",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 4.004292,
+        "complete_elapsed_ms": 4.009459
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 2.963625,
+        "complete_elapsed_ms": 2.968334
+      }
+    },
+    {
+      "repeat": 0,
+      "case": "root_head",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.926375,
+        "complete_elapsed_ms": 1.936459
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 2.134417,
+        "complete_elapsed_ms": 2.150333
+      }
+    },
+    {
+      "repeat": 0,
+      "case": "root_options",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.834334,
+        "complete_elapsed_ms": 1.837584
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.826125,
+        "complete_elapsed_ms": 1.832708
+      }
+    },
+    {
+      "repeat": 0,
+      "case": "unknown_get",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 2.043042,
+        "complete_elapsed_ms": 2.100292
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.790583,
+        "complete_elapsed_ms": 1.79375
+      }
+    },
+    {
+      "repeat": 0,
+      "case": "unknown_post",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.790291,
+        "complete_elapsed_ms": 1.793708
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.708542,
+        "complete_elapsed_ms": 1.712833
+      }
+    }
+  ],
+  "comparison_fields": [
+    "case",
+    "method",
+    "authentication_class",
+    "status",
+    "error",
+    "body_error",
+    "http_status",
+    "http_protocol",
+    "headers",
+    "content_length",
+    "negotiated_alpn",
+    "tls_version",
+    "certificate_chain_verified",
+    "body_bytes_observed",
+    "body_truncated_at_bound",
+    "body_sha256",
+    "offered_alpn",
+    "payload_class",
+    "legacy_record_bytes",
+    "response_bytes",
+    "response_sha256",
+    "response_truncated_at_bound",
+    "read_error",
+    "process_exit_code",
+    "certificate_verification_reported",
+    "visitor_profile",
+    "tls_client_stack"
+  ],
+  "timing_samples_retained_but_not_used_for_response_match": true,
+  "limitations": [
+    "A normalized match can include two rejected or failed requests. Status counts and every pair remain visible.",
+    "Only declared status/protocol/header/body/error fields are compared. Date and private header values are outside this comparison.",
+    "Different listeners and executions add timing variance; these samples do not prove timing indistinguishability.",
+    "This comparison does not test authenticated proxy interoperability, arbitrary active probes, real-world DPI, or Russian reachability.",
+    "A same-stack ordinary control isolates the effect of the candidate's HTTP gate; it is not a diverse cover-traffic corpus."
+  ],
+  "schema": 1,
+  "created_utc": "2026-11-07T03:53:39.179885+00:00",
+  "candidate_label": "candidate-active-h2",
+  "reference_label": "ordinary-active-h2",
+  "candidate_report_sha256": "cefd7a2b23f72640c141c21fec03fdef886e8d787ec60878a2eb6668f890fa7b",
+  "reference_report_sha256": "38cb95825c7455e2a362687d9efba6f227eb2d174e924da8f9f67d8a7dc5f1f0"
+}

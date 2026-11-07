@@ -2,7 +2,9 @@ package app
 
 import (
 	"context"
+	"crypto/tls"
 	"encoding/binary"
+	"encoding/hex"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -14,6 +16,7 @@ import (
 	"time"
 
 	"proto-x/internal/carrier"
+	"proto-x/internal/cover"
 	"proto-x/internal/session"
 	"proto-x/internal/wire"
 )
@@ -24,9 +27,13 @@ type Client struct {
 	mu      sync.Mutex
 	current *session.Session
 	changed chan struct{}
+	gate    *cover.Gate
 }
 
 func RunClient(ctx context.Context, cfg Config) error {
+	if err := cfg.validateWeb(false); err != nil {
+		return err
+	}
 	if len(cfg.Endpoints) == 0 {
 		return errors.New("at least one endpoint required")
 	}
@@ -43,12 +50,24 @@ func RunClient(ctx context.Context, cfg Config) error {
 		return e
 	}
 	for _, ep := range cfg.Endpoints {
-		if ep.Network != "tls" && ep.Network != "quic" {
+		if ep.Network != "tls" && ep.Network != "quic" && ep.Network != "h2" && ep.Network != "h3" {
 			return errors.New("invalid endpoint transport")
 		}
-		if _, e = carrier.ClientTLS(cfg.Pin, ep.ServerName); e != nil {
+		if ep.Network == "h2" || ep.Network == "h3" {
+			_, e = cfg.webTLS(ep)
+		} else if cfg.ECHConfigFile != "" {
+			return errors.New("ECH configuration cannot include a legacy carrier fallback")
+		} else {
+			_, e = carrier.ClientTLS(cfg.Pin, ep.ServerName)
+		}
+		if e != nil {
 			return e
 		}
+	}
+	key, _ := hex.DecodeString(token)
+	gate, e := cover.NewGate(key, cover.Config{Path: cfg.WebPath})
+	if e != nil {
+		return e
 	}
 	ln, e := net.Listen("tcp", cfg.SOCKSListen)
 	if e != nil {
@@ -56,7 +75,7 @@ func RunClient(ctx context.Context, cfg Config) error {
 	}
 	defer ln.Close()
 	ctx, cancel := context.WithCancel(ctx)
-	c := &Client{cfg: cfg, token: token, changed: make(chan struct{})}
+	c := &Client{cfg: cfg, token: token, changed: make(chan struct{}), gate: gate}
 	managed := make(chan struct{})
 	go func() {
 		defer close(managed)
@@ -132,16 +151,31 @@ func (c *Client) manage(ctx context.Context) {
 			index := (startIndex + attempt) % len(c.cfg.Endpoints)
 			ep := c.cfg.Endpoints[index]
 			dctx, cancel := context.WithTimeout(ctx, time.Duration(c.cfg.DialTimeoutMS)*time.Millisecond)
-			cfg, _ := carrier.ClientTLS(c.cfg.Pin, ep.ServerName)
-			l, e := carrier.Dial(dctx, ep.Network, ep.Address, cfg)
+			var l *carrier.Link
+			var e error
+			helloBody, _ := json.Marshal(hello{Version: wire.Version, Session: s.ID, Token: c.token, Resume: resuming, Window: c.cfg.Window})
+			helloFrame := wire.Frame{Kind: wire.Hello, Payload: helloBody}
+			httpCarrier := ep.Network == "h2" || ep.Network == "h3"
+			if httpCarrier {
+				var tc *tls.Config
+				tc, e = c.cfg.webTLS(ep)
+				if e == nil {
+					l, e = carrier.DialWeb(dctx, carrier.WebOptions{Network: ep.Network, Address: ep.Address,
+						Authority: ep.ServerName, Path: c.cfg.WebPath, TLSConfig: tc, Gate: c.gate, Padding: c.cfg.WebPadding, Initial: &helloFrame})
+				}
+			} else {
+				tc, _ := carrier.ClientTLS(c.cfg.Pin, ep.ServerName)
+				l, e = carrier.Dial(dctx, ep.Network, ep.Address, tc)
+			}
 			if e == nil {
 				// DialContext ends after the transport handshake. Also interrupt
 				// the following application handshake when its parent is canceled.
 				stop := context.AfterFunc(dctx, func() { _ = l.Close() })
 				deadline, _ := dctx.Deadline()
 				l.SetHandshakeDeadline(deadline)
-				b, _ := json.Marshal(hello{Version: wire.Version, Session: s.ID, Token: c.token, Resume: resuming, Window: c.cfg.Window})
-				e = l.HandshakeWrite(wire.Frame{Kind: wire.Hello, Payload: b})
+				if !httpCarrier {
+					e = l.HandshakeWrite(helloFrame)
+				}
 				if e == nil {
 					var p wire.Frame
 					p, e = l.HandshakeRead()

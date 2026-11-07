@@ -1,0 +1,50 @@
+[
+  {
+    "trial_id": "webpilot01-01-r1-h2-p0",
+    "case": "h2-p0",
+    "repeat": 1,
+    "order": 1,
+    "status": "completed",
+    "error": null
+  },
+  {
+    "trial_id": "webpilot01-02-r1-h3-p127",
+    "case": "h3-p127",
+    "repeat": 1,
+    "order": 2,
+    "status": "completed",
+    "error": null
+  },
+  {
+    "trial_id": "webpilot01-03-r1-h2-p127",
+    "case": "h2-p127",
+    "repeat": 1,
+    "order": 3,
+    "status": "completed",
+    "error": null
+  },
+  {
+    "trial_id": "webpilot01-04-r1-h3-p0",
+    "case": "h3-p0",
+    "repeat": 1,
+    "order": 4,
+    "status": "completed",
+    "error": null
+  },
+  {
+    "trial_id": "webpilot01-05-r1-tls",
+    "case": "tls",
+    "repeat": 1,
+    "order": 5,
+    "status": "completed",
+    "error": null
+  },
+  {
+    "trial_id": "webpilot01-06-r1-quic",
+    "case": "quic",
+    "repeat": 1,
+    "order": 6,
+    "status": "completed",
+    "error": null
+  }
+]

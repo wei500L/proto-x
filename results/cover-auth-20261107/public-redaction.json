@@ -1,0 +1,10 @@
+{
+  "operation": "replace local workspace prefix only; originals retained privately",
+  "files": [
+    {
+      "file": "checks.txt",
+      "original_sha256": "828610fded5a10e6987cb437ad66695ba641e094d373f0d6be26f0590b5b252b",
+      "public_sha256": "0edfef18ee053c9f2bd3a777aff38e2268ff72102a6bfb3cd499eca7c85dc43b"
+    }
+  ]
+}

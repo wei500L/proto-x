@@ -1,0 +1,21 @@
+[
+  {
+    "time": "2026-11-07T07:00:43.574564+03:00",
+    "msg": "carrier attached",
+    "carrier": "h3",
+    "generation": 1,
+    "resumed_flows": 0
+  },
+  {
+    "time": "2026-11-07T07:00:53.132921+03:00",
+    "msg": "carrier detached",
+    "carrier": "h3"
+  },
+  {
+    "time": "2026-11-07T07:00:53.631292+03:00",
+    "msg": "carrier attached",
+    "carrier": "h2",
+    "generation": 2,
+    "resumed_flows": 17
+  }
+]

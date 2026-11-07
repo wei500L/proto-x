@@ -1,0 +1,280 @@
+{
+  "trial_id": "webcost01-08-r2-tls",
+  "case": "tls",
+  "network": "tls",
+  "padding": 0,
+  "repeat": 2,
+  "order": 8,
+  "started_utc": "2026-11-07T03:58:59.196525+00:00",
+  "status": "completed",
+  "configured_duration_seconds": 12.0,
+  "prebenchmark_idle_seconds": 0.3,
+  "config_summary": {
+    "server": {
+      "rate_mbps": 8,
+      "priority": true,
+      "adaptive": false,
+      "window_bytes": 65536,
+      "max_flows": 32,
+      "max_sessions": 2,
+      "heartbeat_ms": 500,
+      "dead_ms": 2000,
+      "resume_seconds": 90,
+      "dial_timeout_ms": 1200,
+      "allow_private_targets": true,
+      "web_padding": 0
+    },
+    "client": {
+      "rate_mbps": 2,
+      "priority": true,
+      "adaptive": false,
+      "window_bytes": 65536,
+      "max_flows": 32,
+      "max_sessions": 2,
+      "heartbeat_ms": 500,
+      "dead_ms": 2000,
+      "resume_seconds": 90,
+      "dial_timeout_ms": 1200,
+      "web_padding": 0
+    },
+    "single_endpoint": "tls",
+    "ech": false,
+    "http_keepalive": true,
+    "capture_bytes": 0,
+    "capture_packets": 0,
+    "trust": "explicit development leaf pin; no public CA/ECH claim"
+  },
+  "private_config_sha256": {
+    "server": "0da8577dc42b13bd69fecb86481a9002a4d04b1b9d57c87d3de5330745b5e38b",
+    "client": "229c95e2f15470291cc7c537fbe5206c3b7ef4c28a830df5b6390fb65434adcd"
+  },
+  "benchmark_started_utc": "2026-11-07T03:58:59.723656+00:00",
+  "benchmark_started_elapsed_ns": 527163792,
+  "benchmark_ended_utc": "2026-11-07T03:59:11.778942+00:00",
+  "benchmark_ended_elapsed_ns": 12582462459,
+  "processes": {
+    "init": {
+      "pid": 48077,
+      "started_utc": "2026-11-07T03:58:59.199384+00:00",
+      "started_elapsed_ns": 2902334,
+      "forced_kill": false,
+      "exit_code": 0,
+      "observed_stopped_utc": "2026-11-07T03:59:11.797258+00:00",
+      "observed_stopped_elapsed_ns": 12600752250
+    },
+    "origin": {
+      "pid": 48078,
+      "started_utc": "2026-11-07T03:58:59.212446+00:00",
+      "started_elapsed_ns": 15952000,
+      "forced_kill": false,
+      "sigterm_utc": "2026-11-07T03:59:11.785122+00:00",
+      "sigterm_elapsed_ns": 12588615500,
+      "exit_code": 0,
+      "observed_stopped_utc": "2026-11-07T03:59:11.786646+00:00",
+      "observed_stopped_elapsed_ns": 12590141167
+    },
+    "server": {
+      "pid": 48079,
+      "started_utc": "2026-11-07T03:58:59.265319+00:00",
+      "started_elapsed_ns": 68831500,
+      "forced_kill": false,
+      "sigterm_utc": "2026-11-07T03:59:11.783584+00:00",
+      "sigterm_elapsed_ns": 12587078584,
+      "exit_code": 0,
+      "observed_stopped_utc": "2026-11-07T03:59:11.785115+00:00",
+      "observed_stopped_elapsed_ns": 12588610250
+    },
+    "relay": {
+      "pid": 48080,
+      "started_utc": "2026-11-07T03:58:59.317734+00:00",
+      "started_elapsed_ns": 121255334,
+      "forced_kill": false,
+      "sigterm_utc": "2026-11-07T03:59:11.786654+00:00",
+      "sigterm_elapsed_ns": 12590147125,
+      "exit_code": 0,
+      "observed_stopped_utc": "2026-11-07T03:59:11.797232+00:00",
+      "observed_stopped_elapsed_ns": 12600739917
+    },
+    "client": {
+      "pid": 48081,
+      "started_utc": "2026-11-07T03:58:59.369737+00:00",
+      "started_elapsed_ns": 173230000,
+      "forced_kill": false,
+      "sigterm_utc": "2026-11-07T03:59:11.779010+00:00",
+      "sigterm_elapsed_ns": 12582506084,
+      "exit_code": 0,
+      "observed_stopped_utc": "2026-11-07T03:59:11.783570+00:00",
+      "observed_stopped_elapsed_ns": 12587068917
+    },
+    "benchmark": {
+      "pid": 48084,
+      "started_utc": "2026-11-07T03:58:59.726554+00:00",
+      "started_elapsed_ns": 530077917,
+      "forced_kill": false,
+      "exit_code": 0,
+      "observed_stopped_utc": "2026-11-07T03:59:11.779002+00:00",
+      "observed_stopped_elapsed_ns": 12582497667
+    }
+  },
+  "resources": {
+    "init": {
+      "samples": 0,
+      "rss_sampled_peak_kib": null
+    },
+    "origin": {
+      "samples": 56,
+      "rss_sampled_peak_kib": 13920
+    },
+    "server": {
+      "samples": 56,
+      "rss_sampled_peak_kib": 21088
+    },
+    "relay": {
+      "samples": 56,
+      "rss_sampled_peak_kib": 18400
+    },
+    "client": {
+      "samples": 56,
+      "rss_sampled_peak_kib": 19904
+    },
+    "benchmark": {
+      "samples": 54,
+      "rss_sampled_peak_kib": 15088
+    }
+  },
+  "resource_notes": [
+    "200ms requested sampling interval; actual timestamps retained.",
+    "Sampled RSS peak is a lower bound, not OS high-water RSS.",
+    "ps %cpu is not interval CPU accounting; raw values are diagnostic only."
+  ],
+  "commands": [
+    {
+      "role": "init",
+      "argv": [
+        "$PRIVATE/frozen/protox",
+        "init",
+        "-dir",
+        "$PRIVATE/webcost01-08-r2-tls/config",
+        "-host",
+        "127.0.0.1",
+        "-server-name",
+        "webbench.example.test",
+        "-tls-port",
+        "59844",
+        "-quic-port",
+        "59844",
+        "--legacy"
+      ]
+    },
+    {
+      "role": "origin",
+      "argv": [
+        "$PRIVATE/frozen/pxbench",
+        "serve",
+        "-http",
+        "127.0.0.1:59846",
+        "-echo",
+        "127.0.0.1:59847"
+      ]
+    },
+    {
+      "role": "server",
+      "argv": [
+        "$PRIVATE/frozen/protox",
+        "server",
+        "-config",
+        "$PRIVATE/webcost01-08-r2-tls/config/server.json"
+      ]
+    },
+    {
+      "role": "relay",
+      "argv": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "$PRIVATE/frozen/relay.py",
+        "--out",
+        "$PRIVATE/webcost01-08-r2-tls/capture",
+        "--label",
+        "tls",
+        "--tcp-target",
+        "127.0.0.1:59844",
+        "--capture-bytes",
+        "0",
+        "--capture-packets",
+        "0"
+      ]
+    },
+    {
+      "role": "client",
+      "argv": [
+        "$PRIVATE/frozen/protox",
+        "client",
+        "-config",
+        "$PRIVATE/webcost01-08-r2-tls/config/client.json"
+      ]
+    },
+    {
+      "role": "benchmark",
+      "argv": [
+        "$PRIVATE/frozen/pxbench",
+        "run",
+        "-proxy",
+        "127.0.0.1:59845",
+        "-http-target",
+        "http://127.0.0.1:59846",
+        "-echo-target",
+        "127.0.0.1:59847",
+        "-duration",
+        "12.0s",
+        "-timeout",
+        "3s",
+        "-rps",
+        "5",
+        "-http-method",
+        "POST",
+        "-http-bytes",
+        "1024",
+        "-concurrency",
+        "32",
+        "-echo-interval",
+        "100ms",
+        "-stream-interval",
+        "50ms",
+        "-background",
+        "1",
+        "-background-mbps",
+        "2",
+        "-uploads",
+        "0",
+        "-run-id",
+        "webcost01-08-r2-tls",
+        "-output",
+        "$PRIVATE/webcost01-08-r2-tls/events.jsonl",
+        "-summary",
+        "$PRIVATE/webcost01-08-r2-tls/events.summary.json"
+      ]
+    }
+  ],
+  "evidence_files": {
+    "events.jsonl": {
+      "private_original_sha256": "23d33ef4d0510198cd630916ec0c6c3e295c7a8606ff840cde3d5fd0acd4144e",
+      "published_sha256": "799e7150107a4ac502f99a6a9b11dd86ad10fdbc6d7a1ea598b071c510002072",
+      "redaction": "paths only; workload values, failures and censoring unchanged"
+    },
+    "events.summary.json": {
+      "private_original_sha256": "7887088bf71c401a13e17e584ee1429cf249ef7b6cf88f94a286c297cb55a157",
+      "published_sha256": "3859391a7dc12da65a080508db1bdb2899f943ee44ea29c035d8ccba8f0f8e8d",
+      "redaction": "paths only; workload values, failures and censoring unchanged"
+    },
+    "resources.jsonl": {
+      "private_original_sha256": "4c340dc536422172a0b80fd805d0c53e189331d5866cc0c5c5edc280d5435854",
+      "published_sha256": "05d8ac43ae48401e0df9e591a012ff04bfa91df4639fcc73ae856278124f2436",
+      "redaction": "paths only; workload values, failures and censoring unchanged"
+    },
+    "relay-events.jsonl": {
+      "private_original_sha256": "534b71d1ff0157ff7654a66249fe62a2ed60491799ece0ab61e7e420b298a3db",
+      "published_sha256": "534b71d1ff0157ff7654a66249fe62a2ed60491799ece0ab61e7e420b298a3db",
+      "redaction": "private_udp_mapping events omitted; all count/error/lifecycle events retained"
+    }
+  },
+  "ended_utc": "2026-11-07T03:59:11.808244+00:00"
+}

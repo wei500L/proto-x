@@ -1,0 +1,17 @@
+{
+  "run_id": "vps-web-soak-20261107",
+  "scope": "one actual authorized VPS path; no synthetic loss; H3 with required ECH and private CA plus pin",
+  "binaries_sha256": {
+    "protox_client": "cff89b2f1b9819482b90c85cd54d420e280475bc23ddafe62cc904aa67dc0ca9",
+    "protox_server": "a5f0733738b328c275c6e89dc2dec75ef5024a42a12aa93ba269dd9a5daed873",
+    "pxbench": "d02bc17f6aca81d5330baa190b72e15cdce7b11964540eeff3deed68e9505584"
+  },
+  "script_sha256": "4f8856430ff96da11881f05a419a93c62bd02c2c0106e31db70bb75503f7c6b0",
+  "web_padding": 127,
+  "experimental_pin_only": false,
+  "cold_http": true,
+  "background_source_mbps": 2,
+  "duration_seconds": 120.000448958,
+  "server_private_targets_during_trial": true,
+  "server_private_targets_after_cleanup": false
+}

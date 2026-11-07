@@ -1,0 +1,30 @@
+Recorded execution results, 2026-11-07, <repo>
+Scope: internal/cover only; local macOS arm64.
+
+$ go version
+go version go1.27.1 darwin/arm64
+
+$ go test ./internal/cover
+ok  	proto-x/internal/cover	0.348s
+exit code: 0
+
+$ go test -race -count=10 ./internal/cover
+ok  	proto-x/internal/cover	2.116s
+exit code: 0
+
+$ go test ./internal/cover -run '^$' -fuzz '^FuzzGateAuthorizationHeader$' -fuzztime=5s -parallel=2
+fuzz: elapsed: 0s, gathering baseline coverage: 0/6 completed
+fuzz: elapsed: 0s, gathering baseline coverage: 6/6 completed, now fuzzing with 2 workers
+fuzz: elapsed: 3s, execs: 194134 (64690/sec), new interesting: 17 (total: 23)
+fuzz: elapsed: 5s, execs: 315998 (59408/sec), new interesting: 23 (total: 29)
+PASS
+ok  	proto-x/internal/cover	5.407s
+exit code: 0
+
+$ go vet ./internal/cover
+(no output)
+exit code: 0
+
+These commands did not exercise VPS deployment, real H2/H3 transport, operator
+networks, or traffic classification. Test TLS state comes from real in-memory
+TLS handshakes; HTTP handler comparisons use httptest response recorders.

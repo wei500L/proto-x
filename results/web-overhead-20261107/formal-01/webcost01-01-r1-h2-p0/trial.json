@@ -1,0 +1,280 @@
+{
+  "trial_id": "webcost01-01-r1-h2-p0",
+  "case": "h2-p0",
+  "network": "h2",
+  "padding": 0,
+  "repeat": 1,
+  "order": 1,
+  "started_utc": "2026-11-07T03:57:30.572549+00:00",
+  "status": "completed",
+  "configured_duration_seconds": 12.0,
+  "prebenchmark_idle_seconds": 0.3,
+  "config_summary": {
+    "server": {
+      "rate_mbps": 8,
+      "priority": true,
+      "adaptive": false,
+      "window_bytes": 65536,
+      "max_flows": 32,
+      "max_sessions": 2,
+      "heartbeat_ms": 500,
+      "dead_ms": 2000,
+      "resume_seconds": 90,
+      "dial_timeout_ms": 1200,
+      "allow_private_targets": true,
+      "web_padding": 0
+    },
+    "client": {
+      "rate_mbps": 2,
+      "priority": true,
+      "adaptive": false,
+      "window_bytes": 65536,
+      "max_flows": 32,
+      "max_sessions": 2,
+      "heartbeat_ms": 500,
+      "dead_ms": 2000,
+      "resume_seconds": 90,
+      "dial_timeout_ms": 1200,
+      "web_padding": 0,
+      "experimental_pin_only": true
+    },
+    "single_endpoint": "h2",
+    "ech": false,
+    "http_keepalive": true,
+    "capture_bytes": 0,
+    "capture_packets": 0,
+    "trust": "explicit development leaf pin; no public CA/ECH claim"
+  },
+  "private_config_sha256": {
+    "server": "c16ed1fdf45c938c2ef35187e2fd99eb8e405b9c69b20de09dd39828839be6b1",
+    "client": "aec208694d9f846cca1995cd986ddc405888d157014fece498c0764452c6b8c5"
+  },
+  "benchmark_started_utc": "2026-11-07T03:57:31.337117+00:00",
+  "benchmark_started_elapsed_ns": 764606375,
+  "benchmark_ended_utc": "2026-11-07T03:57:43.367208+00:00",
+  "benchmark_ended_elapsed_ns": 12794710916,
+  "processes": {
+    "init": {
+      "pid": 47500,
+      "started_utc": "2026-11-07T03:57:30.574139+00:00",
+      "started_elapsed_ns": 1601291,
+      "forced_kill": false,
+      "exit_code": 0,
+      "observed_stopped_utc": "2026-11-07T03:57:43.400615+00:00",
+      "observed_stopped_elapsed_ns": 12828082041
+    },
+    "origin": {
+      "pid": 47501,
+      "started_utc": "2026-11-07T03:57:30.585926+00:00",
+      "started_elapsed_ns": 13390000,
+      "forced_kill": false,
+      "sigterm_utc": "2026-11-07T03:57:43.376415+00:00",
+      "sigterm_elapsed_ns": 12803881291,
+      "exit_code": 0,
+      "observed_stopped_utc": "2026-11-07T03:57:43.377938+00:00",
+      "observed_stopped_elapsed_ns": 12805405250
+    },
+    "server": {
+      "pid": 47503,
+      "started_utc": "2026-11-07T03:57:30.822240+00:00",
+      "started_elapsed_ns": 249704416,
+      "forced_kill": false,
+      "sigterm_utc": "2026-11-07T03:57:43.371872+00:00",
+      "sigterm_elapsed_ns": 12799338291,
+      "exit_code": 0,
+      "observed_stopped_utc": "2026-11-07T03:57:43.376405+00:00",
+      "observed_stopped_elapsed_ns": 12803874208
+    },
+    "relay": {
+      "pid": 47504,
+      "started_utc": "2026-11-07T03:57:30.876292+00:00",
+      "started_elapsed_ns": 303817833,
+      "forced_kill": false,
+      "sigterm_utc": "2026-11-07T03:57:43.377945+00:00",
+      "sigterm_elapsed_ns": 12805410916,
+      "exit_code": 0,
+      "observed_stopped_utc": "2026-11-07T03:57:43.400589+00:00",
+      "observed_stopped_elapsed_ns": 12828070416
+    },
+    "client": {
+      "pid": 47505,
+      "started_utc": "2026-11-07T03:57:30.978763+00:00",
+      "started_elapsed_ns": 406238000,
+      "forced_kill": false,
+      "sigterm_utc": "2026-11-07T03:57:43.367296+00:00",
+      "sigterm_elapsed_ns": 12794763041,
+      "exit_code": 0,
+      "observed_stopped_utc": "2026-11-07T03:57:43.371857+00:00",
+      "observed_stopped_elapsed_ns": 12799328208
+    },
+    "benchmark": {
+      "pid": 47508,
+      "started_utc": "2026-11-07T03:57:31.340340+00:00",
+      "started_elapsed_ns": 767839500,
+      "forced_kill": false,
+      "exit_code": 0,
+      "observed_stopped_utc": "2026-11-07T03:57:43.367282+00:00",
+      "observed_stopped_elapsed_ns": 12794752583
+    }
+  },
+  "resources": {
+    "init": {
+      "samples": 0,
+      "rss_sampled_peak_kib": null
+    },
+    "origin": {
+      "samples": 57,
+      "rss_sampled_peak_kib": 14208
+    },
+    "server": {
+      "samples": 56,
+      "rss_sampled_peak_kib": 22448
+    },
+    "relay": {
+      "samples": 56,
+      "rss_sampled_peak_kib": 18384
+    },
+    "client": {
+      "samples": 56,
+      "rss_sampled_peak_kib": 21824
+    },
+    "benchmark": {
+      "samples": 54,
+      "rss_sampled_peak_kib": 14992
+    }
+  },
+  "resource_notes": [
+    "200ms requested sampling interval; actual timestamps retained.",
+    "Sampled RSS peak is a lower bound, not OS high-water RSS.",
+    "ps %cpu is not interval CPU accounting; raw values are diagnostic only."
+  ],
+  "commands": [
+    {
+      "role": "init",
+      "argv": [
+        "$PRIVATE/frozen/protox",
+        "init",
+        "-dir",
+        "$PRIVATE/webcost01-01-r1-h2-p0/config",
+        "-host",
+        "127.0.0.1",
+        "-server-name",
+        "webbench.example.test",
+        "-tls-port",
+        "59623",
+        "-quic-port",
+        "59623"
+      ]
+    },
+    {
+      "role": "origin",
+      "argv": [
+        "$PRIVATE/frozen/pxbench",
+        "serve",
+        "-http",
+        "127.0.0.1:59625",
+        "-echo",
+        "127.0.0.1:59626"
+      ]
+    },
+    {
+      "role": "server",
+      "argv": [
+        "$PRIVATE/frozen/protox",
+        "server",
+        "-config",
+        "$PRIVATE/webcost01-01-r1-h2-p0/config/server.json"
+      ]
+    },
+    {
+      "role": "relay",
+      "argv": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "$PRIVATE/frozen/relay.py",
+        "--out",
+        "$PRIVATE/webcost01-01-r1-h2-p0/capture",
+        "--label",
+        "h2-p0",
+        "--tcp-target",
+        "127.0.0.1:59623",
+        "--capture-bytes",
+        "0",
+        "--capture-packets",
+        "0"
+      ]
+    },
+    {
+      "role": "client",
+      "argv": [
+        "$PRIVATE/frozen/protox",
+        "client",
+        "-config",
+        "$PRIVATE/webcost01-01-r1-h2-p0/config/client.json"
+      ]
+    },
+    {
+      "role": "benchmark",
+      "argv": [
+        "$PRIVATE/frozen/pxbench",
+        "run",
+        "-proxy",
+        "127.0.0.1:59624",
+        "-http-target",
+        "http://127.0.0.1:59625",
+        "-echo-target",
+        "127.0.0.1:59626",
+        "-duration",
+        "12.0s",
+        "-timeout",
+        "3s",
+        "-rps",
+        "5",
+        "-http-method",
+        "POST",
+        "-http-bytes",
+        "1024",
+        "-concurrency",
+        "32",
+        "-echo-interval",
+        "100ms",
+        "-stream-interval",
+        "50ms",
+        "-background",
+        "1",
+        "-background-mbps",
+        "2",
+        "-uploads",
+        "0",
+        "-run-id",
+        "webcost01-01-r1-h2-p0",
+        "-output",
+        "$PRIVATE/webcost01-01-r1-h2-p0/events.jsonl",
+        "-summary",
+        "$PRIVATE/webcost01-01-r1-h2-p0/events.summary.json"
+      ]
+    }
+  ],
+  "evidence_files": {
+    "events.jsonl": {
+      "private_original_sha256": "7d0065cc748c475f811b2b05305f077424d942ec50635056b32789250bb8d57c",
+      "published_sha256": "2cfbad6cd6555b95e2c23b1ee0b3772feaba9fbbfd92afc17131ae7676630738",
+      "redaction": "paths only; workload values, failures and censoring unchanged"
+    },
+    "events.summary.json": {
+      "private_original_sha256": "1ea850d3634581e1e77e0362587b7f5c5f889ff5c73cfafdd34403b6cc51495d",
+      "published_sha256": "2cfa55f87728b5835f7c125cc0fc3b11abfba74d9a073a7a039ecc11169a17c2",
+      "redaction": "paths only; workload values, failures and censoring unchanged"
+    },
+    "resources.jsonl": {
+      "private_original_sha256": "ba3bc3e2164060ddefbac13f6ba424dc9b433493960dad4d3142bdc0a8c3ecf1",
+      "published_sha256": "03d6e7b8d4ea88a92abf6a5127206d8130712c3c4389cc1fa64fb8f18cbf1adf",
+      "redaction": "paths only; workload values, failures and censoring unchanged"
+    },
+    "relay-events.jsonl": {
+      "private_original_sha256": "a6b5be212a875e462f81b4a43150694ae3663d1f5cd2202320f6b57d4b814c78",
+      "published_sha256": "a6b5be212a875e462f81b4a43150694ae3663d1f5cd2202320f6b57d4b814c78",
+      "redaction": "private_udp_mapping events omitted; all count/error/lifecycle events retained"
+    }
+  },
+  "ended_utc": "2026-11-07T03:57:43.416131+00:00"
+}

@@ -1,0 +1,204 @@
+{
+  "mode": "active",
+  "network": "https_visitor_tcp",
+  "candidate_attempts": 8,
+  "reference_attempts": 8,
+  "candidate_status_counts": {
+    "response_observed": 8
+  },
+  "reference_status_counts": {
+    "response_observed": 8
+  },
+  "pair_status_counts": {
+    "normalized_match": 8
+  },
+  "pairs": [
+    {
+      "repeat": 0,
+      "case": "http11_explicit_alpn_protocol_post_no_auth",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.423333,
+        "handshake_elapsed_ms": 1.129291,
+        "complete_elapsed_ms": 1.427083
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.887875,
+        "handshake_elapsed_ms": 1.510041,
+        "complete_elapsed_ms": 1.891583
+      }
+    },
+    {
+      "repeat": 0,
+      "case": "http11_explicit_alpn_protocol_post_wrong_auth",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.671583,
+        "handshake_elapsed_ms": 1.293,
+        "complete_elapsed_ms": 1.674625
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.912375,
+        "handshake_elapsed_ms": 1.5255,
+        "complete_elapsed_ms": 1.91975
+      }
+    },
+    {
+      "repeat": 0,
+      "case": "http11_explicit_alpn_root_get",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.762958,
+        "handshake_elapsed_ms": 1.419,
+        "complete_elapsed_ms": 1.766375
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.635875,
+        "handshake_elapsed_ms": 1.352667,
+        "complete_elapsed_ms": 1.639458
+      }
+    },
+    {
+      "repeat": 0,
+      "case": "http11_explicit_alpn_root_head",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.811667,
+        "handshake_elapsed_ms": 1.291209,
+        "complete_elapsed_ms": 1.838167
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.540709,
+        "handshake_elapsed_ms": 0.94375,
+        "complete_elapsed_ms": 1.546
+      }
+    },
+    {
+      "repeat": 0,
+      "case": "https_no_alpn_protocol_post_no_auth",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.62125,
+        "handshake_elapsed_ms": 1.28025,
+        "complete_elapsed_ms": 1.626625
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.722292,
+        "handshake_elapsed_ms": 1.469083,
+        "complete_elapsed_ms": 1.72475
+      }
+    },
+    {
+      "repeat": 0,
+      "case": "https_no_alpn_protocol_post_wrong_auth",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.652666,
+        "handshake_elapsed_ms": 1.360083,
+        "complete_elapsed_ms": 1.655666
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.887333,
+        "handshake_elapsed_ms": 1.587666,
+        "complete_elapsed_ms": 1.89175
+      }
+    },
+    {
+      "repeat": 0,
+      "case": "https_no_alpn_root_get",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.683833,
+        "handshake_elapsed_ms": 1.30925,
+        "complete_elapsed_ms": 1.687583
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 2.102834,
+        "handshake_elapsed_ms": 1.324042,
+        "complete_elapsed_ms": 2.107917
+      }
+    },
+    {
+      "repeat": 0,
+      "case": "https_no_alpn_root_head",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 2.027625,
+        "handshake_elapsed_ms": 1.614708,
+        "complete_elapsed_ms": 2.032916
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.645792,
+        "handshake_elapsed_ms": 1.326667,
+        "complete_elapsed_ms": 1.650667
+      }
+    }
+  ],
+  "comparison_fields": [
+    "case",
+    "method",
+    "authentication_class",
+    "status",
+    "error",
+    "body_error",
+    "http_status",
+    "http_protocol",
+    "headers",
+    "content_length",
+    "negotiated_alpn",
+    "tls_version",
+    "certificate_chain_verified",
+    "body_bytes_observed",
+    "body_truncated_at_bound",
+    "body_sha256",
+    "offered_alpn",
+    "payload_class",
+    "legacy_record_bytes",
+    "response_bytes",
+    "response_sha256",
+    "response_truncated_at_bound",
+    "read_error",
+    "process_exit_code",
+    "certificate_verification_reported",
+    "visitor_profile",
+    "tls_client_stack"
+  ],
+  "timing_samples_retained_but_not_used_for_response_match": true,
+  "limitations": [
+    "A normalized match can include two rejected or failed requests. Status counts and every pair remain visible.",
+    "Only declared status/protocol/header/body/error fields are compared. Date and private header values are outside this comparison.",
+    "Different listeners and executions add timing variance; these samples do not prove timing indistinguishability.",
+    "This comparison does not test authenticated proxy interoperability, arbitrary active probes, real-world DPI, or Russian reachability.",
+    "A same-stack ordinary control isolates the effect of the candidate's HTTP gate; it is not a diverse cover-traffic corpus."
+  ],
+  "schema": 1,
+  "created_utc": "2026-11-07T03:53:40.021715+00:00",
+  "candidate_label": "candidate-active-h2",
+  "reference_label": "ordinary-active-h2",
+  "candidate_report_sha256": "15c414107fed415e837a8642627dd3fb1506119cdad8b9893e66d37bd2e80657",
+  "reference_report_sha256": "91c0cd2cf6f040cbb06583368c7a5f154803c74802bed9d26ce5024a20db7499"
+}

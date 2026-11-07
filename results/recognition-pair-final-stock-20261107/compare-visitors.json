@@ -1,0 +1,492 @@
+{
+  "mode": "active",
+  "network": "https_visitor_tcp",
+  "candidate_attempts": 24,
+  "reference_attempts": 24,
+  "candidate_status_counts": {
+    "response_observed": 24
+  },
+  "reference_status_counts": {
+    "response_observed": 24
+  },
+  "pair_status_counts": {
+    "normalized_match": 24
+  },
+  "pairs": [
+    {
+      "repeat": 0,
+      "case": "http11_explicit_alpn_protocol_post_no_auth",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 2.031,
+        "handshake_elapsed_ms": 1.622458,
+        "complete_elapsed_ms": 2.034041
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.781541,
+        "handshake_elapsed_ms": 1.423708,
+        "complete_elapsed_ms": 1.786166
+      }
+    },
+    {
+      "repeat": 0,
+      "case": "http11_explicit_alpn_protocol_post_wrong_auth",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.73725,
+        "handshake_elapsed_ms": 1.394209,
+        "complete_elapsed_ms": 1.740084
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.727541,
+        "handshake_elapsed_ms": 1.38975,
+        "complete_elapsed_ms": 1.730541
+      }
+    },
+    {
+      "repeat": 0,
+      "case": "http11_explicit_alpn_root_get",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.962959,
+        "handshake_elapsed_ms": 1.215375,
+        "complete_elapsed_ms": 1.966917
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.684333,
+        "handshake_elapsed_ms": 1.314958,
+        "complete_elapsed_ms": 1.689208
+      }
+    },
+    {
+      "repeat": 0,
+      "case": "http11_explicit_alpn_root_head",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.827,
+        "handshake_elapsed_ms": 1.476833,
+        "complete_elapsed_ms": 1.836667
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.752542,
+        "handshake_elapsed_ms": 1.40475,
+        "complete_elapsed_ms": 1.759917
+      }
+    },
+    {
+      "repeat": 0,
+      "case": "https_no_alpn_protocol_post_no_auth",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.891375,
+        "handshake_elapsed_ms": 1.620958,
+        "complete_elapsed_ms": 1.896292
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.817791,
+        "handshake_elapsed_ms": 1.568708,
+        "complete_elapsed_ms": 1.821291
+      }
+    },
+    {
+      "repeat": 0,
+      "case": "https_no_alpn_protocol_post_wrong_auth",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.808833,
+        "handshake_elapsed_ms": 1.4065,
+        "complete_elapsed_ms": 1.813083
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.889125,
+        "handshake_elapsed_ms": 1.398167,
+        "complete_elapsed_ms": 1.892667
+      }
+    },
+    {
+      "repeat": 0,
+      "case": "https_no_alpn_root_get",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.785458,
+        "handshake_elapsed_ms": 1.37375,
+        "complete_elapsed_ms": 1.789
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 2.0445,
+        "handshake_elapsed_ms": 1.477625,
+        "complete_elapsed_ms": 2.047625
+      }
+    },
+    {
+      "repeat": 0,
+      "case": "https_no_alpn_root_head",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.990958,
+        "handshake_elapsed_ms": 1.679666,
+        "complete_elapsed_ms": 1.994708
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.548625,
+        "handshake_elapsed_ms": 1.232291,
+        "complete_elapsed_ms": 1.552416
+      }
+    },
+    {
+      "repeat": 1,
+      "case": "http11_explicit_alpn_protocol_post_no_auth",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.804834,
+        "handshake_elapsed_ms": 1.434125,
+        "complete_elapsed_ms": 1.821834
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.613459,
+        "handshake_elapsed_ms": 1.288542,
+        "complete_elapsed_ms": 1.615709
+      }
+    },
+    {
+      "repeat": 1,
+      "case": "http11_explicit_alpn_protocol_post_wrong_auth",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.887375,
+        "handshake_elapsed_ms": 1.555583,
+        "complete_elapsed_ms": 1.889916
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.457959,
+        "handshake_elapsed_ms": 1.170084,
+        "complete_elapsed_ms": 1.460375
+      }
+    },
+    {
+      "repeat": 1,
+      "case": "http11_explicit_alpn_root_get",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 2.195666,
+        "handshake_elapsed_ms": 1.779625,
+        "complete_elapsed_ms": 2.205375
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.808667,
+        "handshake_elapsed_ms": 1.287292,
+        "complete_elapsed_ms": 1.829542
+      }
+    },
+    {
+      "repeat": 1,
+      "case": "http11_explicit_alpn_root_head",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 2.032667,
+        "handshake_elapsed_ms": 1.668833,
+        "complete_elapsed_ms": 2.036583
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.834833,
+        "handshake_elapsed_ms": 1.326208,
+        "complete_elapsed_ms": 1.838041
+      }
+    },
+    {
+      "repeat": 1,
+      "case": "https_no_alpn_protocol_post_no_auth",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.949709,
+        "handshake_elapsed_ms": 1.638167,
+        "complete_elapsed_ms": 1.953125
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.537375,
+        "handshake_elapsed_ms": 1.272083,
+        "complete_elapsed_ms": 1.540875
+      }
+    },
+    {
+      "repeat": 1,
+      "case": "https_no_alpn_protocol_post_wrong_auth",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.536375,
+        "handshake_elapsed_ms": 1.29425,
+        "complete_elapsed_ms": 1.542708
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.993,
+        "handshake_elapsed_ms": 1.596167,
+        "complete_elapsed_ms": 2.005667
+      }
+    },
+    {
+      "repeat": 1,
+      "case": "https_no_alpn_root_get",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.81,
+        "handshake_elapsed_ms": 1.299625,
+        "complete_elapsed_ms": 1.8135
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.767,
+        "handshake_elapsed_ms": 1.419208,
+        "complete_elapsed_ms": 1.771
+      }
+    },
+    {
+      "repeat": 1,
+      "case": "https_no_alpn_root_head",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 2.028375,
+        "handshake_elapsed_ms": 1.640917,
+        "complete_elapsed_ms": 2.031333
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.694541,
+        "handshake_elapsed_ms": 1.37625,
+        "complete_elapsed_ms": 1.697166
+      }
+    },
+    {
+      "repeat": 2,
+      "case": "http11_explicit_alpn_protocol_post_no_auth",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 2.033833,
+        "handshake_elapsed_ms": 1.543333,
+        "complete_elapsed_ms": 2.036875
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 2.008,
+        "handshake_elapsed_ms": 1.70425,
+        "complete_elapsed_ms": 2.01225
+      }
+    },
+    {
+      "repeat": 2,
+      "case": "http11_explicit_alpn_protocol_post_wrong_auth",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.912958,
+        "handshake_elapsed_ms": 1.577541,
+        "complete_elapsed_ms": 1.915625
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 2.435166,
+        "handshake_elapsed_ms": 2.05125,
+        "complete_elapsed_ms": 2.438208
+      }
+    },
+    {
+      "repeat": 2,
+      "case": "http11_explicit_alpn_root_get",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.948583,
+        "handshake_elapsed_ms": 1.55275,
+        "complete_elapsed_ms": 1.951833
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 2.238125,
+        "handshake_elapsed_ms": 1.94325,
+        "complete_elapsed_ms": 2.242166
+      }
+    },
+    {
+      "repeat": 2,
+      "case": "http11_explicit_alpn_root_head",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.941,
+        "handshake_elapsed_ms": 1.565083,
+        "complete_elapsed_ms": 1.943791
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.798209,
+        "handshake_elapsed_ms": 1.391375,
+        "complete_elapsed_ms": 1.801417
+      }
+    },
+    {
+      "repeat": 2,
+      "case": "https_no_alpn_protocol_post_no_auth",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.384125,
+        "handshake_elapsed_ms": 1.1805,
+        "complete_elapsed_ms": 1.388417
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.97775,
+        "handshake_elapsed_ms": 1.661375,
+        "complete_elapsed_ms": 1.982
+      }
+    },
+    {
+      "repeat": 2,
+      "case": "https_no_alpn_protocol_post_wrong_auth",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.786333,
+        "handshake_elapsed_ms": 1.303708,
+        "complete_elapsed_ms": 1.794833
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.9545,
+        "handshake_elapsed_ms": 1.592833,
+        "complete_elapsed_ms": 1.959458
+      }
+    },
+    {
+      "repeat": 2,
+      "case": "https_no_alpn_root_get",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.610208,
+        "handshake_elapsed_ms": 1.252,
+        "complete_elapsed_ms": 1.612958
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.692958,
+        "handshake_elapsed_ms": 1.297333,
+        "complete_elapsed_ms": 1.696708
+      }
+    },
+    {
+      "repeat": 2,
+      "case": "https_no_alpn_root_head",
+      "status": "normalized_match",
+      "differences": [],
+      "candidate_status": "response_observed",
+      "reference_status": "response_observed",
+      "candidate_times": {
+        "headers_elapsed_ms": 1.949791,
+        "handshake_elapsed_ms": 1.545875,
+        "complete_elapsed_ms": 1.952416
+      },
+      "reference_times": {
+        "headers_elapsed_ms": 1.654792,
+        "handshake_elapsed_ms": 1.33775,
+        "complete_elapsed_ms": 1.657375
+      }
+    }
+  ],
+  "comparison_fields": [
+    "case",
+    "method",
+    "authentication_class",
+    "status",
+    "error",
+    "body_error",
+    "http_status",
+    "http_protocol",
+    "headers",
+    "content_length",
+    "negotiated_alpn",
+    "tls_version",
+    "certificate_chain_verified",
+    "body_bytes_observed",
+    "body_truncated_at_bound",
+    "body_sha256",
+    "offered_alpn",
+    "payload_class",
+    "legacy_record_bytes",
+    "response_bytes",
+    "response_sha256",
+    "response_truncated_at_bound",
+    "read_error",
+    "process_exit_code",
+    "certificate_verification_reported",
+    "visitor_profile",
+    "tls_client_stack"
+  ],
+  "timing_samples_retained_but_not_used_for_response_match": true,
+  "limitations": [
+    "A normalized match can include two rejected or failed requests. Status counts and every pair remain visible.",
+    "Only declared status/protocol/header/body/error fields are compared. Date and private header values are outside this comparison.",
+    "Different listeners and executions add timing variance; these samples do not prove timing indistinguishability.",
+    "This comparison does not test authenticated proxy interoperability, arbitrary active probes, real-world DPI, or Russian reachability.",
+    "A same-stack ordinary control isolates the effect of the candidate's HTTP gate; it is not a diverse cover-traffic corpus."
+  ],
+  "schema": 1,
+  "created_utc": "2026-11-07T03:46:36.747603+00:00",
+  "candidate_label": "candidate-active-h2",
+  "reference_label": "ordinary-active-h2",
+  "candidate_report_sha256": "f8a2f889f174c1f834dc800d339cfe4f0da7679e133913fdcd578a04580314f5",
+  "reference_report_sha256": "98891973493b5811d89136aa8b51ea6a9440fd5a878fb902efb89d141aff8db8"
+}

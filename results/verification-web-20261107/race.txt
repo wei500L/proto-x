@@ -1,0 +1,13 @@
+?   	proto-x/cmd/protox	[no test files]
+?   	proto-x/cmd/pxbench	[no test files]
+ok  	proto-x/internal/app	7.707s
+ok  	proto-x/internal/bench	3.253s
+ok  	proto-x/internal/carrier	2.238s
+ok  	proto-x/internal/cover	2.759s
+?   	proto-x/internal/scheduler	[no test files]
+ok  	proto-x/internal/session	10.382s
+ok  	proto-x/internal/wire	2.945s
+?   	proto-x/scripts/baselines	[no test files]
+ok  	proto-x/tools/faultrelay	3.401s
+?   	proto-x/tools/recognition	[no test files]
+?   	proto-x/tools/securitycheck	[no test files]

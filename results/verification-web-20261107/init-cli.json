@@ -1,0 +1,14 @@
+[
+  {
+    "subcommand": "init",
+    "exit": 0
+  },
+  {
+    "subcommand": "ech-keygen",
+    "exit": 0
+  },
+  {
+    "generated_output_permissions": "0600",
+    "checks": 7
+  }
+]

@@ -1,0 +1,82 @@
+{
+  "scope": "synthetic in-memory negative controls for validator; not protocol measurements",
+  "fixture": "results/web-overhead-20261107/formal-01/webcost01-01-r1-h2-p0",
+  "fixture_file_sha256": {
+    "events.summary.json": "2cfa55f87728b5835f7c125cc0fc3b11abfba74d9a073a7a039ecc11169a17c2",
+    "relay-events.jsonl": "a6b5be212a875e462f81b4a43150694ae3663d1f5cd2202320f6b57d4b814c78",
+    "events.jsonl": "2cfbad6cd6555b95e2c23b1ee0b3772feaba9fbbfd92afc17131ae7676630738",
+    "resources.jsonl": "03d6e7b8d4ea88a92abf6a5127206d8130712c3c4389cc1fa64fb8f18cbf1adf",
+    "trial.json": "136f9868b62cef02b97e028e9585339a56cd3b1224fca8cabdba8599bc001302"
+  },
+  "fixture_unchanged": true,
+  "validator_sha256": "a89d9e9d6f3fc0efd2fa5e4404440206b991523d90395f26d23101d9582c6772",
+  "selfcheck_sha256": "be90b1b36e03ee57d3f58afe8101e27e45ace6cb86aa11f2746dae0dd6af255f",
+  "cases": [
+    {
+      "case": "unaltered_real_fixture",
+      "passed": true,
+      "observed_errors": [],
+      "expected_error_substring": null
+    },
+    {
+      "case": "wrong_http_success_count",
+      "passed": true,
+      "observed_errors": [
+        "http full status denominator differs",
+        "http success count differs"
+      ],
+      "expected_error_substring": "http success count differs"
+    },
+    {
+      "case": "wrong_http_p99",
+      "passed": true,
+      "observed_errors": [
+        "http.latency_ms.p99: summary differs from raw events"
+      ],
+      "expected_error_substring": "http.latency_ms.p99"
+    },
+    {
+      "case": "wrong_download_bytes",
+      "passed": true,
+      "observed_errors": [
+        "download byte population differs"
+      ],
+      "expected_error_substring": "download byte population differs"
+    },
+    {
+      "case": "wrong_sse_token_count",
+      "passed": true,
+      "observed_errors": [
+        "SSE tokens differs"
+      ],
+      "expected_error_substring": "SSE tokens differs"
+    },
+    {
+      "case": "missing_censored_download",
+      "passed": true,
+      "observed_errors": [
+        "download_end total differs",
+        "download_end censored count differs",
+        "download byte population differs",
+        "download goodput differs or invalid run duration"
+      ],
+      "expected_error_substring": "download_end total differs"
+    },
+    {
+      "case": "missing_relay_stop",
+      "passed": true,
+      "observed_errors": [
+        "relay capture missing unique start/stop"
+      ],
+      "expected_error_substring": "relay capture missing unique start/stop"
+    },
+    {
+      "case": "wrong_resource_peak",
+      "passed": true,
+      "observed_errors": [
+        "client RSS summary differs from raw samples"
+      ],
+      "expected_error_substring": "client RSS summary differs"
+    }
+  ]
+}

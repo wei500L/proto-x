@@ -1,0 +1,15 @@
+{
+  "rfc9001-client-initial.hex": {
+    "source": "https://www.rfc-editor.org/rfc/rfc9001.txt",
+    "section": "A.2. Client Initial",
+    "kind": "published RFC test vector, not a local network capture",
+    "packet_bytes": 1200,
+    "packet_sha256": "73fa0210cb4a5a17dc10b9dc98e5cc359ba1c20fe7c0e93a9e1dcb473c37e097"
+  },
+  "rfc9369-client-initial.hex": {
+    "source": "https://www.rfc-editor.org/rfc/rfc9369.txt",
+    "section": "Appendix A.2, resulting protected packet",
+    "kind": "published standard test vector, not live capture",
+    "packet_sha256": "b0b766fe7e762577072d3365cc4f9635809210cba301a67f8457f5e6fdac5c68"
+  }
+}

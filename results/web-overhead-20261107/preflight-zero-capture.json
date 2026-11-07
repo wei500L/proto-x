@@ -1,0 +1,21 @@
+{
+  "command": [
+    "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+    "tools/recognition/relay.py",
+    "--out",
+    ".local/webbench/preflight-zero",
+    "--label",
+    "preflight-zero",
+    "--tcp-target",
+    "127.0.0.1:9",
+    "--capture-bytes",
+    "0",
+    "--capture-packets",
+    "0"
+  ],
+  "returncode": 2,
+  "stdout": "",
+  "stderr": "usage: relay.py [-h] --out OUT --label LABEL [--tcp-listen TCP_LISTEN]\n                [--udp-listen UDP_LISTEN] [--tcp-target TCP_TARGET]\n                [--udp-target UDP_TARGET] [--capture-bytes CAPTURE_BYTES]\n                [--capture-packets CAPTURE_PACKETS] [--max-flows MAX_FLOWS]\nrelay.py: error: capture bounds must be positive\n",
+  "source_sha256": "b8d6fab5c0233abbe4fdcb589ab9c67925754acc365c5c746314005d61672513",
+  "purpose": "Exercise zero-capture argument validation before benchmark execution; no client traffic generated."
+}

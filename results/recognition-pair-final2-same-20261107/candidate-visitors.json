@@ -1,0 +1,329 @@
+{
+  "attempted_cases": 8,
+  "certificate_policy": "ordinary CA/name verification with optional additional pin; no insecure TLS",
+  "client_stack": "stock crypto/tls and net/http HTTP/1.1 request serializer/parser; no candidate client TLS helper",
+  "created_utc": "2026-11-07T03:53:38.909635Z",
+  "label": "candidate-active-h2",
+  "limitations": [
+    "These are declared HTTP/1.1 visitors, not browser traffic or a broad cover corpus.",
+    "The no-ALPN offer must also be checked in the separate observed ClientHello bytes.",
+    "Successful ordinary visitors do not prove authenticated proxy success, ECH acceptance or resistance to classifiers."
+  ],
+  "network": "https_visitor_tcp",
+  "observations": [
+    {
+      "authentication_class": "absent",
+      "body_bytes_observed": 534,
+      "body_sha256": "ffc5bf52d0ed4565e8250f5c1445df681f30bf28d079abb8de4f036ebde8ebea",
+      "body_truncated_at_bound": false,
+      "case": "https_no_alpn_root_get",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 3.067584,
+      "connection_policy": "fresh TLS connection per case",
+      "content_length": 534,
+      "handshake_elapsed_ms": 1.5195,
+      "headers": {
+        "Accept-Ranges": [
+          "bytes"
+        ],
+        "Content-Length": [
+          "534"
+        ],
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ],
+        "Last-Modified": [
+          "Sat, 07 Nov 2026 03:38:14 GMT"
+        ]
+      },
+      "headers_elapsed_ms": 3.063917,
+      "http_protocol": "HTTP/1.1",
+      "http_status": 200,
+      "method": "GET",
+      "negotiated_alpn": "",
+      "offered_alpn": [],
+      "repeat": 0,
+      "status": "response_observed",
+      "tls_version": 772,
+      "visitor_profile": "https_no_alpn"
+    },
+    {
+      "authentication_class": "absent",
+      "body_bytes_observed": 0,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "body_truncated_at_bound": false,
+      "case": "https_no_alpn_root_head",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.773333,
+      "connection_policy": "fresh TLS connection per case",
+      "content_length": 534,
+      "handshake_elapsed_ms": 1.438791,
+      "headers": {
+        "Accept-Ranges": [
+          "bytes"
+        ],
+        "Content-Length": [
+          "534"
+        ],
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ],
+        "Last-Modified": [
+          "Sat, 07 Nov 2026 03:38:14 GMT"
+        ]
+      },
+      "headers_elapsed_ms": 1.769,
+      "http_protocol": "HTTP/1.1",
+      "http_status": 200,
+      "method": "HEAD",
+      "negotiated_alpn": "",
+      "offered_alpn": [],
+      "repeat": 0,
+      "status": "response_observed",
+      "tls_version": 772,
+      "visitor_profile": "https_no_alpn"
+    },
+    {
+      "authentication_class": "absent",
+      "body_bytes_observed": 19,
+      "body_sha256": "c40aa69f0b306cea296dd1193c334bc0781587ed51aab579c0433698ba9e0c4b",
+      "body_truncated_at_bound": false,
+      "case": "https_no_alpn_protocol_post_no_auth",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.601417,
+      "connection_policy": "fresh TLS connection per case",
+      "content_length": 19,
+      "handshake_elapsed_ms": 1.288542,
+      "headers": {
+        "Allow": [
+          "GET, HEAD"
+        ],
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 1.5975,
+      "http_protocol": "HTTP/1.1",
+      "http_status": 405,
+      "method": "POST",
+      "negotiated_alpn": "",
+      "offered_alpn": [],
+      "repeat": 0,
+      "status": "response_observed",
+      "tls_version": 772,
+      "visitor_profile": "https_no_alpn"
+    },
+    {
+      "authentication_class": "deliberately_invalid",
+      "body_bytes_observed": 19,
+      "body_sha256": "c40aa69f0b306cea296dd1193c334bc0781587ed51aab579c0433698ba9e0c4b",
+      "body_truncated_at_bound": false,
+      "case": "https_no_alpn_protocol_post_wrong_auth",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.625416,
+      "connection_policy": "fresh TLS connection per case",
+      "content_length": 19,
+      "handshake_elapsed_ms": 1.325416,
+      "headers": {
+        "Allow": [
+          "GET, HEAD"
+        ],
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 1.622416,
+      "http_protocol": "HTTP/1.1",
+      "http_status": 405,
+      "method": "POST",
+      "negotiated_alpn": "",
+      "offered_alpn": [],
+      "repeat": 0,
+      "status": "response_observed",
+      "tls_version": 772,
+      "visitor_profile": "https_no_alpn"
+    },
+    {
+      "authentication_class": "absent",
+      "body_bytes_observed": 534,
+      "body_sha256": "ffc5bf52d0ed4565e8250f5c1445df681f30bf28d079abb8de4f036ebde8ebea",
+      "body_truncated_at_bound": false,
+      "case": "http11_explicit_alpn_root_get",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 2.276125,
+      "connection_policy": "fresh TLS connection per case",
+      "content_length": 534,
+      "handshake_elapsed_ms": 1.753542,
+      "headers": {
+        "Accept-Ranges": [
+          "bytes"
+        ],
+        "Content-Length": [
+          "534"
+        ],
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ],
+        "Last-Modified": [
+          "Sat, 07 Nov 2026 03:38:14 GMT"
+        ]
+      },
+      "headers_elapsed_ms": 2.271708,
+      "http_protocol": "HTTP/1.1",
+      "http_status": 200,
+      "method": "GET",
+      "negotiated_alpn": "http/1.1",
+      "offered_alpn": [
+        "http/1.1"
+      ],
+      "repeat": 0,
+      "status": "response_observed",
+      "tls_version": 772,
+      "visitor_profile": "http11_explicit_alpn"
+    },
+    {
+      "authentication_class": "absent",
+      "body_bytes_observed": 0,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "body_truncated_at_bound": false,
+      "case": "http11_explicit_alpn_root_head",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.812083,
+      "connection_policy": "fresh TLS connection per case",
+      "content_length": 534,
+      "handshake_elapsed_ms": 1.388125,
+      "headers": {
+        "Accept-Ranges": [
+          "bytes"
+        ],
+        "Content-Length": [
+          "534"
+        ],
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ],
+        "Last-Modified": [
+          "Sat, 07 Nov 2026 03:38:14 GMT"
+        ]
+      },
+      "headers_elapsed_ms": 1.806875,
+      "http_protocol": "HTTP/1.1",
+      "http_status": 200,
+      "method": "HEAD",
+      "negotiated_alpn": "http/1.1",
+      "offered_alpn": [
+        "http/1.1"
+      ],
+      "repeat": 0,
+      "status": "response_observed",
+      "tls_version": 772,
+      "visitor_profile": "http11_explicit_alpn"
+    },
+    {
+      "authentication_class": "absent",
+      "body_bytes_observed": 19,
+      "body_sha256": "c40aa69f0b306cea296dd1193c334bc0781587ed51aab579c0433698ba9e0c4b",
+      "body_truncated_at_bound": false,
+      "case": "http11_explicit_alpn_protocol_post_no_auth",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.770875,
+      "connection_policy": "fresh TLS connection per case",
+      "content_length": 19,
+      "handshake_elapsed_ms": 1.382084,
+      "headers": {
+        "Allow": [
+          "GET, HEAD"
+        ],
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 1.766584,
+      "http_protocol": "HTTP/1.1",
+      "http_status": 405,
+      "method": "POST",
+      "negotiated_alpn": "http/1.1",
+      "offered_alpn": [
+        "http/1.1"
+      ],
+      "repeat": 0,
+      "status": "response_observed",
+      "tls_version": 772,
+      "visitor_profile": "http11_explicit_alpn"
+    },
+    {
+      "authentication_class": "deliberately_invalid",
+      "body_bytes_observed": 19,
+      "body_sha256": "c40aa69f0b306cea296dd1193c334bc0781587ed51aab579c0433698ba9e0c4b",
+      "body_truncated_at_bound": false,
+      "case": "http11_explicit_alpn_protocol_post_wrong_auth",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.699166,
+      "connection_policy": "fresh TLS connection per case",
+      "content_length": 19,
+      "handshake_elapsed_ms": 1.318458,
+      "headers": {
+        "Allow": [
+          "GET, HEAD"
+        ],
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 1.692875,
+      "http_protocol": "HTTP/1.1",
+      "http_status": 405,
+      "method": "POST",
+      "negotiated_alpn": "http/1.1",
+      "offered_alpn": [
+        "http/1.1"
+      ],
+      "repeat": 0,
+      "status": "response_observed",
+      "tls_version": 772,
+      "visitor_profile": "http11_explicit_alpn"
+    }
+  ],
+  "schema": 1,
+  "target_host_class": "configured_target_redacted",
+  "target_values_exported": false,
+  "timeout_ms": 2000,
+  "tool": {
+    "binary_sha256": "0d0d2faa1b7e1b70b0c8c2ff5876a1f2a24eda28f3eb31ef0699c5b133d1e5e8",
+    "go_version": "go1.27.1",
+    "goarch": "arm64",
+    "goos": "darwin",
+    "modules": {
+      "github.com/quic-go/qpack": "v0.6.0",
+      "github.com/quic-go/quic-go": "v0.65.0",
+      "golang.org/x/crypto": "v0.54.0",
+      "golang.org/x/net": "v0.56.0",
+      "golang.org/x/sys": "v0.47.0",
+      "golang.org/x/text": "v0.40.0"
+    }
+  }
+}

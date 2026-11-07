@@ -1,0 +1,250 @@
+{
+  "schema": 1,
+  "label": "native-h3-ech-on",
+  "capture_sha256": "6cbdc07b4c3e3739e346ef2d37eb4af6913468c8b87eb855a86f4c22d0a8bc0c",
+  "source": "controlled user-space relay observations; not host pcap or server callback",
+  "capture_shutdown_observed": true,
+  "observations": [
+    {
+      "flow": "udp-1",
+      "initial_context": 1,
+      "transport": "quic_initial",
+      "quic_version": "0x00000001",
+      "destination_cid_length": 11,
+      "observation_method": "actual UDP payload; public Initial-key AEAD decryption and CRYPTO reassembly",
+      "initial_keys_are_public": true,
+      "statistics": {
+        "authenticated_initial_packets": 3,
+        "initial_packet_bytes": 3735
+      },
+      "client_hello": {
+        "handshake_bytes": 2010,
+        "legacy_version": 771,
+        "legacy_session_id_bytes": 0,
+        "cipher_suites": [
+          4865,
+          4866,
+          4867
+        ],
+        "compression_methods": [
+          0
+        ],
+        "extension_ids": [
+          0,
+          18,
+          57,
+          65037,
+          5,
+          10,
+          13,
+          50,
+          16,
+          43,
+          51
+        ],
+        "extension_lengths": [
+          {
+            "id": 0,
+            "bytes": 48
+          },
+          {
+            "id": 18,
+            "bytes": 0
+          },
+          {
+            "id": 57,
+            "bytes": 52
+          },
+          {
+            "id": 65037,
+            "bytes": 474
+          },
+          {
+            "id": 5,
+            "bytes": 5
+          },
+          {
+            "id": 10,
+            "bytes": 16
+          },
+          {
+            "id": 13,
+            "bytes": 22
+          },
+          {
+            "id": 50,
+            "bytes": 32
+          },
+          {
+            "id": 16,
+            "bytes": 5
+          },
+          {
+            "id": 43,
+            "bytes": 3
+          },
+          {
+            "id": 51,
+            "bytes": 1258
+          }
+        ],
+        "alpn": [
+          "h3"
+        ],
+        "supported_versions": [
+          772
+        ],
+        "supported_groups": [
+          4588,
+          4587,
+          4589,
+          29,
+          23,
+          24,
+          25
+        ],
+        "signature_algorithms": [
+          2308,
+          2309,
+          2310,
+          2052,
+          1027,
+          2055,
+          2053,
+          2054,
+          1283,
+          1539
+        ],
+        "key_shares": [
+          {
+            "group": 4588,
+            "key_bytes": 1216
+          },
+          {
+            "group": 29,
+            "key_bytes": 32
+          }
+        ],
+        "quic_transport_parameters": [
+          {
+            "id": 7312,
+            "length": 2,
+            "value_redacted": true
+          },
+          {
+            "id": 5,
+            "length": 4,
+            "numeric_value": 65536
+          },
+          {
+            "id": 6,
+            "length": 4,
+            "numeric_value": 65536
+          },
+          {
+            "id": 7,
+            "length": 4,
+            "numeric_value": 65536
+          },
+          {
+            "id": 4,
+            "length": 4,
+            "numeric_value": 524288
+          },
+          {
+            "id": 8,
+            "length": 2,
+            "numeric_value": 128
+          },
+          {
+            "id": 9,
+            "length": 1,
+            "numeric_value": 8
+          },
+          {
+            "id": 1,
+            "length": 2,
+            "numeric_value": 12000
+          },
+          {
+            "id": 3,
+            "length": 2,
+            "numeric_value": 1452
+          },
+          {
+            "id": 11,
+            "length": 1,
+            "numeric_value": 26
+          },
+          {
+            "id": 14,
+            "length": 1,
+            "numeric_value": 4
+          },
+          {
+            "id": 15,
+            "length": 0,
+            "value_redacted": true
+          }
+        ],
+        "ech_extension_present": true,
+        "grease_extension_ids": [],
+        "sni_scope": "visible outer ClientHello only; ECH inner name is not decrypted",
+        "sni": {
+          "present": true,
+          "names": [
+            {
+              "name_type": 0,
+              "class": "configured_outer_name"
+            }
+          ],
+          "values_redacted": true
+        },
+        "legacy_custom_alpn_observed": false
+      },
+      "status": "client_hello_decoded"
+    }
+  ],
+  "capture_flow_counts": {
+    "udp": 1
+  },
+  "decoded_client_hello_count": 1,
+  "quic_unparsed_packet_categories": {
+    "other_long_header_or_unsupported_version": 1,
+    "non_initial_or_short_header": 125
+  },
+  "inspection_errors": [],
+  "relay_counts": [
+    {
+      "kind": "flow_counts",
+      "flow": "udp-1",
+      "direction": "client_to_server",
+      "bytes": 25282,
+      "chunks": 172,
+      "captured_bytes": 20165,
+      "captured_chunks": 128,
+      "capture_truncated": true,
+      "elapsed_ns": 665174583
+    },
+    {
+      "kind": "flow_counts",
+      "flow": "udp-1",
+      "direction": "server_to_client",
+      "bytes": 123792,
+      "chunks": 230,
+      "captured_bytes": 81774,
+      "captured_chunks": 128,
+      "capture_truncated": true,
+      "elapsed_ns": 665247417
+    }
+  ],
+  "interpretation": [
+    "SNI values are redacted to configured-name classes; only the visible outer ClientHello is inspected.",
+    "An ECH extension can be real or GREASE; its presence does not prove ECH acceptance or reveal the inner name.",
+    "Offered ALPN is a ClientHello observation. Negotiated ALPN requires the active client's connection state.",
+    "TCP relay reads preserve byte order but do not preserve IP packets, retransmissions, segmentation or NIC timestamps.",
+    "QUIC Initial decryption requires no TLS secret; later encrypted traffic is not decrypted here.",
+    "A missing legacy ALPN match defeats only that declared rule, not classifiers, all DPI or active detection.",
+    "Capture truncation and undecoded observations remain visible. Legacy-ALPN probes must not be mislabeled as native client traffic."
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "certificate_chain_verified": true,
+  "certificate_policy": "normal CA/name verification with optional additional pin; local test CA is not a public identity claim",
+  "created_utc": "2026-11-07T03:54:51.230198Z",
+  "ech_accepted": false,
+  "ech_configured": false,
+  "elapsed_ms": 1.131459,
+  "handshake_complete": true,
+  "label": "native-h2-ech-off-tlscheck",
+  "negotiated_alpn": "h2",
+  "network": "h2",
+  "observation_method": "active standard TLS client's actual ConnectionState; separate from native client capture",
+  "schema": 1,
+  "status": "handshake_completed",
+  "target_values_exported": false,
+  "tls_version": 772,
+  "tool": {
+    "binary_sha256": "0d0d2faa1b7e1b70b0c8c2ff5876a1f2a24eda28f3eb31ef0699c5b133d1e5e8",
+    "go_version": "go1.27.1",
+    "goarch": "arm64",
+    "goos": "darwin",
+    "modules": {
+      "github.com/quic-go/qpack": "v0.6.0",
+      "github.com/quic-go/quic-go": "v0.65.0",
+      "golang.org/x/crypto": "v0.54.0",
+      "golang.org/x/net": "v0.56.0",
+      "golang.org/x/sys": "v0.47.0",
+      "golang.org/x/text": "v0.40.0"
+    }
+  }
+}

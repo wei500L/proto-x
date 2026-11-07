@@ -1,0 +1,314 @@
+{
+  "schema": 1,
+  "created_utc": "2026-11-07T03:33:25.270048+00:00",
+  "status": "passed",
+  "checks": [
+    {
+      "check": "h2_attempt_denominator",
+      "ok": true,
+      "observed": 26,
+      "expected": 26
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "root_get",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "root_head",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "protocol_get",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "protocol_head",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "protocol_post_no_auth",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "protocol_post_wrong_auth",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "protocol_post_malformed_auth",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "protocol_wrong_method_put",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "unknown_get",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "unknown_post",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "root_options",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "root_get",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "root_head",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "protocol_get",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "protocol_head",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "protocol_post_no_auth",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "protocol_post_wrong_auth",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "protocol_post_malformed_auth",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "protocol_wrong_method_put",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "unknown_get",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "unknown_post",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h2_ordinary_http",
+      "case": "root_options",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h3_attempt_denominator",
+      "ok": true,
+      "observed": 26,
+      "expected": 26
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "root_get",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "root_head",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "protocol_get",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "protocol_head",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "protocol_post_no_auth",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "protocol_post_wrong_auth",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "protocol_post_malformed_auth",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "protocol_wrong_method_put",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "unknown_get",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "unknown_post",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "root_options",
+      "repeat": 0,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "root_get",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "root_head",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "protocol_get",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "protocol_head",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "protocol_post_no_auth",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "protocol_post_wrong_auth",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "protocol_post_malformed_auth",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "protocol_wrong_method_put",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "unknown_get",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "unknown_post",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "h3_ordinary_http",
+      "case": "root_options",
+      "repeat": 1,
+      "ok": true
+    },
+    {
+      "check": "clean_capture_shutdown",
+      "ok": true
+    },
+    {
+      "check": "no_initial_inspection_errors",
+      "ok": true
+    },
+    {
+      "check": "clienthello_denominator",
+      "ok": true,
+      "observed": 52,
+      "expected": 52
+    },
+    {
+      "check": "no_captured_prefix_truncation",
+      "ok": true
+    },
+    {
+      "check": "intentional_legacy_offer_count",
+      "ok": true,
+      "observed": 4,
+      "expected": 4
+    }
+  ],
+  "binary_sha256": "ba737ada3c6dba981eff057f402f9589d360d73b3beef015dd83d041411a088c",
+  "repeats": 2,
+  "scope": "real local ordinary HTTP fixture and controlled relay; not a candidate protocol comparison",
+  "certificate_policy": "generated private CA and name validation plus additional pin; no system trust change",
+  "candidate_authenticated_traffic_tested": false,
+  "native_client_traffic_capture": false,
+  "timing_interpretation": "loopback observations only; no link impairment or Russian-network claim"
+}

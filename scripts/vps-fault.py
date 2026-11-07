@@ -44,11 +44,13 @@ def main():
     private.mkdir(parents=True, mode=0o700, exist_ok=False)
     config_path = Path(a.client_config).resolve()
     cfg = json.loads(config_path.read_text())
-    target = next(x['address'] for x in cfg['endpoints'] if x['network'] == 'quic')
+    target = next(x['address'] for x in cfg['endpoints'] if x['network'] in ('quic', 'h3'))
     if a.fault != 'restart':
-        cfg['endpoints'] = [dict(x, address='127.0.0.1:16660') if x['network'] == 'quic' else x for x in cfg['endpoints']]
+        cfg['endpoints'] = [dict(x, address='127.0.0.1:16660') if x['network'] in ('quic', 'h3') else x for x in cfg['endpoints']]
     cfg['socks_listen'] = '127.0.0.1:1089'
-    cfg['token_file'] = str((config_path.parent / cfg['token_file']).resolve())
+    for field in ('token_file', 'ca_file', 'ech_config_file'):
+        if cfg.get(field):
+            cfg[field] = str((config_path.parent / cfg[field]).resolve())
     cp = private / 'client.json'
     cp.write_text(json.dumps(cfg, indent=2))
     cp.chmod(0o600)
@@ -94,7 +96,7 @@ def main():
             'binaries_sha256': {name: hashlib.sha256((ROOT/'bin'/name).read_bytes()).hexdigest()
                                for name in ['protox','pxbench','faultrelay']},
             'redacted_config': {key: value for key, value in cfg.items()
-                                if key not in ['token_file','pin_sha256','endpoints']},
+                                if not key.endswith('_file') and key not in ['pin_sha256','endpoints','cover_dir']},
         }
         (out/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
         time.sleep(.2)
@@ -134,7 +136,7 @@ def main():
                    'ssh_received_lines':len(received),'ssh_sequence_correct':[x['seq'] for x in received]==list(range(1,221)),
                    'ssh_max_receive_gap_ms':gap,'duration_seconds':(time.monotonic_ns()-epoch)/1e9,
                    'notes':['Actual client-to-authorized-VPS path; no claim about other networks.',
-                            'UDP relay applies only to relay trials; TLS alternate connects directly.',
+                            'UDP relay applies only to relay trials; TCP/TLS alternate connects directly.',
                             'SSH probe uses one process over one original proxy flow; exit and sequence checks determine success.',
                             ('Prototype server restarted before this trial; restart fault intentionally restarts it again during measurement.'
                              if a.fault == 'restart' else 'Prototype server restarted only before this trial, not during the UDP fault.')]}

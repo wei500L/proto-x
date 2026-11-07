@@ -1,0 +1,4 @@
+b4f6fe924880a31ac67827414c9f163cd654f8c5d3a3439e09ed17236887b948  internal/cover/auth.go
+c912c7f287ca074bb040f6be6f43f4b7fc95192067f09ff2ccf09cf4ebb71ecb  internal/cover/auth_test.go
+8d8073bfb477f6e087f5fd56f3e7a55cdb7a1e2774f55f0e7a9e8f43f64d62f5  internal/cover/site.go
+c46609e3743076716edc8309388c6c22637365937d50839536d56575381efb5e  internal/cover/site_test.go

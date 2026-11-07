@@ -1,0 +1,126 @@
+{
+  "label": "native-h3-ech-on",
+  "network": "h3",
+  "ech_configured": true,
+  "checks": {
+    "four_proxy_requests_succeeded": true,
+    "origin_observed_four_requests": true,
+    "sixteen_stream_events_received": true,
+    "tls_state_completed_and_ca_verified": true,
+    "actual_tls_ech_acceptance_matches_setting": true,
+    "tls_negotiated_requested_alpn": true,
+    "all_observed_clienthellos_decoded": true,
+    "no_legacy_custom_alpn": true,
+    "visible_name_class_matches_ech_setting": true,
+    "native_ech_extension_matches_setting": true,
+    "capture_clean_and_no_inspection_errors": true,
+    "capture_not_truncated": false
+  },
+  "status": "failed",
+  "requests": [
+    {
+      "workload": "fixed_response",
+      "request_started_monotonic_ns": 3395015041,
+      "http_status": 200,
+      "headers_elapsed_ms": 3.142709,
+      "status": "success",
+      "elapsed_ms": 47.491875,
+      "body_bytes": 32768,
+      "body_sha256": "2a94172735d6340f75bd6f5186fc4f6538c98dae05e221616a411b702656525b",
+      "expected_body_sha256": "2a94172735d6340f75bd6f5186fc4f6538c98dae05e221616a411b702656525b"
+    },
+    {
+      "workload": "fixed_response",
+      "request_started_monotonic_ns": 3442550708,
+      "http_status": 200,
+      "headers_elapsed_ms": 6.109625,
+      "status": "success",
+      "elapsed_ms": 50.855583,
+      "body_bytes": 32768,
+      "body_sha256": "2a94172735d6340f75bd6f5186fc4f6538c98dae05e221616a411b702656525b",
+      "expected_body_sha256": "2a94172735d6340f75bd6f5186fc4f6538c98dae05e221616a411b702656525b"
+    },
+    {
+      "workload": "fixed_response",
+      "request_started_monotonic_ns": 3493449791,
+      "http_status": 200,
+      "headers_elapsed_ms": 6.026084,
+      "status": "success",
+      "elapsed_ms": 50.767625,
+      "body_bytes": 32768,
+      "body_sha256": "2a94172735d6340f75bd6f5186fc4f6538c98dae05e221616a411b702656525b",
+      "expected_body_sha256": "2a94172735d6340f75bd6f5186fc4f6538c98dae05e221616a411b702656525b"
+    },
+    {
+      "workload": "paced_event_stream",
+      "request_started_monotonic_ns": 3544272208,
+      "http_status": 200,
+      "headers_elapsed_ms": 5.941792,
+      "event_arrival_elapsed_ms": [
+        5.951167,
+        35.632292,
+        62.75,
+        83.202958,
+        109.732708,
+        137.364625,
+        163.778542,
+        190.66,
+        211.496208,
+        238.166958,
+        265.431417,
+        294.594833,
+        321.837708,
+        348.830833,
+        376.228333,
+        401.780792
+      ],
+      "event_count": 16,
+      "status": "success",
+      "elapsed_ms": 401.833833,
+      "body_bytes": 934,
+      "body_sha256": "26aa75010cd322e835de42915eb8d6287a42e7eca348765e994c0997990b5eed",
+      "expected_body_sha256": "26aa75010cd322e835de42915eb8d6287a42e7eca348765e994c0997990b5eed"
+    }
+  ],
+  "origin_observations": [
+    {
+      "workload": "fixed_response",
+      "generated_monotonic_ns": [],
+      "status": "produced"
+    },
+    {
+      "workload": "fixed_response",
+      "generated_monotonic_ns": [],
+      "status": "produced"
+    },
+    {
+      "workload": "fixed_response",
+      "generated_monotonic_ns": [],
+      "status": "produced"
+    },
+    {
+      "workload": "paced_event_stream",
+      "generated_monotonic_ns": [
+        3549864833,
+        3579580416,
+        3606784125,
+        3627168416,
+        3653689208,
+        3681415541,
+        3707858958,
+        3734749208,
+        3755496583,
+        3782166500,
+        3809383125,
+        3838604500,
+        3865784666,
+        3892855250,
+        3920185625,
+        3945791250
+      ],
+      "status": "produced"
+    }
+  ],
+  "decoded_native_clienthellos": 1,
+  "tls_state_diagnostic_is_a_separate_direct_connection": true
+}

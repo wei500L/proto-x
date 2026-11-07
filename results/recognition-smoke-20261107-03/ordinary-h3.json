@@ -1,0 +1,1704 @@
+{
+  "attempted_cases": 52,
+  "certificate_policy": "ordinary CA/name verification with optional additional pin; no insecure TLS",
+  "created_utc": "2026-11-07T03:35:02.497015Z",
+  "header_normalization": "Date omitted; selected generic headers retained; all other header values redacted",
+  "label": "ordinary-active-h3",
+  "limitations": [
+    "These active probes test declared requests; they do not establish resistance to arbitrary probes or classifiers.",
+    "Wrong authentication has the actual 57-byte envelope, version, current timestamp and random nonce, with a deliberately invalid zero MAC. It does not test a valid MAC, expiry or authenticated replay.",
+    "Positive authenticated native-client interoperability must be checked separately through the same endpoint.",
+    "Comparisons require the same runtime/HTTP stack, TLS configuration, content directory and declared request cases.",
+    "Connection and response timing are local samples, not a statistical classifier or Russian reachability measurement.",
+    "The legacy ALPN case intentionally offers the old fingerprint; do not label its ClientHello as native new-client traffic."
+  ],
+  "network": "h3",
+  "observations": [
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "absent",
+      "body_bytes_observed": 94,
+      "body_sha256": "e7800e99eb067fa73550aedc3a244b68c3eaaebd1240ede5fb70237bc3985959",
+      "body_truncated_at_bound": false,
+      "case": "root_get",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 2.485875,
+      "connection_policy": "fresh transport per case",
+      "content_length": 94,
+      "headers": {
+        "Accept-Ranges": [
+          "bytes"
+        ],
+        "Content-Length": [
+          "94"
+        ],
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ],
+        "Last-Modified": [
+          "Tue, 14 Nov 2023 22:13:20 GMT"
+        ]
+      },
+      "headers_elapsed_ms": 2.477542,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 200,
+      "method": "GET",
+      "negotiated_alpn": "h3",
+      "path_class": "root_get",
+      "repeat": 0,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "absent",
+      "body_bytes_observed": 0,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "body_truncated_at_bound": false,
+      "case": "root_head",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.461625,
+      "connection_policy": "fresh transport per case",
+      "content_length": 94,
+      "headers": {
+        "Accept-Ranges": [
+          "bytes"
+        ],
+        "Content-Length": [
+          "94"
+        ],
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ],
+        "Last-Modified": [
+          "Tue, 14 Nov 2023 22:13:20 GMT"
+        ]
+      },
+      "headers_elapsed_ms": 1.453417,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 200,
+      "method": "HEAD",
+      "negotiated_alpn": "h3",
+      "path_class": "root_head",
+      "repeat": 0,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "absent",
+      "body_bytes_observed": 19,
+      "body_sha256": "b16e15764b8bc06c5c3f9f19bc8b99fa48e7894aa5a6ccdad65da49bbf564793",
+      "body_truncated_at_bound": false,
+      "case": "protocol_get",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.405042,
+      "connection_policy": "fresh transport per case",
+      "content_length": 19,
+      "headers": {
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 1.395625,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 404,
+      "method": "GET",
+      "negotiated_alpn": "h3",
+      "path_class": "protocol_get",
+      "repeat": 0,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "absent",
+      "body_bytes_observed": 0,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "body_truncated_at_bound": false,
+      "case": "protocol_head",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.326125,
+      "connection_policy": "fresh transport per case",
+      "content_length": 19,
+      "headers": {
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 1.320333,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 404,
+      "method": "HEAD",
+      "negotiated_alpn": "h3",
+      "path_class": "protocol_head",
+      "repeat": 0,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "absent",
+      "body_bytes_observed": 19,
+      "body_sha256": "c40aa69f0b306cea296dd1193c334bc0781587ed51aab579c0433698ba9e0c4b",
+      "body_truncated_at_bound": false,
+      "case": "protocol_post_no_auth",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.462625,
+      "connection_policy": "fresh transport per case",
+      "content_length": 19,
+      "headers": {
+        "Allow": [
+          "GET, HEAD"
+        ],
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 1.456458,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 405,
+      "method": "POST",
+      "negotiated_alpn": "h3",
+      "path_class": "protocol_post_no_auth",
+      "repeat": 0,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "deliberately_invalid",
+      "body_bytes_observed": 19,
+      "body_sha256": "c40aa69f0b306cea296dd1193c334bc0781587ed51aab579c0433698ba9e0c4b",
+      "body_truncated_at_bound": false,
+      "case": "protocol_post_wrong_auth",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.275333,
+      "connection_policy": "fresh transport per case",
+      "content_length": 19,
+      "headers": {
+        "Allow": [
+          "GET, HEAD"
+        ],
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 1.265958,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 405,
+      "method": "POST",
+      "negotiated_alpn": "h3",
+      "path_class": "protocol_post_wrong_auth",
+      "repeat": 0,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "deliberately_invalid",
+      "body_bytes_observed": 19,
+      "body_sha256": "c40aa69f0b306cea296dd1193c334bc0781587ed51aab579c0433698ba9e0c4b",
+      "body_truncated_at_bound": false,
+      "case": "protocol_post_malformed_auth",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.284375,
+      "connection_policy": "fresh transport per case",
+      "content_length": 19,
+      "headers": {
+        "Allow": [
+          "GET, HEAD"
+        ],
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 1.280166,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 405,
+      "method": "POST",
+      "negotiated_alpn": "h3",
+      "path_class": "protocol_post_malformed_auth",
+      "repeat": 0,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "absent",
+      "body_bytes_observed": 19,
+      "body_sha256": "c40aa69f0b306cea296dd1193c334bc0781587ed51aab579c0433698ba9e0c4b",
+      "body_truncated_at_bound": false,
+      "case": "protocol_wrong_method_put",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.235041,
+      "connection_policy": "fresh transport per case",
+      "content_length": 19,
+      "headers": {
+        "Allow": [
+          "GET, HEAD"
+        ],
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 1.23075,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 405,
+      "method": "PUT",
+      "negotiated_alpn": "h3",
+      "path_class": "protocol_wrong_method_put",
+      "repeat": 0,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "absent",
+      "body_bytes_observed": 19,
+      "body_sha256": "b16e15764b8bc06c5c3f9f19bc8b99fa48e7894aa5a6ccdad65da49bbf564793",
+      "body_truncated_at_bound": false,
+      "case": "unknown_get",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.323708,
+      "connection_policy": "fresh transport per case",
+      "content_length": 19,
+      "headers": {
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 1.319,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 404,
+      "method": "GET",
+      "negotiated_alpn": "h3",
+      "path_class": "unknown_get",
+      "repeat": 0,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "absent",
+      "body_bytes_observed": 19,
+      "body_sha256": "c40aa69f0b306cea296dd1193c334bc0781587ed51aab579c0433698ba9e0c4b",
+      "body_truncated_at_bound": false,
+      "case": "unknown_post",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.343208,
+      "connection_policy": "fresh transport per case",
+      "content_length": 19,
+      "headers": {
+        "Allow": [
+          "GET, HEAD"
+        ],
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 1.337416,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 405,
+      "method": "POST",
+      "negotiated_alpn": "h3",
+      "path_class": "unknown_post",
+      "repeat": 0,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "absent",
+      "body_bytes_observed": 19,
+      "body_sha256": "c40aa69f0b306cea296dd1193c334bc0781587ed51aab579c0433698ba9e0c4b",
+      "body_truncated_at_bound": false,
+      "case": "root_options",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.211292,
+      "connection_policy": "fresh transport per case",
+      "content_length": 19,
+      "headers": {
+        "Allow": [
+          "GET, HEAD"
+        ],
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 1.2065,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 405,
+      "method": "OPTIONS",
+      "negotiated_alpn": "h3",
+      "path_class": "root_options",
+      "repeat": 0,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "case": "old_custom_alpn_offer",
+      "error": {
+        "message_redacted": true,
+        "timeout": false,
+        "types": [
+          "*qerr.TransportError"
+        ]
+      },
+      "handshake_elapsed_ms": 0.736042,
+      "legacy_record_bytes": 32,
+      "offered_alpn": [
+        "proto-x/1"
+      ],
+      "payload_class": "empty_unauthenticated_legacy_HELLO_record",
+      "repeat": 0,
+      "status": "handshake_or_stream_rejected"
+    },
+    {
+      "case": "old_bare_record_over_standard_alpn",
+      "complete_elapsed_ms": 1.233916,
+      "handshake_elapsed_ms": 0.932291,
+      "legacy_record_bytes": 32,
+      "negotiated_alpn": "h3",
+      "offered_alpn": [
+        "h3"
+      ],
+      "payload_class": "empty_unauthenticated_legacy_HELLO_record",
+      "read_error": {
+        "message_redacted": true,
+        "timeout": false,
+        "types": [
+          "*quic.StreamError"
+        ]
+      },
+      "repeat": 0,
+      "response_bytes": 0,
+      "response_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "response_truncated_at_bound": false,
+      "status": "legacy_response_observed"
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "absent",
+      "body_bytes_observed": 94,
+      "body_sha256": "e7800e99eb067fa73550aedc3a244b68c3eaaebd1240ede5fb70237bc3985959",
+      "body_truncated_at_bound": false,
+      "case": "root_get",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.172125,
+      "connection_policy": "fresh transport per case",
+      "content_length": 94,
+      "headers": {
+        "Accept-Ranges": [
+          "bytes"
+        ],
+        "Content-Length": [
+          "94"
+        ],
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ],
+        "Last-Modified": [
+          "Tue, 14 Nov 2023 22:13:20 GMT"
+        ]
+      },
+      "headers_elapsed_ms": 1.166709,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 200,
+      "method": "GET",
+      "negotiated_alpn": "h3",
+      "path_class": "root_get",
+      "repeat": 1,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "absent",
+      "body_bytes_observed": 0,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "body_truncated_at_bound": false,
+      "case": "root_head",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.097667,
+      "connection_policy": "fresh transport per case",
+      "content_length": 94,
+      "headers": {
+        "Accept-Ranges": [
+          "bytes"
+        ],
+        "Content-Length": [
+          "94"
+        ],
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ],
+        "Last-Modified": [
+          "Tue, 14 Nov 2023 22:13:20 GMT"
+        ]
+      },
+      "headers_elapsed_ms": 1.095417,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 200,
+      "method": "HEAD",
+      "negotiated_alpn": "h3",
+      "path_class": "root_head",
+      "repeat": 1,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "absent",
+      "body_bytes_observed": 19,
+      "body_sha256": "b16e15764b8bc06c5c3f9f19bc8b99fa48e7894aa5a6ccdad65da49bbf564793",
+      "body_truncated_at_bound": false,
+      "case": "protocol_get",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.181375,
+      "connection_policy": "fresh transport per case",
+      "content_length": 19,
+      "headers": {
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 1.176417,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 404,
+      "method": "GET",
+      "negotiated_alpn": "h3",
+      "path_class": "protocol_get",
+      "repeat": 1,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "absent",
+      "body_bytes_observed": 0,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "body_truncated_at_bound": false,
+      "case": "protocol_head",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.124083,
+      "connection_policy": "fresh transport per case",
+      "content_length": 19,
+      "headers": {
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 1.121958,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 404,
+      "method": "HEAD",
+      "negotiated_alpn": "h3",
+      "path_class": "protocol_head",
+      "repeat": 1,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "absent",
+      "body_bytes_observed": 19,
+      "body_sha256": "c40aa69f0b306cea296dd1193c334bc0781587ed51aab579c0433698ba9e0c4b",
+      "body_truncated_at_bound": false,
+      "case": "protocol_post_no_auth",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.139334,
+      "connection_policy": "fresh transport per case",
+      "content_length": 19,
+      "headers": {
+        "Allow": [
+          "GET, HEAD"
+        ],
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 1.136667,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 405,
+      "method": "POST",
+      "negotiated_alpn": "h3",
+      "path_class": "protocol_post_no_auth",
+      "repeat": 1,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "deliberately_invalid",
+      "body_bytes_observed": 19,
+      "body_sha256": "c40aa69f0b306cea296dd1193c334bc0781587ed51aab579c0433698ba9e0c4b",
+      "body_truncated_at_bound": false,
+      "case": "protocol_post_wrong_auth",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.087542,
+      "connection_policy": "fresh transport per case",
+      "content_length": 19,
+      "headers": {
+        "Allow": [
+          "GET, HEAD"
+        ],
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 1.080125,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 405,
+      "method": "POST",
+      "negotiated_alpn": "h3",
+      "path_class": "protocol_post_wrong_auth",
+      "repeat": 1,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "deliberately_invalid",
+      "body_bytes_observed": 19,
+      "body_sha256": "c40aa69f0b306cea296dd1193c334bc0781587ed51aab579c0433698ba9e0c4b",
+      "body_truncated_at_bound": false,
+      "case": "protocol_post_malformed_auth",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.271083,
+      "connection_policy": "fresh transport per case",
+      "content_length": 19,
+      "headers": {
+        "Allow": [
+          "GET, HEAD"
+        ],
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 1.264833,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 405,
+      "method": "POST",
+      "negotiated_alpn": "h3",
+      "path_class": "protocol_post_malformed_auth",
+      "repeat": 1,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "absent",
+      "body_bytes_observed": 19,
+      "body_sha256": "c40aa69f0b306cea296dd1193c334bc0781587ed51aab579c0433698ba9e0c4b",
+      "body_truncated_at_bound": false,
+      "case": "protocol_wrong_method_put",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.322542,
+      "connection_policy": "fresh transport per case",
+      "content_length": 19,
+      "headers": {
+        "Allow": [
+          "GET, HEAD"
+        ],
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 1.3165,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 405,
+      "method": "PUT",
+      "negotiated_alpn": "h3",
+      "path_class": "protocol_wrong_method_put",
+      "repeat": 1,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "absent",
+      "body_bytes_observed": 19,
+      "body_sha256": "b16e15764b8bc06c5c3f9f19bc8b99fa48e7894aa5a6ccdad65da49bbf564793",
+      "body_truncated_at_bound": false,
+      "case": "unknown_get",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.358667,
+      "connection_policy": "fresh transport per case",
+      "content_length": 19,
+      "headers": {
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 1.356167,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 404,
+      "method": "GET",
+      "negotiated_alpn": "h3",
+      "path_class": "unknown_get",
+      "repeat": 1,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "absent",
+      "body_bytes_observed": 19,
+      "body_sha256": "c40aa69f0b306cea296dd1193c334bc0781587ed51aab579c0433698ba9e0c4b",
+      "body_truncated_at_bound": false,
+      "case": "unknown_post",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.198708,
+      "connection_policy": "fresh transport per case",
+      "content_length": 19,
+      "headers": {
+        "Allow": [
+          "GET, HEAD"
+        ],
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 1.193458,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 405,
+      "method": "POST",
+      "negotiated_alpn": "h3",
+      "path_class": "unknown_post",
+      "repeat": 1,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "absent",
+      "body_bytes_observed": 19,
+      "body_sha256": "c40aa69f0b306cea296dd1193c334bc0781587ed51aab579c0433698ba9e0c4b",
+      "body_truncated_at_bound": false,
+      "case": "root_options",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.18425,
+      "connection_policy": "fresh transport per case",
+      "content_length": 19,
+      "headers": {
+        "Allow": [
+          "GET, HEAD"
+        ],
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 1.179459,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 405,
+      "method": "OPTIONS",
+      "negotiated_alpn": "h3",
+      "path_class": "root_options",
+      "repeat": 1,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "case": "old_custom_alpn_offer",
+      "error": {
+        "message_redacted": true,
+        "timeout": false,
+        "types": [
+          "*qerr.TransportError"
+        ]
+      },
+      "handshake_elapsed_ms": 0.657208,
+      "legacy_record_bytes": 32,
+      "offered_alpn": [
+        "proto-x/1"
+      ],
+      "payload_class": "empty_unauthenticated_legacy_HELLO_record",
+      "repeat": 1,
+      "status": "handshake_or_stream_rejected"
+    },
+    {
+      "case": "old_bare_record_over_standard_alpn",
+      "complete_elapsed_ms": 1.077917,
+      "handshake_elapsed_ms": 0.876917,
+      "legacy_record_bytes": 32,
+      "negotiated_alpn": "h3",
+      "offered_alpn": [
+        "h3"
+      ],
+      "payload_class": "empty_unauthenticated_legacy_HELLO_record",
+      "read_error": {
+        "message_redacted": true,
+        "timeout": false,
+        "types": [
+          "*quic.StreamError"
+        ]
+      },
+      "repeat": 1,
+      "response_bytes": 0,
+      "response_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "response_truncated_at_bound": false,
+      "status": "legacy_response_observed"
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "absent",
+      "body_bytes_observed": 94,
+      "body_sha256": "e7800e99eb067fa73550aedc3a244b68c3eaaebd1240ede5fb70237bc3985959",
+      "body_truncated_at_bound": false,
+      "case": "root_get",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.192833,
+      "connection_policy": "fresh transport per case",
+      "content_length": 94,
+      "headers": {
+        "Accept-Ranges": [
+          "bytes"
+        ],
+        "Content-Length": [
+          "94"
+        ],
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ],
+        "Last-Modified": [
+          "Tue, 14 Nov 2023 22:13:20 GMT"
+        ]
+      },
+      "headers_elapsed_ms": 1.188667,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 200,
+      "method": "GET",
+      "negotiated_alpn": "h3",
+      "path_class": "root_get",
+      "repeat": 2,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "absent",
+      "body_bytes_observed": 0,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "body_truncated_at_bound": false,
+      "case": "root_head",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.049,
+      "connection_policy": "fresh transport per case",
+      "content_length": 94,
+      "headers": {
+        "Accept-Ranges": [
+          "bytes"
+        ],
+        "Content-Length": [
+          "94"
+        ],
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ],
+        "Last-Modified": [
+          "Tue, 14 Nov 2023 22:13:20 GMT"
+        ]
+      },
+      "headers_elapsed_ms": 1.044708,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 200,
+      "method": "HEAD",
+      "negotiated_alpn": "h3",
+      "path_class": "root_head",
+      "repeat": 2,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "absent",
+      "body_bytes_observed": 19,
+      "body_sha256": "b16e15764b8bc06c5c3f9f19bc8b99fa48e7894aa5a6ccdad65da49bbf564793",
+      "body_truncated_at_bound": false,
+      "case": "protocol_get",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.101,
+      "connection_policy": "fresh transport per case",
+      "content_length": 19,
+      "headers": {
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 1.098417,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 404,
+      "method": "GET",
+      "negotiated_alpn": "h3",
+      "path_class": "protocol_get",
+      "repeat": 2,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "absent",
+      "body_bytes_observed": 0,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "body_truncated_at_bound": false,
+      "case": "protocol_head",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.052042,
+      "connection_policy": "fresh transport per case",
+      "content_length": 19,
+      "headers": {
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 1.049584,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 404,
+      "method": "HEAD",
+      "negotiated_alpn": "h3",
+      "path_class": "protocol_head",
+      "repeat": 2,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "absent",
+      "body_bytes_observed": 19,
+      "body_sha256": "c40aa69f0b306cea296dd1193c334bc0781587ed51aab579c0433698ba9e0c4b",
+      "body_truncated_at_bound": false,
+      "case": "protocol_post_no_auth",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.034541,
+      "connection_policy": "fresh transport per case",
+      "content_length": 19,
+      "headers": {
+        "Allow": [
+          "GET, HEAD"
+        ],
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 1.032125,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 405,
+      "method": "POST",
+      "negotiated_alpn": "h3",
+      "path_class": "protocol_post_no_auth",
+      "repeat": 2,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "deliberately_invalid",
+      "body_bytes_observed": 19,
+      "body_sha256": "c40aa69f0b306cea296dd1193c334bc0781587ed51aab579c0433698ba9e0c4b",
+      "body_truncated_at_bound": false,
+      "case": "protocol_post_wrong_auth",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.133542,
+      "connection_policy": "fresh transport per case",
+      "content_length": 19,
+      "headers": {
+        "Allow": [
+          "GET, HEAD"
+        ],
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 1.115833,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 405,
+      "method": "POST",
+      "negotiated_alpn": "h3",
+      "path_class": "protocol_post_wrong_auth",
+      "repeat": 2,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "deliberately_invalid",
+      "body_bytes_observed": 19,
+      "body_sha256": "c40aa69f0b306cea296dd1193c334bc0781587ed51aab579c0433698ba9e0c4b",
+      "body_truncated_at_bound": false,
+      "case": "protocol_post_malformed_auth",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.120666,
+      "connection_policy": "fresh transport per case",
+      "content_length": 19,
+      "headers": {
+        "Allow": [
+          "GET, HEAD"
+        ],
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 1.118,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 405,
+      "method": "POST",
+      "negotiated_alpn": "h3",
+      "path_class": "protocol_post_malformed_auth",
+      "repeat": 2,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "absent",
+      "body_bytes_observed": 19,
+      "body_sha256": "c40aa69f0b306cea296dd1193c334bc0781587ed51aab579c0433698ba9e0c4b",
+      "body_truncated_at_bound": false,
+      "case": "protocol_wrong_method_put",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.29075,
+      "connection_policy": "fresh transport per case",
+      "content_length": 19,
+      "headers": {
+        "Allow": [
+          "GET, HEAD"
+        ],
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 1.286208,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 405,
+      "method": "PUT",
+      "negotiated_alpn": "h3",
+      "path_class": "protocol_wrong_method_put",
+      "repeat": 2,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "absent",
+      "body_bytes_observed": 19,
+      "body_sha256": "b16e15764b8bc06c5c3f9f19bc8b99fa48e7894aa5a6ccdad65da49bbf564793",
+      "body_truncated_at_bound": false,
+      "case": "unknown_get",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.151417,
+      "connection_policy": "fresh transport per case",
+      "content_length": 19,
+      "headers": {
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 1.146125,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 404,
+      "method": "GET",
+      "negotiated_alpn": "h3",
+      "path_class": "unknown_get",
+      "repeat": 2,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "absent",
+      "body_bytes_observed": 19,
+      "body_sha256": "c40aa69f0b306cea296dd1193c334bc0781587ed51aab579c0433698ba9e0c4b",
+      "body_truncated_at_bound": false,
+      "case": "unknown_post",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.19625,
+      "connection_policy": "fresh transport per case",
+      "content_length": 19,
+      "headers": {
+        "Allow": [
+          "GET, HEAD"
+        ],
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 1.191833,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 405,
+      "method": "POST",
+      "negotiated_alpn": "h3",
+      "path_class": "unknown_post",
+      "repeat": 2,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "absent",
+      "body_bytes_observed": 19,
+      "body_sha256": "c40aa69f0b306cea296dd1193c334bc0781587ed51aab579c0433698ba9e0c4b",
+      "body_truncated_at_bound": false,
+      "case": "root_options",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.189459,
+      "connection_policy": "fresh transport per case",
+      "content_length": 19,
+      "headers": {
+        "Allow": [
+          "GET, HEAD"
+        ],
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 1.185667,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 405,
+      "method": "OPTIONS",
+      "negotiated_alpn": "h3",
+      "path_class": "root_options",
+      "repeat": 2,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "case": "old_custom_alpn_offer",
+      "error": {
+        "message_redacted": true,
+        "timeout": false,
+        "types": [
+          "*qerr.TransportError"
+        ]
+      },
+      "handshake_elapsed_ms": 0.576459,
+      "legacy_record_bytes": 32,
+      "offered_alpn": [
+        "proto-x/1"
+      ],
+      "payload_class": "empty_unauthenticated_legacy_HELLO_record",
+      "repeat": 2,
+      "status": "handshake_or_stream_rejected"
+    },
+    {
+      "case": "old_bare_record_over_standard_alpn",
+      "complete_elapsed_ms": 1.039042,
+      "handshake_elapsed_ms": 0.826709,
+      "legacy_record_bytes": 32,
+      "negotiated_alpn": "h3",
+      "offered_alpn": [
+        "h3"
+      ],
+      "payload_class": "empty_unauthenticated_legacy_HELLO_record",
+      "read_error": {
+        "message_redacted": true,
+        "timeout": false,
+        "types": [
+          "*quic.StreamError"
+        ]
+      },
+      "repeat": 2,
+      "response_bytes": 0,
+      "response_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "response_truncated_at_bound": false,
+      "status": "legacy_response_observed"
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "absent",
+      "body_bytes_observed": 94,
+      "body_sha256": "e7800e99eb067fa73550aedc3a244b68c3eaaebd1240ede5fb70237bc3985959",
+      "body_truncated_at_bound": false,
+      "case": "root_get",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 0.974458,
+      "connection_policy": "fresh transport per case",
+      "content_length": 94,
+      "headers": {
+        "Accept-Ranges": [
+          "bytes"
+        ],
+        "Content-Length": [
+          "94"
+        ],
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ],
+        "Last-Modified": [
+          "Tue, 14 Nov 2023 22:13:20 GMT"
+        ]
+      },
+      "headers_elapsed_ms": 0.971375,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 200,
+      "method": "GET",
+      "negotiated_alpn": "h3",
+      "path_class": "root_get",
+      "repeat": 3,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "absent",
+      "body_bytes_observed": 0,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "body_truncated_at_bound": false,
+      "case": "root_head",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 0.987042,
+      "connection_policy": "fresh transport per case",
+      "content_length": 94,
+      "headers": {
+        "Accept-Ranges": [
+          "bytes"
+        ],
+        "Content-Length": [
+          "94"
+        ],
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ],
+        "Last-Modified": [
+          "Tue, 14 Nov 2023 22:13:20 GMT"
+        ]
+      },
+      "headers_elapsed_ms": 0.984875,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 200,
+      "method": "HEAD",
+      "negotiated_alpn": "h3",
+      "path_class": "root_head",
+      "repeat": 3,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "absent",
+      "body_bytes_observed": 19,
+      "body_sha256": "b16e15764b8bc06c5c3f9f19bc8b99fa48e7894aa5a6ccdad65da49bbf564793",
+      "body_truncated_at_bound": false,
+      "case": "protocol_get",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 0.959709,
+      "connection_policy": "fresh transport per case",
+      "content_length": 19,
+      "headers": {
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 0.955375,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 404,
+      "method": "GET",
+      "negotiated_alpn": "h3",
+      "path_class": "protocol_get",
+      "repeat": 3,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "absent",
+      "body_bytes_observed": 0,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "body_truncated_at_bound": false,
+      "case": "protocol_head",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.018084,
+      "connection_policy": "fresh transport per case",
+      "content_length": 19,
+      "headers": {
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 1.013792,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 404,
+      "method": "HEAD",
+      "negotiated_alpn": "h3",
+      "path_class": "protocol_head",
+      "repeat": 3,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "absent",
+      "body_bytes_observed": 19,
+      "body_sha256": "c40aa69f0b306cea296dd1193c334bc0781587ed51aab579c0433698ba9e0c4b",
+      "body_truncated_at_bound": false,
+      "case": "protocol_post_no_auth",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.143041,
+      "connection_policy": "fresh transport per case",
+      "content_length": 19,
+      "headers": {
+        "Allow": [
+          "GET, HEAD"
+        ],
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 1.137041,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 405,
+      "method": "POST",
+      "negotiated_alpn": "h3",
+      "path_class": "protocol_post_no_auth",
+      "repeat": 3,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "deliberately_invalid",
+      "body_bytes_observed": 19,
+      "body_sha256": "c40aa69f0b306cea296dd1193c334bc0781587ed51aab579c0433698ba9e0c4b",
+      "body_truncated_at_bound": false,
+      "case": "protocol_post_wrong_auth",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 0.906333,
+      "connection_policy": "fresh transport per case",
+      "content_length": 19,
+      "headers": {
+        "Allow": [
+          "GET, HEAD"
+        ],
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 0.9025,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 405,
+      "method": "POST",
+      "negotiated_alpn": "h3",
+      "path_class": "protocol_post_wrong_auth",
+      "repeat": 3,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "deliberately_invalid",
+      "body_bytes_observed": 19,
+      "body_sha256": "c40aa69f0b306cea296dd1193c334bc0781587ed51aab579c0433698ba9e0c4b",
+      "body_truncated_at_bound": false,
+      "case": "protocol_post_malformed_auth",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 1.09725,
+      "connection_policy": "fresh transport per case",
+      "content_length": 19,
+      "headers": {
+        "Allow": [
+          "GET, HEAD"
+        ],
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 1.092625,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 405,
+      "method": "POST",
+      "negotiated_alpn": "h3",
+      "path_class": "protocol_post_malformed_auth",
+      "repeat": 3,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "absent",
+      "body_bytes_observed": 19,
+      "body_sha256": "c40aa69f0b306cea296dd1193c334bc0781587ed51aab579c0433698ba9e0c4b",
+      "body_truncated_at_bound": false,
+      "case": "protocol_wrong_method_put",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 0.966583,
+      "connection_policy": "fresh transport per case",
+      "content_length": 19,
+      "headers": {
+        "Allow": [
+          "GET, HEAD"
+        ],
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 0.964417,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 405,
+      "method": "PUT",
+      "negotiated_alpn": "h3",
+      "path_class": "protocol_wrong_method_put",
+      "repeat": 3,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "absent",
+      "body_bytes_observed": 19,
+      "body_sha256": "b16e15764b8bc06c5c3f9f19bc8b99fa48e7894aa5a6ccdad65da49bbf564793",
+      "body_truncated_at_bound": false,
+      "case": "unknown_get",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 0.939542,
+      "connection_policy": "fresh transport per case",
+      "content_length": 19,
+      "headers": {
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 0.937459,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 404,
+      "method": "GET",
+      "negotiated_alpn": "h3",
+      "path_class": "unknown_get",
+      "repeat": 3,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "absent",
+      "body_bytes_observed": 19,
+      "body_sha256": "c40aa69f0b306cea296dd1193c334bc0781587ed51aab579c0433698ba9e0c4b",
+      "body_truncated_at_bound": false,
+      "case": "unknown_post",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 0.874542,
+      "connection_policy": "fresh transport per case",
+      "content_length": 19,
+      "headers": {
+        "Allow": [
+          "GET, HEAD"
+        ],
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 0.872167,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 405,
+      "method": "POST",
+      "negotiated_alpn": "h3",
+      "path_class": "unknown_post",
+      "repeat": 3,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "alpn_observation_method": "active client TLS connection state",
+      "authentication_class": "absent",
+      "body_bytes_observed": 19,
+      "body_sha256": "c40aa69f0b306cea296dd1193c334bc0781587ed51aab579c0433698ba9e0c4b",
+      "body_truncated_at_bound": false,
+      "case": "root_options",
+      "certificate_chain_verified": true,
+      "complete_elapsed_ms": 0.946916,
+      "connection_policy": "fresh transport per case",
+      "content_length": 19,
+      "headers": {
+        "Allow": [
+          "GET, HEAD"
+        ],
+        "Content-Length": [
+          "19"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ]
+      },
+      "headers_elapsed_ms": 0.94425,
+      "http_protocol": "HTTP/3.0",
+      "http_status": 405,
+      "method": "OPTIONS",
+      "negotiated_alpn": "h3",
+      "path_class": "root_options",
+      "repeat": 3,
+      "status": "response_observed",
+      "tls_version": 772
+    },
+    {
+      "case": "old_custom_alpn_offer",
+      "error": {
+        "message_redacted": true,
+        "timeout": false,
+        "types": [
+          "*qerr.TransportError"
+        ]
+      },
+      "handshake_elapsed_ms": 0.487167,
+      "legacy_record_bytes": 32,
+      "offered_alpn": [
+        "proto-x/1"
+      ],
+      "payload_class": "empty_unauthenticated_legacy_HELLO_record",
+      "repeat": 3,
+      "status": "handshake_or_stream_rejected"
+    },
+    {
+      "case": "old_bare_record_over_standard_alpn",
+      "complete_elapsed_ms": 0.970375,
+      "handshake_elapsed_ms": 0.732584,
+      "legacy_record_bytes": 32,
+      "negotiated_alpn": "h3",
+      "offered_alpn": [
+        "h3"
+      ],
+      "payload_class": "empty_unauthenticated_legacy_HELLO_record",
+      "read_error": {
+        "message_redacted": true,
+        "timeout": false,
+        "types": [
+          "*quic.StreamError"
+        ]
+      },
+      "repeat": 3,
+      "response_bytes": 0,
+      "response_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "response_truncated_at_bound": false,
+      "status": "legacy_response_observed"
+    }
+  ],
+  "schema": 1,
+  "target_host_class": "configured_target_redacted",
+  "target_values_exported": false,
+  "timeout_ms": 1500,
+  "tool": {
+    "binary_sha256": "03ec1044724e5a5ff52fb468b91675d036903ebedec5be2c7310756622f4ccb8",
+    "go_version": "go1.27.1",
+    "goarch": "arm64",
+    "goos": "darwin",
+    "modules": {
+      "github.com/quic-go/qpack": "v0.6.0",
+      "github.com/quic-go/quic-go": "v0.65.0",
+      "golang.org/x/crypto": "v0.54.0",
+      "golang.org/x/net": "v0.56.0",
+      "golang.org/x/sys": "v0.47.0",
+      "golang.org/x/text": "v0.40.0"
+    }
+  }
+}

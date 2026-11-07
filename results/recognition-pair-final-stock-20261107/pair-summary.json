@@ -1,0 +1,74 @@
+{
+  "schema": 1,
+  "created_utc": "2026-11-07T03:46:36.821445+00:00",
+  "repeats": 3,
+  "scope": "actual loopback candidate versus same-stack ordinary fixture; only declared unauthenticated/legacy probes",
+  "comparisons": {
+    "h2": {
+      "candidate_attempts": 39,
+      "reference_attempts": 39,
+      "pair_status_counts": {
+        "normalized_match": 39
+      },
+      "candidate_status_counts": {
+        "response_observed": 33,
+        "handshake_or_stream_rejected": 3,
+        "legacy_response_observed": 3
+      },
+      "reference_status_counts": {
+        "response_observed": 33,
+        "handshake_or_stream_rejected": 3,
+        "legacy_response_observed": 3
+      }
+    },
+    "h3": {
+      "candidate_attempts": 39,
+      "reference_attempts": 39,
+      "pair_status_counts": {
+        "normalized_match": 39
+      },
+      "candidate_status_counts": {
+        "response_observed": 33,
+        "handshake_or_stream_rejected": 3,
+        "legacy_response_observed": 3
+      },
+      "reference_status_counts": {
+        "response_observed": 33,
+        "handshake_or_stream_rejected": 3,
+        "legacy_response_observed": 3
+      }
+    },
+    "visitors": {
+      "candidate_attempts": 24,
+      "reference_attempts": 24,
+      "pair_status_counts": {
+        "normalized_match": 24
+      },
+      "candidate_status_counts": {
+        "response_observed": 24
+      },
+      "reference_status_counts": {
+        "response_observed": 24
+      }
+    },
+    "openssl": {
+      "candidate_attempts": 12,
+      "reference_attempts": 12,
+      "pair_status_counts": {
+        "normalized_match": 12
+      },
+      "candidate_status_counts": {
+        "request_failed": 12
+      },
+      "reference_status_counts": {
+        "request_failed": 12
+      }
+    }
+  },
+  "positive_authenticated_native_client_tested": false,
+  "candidate_process_management": "external; this harness did not start/change/stop it",
+  "ordinary_control": "same supplied certificate and site tree; direct cover.Site handler",
+  "reference_profile": "stock_go",
+  "binary_sha256": "8dc6f55771a626d1fa948c501bf543058e59e363dcac2ffea571b4e7642ea08b",
+  "timing_interpretation": "retained observations, not a statistical indistinguishability claim"
+}

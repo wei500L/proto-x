@@ -1,0 +1,40 @@
+{
+  "measured_seconds": 60.214806166,
+  "requested_seconds": 60,
+  "application_flows_opened": 0,
+  "carriers": [
+    {
+      "carrier": "h3",
+      "generation": 1,
+      "resumed_flows": 0
+    }
+  ],
+  "directions": {
+    "up": {
+      "packets": 277,
+      "bytes": 32651,
+      "payload_bytes_per_second": 542.2420510661085,
+      "packets_per_second": 4.600197486916543,
+      "ipv4_udp_estimated_bytes_per_second": 671.0475806997717
+    },
+    "down": {
+      "packets": 171,
+      "bytes": 26881,
+      "payload_bytes_per_second": 446.41844276463394,
+      "packets_per_second": 2.839833105641621,
+      "ipv4_udp_estimated_bytes_per_second": 525.9337697225993
+    }
+  },
+  "heartbeat_ms": 500,
+  "dead_ms": 2000,
+  "ech_required": true,
+  "web_padding": 127,
+  "source_sha256": "5f0b29cd53c9af827fe510c94b0ea1c175d57d4494f55733a59171b5ee37c381",
+  "binary_sha256": "cff89b2f1b9819482b90c85cd54d420e280475bc23ddafe62cc904aa67dc0ca9",
+  "notes": [
+    "Counts include this one connection startup and shutdown.",
+    "Relay bytes are observed UDP payloads; IPv4+UDP adds an estimate of 28 bytes per packet.",
+    "No Ethernet, VPN, remote-receipt or mobile-radio energy measurement is implied.",
+    "The configured fault occurs after the observation and must never execute."
+  ]
+}

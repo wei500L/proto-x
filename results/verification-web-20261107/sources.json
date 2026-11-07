@@ -1,0 +1,23 @@
+{
+  "checked_utc": "2026-11-07T04:06:16.835355+00:00",
+  "sources": [
+    {
+      "name": "rfc9849.html",
+      "url": "https://www.rfc-editor.org/rfc/rfc9849.html",
+      "bytes": 240027,
+      "sha256": "a597be69034f85883b7c56dec35a805a2bd5b603d8275da89d0bdb99052e052c"
+    },
+    {
+      "name": "go-tls.html",
+      "url": "https://pkg.go.dev/crypto/tls",
+      "bytes": 271660,
+      "sha256": "3151ccb612e72e9536d9a1907f95fb643e3531d8d6849144f1d4b7421d807bb4"
+    },
+    {
+      "name": "quic-http3.html",
+      "url": "https://quic-go.net/docs/http3/",
+      "bytes": 64713,
+      "sha256": "3feb7c272f1fd32089025cecd4db8ac8099f1171b6c5f6224f8c0df99b5033f8"
+    }
+  ]
+}

@@ -1,9 +1,11 @@
 # PROTO-X 原型协议说明
 
-实现版本：`0.1.1-experimental`，从 `5d80253` 演进；更新日期：2026-11-07（Europe/Moscow）。当前线协议版本为
+实现版本：`0.2.0-experimental`；更新日期：2026-11-07（Europe/Moscow）。当前内层会话记录版本为
 **1**，与研发任务书的 v3.0 编号不同。实现使用 Go、TLS 1.3 和
 [quic-go v0.65.0](../go.mod)，提供本地 SOCKS5 CONNECT 到远端 TCP 目标的代理。
 本页描述已实现机制；与 VLESS／Hysteria2 的性能优劣需要另行测量。
+
+v0.2 默认入口已改为真实 HTTP/2 / HTTP/3，包含网站回落、TLS exporter 绑定认证、标准 ECH 和记录填充，详见 [WEB-CARRIER.md](WEB-CARRIER.md)。ACK、FIN、窗口和原 socket 恢复语义仍适用；下面旧 QUIC / TLS 映射与 pin-only 认证描述只对应显式原生诊断承载，不是新默认入口。
 
 ## 承载、认证与会话
 
@@ -14,6 +16,8 @@
 
 | 承载 | 记录映射 | 主要边界 |
 | --- | --- | --- |
+| HTTP/3（默认） | 控制 POST 与每 Flow 的双向 POST，记录带有界填充封套 | 实际 HTTP/3 与普通网站；仍共享 QUIC 拥塞控制 |
+| HTTP/2（默认 TCP 回退） | 同一 TLS 连接中的独立双向 POST | 实际 HTTP/2；仍有 TCP 跨流队头阻塞 |
 | QUIC | 一个双向控制 stream；每条 Flow 的两个发送方向各用一个单向 stream | 不同 Flow 不共用一个有序字节流；仍共享拥塞控制、连接窗口、CPU 和链路 |
 | TLS/TCP | 全部记录复用一个可靠有序 TCP 字节流 | UDP 不可达时可尝试此入口；TCP 丢包仍会造成跨 Flow 队头阻塞 |
 

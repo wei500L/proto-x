@@ -1,0 +1,177 @@
+{
+  "schema": 1,
+  "label": "ordinary-active-h2",
+  "network": "https_openssl_tcp",
+  "created_utc": "2026-11-07T03:53:38.965140+00:00",
+  "observations": [
+    {
+      "case": "openssl_https_no_alpn_root_get",
+      "repeat": 0,
+      "method": "GET",
+      "visitor_profile": "https_no_alpn",
+      "authentication_class": "absent",
+      "offered_alpn": [],
+      "tls_client_stack": "installed OpenSSL s_client",
+      "process_exit_code": 0,
+      "complete_elapsed_ms": 8.270082999999998,
+      "certificate_verification_reported": true,
+      "tls_version": "TLSv1.3",
+      "http_status": 200,
+      "http_protocol": "HTTP/1.1",
+      "headers": {
+        "content-length": [
+          "534"
+        ],
+        "accept-ranges": [
+          "bytes"
+        ],
+        "last-modified": [
+          "Sat, 07 Nov 2026 03:38:14 GMT"
+        ],
+        "content-type": [
+          "text/html; charset=utf-8"
+        ],
+        "connection": {
+          "value_count": 1,
+          "values_redacted": true
+        }
+      },
+      "content_length": 534,
+      "body_bytes_observed": 534,
+      "body_truncated_at_bound": false,
+      "body_sha256": "ffc5bf52d0ed4565e8250f5c1445df681f30bf28d079abb8de4f036ebde8ebea",
+      "status": "response_observed"
+    },
+    {
+      "case": "openssl_https_no_alpn_root_head",
+      "repeat": 0,
+      "method": "HEAD",
+      "visitor_profile": "https_no_alpn",
+      "authentication_class": "absent",
+      "offered_alpn": [],
+      "tls_client_stack": "installed OpenSSL s_client",
+      "process_exit_code": 0,
+      "complete_elapsed_ms": 6.843250000000002,
+      "certificate_verification_reported": true,
+      "tls_version": "TLSv1.3",
+      "http_status": 200,
+      "http_protocol": "HTTP/1.1",
+      "headers": {
+        "content-length": [
+          "534"
+        ],
+        "accept-ranges": [
+          "bytes"
+        ],
+        "last-modified": [
+          "Sat, 07 Nov 2026 03:38:14 GMT"
+        ],
+        "content-type": [
+          "text/html; charset=utf-8"
+        ],
+        "connection": {
+          "value_count": 1,
+          "values_redacted": true
+        }
+      },
+      "content_length": 534,
+      "body_bytes_observed": 0,
+      "body_truncated_at_bound": false,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "response_observed"
+    },
+    {
+      "case": "openssl_http11_explicit_alpn_root_get",
+      "repeat": 0,
+      "method": "GET",
+      "visitor_profile": "http11_explicit_alpn",
+      "authentication_class": "absent",
+      "offered_alpn": [
+        "http/1.1"
+      ],
+      "tls_client_stack": "installed OpenSSL s_client",
+      "process_exit_code": 0,
+      "complete_elapsed_ms": 6.979708000000001,
+      "certificate_verification_reported": true,
+      "tls_version": "TLSv1.3",
+      "http_status": 200,
+      "http_protocol": "HTTP/1.1",
+      "headers": {
+        "content-length": [
+          "534"
+        ],
+        "accept-ranges": [
+          "bytes"
+        ],
+        "last-modified": [
+          "Sat, 07 Nov 2026 03:38:14 GMT"
+        ],
+        "content-type": [
+          "text/html; charset=utf-8"
+        ],
+        "connection": {
+          "value_count": 1,
+          "values_redacted": true
+        }
+      },
+      "content_length": 534,
+      "body_bytes_observed": 534,
+      "body_truncated_at_bound": false,
+      "body_sha256": "ffc5bf52d0ed4565e8250f5c1445df681f30bf28d079abb8de4f036ebde8ebea",
+      "status": "response_observed"
+    },
+    {
+      "case": "openssl_http11_explicit_alpn_root_head",
+      "repeat": 0,
+      "method": "HEAD",
+      "visitor_profile": "http11_explicit_alpn",
+      "authentication_class": "absent",
+      "offered_alpn": [
+        "http/1.1"
+      ],
+      "tls_client_stack": "installed OpenSSL s_client",
+      "process_exit_code": 0,
+      "complete_elapsed_ms": 6.685500000000004,
+      "certificate_verification_reported": true,
+      "tls_version": "TLSv1.3",
+      "http_status": 200,
+      "http_protocol": "HTTP/1.1",
+      "headers": {
+        "content-length": [
+          "534"
+        ],
+        "accept-ranges": [
+          "bytes"
+        ],
+        "last-modified": [
+          "Sat, 07 Nov 2026 03:38:14 GMT"
+        ],
+        "content-type": [
+          "text/html; charset=utf-8"
+        ],
+        "connection": {
+          "value_count": 1,
+          "values_redacted": true
+        }
+      },
+      "content_length": 534,
+      "body_bytes_observed": 0,
+      "body_truncated_at_bound": false,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "response_observed"
+    }
+  ],
+  "attempted_cases": 4,
+  "tool": {
+    "openssl_version": "OpenSSL 3.6.3 9 Jun 2026 (Library: OpenSSL 3.6.3 9 Jun 2026)",
+    "openssl_binary_sha256": "103fc7706cf6646f226d96f29242d81890363499afc730e7ef1fadd64b3a123c"
+  },
+  "certificate_policy": "OpenSSL chain and expected-name verification with verify_return_error; explicit CA file when configured",
+  "pin_policy": "this independent client does not apply the optional Go-probe additional pin",
+  "limitations": [
+    "These are installed OpenSSL HTTP/1.1 visitors, not browser or native proxy traffic.",
+    "ALPN offered is also observable at the separate relay; negotiated ALPN is exported only if OpenSSL reports it.",
+    "Private stdout/stderr are retained; public reports contain selected generic headers and body hashes only.",
+    "An OpenSSL/Go comparison is not a diverse detector evaluation or an indistinguishability guarantee."
+  ]
+}
