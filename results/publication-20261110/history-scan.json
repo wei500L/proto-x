@@ -1,0 +1,14 @@
+{
+  "checked_utc": "2026-11-10T10:18:15.873218+00:00",
+  "head": "aaef3ed6479a48649ff5a40311c7303c925514fe",
+  "scope": "All unique blobs and commit/tag metadata reachable from main, historical paths and expanded tar members; known exact values and key patterns. Other local branches are not being pushed.",
+  "unique_content_objects": 5275,
+  "bytes_checked": 238177094,
+  "largest_object_bytes": 9582620,
+  "archives_checked": 3,
+  "archive_members_checked": 245,
+  "known_values_checked": 24,
+  "finding_count": 0,
+  "status": "passed",
+  "limitations": "Not a guarantee against unknown or transformed credentials."
+}

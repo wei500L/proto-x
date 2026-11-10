@@ -45,6 +45,8 @@ v0.2 针对早期识别缺口增加标准 HTTP 承载、TLS exporter 绑定认�
 需要 Go 1.26 或更新版本；本次实际构建使用 Go 1.27.1，并运行了 Go 1.26.0 兼容分支测试。构建脚本同时生成当前平台，以及 Linux arm64 / amd64 的静态程序。
 
 ```sh
+git clone https://github.com/wei500L/proto-x.git
+cd proto-x
 scripts/build.sh
 bin/protox init -dir .local/demo -host 127.0.0.1 -server-name localhost \
   -tls-port 14443 -quic-port 14443
@@ -99,3 +101,7 @@ go vet ./...
 | [研发状态](RESEARCH.md) | 已选/淘汰机制、分支、实际测试进度及续接入口。 |
 
 `results/` 保留原始事件和配置摘要。真实部署标识、密钥、凭据及完整私密日志位于 Git 忽略的 `.local/`。测试 VPS 的管理 SSH 与原有参考服务独立保留；生产服务器未作为实验机使用。
+
+## 开源许可证
+
+项目原创代码和文档采用 [MIT 许可证](LICENSE)。依赖与归档中的第三方代码保留各自的版权及许可证，见 [第三方声明](THIRD_PARTY_NOTICES.md)。
