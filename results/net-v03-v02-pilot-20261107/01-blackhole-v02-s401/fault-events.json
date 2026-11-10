@@ -1,0 +1,35 @@
+[
+  {
+    "event": "workload_launch",
+    "elapsed_ns": 1708,
+    "utc": "2026-11-07T11:23:30.312584+00:00"
+  },
+  {
+    "event": "fault_install_begin",
+    "elapsed_ns": 5000555022,
+    "utc": "2026-11-07T11:23:35.313144+00:00"
+  },
+  {
+    "event": "fault_installed",
+    "elapsed_ns": 5070866696,
+    "utc": "2026-11-07T11:23:35.383450+00:00",
+    "direction": "both"
+  },
+  {
+    "event": "fault_remove_begin",
+    "elapsed_ns": 11071199142,
+    "utc": "2026-11-07T11:23:41.383793+00:00"
+  },
+  {
+    "event": "fault_removed",
+    "elapsed_ns": 11129220132,
+    "utc": "2026-11-07T11:23:41.441803+00:00",
+    "exit_code": 0
+  },
+  {
+    "event": "workload_exit",
+    "elapsed_ns": 16059371838,
+    "utc": "2026-11-07T11:23:46.371961+00:00",
+    "exit_code": 0
+  }
+]

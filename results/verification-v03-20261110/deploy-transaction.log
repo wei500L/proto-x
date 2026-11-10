@@ -1,0 +1,26 @@
+test_active_restart_loop_is_rejected (__main__.DeployChecks) ... ok
+test_backup_failure_never_stops_old_service (__main__.DeployChecks) ... ok
+test_configured_private_key_inside_cover_is_rejected (__main__.DeployChecks) ... ok
+test_corrupt_archive_never_changes_installed_files (__main__.DeployChecks) ... ok
+test_custom_asset_paths_normalize_without_modifying_source (__main__.DeployChecks) ... ok
+test_existing_lock_is_preserved (__main__.DeployChecks) ... ok
+test_failed_automatic_restore_returns_three_and_keeps_recovery_state (__main__.DeployChecks) ... ok
+test_first_install_failure_before_unit_exists_is_cleaned (__main__.DeployChecks) ... ok
+test_first_install_failure_removes_new_unit_and_files (__main__.DeployChecks) ... ok
+test_first_install_with_optional_assets (__main__.DeployChecks) ... ok
+test_inactive_disabled_service_remains_inactive_after_rollback (__main__.DeployChecks) ... ok
+test_incorrect_key_certificate_pair_is_rejected (__main__.DeployChecks) ... ok
+test_late_exit_after_successful_restart_restores_old_package (__main__.DeployChecks) ... ok
+test_missing_referenced_asset_is_rejected (__main__.DeployChecks) ... ok
+test_parent_traversal_in_asset_path_is_rejected (__main__.DeployChecks) ... ok
+test_partial_file_install_is_restored (__main__.DeployChecks) ... ok
+test_partial_upload_is_cleaned_before_any_service_change (__main__.DeployChecks) ... ok
+test_restart_error_restores_runtime_enabled_package (__main__.DeployChecks) ... ok
+test_symlink_in_public_tree_is_rejected (__main__.DeployChecks) ... ok
+test_upgrade_removes_old_optional_assets_and_ignores_stale_stage (__main__.DeployChecks) ... ok
+test_web_config_without_public_root_is_rejected (__main__.DeployChecks) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 30.749s
+
+OK

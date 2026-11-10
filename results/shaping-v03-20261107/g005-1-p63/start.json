@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "id": "g005-1-p63",
+  "group": 5,
+  "split": "train",
+  "mode": "p63",
+  "order_in_group": 1,
+  "started_utc": "2026-11-07T11:21:10.168973+00:00",
+  "seed": 71705,
+  "status": "running",
+  "workload": {
+    "rps": 6.0,
+    "http_bytes": 768,
+    "sse_interval_ms": 70,
+    "background_mbps": 2.0,
+    "duration_ms": 3000,
+    "seed": 71705
+  },
+  "relay": {
+    "one_way_delay_ms": 20,
+    "up_ipv4_mbps": 2.0,
+    "down_ipv4_mbps": 8.0
+  }
+}

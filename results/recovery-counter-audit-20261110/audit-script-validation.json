@@ -1,0 +1,23 @@
+{
+  "payload_bytes_each_direction": 100,
+  "ip_udp_expected": 128,
+  "ethernet_header_expected": 14,
+  "qdisc_delta": {
+    "client": {
+      "bytes": 142,
+      "packets": 1,
+      "drops": 0
+    },
+    "server": {
+      "bytes": 142,
+      "packets": 1,
+      "drops": 0
+    }
+  },
+  "calibrated_expected_ethernet_layer": true,
+  "notes": [
+    "If extra ARP/other traffic or loss is counted, this one-packet calibration is inconclusive.",
+    "142 = payload100 + UDP8 + IPv4 20 + Ethernet14; FCS is not included.",
+    "Configured netem rate overhead affects shaping, not this byte counter."
+  ]
+}

@@ -1,0 +1,5044 @@
+{
+  "schema": 1,
+  "extraction_errors": [],
+  "valid_sessions": 160,
+  "complete_paired_groups": 40,
+  "metrics": {
+    "native": {
+      "sessions": 40,
+      "http_status": {
+        "success": 736,
+        "censored": 11
+      },
+      "http_latency_ms": {
+        "n": 736,
+        "p50": 42.857583,
+        "p95": 47.341916,
+        "p99": 48.459916,
+        "max": 52.686249999999994
+      },
+      "sse_gap_ms": {
+        "n": 2316,
+        "p95": 71.333042,
+        "p99": 73.54475000000001,
+        "max": 77.84037500000001
+      },
+      "sse_tokens": 2316,
+      "sse_connects": 40,
+      "sse_connect_failures": 0,
+      "sse_sequence_errors": 0,
+      "sse_integrity_errors": 0,
+      "sse_unexpected_ends": 0,
+      "download_bytes": 24226728,
+      "validated_received_bytes": 25015464,
+      "udp_ingress_bytes": 27902439,
+      "udp_ingress_packets": 48007,
+      "ipv4_ingress_bytes": 29246635,
+      "udp_forwarded_bytes": 27902439,
+      "relay_drop_events": 0,
+      "relay_error_events": 0,
+      "carrier_bytes_per_validated_received_byte": 1.115407613466614,
+      "ipv4_bytes_per_validated_received_byte": 1.1691422153912476,
+      "paired_extra_carrier_fraction_vs_p0": [
+        -0.10308442689687525,
+        -0.11155717812793509,
+        -0.10566280919197057,
+        -0.10587481789065023,
+        -0.10149595350807372,
+        -0.10672843389936504,
+        -0.10557451979535892,
+        -0.10439950839190393,
+        -0.11239924743146668,
+        -0.10280660107252837,
+        -0.09785493124269395,
+        -0.10483551906506072,
+        -0.11289435629778699,
+        -0.10951296395669186,
+        -0.10139076040757589,
+        -0.1041578815358194,
+        -0.10749474873671272,
+        -0.09989318233465083,
+        -0.11605903850374066,
+        -0.10341232076564977,
+        -0.10069953608254989,
+        -0.10709900700744235,
+        -0.10969982835493663,
+        -0.11319975475219779,
+        -0.11109262285190247,
+        -0.10539204374111444,
+        -0.101022393521211,
+        -0.10856399022378227,
+        -0.11028020509033243,
+        -0.10227782241078265,
+        -0.10866030160857942,
+        -0.10591757292229931,
+        -0.10780045025891494,
+        -0.10398840251908337,
+        -0.10597079913194662,
+        -0.12011411542440364,
+        -0.10967825971131562,
+        -0.10412933408214431,
+        -0.10280018117789635,
+        -0.10464946107144124
+      ],
+      "median_paired_extra_carrier_fraction_vs_p0": -0.10587481789065023
+    },
+    "p0": {
+      "sessions": 40,
+      "http_status": {
+        "success": 736,
+        "censored": 11
+      },
+      "http_latency_ms": {
+        "n": 736,
+        "p50": 43.262542,
+        "p95": 46.801708,
+        "p99": 91.415334,
+        "max": 93.976625
+      },
+      "sse_gap_ms": {
+        "n": 2276,
+        "p95": 70.839625,
+        "p99": 71.967833,
+        "max": 73.914042
+      },
+      "sse_tokens": 2276,
+      "sse_connects": 40,
+      "sse_connect_failures": 0,
+      "sse_sequence_errors": 0,
+      "sse_integrity_errors": 0,
+      "sse_unexpected_ends": 0,
+      "download_bytes": 23789556,
+      "validated_received_bytes": 24575732,
+      "udp_ingress_bytes": 30663870,
+      "udp_ingress_packets": 94806,
+      "ipv4_ingress_bytes": 33318438,
+      "udp_forwarded_bytes": 30662830,
+      "relay_drop_events": 0,
+      "relay_error_events": 0,
+      "carrier_bytes_per_validated_received_byte": 1.2477296708802,
+      "ipv4_bytes_per_validated_received_byte": 1.3557454972246605,
+      "paired_extra_carrier_fraction_vs_p0": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "median_paired_extra_carrier_fraction_vs_p0": 0.0
+    },
+    "ack-p0": {
+      "sessions": 40,
+      "http_status": {
+        "success": 736,
+        "censored": 11
+      },
+      "http_latency_ms": {
+        "n": 736,
+        "p50": 43.343167,
+        "p95": 46.613208,
+        "p99": 91.368292,
+        "max": 94.137292
+      },
+      "sse_gap_ms": {
+        "n": 2276,
+        "p95": 70.813625,
+        "p99": 72.02275,
+        "max": 110.075792
+      },
+      "sse_tokens": 2276,
+      "sse_connects": 40,
+      "sse_connect_failures": 0,
+      "sse_sequence_errors": 0,
+      "sse_integrity_errors": 0,
+      "sse_unexpected_ends": 0,
+      "download_bytes": 23764968,
+      "validated_received_bytes": 24551144,
+      "udp_ingress_bytes": 29861029,
+      "udp_ingress_packets": 82374,
+      "ipv4_ingress_bytes": 32167501,
+      "udp_forwarded_bytes": 29859989,
+      "relay_drop_events": 0,
+      "relay_error_events": 0,
+      "carrier_bytes_per_validated_received_byte": 1.216278516390112,
+      "ipv4_bytes_per_validated_received_byte": 1.3102241182732666,
+      "paired_extra_carrier_fraction_vs_p0": [
+        -0.028557741790600888,
+        -0.025279814407754286,
+        -0.02202142118073791,
+        -0.025669343575919767,
+        -0.03035074145499861,
+        -0.02702819247539956,
+        -0.025488534412993702,
+        -0.023534813096480645,
+        -0.01649123595272617,
+        -0.02644447071199485,
+        -0.020412545080474742,
+        -0.025005315645176496,
+        -0.03201034188687979,
+        -0.02318856854102913,
+        -0.022593275773189037,
+        -0.021100521808968264,
+        -0.024462382976095265,
+        -0.027474407876584728,
+        -0.02546572219801424,
+        -0.027605426646924003,
+        -0.025151283987938644,
+        -0.024263329788609345,
+        -0.02326340706511687,
+        -0.016211205664881323,
+        -0.026655891265345955,
+        -0.02507977423290375,
+        -0.02599994871999911,
+        -0.02455980254519985,
+        -0.01695433102759547,
+        -0.021261174746466827,
+        -0.020466367330470248,
+        -0.02687469921439878,
+        -0.026439021195425294,
+        -0.032300881261778325,
+        -0.030808969805563025,
+        -0.023886739706240667,
+        -0.03415793555218061,
+        -0.026353769834421947,
+        -0.026493714201401786,
+        -0.02668899993899021
+      ],
+      "median_paired_extra_carrier_fraction_vs_p0": -0.02546572219801424
+    },
+    "ack-p127": {
+      "sessions": 40,
+      "http_status": {
+        "success": 736,
+        "censored": 11
+      },
+      "http_latency_ms": {
+        "n": 736,
+        "p50": 43.694167,
+        "p95": 47.771708000000004,
+        "p99": 94.27475,
+        "max": 149.303042
+      },
+      "sse_gap_ms": {
+        "n": 2275,
+        "p95": 70.978792,
+        "p99": 72.285084,
+        "max": 79.522916
+      },
+      "sse_tokens": 2275,
+      "sse_connects": 40,
+      "sse_connect_failures": 0,
+      "sse_sequence_errors": 0,
+      "sse_integrity_errors": 0,
+      "sse_unexpected_ends": 0,
+      "download_bytes": 23836624,
+      "validated_received_bytes": 24622736,
+      "udp_ingress_bytes": 32087666,
+      "udp_ingress_packets": 82782,
+      "ipv4_ingress_bytes": 34405562,
+      "udp_forwarded_bytes": 32086454,
+      "relay_drop_events": 0,
+      "relay_error_events": 0,
+      "carrier_bytes_per_validated_received_byte": 1.3031722388608642,
+      "ipv4_bytes_per_validated_received_byte": 1.397308650021671,
+      "paired_extra_carrier_fraction_vs_p0": [
+        0.036509199634640055,
+        0.03950029013967482,
+        0.04394911802036505,
+        0.04476589715824586,
+        0.038337182625565625,
+        0.034291776686265374,
+        0.045848973006412,
+        0.06033622582833953,
+        0.06084455842487757,
+        0.045878246047088345,
+        0.04570413722163802,
+        0.04469729543506196,
+        0.04494110498260273,
+        0.0526308836327547,
+        0.042450335670302985,
+        0.03997645356995361,
+        0.04142584210001954,
+        0.038758761548671083,
+        0.045563890279343155,
+        0.041646001648455,
+        0.04094889183515038,
+        0.04203901096509788,
+        0.0497860135474828,
+        0.06315550730475494,
+        0.04301834478489197,
+        0.04486985108379726,
+        0.04789739338933652,
+        0.04984522967804428,
+        0.05768243670278328,
+        0.04896464701056691,
+        0.045765005902105305,
+        0.035694506231296996,
+        0.044897133694052016,
+        0.038269149914314626,
+        0.05423985066048287,
+        0.04157662428925635,
+        0.04977921139750796,
+        0.044961743555653966,
+        0.0390261492155759,
+        0.03816165728940368
+      ],
+      "median_paired_extra_carrier_fraction_vs_p0": 0.04476589715824586
+    }
+  },
+  "detectors": {
+    "full": {
+      "features": [
+        "up_packets_per_second",
+        "up_bytes_per_second",
+        "up_size_mean",
+        "up_size_std",
+        "up_size_q10",
+        "up_size_q50",
+        "up_size_q90",
+        "up_size_below_128",
+        "up_size_below_256",
+        "up_size_below_512",
+        "up_size_below_1000",
+        "up_iat_mean_ms",
+        "up_iat_std_ms",
+        "up_iat_q90_ms",
+        "up_bursts_per_second",
+        "up_iat_below_1ms",
+        "down_packets_per_second",
+        "down_bytes_per_second",
+        "down_size_mean",
+        "down_size_std",
+        "down_size_q10",
+        "down_size_q50",
+        "down_size_q90",
+        "down_size_below_128",
+        "down_size_below_256",
+        "down_size_below_512",
+        "down_size_below_1000",
+        "down_iat_mean_ms",
+        "down_iat_std_ms",
+        "down_iat_q90_ms",
+        "down_bursts_per_second",
+        "down_iat_below_1ms",
+        "direction_changes_per_second"
+      ],
+      "frozen_p0": [
+        {
+          "trained_proxy_mode": "p0",
+          "tested_proxy_mode": "p0",
+          "train_sessions": 48,
+          "heldout_sessions": 32,
+          "heldout_groups": 16,
+          "auc": 1.0,
+          "auc_paired_group_bootstrap_95": [
+            1.0,
+            1.0
+          ],
+          "threshold": -1.7737988891764558,
+          "threshold_rule": "strictly greater than maximum native training score (empirical training FPR zero)",
+          "true_positives": 16,
+          "positives": 16,
+          "tpr": 1.0,
+          "tpr_wilson_95": [
+            0.8063923194655637,
+            1.0
+          ],
+          "false_positives": 2,
+          "negatives": 16,
+          "fpr": 0.125,
+          "fpr_wilson_95": [
+            0.03497748774324047,
+            0.36022827265758695
+          ],
+          "largest_standardized_coefficients": [
+            [
+              "up_size_q50",
+              0.0981947415487269
+            ],
+            [
+              "down_size_q10",
+              -0.0981947415487269
+            ],
+            [
+              "up_size_q90",
+              0.09818704069473476
+            ],
+            [
+              "down_size_std",
+              -0.09801915720004194
+            ],
+            [
+              "down_size_below_1000",
+              0.09786209003314422
+            ],
+            [
+              "up_iat_below_1ms",
+              0.09750046591305289
+            ],
+            [
+              "down_size_mean",
+              -0.09735992982051886
+            ],
+            [
+              "down_size_below_128",
+              0.09667991136961424
+            ]
+          ],
+          "test_scores": [
+            {
+              "group": 24,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8787106296254736
+            },
+            {
+              "group": 24,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.789160553481687
+            },
+            {
+              "group": 25,
+              "mode": "native",
+              "label": 0,
+              "score": -2.348845962957436
+            },
+            {
+              "group": 25,
+              "mode": "p0",
+              "label": 1,
+              "score": 1.98977765019061
+            },
+            {
+              "group": 26,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.728544580314364
+            },
+            {
+              "group": 26,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8993045421429144
+            },
+            {
+              "group": 27,
+              "mode": "p0",
+              "label": 1,
+              "score": 1.9799801673406434
+            },
+            {
+              "group": 27,
+              "mode": "native",
+              "label": 0,
+              "score": -2.3935072741940298
+            },
+            {
+              "group": 28,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.00924932307438
+            },
+            {
+              "group": 28,
+              "mode": "native",
+              "label": 0,
+              "score": -2.633330561801852
+            },
+            {
+              "group": 29,
+              "mode": "native",
+              "label": 0,
+              "score": -1.9215410794757173
+            },
+            {
+              "group": 29,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.703248643569072
+            },
+            {
+              "group": 30,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.882839796681106
+            },
+            {
+              "group": 30,
+              "mode": "native",
+              "label": 0,
+              "score": -1.7409231172592086
+            },
+            {
+              "group": 31,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.6914955085122765
+            },
+            {
+              "group": 31,
+              "mode": "native",
+              "label": 0,
+              "score": -1.983212560072484
+            },
+            {
+              "group": 32,
+              "mode": "native",
+              "label": 0,
+              "score": -2.210852126509055
+            },
+            {
+              "group": 32,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.1994370530272223
+            },
+            {
+              "group": 33,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.78847749685849
+            },
+            {
+              "group": 33,
+              "mode": "native",
+              "label": 0,
+              "score": -1.7427818757286537
+            },
+            {
+              "group": 34,
+              "mode": "p0",
+              "label": 1,
+              "score": 1.9886473377822234
+            },
+            {
+              "group": 34,
+              "mode": "native",
+              "label": 0,
+              "score": -2.507628482275485
+            },
+            {
+              "group": 35,
+              "mode": "native",
+              "label": 0,
+              "score": -2.419290615203872
+            },
+            {
+              "group": 35,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.1577923418241705
+            },
+            {
+              "group": 36,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.0403255963192253
+            },
+            {
+              "group": 36,
+              "mode": "native",
+              "label": 0,
+              "score": -2.629244980605557
+            },
+            {
+              "group": 37,
+              "mode": "native",
+              "label": 0,
+              "score": -1.9508515105396043
+            },
+            {
+              "group": 37,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.699524075597231
+            },
+            {
+              "group": 38,
+              "mode": "native",
+              "label": 0,
+              "score": -2.1970779169535843
+            },
+            {
+              "group": 38,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.4466769781054314
+            },
+            {
+              "group": 39,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.541126110515143
+            },
+            {
+              "group": 39,
+              "mode": "native",
+              "label": 0,
+              "score": -2.0272307090887938
+            }
+          ]
+        },
+        {
+          "trained_proxy_mode": "p0",
+          "tested_proxy_mode": "ack-p0",
+          "train_sessions": 48,
+          "heldout_sessions": 32,
+          "heldout_groups": 16,
+          "auc": 1.0,
+          "auc_paired_group_bootstrap_95": [
+            1.0,
+            1.0
+          ],
+          "threshold": -1.7737988891764558,
+          "threshold_rule": "strictly greater than maximum native training score (empirical training FPR zero)",
+          "true_positives": 16,
+          "positives": 16,
+          "tpr": 1.0,
+          "tpr_wilson_95": [
+            0.8063923194655637,
+            1.0
+          ],
+          "false_positives": 2,
+          "negatives": 16,
+          "fpr": 0.125,
+          "fpr_wilson_95": [
+            0.03497748774324047,
+            0.36022827265758695
+          ],
+          "largest_standardized_coefficients": [
+            [
+              "up_size_q50",
+              0.0981947415487269
+            ],
+            [
+              "down_size_q10",
+              -0.0981947415487269
+            ],
+            [
+              "up_size_q90",
+              0.09818704069473476
+            ],
+            [
+              "down_size_std",
+              -0.09801915720004194
+            ],
+            [
+              "down_size_below_1000",
+              0.09786209003314422
+            ],
+            [
+              "up_iat_below_1ms",
+              0.09750046591305289
+            ],
+            [
+              "down_size_mean",
+              -0.09735992982051886
+            ],
+            [
+              "down_size_below_128",
+              0.09667991136961424
+            ]
+          ],
+          "test_scores": [
+            {
+              "group": 24,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.9089131901611713
+            },
+            {
+              "group": 24,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8787106296254736
+            },
+            {
+              "group": 25,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.4539639552498203
+            },
+            {
+              "group": 25,
+              "mode": "native",
+              "label": 0,
+              "score": -2.348845962957436
+            },
+            {
+              "group": 26,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8993045421429144
+            },
+            {
+              "group": 26,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.8213312397193469
+            },
+            {
+              "group": 27,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.37966800420941
+            },
+            {
+              "group": 27,
+              "mode": "native",
+              "label": 0,
+              "score": -2.3935072741940298
+            },
+            {
+              "group": 28,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.0274462008314906
+            },
+            {
+              "group": 28,
+              "mode": "native",
+              "label": 0,
+              "score": -2.633330561801852
+            },
+            {
+              "group": 29,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.8230247303066947
+            },
+            {
+              "group": 29,
+              "mode": "native",
+              "label": 0,
+              "score": -1.9215410794757173
+            },
+            {
+              "group": 30,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 2.0047958840185727
+            },
+            {
+              "group": 30,
+              "mode": "native",
+              "label": 0,
+              "score": -1.7409231172592086
+            },
+            {
+              "group": 31,
+              "mode": "native",
+              "label": 0,
+              "score": -1.983212560072484
+            },
+            {
+              "group": 31,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.7136073540981478
+            },
+            {
+              "group": 32,
+              "mode": "native",
+              "label": 0,
+              "score": -2.210852126509055
+            },
+            {
+              "group": 32,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.588377096603323
+            },
+            {
+              "group": 33,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.8576455732222916
+            },
+            {
+              "group": 33,
+              "mode": "native",
+              "label": 0,
+              "score": -1.7427818757286537
+            },
+            {
+              "group": 34,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 0.9671805798205746
+            },
+            {
+              "group": 34,
+              "mode": "native",
+              "label": 0,
+              "score": -2.507628482275485
+            },
+            {
+              "group": 35,
+              "mode": "native",
+              "label": 0,
+              "score": -2.419290615203872
+            },
+            {
+              "group": 35,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.2090493376950815
+            },
+            {
+              "group": 36,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.048433976925804
+            },
+            {
+              "group": 36,
+              "mode": "native",
+              "label": 0,
+              "score": -2.629244980605557
+            },
+            {
+              "group": 37,
+              "mode": "native",
+              "label": 0,
+              "score": -1.9508515105396043
+            },
+            {
+              "group": 37,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.7815981319863896
+            },
+            {
+              "group": 38,
+              "mode": "native",
+              "label": 0,
+              "score": -2.1970779169535843
+            },
+            {
+              "group": 38,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.4951589748617098
+            },
+            {
+              "group": 39,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.573681546984727
+            },
+            {
+              "group": 39,
+              "mode": "native",
+              "label": 0,
+              "score": -2.0272307090887938
+            }
+          ]
+        },
+        {
+          "trained_proxy_mode": "p0",
+          "tested_proxy_mode": "ack-p127",
+          "train_sessions": 48,
+          "heldout_sessions": 32,
+          "heldout_groups": 16,
+          "auc": 1.0,
+          "auc_paired_group_bootstrap_95": [
+            1.0,
+            1.0
+          ],
+          "threshold": -1.7737988891764558,
+          "threshold_rule": "strictly greater than maximum native training score (empirical training FPR zero)",
+          "true_positives": 16,
+          "positives": 16,
+          "tpr": 1.0,
+          "tpr_wilson_95": [
+            0.8063923194655637,
+            1.0
+          ],
+          "false_positives": 2,
+          "negatives": 16,
+          "fpr": 0.125,
+          "fpr_wilson_95": [
+            0.03497748774324047,
+            0.36022827265758695
+          ],
+          "largest_standardized_coefficients": [
+            [
+              "up_size_q50",
+              0.0981947415487269
+            ],
+            [
+              "down_size_q10",
+              -0.0981947415487269
+            ],
+            [
+              "up_size_q90",
+              0.09818704069473476
+            ],
+            [
+              "down_size_std",
+              -0.09801915720004194
+            ],
+            [
+              "down_size_below_1000",
+              0.09786209003314422
+            ],
+            [
+              "up_iat_below_1ms",
+              0.09750046591305289
+            ],
+            [
+              "down_size_mean",
+              -0.09735992982051886
+            ],
+            [
+              "down_size_below_128",
+              0.09667991136961424
+            ]
+          ],
+          "test_scores": [
+            {
+              "group": 24,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 4.0893245031147885
+            },
+            {
+              "group": 24,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8787106296254736
+            },
+            {
+              "group": 25,
+              "mode": "native",
+              "label": 0,
+              "score": -2.348845962957436
+            },
+            {
+              "group": 25,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 3.652112240811658
+            },
+            {
+              "group": 26,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8993045421429144
+            },
+            {
+              "group": 26,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 3.962482592986829
+            },
+            {
+              "group": 27,
+              "mode": "native",
+              "label": 0,
+              "score": -2.3935072741940298
+            },
+            {
+              "group": 27,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 3.6300313494375347
+            },
+            {
+              "group": 28,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 3.0913330932899594
+            },
+            {
+              "group": 28,
+              "mode": "native",
+              "label": 0,
+              "score": -2.633330561801852
+            },
+            {
+              "group": 29,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 3.8924663787490257
+            },
+            {
+              "group": 29,
+              "mode": "native",
+              "label": 0,
+              "score": -1.9215410794757173
+            },
+            {
+              "group": 30,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 4.052296826241745
+            },
+            {
+              "group": 30,
+              "mode": "native",
+              "label": 0,
+              "score": -1.7409231172592086
+            },
+            {
+              "group": 31,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 3.91621911947402
+            },
+            {
+              "group": 31,
+              "mode": "native",
+              "label": 0,
+              "score": -1.983212560072484
+            },
+            {
+              "group": 32,
+              "mode": "native",
+              "label": 0,
+              "score": -2.210852126509055
+            },
+            {
+              "group": 32,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 3.638736341198931
+            },
+            {
+              "group": 33,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 4.113766464293118
+            },
+            {
+              "group": 33,
+              "mode": "native",
+              "label": 0,
+              "score": -1.7427818757286537
+            },
+            {
+              "group": 34,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 3.163880199730379
+            },
+            {
+              "group": 34,
+              "mode": "native",
+              "label": 0,
+              "score": -2.507628482275485
+            },
+            {
+              "group": 35,
+              "mode": "native",
+              "label": 0,
+              "score": -2.419290615203872
+            },
+            {
+              "group": 35,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 3.6027815914776324
+            },
+            {
+              "group": 36,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 2.9187051659818932
+            },
+            {
+              "group": 36,
+              "mode": "native",
+              "label": 0,
+              "score": -2.629244980605557
+            },
+            {
+              "group": 37,
+              "mode": "native",
+              "label": 0,
+              "score": -1.9508515105396043
+            },
+            {
+              "group": 37,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 3.5327626597949315
+            },
+            {
+              "group": 38,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 3.9116354311534014
+            },
+            {
+              "group": 38,
+              "mode": "native",
+              "label": 0,
+              "score": -2.1970779169535843
+            },
+            {
+              "group": 39,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 3.7149651542519755
+            },
+            {
+              "group": 39,
+              "mode": "native",
+              "label": 0,
+              "score": -2.0272307090887938
+            }
+          ]
+        }
+      ],
+      "retrained_each_mode": [
+        {
+          "trained_proxy_mode": "p0",
+          "tested_proxy_mode": "p0",
+          "train_sessions": 48,
+          "heldout_sessions": 32,
+          "heldout_groups": 16,
+          "auc": 1.0,
+          "auc_paired_group_bootstrap_95": [
+            1.0,
+            1.0
+          ],
+          "threshold": -1.7737988891764558,
+          "threshold_rule": "strictly greater than maximum native training score (empirical training FPR zero)",
+          "true_positives": 16,
+          "positives": 16,
+          "tpr": 1.0,
+          "tpr_wilson_95": [
+            0.8063923194655637,
+            1.0
+          ],
+          "false_positives": 2,
+          "negatives": 16,
+          "fpr": 0.125,
+          "fpr_wilson_95": [
+            0.03497748774324047,
+            0.36022827265758695
+          ],
+          "largest_standardized_coefficients": [
+            [
+              "up_size_q50",
+              0.0981947415487269
+            ],
+            [
+              "down_size_q10",
+              -0.0981947415487269
+            ],
+            [
+              "up_size_q90",
+              0.09818704069473476
+            ],
+            [
+              "down_size_std",
+              -0.09801915720004194
+            ],
+            [
+              "down_size_below_1000",
+              0.09786209003314422
+            ],
+            [
+              "up_iat_below_1ms",
+              0.09750046591305289
+            ],
+            [
+              "down_size_mean",
+              -0.09735992982051886
+            ],
+            [
+              "down_size_below_128",
+              0.09667991136961424
+            ]
+          ],
+          "test_scores": [
+            {
+              "group": 24,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8787106296254736
+            },
+            {
+              "group": 24,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.789160553481687
+            },
+            {
+              "group": 25,
+              "mode": "native",
+              "label": 0,
+              "score": -2.348845962957436
+            },
+            {
+              "group": 25,
+              "mode": "p0",
+              "label": 1,
+              "score": 1.98977765019061
+            },
+            {
+              "group": 26,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.728544580314364
+            },
+            {
+              "group": 26,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8993045421429144
+            },
+            {
+              "group": 27,
+              "mode": "p0",
+              "label": 1,
+              "score": 1.9799801673406434
+            },
+            {
+              "group": 27,
+              "mode": "native",
+              "label": 0,
+              "score": -2.3935072741940298
+            },
+            {
+              "group": 28,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.00924932307438
+            },
+            {
+              "group": 28,
+              "mode": "native",
+              "label": 0,
+              "score": -2.633330561801852
+            },
+            {
+              "group": 29,
+              "mode": "native",
+              "label": 0,
+              "score": -1.9215410794757173
+            },
+            {
+              "group": 29,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.703248643569072
+            },
+            {
+              "group": 30,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.882839796681106
+            },
+            {
+              "group": 30,
+              "mode": "native",
+              "label": 0,
+              "score": -1.7409231172592086
+            },
+            {
+              "group": 31,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.6914955085122765
+            },
+            {
+              "group": 31,
+              "mode": "native",
+              "label": 0,
+              "score": -1.983212560072484
+            },
+            {
+              "group": 32,
+              "mode": "native",
+              "label": 0,
+              "score": -2.210852126509055
+            },
+            {
+              "group": 32,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.1994370530272223
+            },
+            {
+              "group": 33,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.78847749685849
+            },
+            {
+              "group": 33,
+              "mode": "native",
+              "label": 0,
+              "score": -1.7427818757286537
+            },
+            {
+              "group": 34,
+              "mode": "p0",
+              "label": 1,
+              "score": 1.9886473377822234
+            },
+            {
+              "group": 34,
+              "mode": "native",
+              "label": 0,
+              "score": -2.507628482275485
+            },
+            {
+              "group": 35,
+              "mode": "native",
+              "label": 0,
+              "score": -2.419290615203872
+            },
+            {
+              "group": 35,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.1577923418241705
+            },
+            {
+              "group": 36,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.0403255963192253
+            },
+            {
+              "group": 36,
+              "mode": "native",
+              "label": 0,
+              "score": -2.629244980605557
+            },
+            {
+              "group": 37,
+              "mode": "native",
+              "label": 0,
+              "score": -1.9508515105396043
+            },
+            {
+              "group": 37,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.699524075597231
+            },
+            {
+              "group": 38,
+              "mode": "native",
+              "label": 0,
+              "score": -2.1970779169535843
+            },
+            {
+              "group": 38,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.4466769781054314
+            },
+            {
+              "group": 39,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.541126110515143
+            },
+            {
+              "group": 39,
+              "mode": "native",
+              "label": 0,
+              "score": -2.0272307090887938
+            }
+          ]
+        },
+        {
+          "trained_proxy_mode": "ack-p0",
+          "tested_proxy_mode": "ack-p0",
+          "train_sessions": 48,
+          "heldout_sessions": 32,
+          "heldout_groups": 16,
+          "auc": 1.0,
+          "auc_paired_group_bootstrap_95": [
+            1.0,
+            1.0
+          ],
+          "threshold": -1.5875036536924008,
+          "threshold_rule": "strictly greater than maximum native training score (empirical training FPR zero)",
+          "true_positives": 16,
+          "positives": 16,
+          "tpr": 1.0,
+          "tpr_wilson_95": [
+            0.8063923194655637,
+            1.0
+          ],
+          "false_positives": 1,
+          "negatives": 16,
+          "fpr": 0.0625,
+          "fpr_wilson_95": [
+            0.01111934476464252,
+            0.28328737570298945
+          ],
+          "largest_standardized_coefficients": [
+            [
+              "up_size_q90",
+              0.10292503777080987
+            ],
+            [
+              "down_size_std",
+              -0.10290320081440209
+            ],
+            [
+              "down_iat_below_1ms",
+              -0.1027604485825947
+            ],
+            [
+              "down_size_below_1000",
+              0.10257584288892765
+            ],
+            [
+              "down_size_mean",
+              -0.10210911287029215
+            ],
+            [
+              "down_size_below_128",
+              0.1018966435279642
+            ],
+            [
+              "down_size_q50",
+              -0.09975922463381043
+            ],
+            [
+              "down_size_below_256",
+              0.09969097295219209
+            ]
+          ],
+          "test_scores": [
+            {
+              "group": 24,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 2.671802308547652
+            },
+            {
+              "group": 24,
+              "mode": "native",
+              "label": 0,
+              "score": -1.7205893012153677
+            },
+            {
+              "group": 25,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 2.2023886211726955
+            },
+            {
+              "group": 25,
+              "mode": "native",
+              "label": 0,
+              "score": -2.3257488168128173
+            },
+            {
+              "group": 26,
+              "mode": "native",
+              "label": 0,
+              "score": -1.7892888456687372
+            },
+            {
+              "group": 26,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 2.518695364981271
+            },
+            {
+              "group": 27,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 2.0854904775974945
+            },
+            {
+              "group": 27,
+              "mode": "native",
+              "label": 0,
+              "score": -2.4130158561982222
+            },
+            {
+              "group": 28,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.8217797593729006
+            },
+            {
+              "group": 28,
+              "mode": "native",
+              "label": 0,
+              "score": -2.6745152205115623
+            },
+            {
+              "group": 29,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 2.5837150356935696
+            },
+            {
+              "group": 29,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8387613595081258
+            },
+            {
+              "group": 30,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 2.8114691952193214
+            },
+            {
+              "group": 30,
+              "mode": "native",
+              "label": 0,
+              "score": -1.599927334824128
+            },
+            {
+              "group": 31,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8838229955594725
+            },
+            {
+              "group": 31,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 2.398591767744062
+            },
+            {
+              "group": 32,
+              "mode": "native",
+              "label": 0,
+              "score": -2.146205300060539
+            },
+            {
+              "group": 32,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 2.35813175765512
+            },
+            {
+              "group": 33,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 2.5663698257612095
+            },
+            {
+              "group": 33,
+              "mode": "native",
+              "label": 0,
+              "score": -1.5313392806695991
+            },
+            {
+              "group": 34,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.7485517244395337
+            },
+            {
+              "group": 34,
+              "mode": "native",
+              "label": 0,
+              "score": -2.4840134232994977
+            },
+            {
+              "group": 35,
+              "mode": "native",
+              "label": 0,
+              "score": -2.3855306667950806
+            },
+            {
+              "group": 35,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 2.0317246935481945
+            },
+            {
+              "group": 36,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.8203123962475414
+            },
+            {
+              "group": 36,
+              "mode": "native",
+              "label": 0,
+              "score": -2.6521688068518485
+            },
+            {
+              "group": 37,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8407996250986143
+            },
+            {
+              "group": 37,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 2.438226829656931
+            },
+            {
+              "group": 38,
+              "mode": "native",
+              "label": 0,
+              "score": -2.1621123381967973
+            },
+            {
+              "group": 38,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 2.0768408529806717
+            },
+            {
+              "group": 39,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 2.198475956817326
+            },
+            {
+              "group": 39,
+              "mode": "native",
+              "label": 0,
+              "score": -1.9452537889504509
+            }
+          ]
+        },
+        {
+          "trained_proxy_mode": "ack-p127",
+          "tested_proxy_mode": "ack-p127",
+          "train_sessions": 48,
+          "heldout_sessions": 32,
+          "heldout_groups": 16,
+          "auc": 1.0,
+          "auc_paired_group_bootstrap_95": [
+            1.0,
+            1.0
+          ],
+          "threshold": -1.5893803089797318,
+          "threshold_rule": "strictly greater than maximum native training score (empirical training FPR zero)",
+          "true_positives": 16,
+          "positives": 16,
+          "tpr": 1.0,
+          "tpr_wilson_95": [
+            0.8063923194655637,
+            1.0
+          ],
+          "false_positives": 1,
+          "negatives": 16,
+          "fpr": 0.0625,
+          "fpr_wilson_95": [
+            0.01111934476464252,
+            0.28328737570298945
+          ],
+          "largest_standardized_coefficients": [
+            [
+              "up_size_mean",
+              0.10337952499889896
+            ],
+            [
+              "up_size_below_128",
+              -0.10266910983275963
+            ],
+            [
+              "up_size_q90",
+              0.10239135618680231
+            ],
+            [
+              "down_size_std",
+              -0.10231203453510242
+            ],
+            [
+              "down_iat_below_1ms",
+              -0.10215097258409038
+            ],
+            [
+              "down_size_below_1000",
+              0.10179146843791775
+            ],
+            [
+              "down_size_mean",
+              -0.10094165901627886
+            ],
+            [
+              "down_size_q50",
+              -0.10003589100636234
+            ]
+          ],
+          "test_scores": [
+            {
+              "group": 24,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 2.628371871936835
+            },
+            {
+              "group": 24,
+              "mode": "native",
+              "label": 0,
+              "score": -1.76294641803102
+            },
+            {
+              "group": 25,
+              "mode": "native",
+              "label": 0,
+              "score": -2.328107126462915
+            },
+            {
+              "group": 25,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 2.183968542681515
+            },
+            {
+              "group": 26,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8153429311274207
+            },
+            {
+              "group": 26,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 2.482268817488961
+            },
+            {
+              "group": 27,
+              "mode": "native",
+              "label": 0,
+              "score": -2.416867151069394
+            },
+            {
+              "group": 27,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 2.084318364553411
+            },
+            {
+              "group": 28,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 1.828994184544436
+            },
+            {
+              "group": 28,
+              "mode": "native",
+              "label": 0,
+              "score": -2.663305550304459
+            },
+            {
+              "group": 29,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 2.5765221904725557
+            },
+            {
+              "group": 29,
+              "mode": "native",
+              "label": 0,
+              "score": -1.870968940632045
+            },
+            {
+              "group": 30,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 2.788560622100777
+            },
+            {
+              "group": 30,
+              "mode": "native",
+              "label": 0,
+              "score": -1.6501799067327443
+            },
+            {
+              "group": 31,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 2.439936149549999
+            },
+            {
+              "group": 31,
+              "mode": "native",
+              "label": 0,
+              "score": -1.907200919856266
+            },
+            {
+              "group": 32,
+              "mode": "native",
+              "label": 0,
+              "score": -2.148508747852304
+            },
+            {
+              "group": 32,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 2.324193378798005
+            },
+            {
+              "group": 33,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 2.5644838356693564
+            },
+            {
+              "group": 33,
+              "mode": "native",
+              "label": 0,
+              "score": -1.526642380973763
+            },
+            {
+              "group": 34,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 1.774354077540274
+            },
+            {
+              "group": 34,
+              "mode": "native",
+              "label": 0,
+              "score": -2.413107908622785
+            },
+            {
+              "group": 35,
+              "mode": "native",
+              "label": 0,
+              "score": -2.3824348729617615
+            },
+            {
+              "group": 35,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 1.945511136528396
+            },
+            {
+              "group": 36,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 1.733416949722224
+            },
+            {
+              "group": 36,
+              "mode": "native",
+              "label": 0,
+              "score": -2.6279901089926954
+            },
+            {
+              "group": 37,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8657163398940515
+            },
+            {
+              "group": 37,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 2.350267439413009
+            },
+            {
+              "group": 38,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 2.147108736075994
+            },
+            {
+              "group": 38,
+              "mode": "native",
+              "label": 0,
+              "score": -2.1788527631743184
+            },
+            {
+              "group": 39,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 2.2915205868257837
+            },
+            {
+              "group": 39,
+              "mode": "native",
+              "label": 0,
+              "score": -1.9455772327544305
+            }
+          ]
+        }
+      ]
+    },
+    "size_only": {
+      "features": [
+        "up_size_mean",
+        "up_size_std",
+        "up_size_q10",
+        "up_size_q50",
+        "up_size_q90",
+        "up_size_below_128",
+        "up_size_below_256",
+        "up_size_below_512",
+        "up_size_below_1000",
+        "down_size_mean",
+        "down_size_std",
+        "down_size_q10",
+        "down_size_q50",
+        "down_size_q90",
+        "down_size_below_128",
+        "down_size_below_256",
+        "down_size_below_512",
+        "down_size_below_1000"
+      ],
+      "frozen_p0": [
+        {
+          "trained_proxy_mode": "p0",
+          "tested_proxy_mode": "p0",
+          "train_sessions": 48,
+          "heldout_sessions": 32,
+          "heldout_groups": 16,
+          "auc": 1.0,
+          "auc_paired_group_bootstrap_95": [
+            1.0,
+            1.0
+          ],
+          "threshold": -1.6381672369278322,
+          "threshold_rule": "strictly greater than maximum native training score (empirical training FPR zero)",
+          "true_positives": 16,
+          "positives": 16,
+          "tpr": 1.0,
+          "tpr_wilson_95": [
+            0.8063923194655637,
+            1.0
+          ],
+          "false_positives": 1,
+          "negatives": 16,
+          "fpr": 0.0625,
+          "fpr_wilson_95": [
+            0.01111934476464252,
+            0.28328737570298945
+          ],
+          "largest_standardized_coefficients": [
+            [
+              "up_size_q50",
+              0.13004347695025867
+            ],
+            [
+              "down_size_q10",
+              -0.13004347695025867
+            ],
+            [
+              "up_size_q90",
+              0.12999068315885176
+            ],
+            [
+              "down_size_below_1000",
+              0.1287539284018531
+            ],
+            [
+              "down_size_below_128",
+              0.1283947423970281
+            ],
+            [
+              "down_size_std",
+              -0.12813326400791905
+            ],
+            [
+              "down_size_mean",
+              -0.1280474640251837
+            ],
+            [
+              "down_size_q50",
+              -0.12801016138946872
+            ]
+          ],
+          "test_scores": [
+            {
+              "group": 24,
+              "mode": "native",
+              "label": 0,
+              "score": -1.7810873017392252
+            },
+            {
+              "group": 24,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.0211032026995808
+            },
+            {
+              "group": 25,
+              "mode": "native",
+              "label": 0,
+              "score": -1.95251869223812
+            },
+            {
+              "group": 25,
+              "mode": "p0",
+              "label": 1,
+              "score": 1.7980453608412441
+            },
+            {
+              "group": 26,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.0754188400506175
+            },
+            {
+              "group": 26,
+              "mode": "native",
+              "label": 0,
+              "score": -1.7905899095778826
+            },
+            {
+              "group": 27,
+              "mode": "p0",
+              "label": 1,
+              "score": 1.7439894182683457
+            },
+            {
+              "group": 27,
+              "mode": "native",
+              "label": 0,
+              "score": -2.010064135721181
+            },
+            {
+              "group": 28,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.0732571507804547
+            },
+            {
+              "group": 28,
+              "mode": "native",
+              "label": 0,
+              "score": -2.019285423212401
+            },
+            {
+              "group": 29,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8002537291389424
+            },
+            {
+              "group": 29,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.00799383323547
+            },
+            {
+              "group": 30,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.1354476984867854
+            },
+            {
+              "group": 30,
+              "mode": "native",
+              "label": 0,
+              "score": -1.693435613520068
+            },
+            {
+              "group": 31,
+              "mode": "p0",
+              "label": 1,
+              "score": 1.9948652577226373
+            },
+            {
+              "group": 31,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8440670889548758
+            },
+            {
+              "group": 32,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8480702128334685
+            },
+            {
+              "group": 32,
+              "mode": "p0",
+              "label": 1,
+              "score": 1.9333198316911482
+            },
+            {
+              "group": 33,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.044780015435683
+            },
+            {
+              "group": 33,
+              "mode": "native",
+              "label": 0,
+              "score": -1.6064211414305016
+            },
+            {
+              "group": 34,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.0429453427243223
+            },
+            {
+              "group": 34,
+              "mode": "native",
+              "label": 0,
+              "score": -1.845951413969786
+            },
+            {
+              "group": 35,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8892156289488298
+            },
+            {
+              "group": 35,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.176469908685295
+            },
+            {
+              "group": 36,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.082269821969399
+            },
+            {
+              "group": 36,
+              "mode": "native",
+              "label": 0,
+              "score": -2.0122274847782844
+            },
+            {
+              "group": 37,
+              "mode": "native",
+              "label": 0,
+              "score": -1.798568161587412
+            },
+            {
+              "group": 37,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.0659224197244725
+            },
+            {
+              "group": 38,
+              "mode": "native",
+              "label": 0,
+              "score": -1.9375442058979395
+            },
+            {
+              "group": 38,
+              "mode": "p0",
+              "label": 1,
+              "score": 1.8642978578845741
+            },
+            {
+              "group": 39,
+              "mode": "p0",
+              "label": 1,
+              "score": 1.8785127372092467
+            },
+            {
+              "group": 39,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8303178628234746
+            }
+          ]
+        },
+        {
+          "trained_proxy_mode": "p0",
+          "tested_proxy_mode": "ack-p0",
+          "train_sessions": 48,
+          "heldout_sessions": 32,
+          "heldout_groups": 16,
+          "auc": 1.0,
+          "auc_paired_group_bootstrap_95": [
+            1.0,
+            1.0
+          ],
+          "threshold": -1.6381672369278322,
+          "threshold_rule": "strictly greater than maximum native training score (empirical training FPR zero)",
+          "true_positives": 16,
+          "positives": 16,
+          "tpr": 1.0,
+          "tpr_wilson_95": [
+            0.8063923194655637,
+            1.0
+          ],
+          "false_positives": 1,
+          "negatives": 16,
+          "fpr": 0.0625,
+          "fpr_wilson_95": [
+            0.01111934476464252,
+            0.28328737570298945
+          ],
+          "largest_standardized_coefficients": [
+            [
+              "up_size_q50",
+              0.13004347695025867
+            ],
+            [
+              "down_size_q10",
+              -0.13004347695025867
+            ],
+            [
+              "up_size_q90",
+              0.12999068315885176
+            ],
+            [
+              "down_size_below_1000",
+              0.1287539284018531
+            ],
+            [
+              "down_size_below_128",
+              0.1283947423970281
+            ],
+            [
+              "down_size_std",
+              -0.12813326400791905
+            ],
+            [
+              "down_size_mean",
+              -0.1280474640251837
+            ],
+            [
+              "down_size_q50",
+              -0.12801016138946872
+            ]
+          ],
+          "test_scores": [
+            {
+              "group": 24,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 0.8224537231852341
+            },
+            {
+              "group": 24,
+              "mode": "native",
+              "label": 0,
+              "score": -1.7810873017392252
+            },
+            {
+              "group": 25,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 0.7506323258570132
+            },
+            {
+              "group": 25,
+              "mode": "native",
+              "label": 0,
+              "score": -1.95251869223812
+            },
+            {
+              "group": 26,
+              "mode": "native",
+              "label": 0,
+              "score": -1.7905899095778826
+            },
+            {
+              "group": 26,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 0.8404360403251785
+            },
+            {
+              "group": 27,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 0.6401268561542706
+            },
+            {
+              "group": 27,
+              "mode": "native",
+              "label": 0,
+              "score": -2.010064135721181
+            },
+            {
+              "group": 28,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.0256217767271933
+            },
+            {
+              "group": 28,
+              "mode": "native",
+              "label": 0,
+              "score": -2.019285423212401
+            },
+            {
+              "group": 29,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 0.7942683313621907
+            },
+            {
+              "group": 29,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8002537291389424
+            },
+            {
+              "group": 30,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 0.925169333125026
+            },
+            {
+              "group": 30,
+              "mode": "native",
+              "label": 0,
+              "score": -1.693435613520068
+            },
+            {
+              "group": 31,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8440670889548758
+            },
+            {
+              "group": 31,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 0.7070432755474443
+            },
+            {
+              "group": 32,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8480702128334685
+            },
+            {
+              "group": 32,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 0.9140491306171378
+            },
+            {
+              "group": 33,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 0.8178966557745122
+            },
+            {
+              "group": 33,
+              "mode": "native",
+              "label": 0,
+              "score": -1.6064211414305016
+            },
+            {
+              "group": 34,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.015870840491853
+            },
+            {
+              "group": 34,
+              "mode": "native",
+              "label": 0,
+              "score": -1.845951413969786
+            },
+            {
+              "group": 35,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8892156289488298
+            },
+            {
+              "group": 35,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.1432262114833187
+            },
+            {
+              "group": 36,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.0187418244294477
+            },
+            {
+              "group": 36,
+              "mode": "native",
+              "label": 0,
+              "score": -2.0122274847782844
+            },
+            {
+              "group": 37,
+              "mode": "native",
+              "label": 0,
+              "score": -1.798568161587412
+            },
+            {
+              "group": 37,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 0.7902803596793642
+            },
+            {
+              "group": 38,
+              "mode": "native",
+              "label": 0,
+              "score": -1.9375442058979395
+            },
+            {
+              "group": 38,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 0.5872052201824447
+            },
+            {
+              "group": 39,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 0.6103603051354098
+            },
+            {
+              "group": 39,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8303178628234746
+            }
+          ]
+        },
+        {
+          "trained_proxy_mode": "p0",
+          "tested_proxy_mode": "ack-p127",
+          "train_sessions": 48,
+          "heldout_sessions": 32,
+          "heldout_groups": 16,
+          "auc": 1.0,
+          "auc_paired_group_bootstrap_95": [
+            1.0,
+            1.0
+          ],
+          "threshold": -1.6381672369278322,
+          "threshold_rule": "strictly greater than maximum native training score (empirical training FPR zero)",
+          "true_positives": 16,
+          "positives": 16,
+          "tpr": 1.0,
+          "tpr_wilson_95": [
+            0.8063923194655637,
+            1.0
+          ],
+          "false_positives": 1,
+          "negatives": 16,
+          "fpr": 0.0625,
+          "fpr_wilson_95": [
+            0.01111934476464252,
+            0.28328737570298945
+          ],
+          "largest_standardized_coefficients": [
+            [
+              "up_size_q50",
+              0.13004347695025867
+            ],
+            [
+              "down_size_q10",
+              -0.13004347695025867
+            ],
+            [
+              "up_size_q90",
+              0.12999068315885176
+            ],
+            [
+              "down_size_below_1000",
+              0.1287539284018531
+            ],
+            [
+              "down_size_below_128",
+              0.1283947423970281
+            ],
+            [
+              "down_size_std",
+              -0.12813326400791905
+            ],
+            [
+              "down_size_mean",
+              -0.1280474640251837
+            ],
+            [
+              "down_size_q50",
+              -0.12801016138946872
+            ]
+          ],
+          "test_scores": [
+            {
+              "group": 24,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 3.2984817337854198
+            },
+            {
+              "group": 24,
+              "mode": "native",
+              "label": 0,
+              "score": -1.7810873017392252
+            },
+            {
+              "group": 25,
+              "mode": "native",
+              "label": 0,
+              "score": -1.95251869223812
+            },
+            {
+              "group": 25,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 3.2696994687794314
+            },
+            {
+              "group": 26,
+              "mode": "native",
+              "label": 0,
+              "score": -1.7905899095778826
+            },
+            {
+              "group": 26,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 3.2488832110422408
+            },
+            {
+              "group": 27,
+              "mode": "native",
+              "label": 0,
+              "score": -2.010064135721181
+            },
+            {
+              "group": 27,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 3.248906867815009
+            },
+            {
+              "group": 28,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 3.329234233991734
+            },
+            {
+              "group": 28,
+              "mode": "native",
+              "label": 0,
+              "score": -2.019285423212401
+            },
+            {
+              "group": 29,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 3.1269588858884174
+            },
+            {
+              "group": 29,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8002537291389424
+            },
+            {
+              "group": 30,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 3.2044968940621112
+            },
+            {
+              "group": 30,
+              "mode": "native",
+              "label": 0,
+              "score": -1.693435613520068
+            },
+            {
+              "group": 31,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 3.195122820802763
+            },
+            {
+              "group": 31,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8440670889548758
+            },
+            {
+              "group": 32,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8480702128334685
+            },
+            {
+              "group": 32,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 3.21505253244886
+            },
+            {
+              "group": 33,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 3.3820193506647374
+            },
+            {
+              "group": 33,
+              "mode": "native",
+              "label": 0,
+              "score": -1.6064211414305016
+            },
+            {
+              "group": 34,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 3.4906142216832112
+            },
+            {
+              "group": 34,
+              "mode": "native",
+              "label": 0,
+              "score": -1.845951413969786
+            },
+            {
+              "group": 35,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8892156289488298
+            },
+            {
+              "group": 35,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 3.9336937789405626
+            },
+            {
+              "group": 36,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 3.2056087070602137
+            },
+            {
+              "group": 36,
+              "mode": "native",
+              "label": 0,
+              "score": -2.0122274847782844
+            },
+            {
+              "group": 37,
+              "mode": "native",
+              "label": 0,
+              "score": -1.798568161587412
+            },
+            {
+              "group": 37,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 2.784599714781213
+            },
+            {
+              "group": 38,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 3.3555369050041115
+            },
+            {
+              "group": 38,
+              "mode": "native",
+              "label": 0,
+              "score": -1.9375442058979395
+            },
+            {
+              "group": 39,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 3.0802816538829507
+            },
+            {
+              "group": 39,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8303178628234746
+            }
+          ]
+        }
+      ],
+      "retrained_each_mode": [
+        {
+          "trained_proxy_mode": "p0",
+          "tested_proxy_mode": "p0",
+          "train_sessions": 48,
+          "heldout_sessions": 32,
+          "heldout_groups": 16,
+          "auc": 1.0,
+          "auc_paired_group_bootstrap_95": [
+            1.0,
+            1.0
+          ],
+          "threshold": -1.6381672369278322,
+          "threshold_rule": "strictly greater than maximum native training score (empirical training FPR zero)",
+          "true_positives": 16,
+          "positives": 16,
+          "tpr": 1.0,
+          "tpr_wilson_95": [
+            0.8063923194655637,
+            1.0
+          ],
+          "false_positives": 1,
+          "negatives": 16,
+          "fpr": 0.0625,
+          "fpr_wilson_95": [
+            0.01111934476464252,
+            0.28328737570298945
+          ],
+          "largest_standardized_coefficients": [
+            [
+              "up_size_q50",
+              0.13004347695025867
+            ],
+            [
+              "down_size_q10",
+              -0.13004347695025867
+            ],
+            [
+              "up_size_q90",
+              0.12999068315885176
+            ],
+            [
+              "down_size_below_1000",
+              0.1287539284018531
+            ],
+            [
+              "down_size_below_128",
+              0.1283947423970281
+            ],
+            [
+              "down_size_std",
+              -0.12813326400791905
+            ],
+            [
+              "down_size_mean",
+              -0.1280474640251837
+            ],
+            [
+              "down_size_q50",
+              -0.12801016138946872
+            ]
+          ],
+          "test_scores": [
+            {
+              "group": 24,
+              "mode": "native",
+              "label": 0,
+              "score": -1.7810873017392252
+            },
+            {
+              "group": 24,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.0211032026995808
+            },
+            {
+              "group": 25,
+              "mode": "native",
+              "label": 0,
+              "score": -1.95251869223812
+            },
+            {
+              "group": 25,
+              "mode": "p0",
+              "label": 1,
+              "score": 1.7980453608412441
+            },
+            {
+              "group": 26,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.0754188400506175
+            },
+            {
+              "group": 26,
+              "mode": "native",
+              "label": 0,
+              "score": -1.7905899095778826
+            },
+            {
+              "group": 27,
+              "mode": "p0",
+              "label": 1,
+              "score": 1.7439894182683457
+            },
+            {
+              "group": 27,
+              "mode": "native",
+              "label": 0,
+              "score": -2.010064135721181
+            },
+            {
+              "group": 28,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.0732571507804547
+            },
+            {
+              "group": 28,
+              "mode": "native",
+              "label": 0,
+              "score": -2.019285423212401
+            },
+            {
+              "group": 29,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8002537291389424
+            },
+            {
+              "group": 29,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.00799383323547
+            },
+            {
+              "group": 30,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.1354476984867854
+            },
+            {
+              "group": 30,
+              "mode": "native",
+              "label": 0,
+              "score": -1.693435613520068
+            },
+            {
+              "group": 31,
+              "mode": "p0",
+              "label": 1,
+              "score": 1.9948652577226373
+            },
+            {
+              "group": 31,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8440670889548758
+            },
+            {
+              "group": 32,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8480702128334685
+            },
+            {
+              "group": 32,
+              "mode": "p0",
+              "label": 1,
+              "score": 1.9333198316911482
+            },
+            {
+              "group": 33,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.044780015435683
+            },
+            {
+              "group": 33,
+              "mode": "native",
+              "label": 0,
+              "score": -1.6064211414305016
+            },
+            {
+              "group": 34,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.0429453427243223
+            },
+            {
+              "group": 34,
+              "mode": "native",
+              "label": 0,
+              "score": -1.845951413969786
+            },
+            {
+              "group": 35,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8892156289488298
+            },
+            {
+              "group": 35,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.176469908685295
+            },
+            {
+              "group": 36,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.082269821969399
+            },
+            {
+              "group": 36,
+              "mode": "native",
+              "label": 0,
+              "score": -2.0122274847782844
+            },
+            {
+              "group": 37,
+              "mode": "native",
+              "label": 0,
+              "score": -1.798568161587412
+            },
+            {
+              "group": 37,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.0659224197244725
+            },
+            {
+              "group": 38,
+              "mode": "native",
+              "label": 0,
+              "score": -1.9375442058979395
+            },
+            {
+              "group": 38,
+              "mode": "p0",
+              "label": 1,
+              "score": 1.8642978578845741
+            },
+            {
+              "group": 39,
+              "mode": "p0",
+              "label": 1,
+              "score": 1.8785127372092467
+            },
+            {
+              "group": 39,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8303178628234746
+            }
+          ]
+        },
+        {
+          "trained_proxy_mode": "ack-p0",
+          "tested_proxy_mode": "ack-p0",
+          "train_sessions": 48,
+          "heldout_sessions": 32,
+          "heldout_groups": 16,
+          "auc": 1.0,
+          "auc_paired_group_bootstrap_95": [
+            1.0,
+            1.0
+          ],
+          "threshold": -1.3520137856687802,
+          "threshold_rule": "strictly greater than maximum native training score (empirical training FPR zero)",
+          "true_positives": 16,
+          "positives": 16,
+          "tpr": 1.0,
+          "tpr_wilson_95": [
+            0.8063923194655637,
+            1.0
+          ],
+          "false_positives": 1,
+          "negatives": 16,
+          "fpr": 0.0625,
+          "fpr_wilson_95": [
+            0.01111934476464252,
+            0.28328737570298945
+          ],
+          "largest_standardized_coefficients": [
+            [
+              "up_size_q90",
+              0.1499246933097955
+            ],
+            [
+              "down_size_below_1000",
+              0.1476230336111488
+            ],
+            [
+              "down_size_std",
+              -0.14742139874624763
+            ],
+            [
+              "down_size_below_128",
+              0.1462219686323498
+            ],
+            [
+              "down_size_mean",
+              -0.14572588348309665
+            ],
+            [
+              "down_size_below_256",
+              0.1432867951317942
+            ],
+            [
+              "up_size_std",
+              -0.13871003056176162
+            ],
+            [
+              "down_size_q50",
+              -0.1365217192711195
+            ]
+          ],
+          "test_scores": [
+            {
+              "group": 24,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.7568862992412688
+            },
+            {
+              "group": 24,
+              "mode": "native",
+              "label": 0,
+              "score": -1.586427883410201
+            },
+            {
+              "group": 25,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.6709296191939522
+            },
+            {
+              "group": 25,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8122472041173743
+            },
+            {
+              "group": 26,
+              "mode": "native",
+              "label": 0,
+              "score": -1.5995384814602516
+            },
+            {
+              "group": 26,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.7688675054074448
+            },
+            {
+              "group": 27,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.5565702558182104
+            },
+            {
+              "group": 27,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8874554125480842
+            },
+            {
+              "group": 28,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.9796923440055516
+            },
+            {
+              "group": 28,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8964842077722153
+            },
+            {
+              "group": 29,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.7405382668478007
+            },
+            {
+              "group": 29,
+              "mode": "native",
+              "label": 0,
+              "score": -1.6093617833034428
+            },
+            {
+              "group": 30,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.8839116190880443
+            },
+            {
+              "group": 30,
+              "mode": "native",
+              "label": 0,
+              "score": -1.461899792707473
+            },
+            {
+              "group": 31,
+              "mode": "native",
+              "label": 0,
+              "score": -1.6712883034888635
+            },
+            {
+              "group": 31,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.6257122506932635
+            },
+            {
+              "group": 32,
+              "mode": "native",
+              "label": 0,
+              "score": -1.6704229779202748
+            },
+            {
+              "group": 32,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.8432268533934377
+            },
+            {
+              "group": 33,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.7569135006659302
+            },
+            {
+              "group": 33,
+              "mode": "native",
+              "label": 0,
+              "score": -1.3151977085564628
+            },
+            {
+              "group": 34,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.9916683639415522
+            },
+            {
+              "group": 34,
+              "mode": "native",
+              "label": 0,
+              "score": -1.6273102457216682
+            },
+            {
+              "group": 35,
+              "mode": "native",
+              "label": 0,
+              "score": -1.726448428781007
+            },
+            {
+              "group": 35,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 2.1290217455536324
+            },
+            {
+              "group": 36,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.9716078177445717
+            },
+            {
+              "group": 36,
+              "mode": "native",
+              "label": 0,
+              "score": -1.88896610351711
+            },
+            {
+              "group": 37,
+              "mode": "native",
+              "label": 0,
+              "score": -1.6038961901899633
+            },
+            {
+              "group": 37,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.702979751554051
+            },
+            {
+              "group": 38,
+              "mode": "native",
+              "label": 0,
+              "score": -1.7938158730915785
+            },
+            {
+              "group": 38,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.4994021075955866
+            },
+            {
+              "group": 39,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.5350971104535136
+            },
+            {
+              "group": 39,
+              "mode": "native",
+              "label": 0,
+              "score": -1.6331202258259183
+            }
+          ]
+        },
+        {
+          "trained_proxy_mode": "ack-p127",
+          "tested_proxy_mode": "ack-p127",
+          "train_sessions": 48,
+          "heldout_sessions": 32,
+          "heldout_groups": 16,
+          "auc": 1.0,
+          "auc_paired_group_bootstrap_95": [
+            1.0,
+            1.0
+          ],
+          "threshold": -1.3199189525779582,
+          "threshold_rule": "strictly greater than maximum native training score (empirical training FPR zero)",
+          "true_positives": 16,
+          "positives": 16,
+          "tpr": 1.0,
+          "tpr_wilson_95": [
+            0.8063923194655637,
+            1.0
+          ],
+          "false_positives": 0,
+          "negatives": 16,
+          "fpr": 0.0,
+          "fpr_wilson_95": [
+            0.0,
+            0.1936076805344365
+          ],
+          "largest_standardized_coefficients": [
+            [
+              "up_size_q90",
+              0.14721955471376033
+            ],
+            [
+              "down_size_std",
+              -0.14645429561463602
+            ],
+            [
+              "up_size_below_128",
+              -0.14572299654782517
+            ],
+            [
+              "down_size_below_1000",
+              0.1455559567105849
+            ],
+            [
+              "down_size_mean",
+              -0.14286667313723578
+            ],
+            [
+              "down_size_below_256",
+              0.14116578737359292
+            ],
+            [
+              "up_size_mean",
+              0.14032898671637076
+            ],
+            [
+              "down_size_q50",
+              -0.13850520135236843
+            ]
+          ],
+          "test_scores": [
+            {
+              "group": 24,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 1.6875822295020977
+            },
+            {
+              "group": 24,
+              "mode": "native",
+              "label": 0,
+              "score": -1.6602855504697693
+            },
+            {
+              "group": 25,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8185211026292483
+            },
+            {
+              "group": 25,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 1.6836084470376274
+            },
+            {
+              "group": 26,
+              "mode": "native",
+              "label": 0,
+              "score": -1.6567871378641945
+            },
+            {
+              "group": 26,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 1.657972039494306
+            },
+            {
+              "group": 27,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8939323255235319
+            },
+            {
+              "group": 27,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 1.5631994024955458
+            },
+            {
+              "group": 28,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 1.9854158906122765
+            },
+            {
+              "group": 28,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8469259369963473
+            },
+            {
+              "group": 29,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 1.717724321936025
+            },
+            {
+              "group": 29,
+              "mode": "native",
+              "label": 0,
+              "score": -1.6781279809280383
+            },
+            {
+              "group": 30,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 1.8241636883230816
+            },
+            {
+              "group": 30,
+              "mode": "native",
+              "label": 0,
+              "score": -1.534003354643641
+            },
+            {
+              "group": 31,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 1.6154004483651447
+            },
+            {
+              "group": 31,
+              "mode": "native",
+              "label": 0,
+              "score": -1.7304738384818945
+            },
+            {
+              "group": 32,
+              "mode": "native",
+              "label": 0,
+              "score": -1.6806515636155068
+            },
+            {
+              "group": 32,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 1.8239229260413887
+            },
+            {
+              "group": 33,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 1.763060398193497
+            },
+            {
+              "group": 33,
+              "mode": "native",
+              "label": 0,
+              "score": -1.343829933598335
+            },
+            {
+              "group": 34,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 2.056622101809979
+            },
+            {
+              "group": 34,
+              "mode": "native",
+              "label": 0,
+              "score": -1.5449786954870106
+            },
+            {
+              "group": 35,
+              "mode": "native",
+              "label": 0,
+              "score": -1.7008470649223812
+            },
+            {
+              "group": 35,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 2.0887490361382253
+            },
+            {
+              "group": 36,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 1.9935110981641684
+            },
+            {
+              "group": 36,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8501790862947496
+            },
+            {
+              "group": 37,
+              "mode": "native",
+              "label": 0,
+              "score": -1.6546512287342359
+            },
+            {
+              "group": 37,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 1.5910412556840279
+            },
+            {
+              "group": 38,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 1.52202485708548
+            },
+            {
+              "group": 38,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8382945169062377
+            },
+            {
+              "group": 39,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 1.5860341422636135
+            },
+            {
+              "group": 39,
+              "mode": "native",
+              "label": 0,
+              "score": -1.6668342590311238
+            }
+          ]
+        }
+      ]
+    },
+    "timing_counts_only": {
+      "features": [
+        "up_packets_per_second",
+        "up_iat_mean_ms",
+        "up_iat_std_ms",
+        "up_iat_q90_ms",
+        "up_bursts_per_second",
+        "up_iat_below_1ms",
+        "down_packets_per_second",
+        "down_iat_mean_ms",
+        "down_iat_std_ms",
+        "down_iat_q90_ms",
+        "down_bursts_per_second",
+        "down_iat_below_1ms",
+        "direction_changes_per_second"
+      ],
+      "frozen_p0": [
+        {
+          "trained_proxy_mode": "p0",
+          "tested_proxy_mode": "p0",
+          "train_sessions": 48,
+          "heldout_sessions": 32,
+          "heldout_groups": 16,
+          "auc": 1.0,
+          "auc_paired_group_bootstrap_95": [
+            1.0,
+            1.0
+          ],
+          "threshold": -0.8479466190206212,
+          "threshold_rule": "strictly greater than maximum native training score (empirical training FPR zero)",
+          "true_positives": 16,
+          "positives": 16,
+          "tpr": 1.0,
+          "tpr_wilson_95": [
+            0.8063923194655637,
+            1.0
+          ],
+          "false_positives": 1,
+          "negatives": 16,
+          "fpr": 0.0625,
+          "fpr_wilson_95": [
+            0.01111934476464252,
+            0.28328737570298945
+          ],
+          "largest_standardized_coefficients": [
+            [
+              "up_iat_below_1ms",
+              0.1991121232682353
+            ],
+            [
+              "down_iat_below_1ms",
+              -0.18052347107044933
+            ],
+            [
+              "up_iat_mean_ms",
+              -0.16026349747493926
+            ],
+            [
+              "down_iat_q90_ms",
+              -0.15909662801623523
+            ],
+            [
+              "up_packets_per_second",
+              0.1590537805917015
+            ],
+            [
+              "down_iat_std_ms",
+              -0.14511341913066267
+            ],
+            [
+              "down_iat_mean_ms",
+              -0.14253727648321396
+            ],
+            [
+              "down_packets_per_second",
+              0.14036858395175913
+            ]
+          ],
+          "test_scores": [
+            {
+              "group": 24,
+              "mode": "native",
+              "label": 0,
+              "score": -0.9024160389520794
+            },
+            {
+              "group": 24,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.2279520753087994
+            },
+            {
+              "group": 25,
+              "mode": "native",
+              "label": 0,
+              "score": -1.5504208999485243
+            },
+            {
+              "group": 25,
+              "mode": "p0",
+              "label": 1,
+              "score": 1.1115106785064213
+            },
+            {
+              "group": 26,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.0297847417069246
+            },
+            {
+              "group": 26,
+              "mode": "native",
+              "label": 0,
+              "score": -0.9201937604800704
+            },
+            {
+              "group": 27,
+              "mode": "p0",
+              "label": 1,
+              "score": 1.1890357103990818
+            },
+            {
+              "group": 27,
+              "mode": "native",
+              "label": 0,
+              "score": -1.540031123208116
+            },
+            {
+              "group": 28,
+              "mode": "p0",
+              "label": 1,
+              "score": 0.8233293951928042
+            },
+            {
+              "group": 28,
+              "mode": "native",
+              "label": 0,
+              "score": -1.9836165529023333
+            },
+            {
+              "group": 29,
+              "mode": "native",
+              "label": 0,
+              "score": -0.9495458885822823
+            },
+            {
+              "group": 29,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.090888104794426
+            },
+            {
+              "group": 30,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.2219580817666076
+            },
+            {
+              "group": 30,
+              "mode": "native",
+              "label": 0,
+              "score": -0.7567876952161618
+            },
+            {
+              "group": 31,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.0993715112945273
+            },
+            {
+              "group": 31,
+              "mode": "native",
+              "label": 0,
+              "score": -1.0113371146597543
+            },
+            {
+              "group": 32,
+              "mode": "native",
+              "label": 0,
+              "score": -1.4345865267121898
+            },
+            {
+              "group": 32,
+              "mode": "p0",
+              "label": 1,
+              "score": 1.2912040398732427
+            },
+            {
+              "group": 33,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.1986524000054013
+            },
+            {
+              "group": 33,
+              "mode": "native",
+              "label": 0,
+              "score": -0.9036342110024482
+            },
+            {
+              "group": 34,
+              "mode": "p0",
+              "label": 1,
+              "score": 0.8468156876842691
+            },
+            {
+              "group": 34,
+              "mode": "native",
+              "label": 0,
+              "score": -1.9909646684970075
+            },
+            {
+              "group": 35,
+              "mode": "native",
+              "label": 0,
+              "score": -1.7569491541036353
+            },
+            {
+              "group": 35,
+              "mode": "p0",
+              "label": 1,
+              "score": 0.9416516686459494
+            },
+            {
+              "group": 36,
+              "mode": "p0",
+              "label": 1,
+              "score": 0.8602669134097193
+            },
+            {
+              "group": 36,
+              "mode": "native",
+              "label": 0,
+              "score": -1.9883961319334293
+            },
+            {
+              "group": 37,
+              "mode": "native",
+              "label": 0,
+              "score": -1.021728659211944
+            },
+            {
+              "group": 37,
+              "mode": "p0",
+              "label": 1,
+              "score": 1.9774614474591532
+            },
+            {
+              "group": 38,
+              "mode": "native",
+              "label": 0,
+              "score": -1.300723194288048
+            },
+            {
+              "group": 38,
+              "mode": "p0",
+              "label": 1,
+              "score": 1.8418592561520406
+            },
+            {
+              "group": 39,
+              "mode": "p0",
+              "label": 1,
+              "score": 1.998872342081726
+            },
+            {
+              "group": 39,
+              "mode": "native",
+              "label": 0,
+              "score": -1.1156441879841652
+            }
+          ]
+        },
+        {
+          "trained_proxy_mode": "p0",
+          "tested_proxy_mode": "ack-p0",
+          "train_sessions": 48,
+          "heldout_sessions": 32,
+          "heldout_groups": 16,
+          "auc": 1.0,
+          "auc_paired_group_bootstrap_95": [
+            1.0,
+            1.0
+          ],
+          "threshold": -0.8479466190206212,
+          "threshold_rule": "strictly greater than maximum native training score (empirical training FPR zero)",
+          "true_positives": 16,
+          "positives": 16,
+          "tpr": 1.0,
+          "tpr_wilson_95": [
+            0.8063923194655637,
+            1.0
+          ],
+          "false_positives": 1,
+          "negatives": 16,
+          "fpr": 0.0625,
+          "fpr_wilson_95": [
+            0.01111934476464252,
+            0.28328737570298945
+          ],
+          "largest_standardized_coefficients": [
+            [
+              "up_iat_below_1ms",
+              0.1991121232682353
+            ],
+            [
+              "down_iat_below_1ms",
+              -0.18052347107044933
+            ],
+            [
+              "up_iat_mean_ms",
+              -0.16026349747493926
+            ],
+            [
+              "down_iat_q90_ms",
+              -0.15909662801623523
+            ],
+            [
+              "up_packets_per_second",
+              0.1590537805917015
+            ],
+            [
+              "down_iat_std_ms",
+              -0.14511341913066267
+            ],
+            [
+              "down_iat_mean_ms",
+              -0.14253727648321396
+            ],
+            [
+              "down_packets_per_second",
+              0.14036858395175913
+            ]
+          ],
+          "test_scores": [
+            {
+              "group": 24,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 2.6102052054077443
+            },
+            {
+              "group": 24,
+              "mode": "native",
+              "label": 0,
+              "score": -0.9024160389520794
+            },
+            {
+              "group": 25,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.8443643468300097
+            },
+            {
+              "group": 25,
+              "mode": "native",
+              "label": 0,
+              "score": -1.5504208999485243
+            },
+            {
+              "group": 26,
+              "mode": "native",
+              "label": 0,
+              "score": -0.9201937604800704
+            },
+            {
+              "group": 26,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 2.4243867685401614
+            },
+            {
+              "group": 27,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.8979436320580225
+            },
+            {
+              "group": 27,
+              "mode": "native",
+              "label": 0,
+              "score": -1.540031123208116
+            },
+            {
+              "group": 28,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 0.5375065672887304
+            },
+            {
+              "group": 28,
+              "mode": "native",
+              "label": 0,
+              "score": -1.9836165529023333
+            },
+            {
+              "group": 29,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 2.4943879196683594
+            },
+            {
+              "group": 29,
+              "mode": "native",
+              "label": 0,
+              "score": -0.9495458885822823
+            },
+            {
+              "group": 30,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 2.6280033507907468
+            },
+            {
+              "group": 30,
+              "mode": "native",
+              "label": 0,
+              "score": -0.7567876952161618
+            },
+            {
+              "group": 31,
+              "mode": "native",
+              "label": 0,
+              "score": -1.0113371146597543
+            },
+            {
+              "group": 31,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 2.4374674119272424
+            },
+            {
+              "group": 32,
+              "mode": "native",
+              "label": 0,
+              "score": -1.4345865267121898
+            },
+            {
+              "group": 32,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.8235472321193582
+            },
+            {
+              "group": 33,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 2.521956450750208
+            },
+            {
+              "group": 33,
+              "mode": "native",
+              "label": 0,
+              "score": -0.9036342110024482
+            },
+            {
+              "group": 34,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 0.45226339370921564
+            },
+            {
+              "group": 34,
+              "mode": "native",
+              "label": 0,
+              "score": -1.9909646684970075
+            },
+            {
+              "group": 35,
+              "mode": "native",
+              "label": 0,
+              "score": -1.7569491541036353
+            },
+            {
+              "group": 35,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 0.7101472439530163
+            },
+            {
+              "group": 36,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 0.5929783895151863
+            },
+            {
+              "group": 36,
+              "mode": "native",
+              "label": 0,
+              "score": -1.9883961319334293
+            },
+            {
+              "group": 37,
+              "mode": "native",
+              "label": 0,
+              "score": -1.021728659211944
+            },
+            {
+              "group": 37,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 2.4241930755878607
+            },
+            {
+              "group": 38,
+              "mode": "native",
+              "label": 0,
+              "score": -1.300723194288048
+            },
+            {
+              "group": 38,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 2.2299149942977836
+            },
+            {
+              "group": 39,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 2.3306212030368076
+            },
+            {
+              "group": 39,
+              "mode": "native",
+              "label": 0,
+              "score": -1.1156441879841652
+            }
+          ]
+        },
+        {
+          "trained_proxy_mode": "p0",
+          "tested_proxy_mode": "ack-p127",
+          "train_sessions": 48,
+          "heldout_sessions": 32,
+          "heldout_groups": 16,
+          "auc": 1.0,
+          "auc_paired_group_bootstrap_95": [
+            1.0,
+            1.0
+          ],
+          "threshold": -0.8479466190206212,
+          "threshold_rule": "strictly greater than maximum native training score (empirical training FPR zero)",
+          "true_positives": 16,
+          "positives": 16,
+          "tpr": 1.0,
+          "tpr_wilson_95": [
+            0.8063923194655637,
+            1.0
+          ],
+          "false_positives": 1,
+          "negatives": 16,
+          "fpr": 0.0625,
+          "fpr_wilson_95": [
+            0.01111934476464252,
+            0.28328737570298945
+          ],
+          "largest_standardized_coefficients": [
+            [
+              "up_iat_below_1ms",
+              0.1991121232682353
+            ],
+            [
+              "down_iat_below_1ms",
+              -0.18052347107044933
+            ],
+            [
+              "up_iat_mean_ms",
+              -0.16026349747493926
+            ],
+            [
+              "down_iat_q90_ms",
+              -0.15909662801623523
+            ],
+            [
+              "up_packets_per_second",
+              0.1590537805917015
+            ],
+            [
+              "down_iat_std_ms",
+              -0.14511341913066267
+            ],
+            [
+              "down_iat_mean_ms",
+              -0.14253727648321396
+            ],
+            [
+              "down_packets_per_second",
+              0.14036858395175913
+            ]
+          ],
+          "test_scores": [
+            {
+              "group": 24,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 2.6084872753067443
+            },
+            {
+              "group": 24,
+              "mode": "native",
+              "label": 0,
+              "score": -0.9024160389520794
+            },
+            {
+              "group": 25,
+              "mode": "native",
+              "label": 0,
+              "score": -1.5504208999485243
+            },
+            {
+              "group": 25,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 1.8591193589878132
+            },
+            {
+              "group": 26,
+              "mode": "native",
+              "label": 0,
+              "score": -0.9201937604800704
+            },
+            {
+              "group": 26,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 2.4588134135604576
+            },
+            {
+              "group": 27,
+              "mode": "native",
+              "label": 0,
+              "score": -1.540031123208116
+            },
+            {
+              "group": 27,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 1.893597519047156
+            },
+            {
+              "group": 28,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 0.49796239824906613
+            },
+            {
+              "group": 28,
+              "mode": "native",
+              "label": 0,
+              "score": -1.9836165529023333
+            },
+            {
+              "group": 29,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 2.5028030392053657
+            },
+            {
+              "group": 29,
+              "mode": "native",
+              "label": 0,
+              "score": -0.9495458885822823
+            },
+            {
+              "group": 30,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 2.6455428458535115
+            },
+            {
+              "group": 30,
+              "mode": "native",
+              "label": 0,
+              "score": -0.7567876952161618
+            },
+            {
+              "group": 31,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 2.4562547744071717
+            },
+            {
+              "group": 31,
+              "mode": "native",
+              "label": 0,
+              "score": -1.0113371146597543
+            },
+            {
+              "group": 32,
+              "mode": "native",
+              "label": 0,
+              "score": -1.4345865267121898
+            },
+            {
+              "group": 32,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 1.8621362675040274
+            },
+            {
+              "group": 33,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 2.505102166937542
+            },
+            {
+              "group": 33,
+              "mode": "native",
+              "label": 0,
+              "score": -0.9036342110024482
+            },
+            {
+              "group": 34,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 0.4650685404113614
+            },
+            {
+              "group": 34,
+              "mode": "native",
+              "label": 0,
+              "score": -1.9909646684970075
+            },
+            {
+              "group": 35,
+              "mode": "native",
+              "label": 0,
+              "score": -1.7569491541036353
+            },
+            {
+              "group": 35,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 0.6249894900939562
+            },
+            {
+              "group": 36,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 0.39914139594953013
+            },
+            {
+              "group": 36,
+              "mode": "native",
+              "label": 0,
+              "score": -1.9883961319334293
+            },
+            {
+              "group": 37,
+              "mode": "native",
+              "label": 0,
+              "score": -1.021728659211944
+            },
+            {
+              "group": 37,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 2.3616680706916298
+            },
+            {
+              "group": 38,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 2.2667178269958725
+            },
+            {
+              "group": 38,
+              "mode": "native",
+              "label": 0,
+              "score": -1.300723194288048
+            },
+            {
+              "group": 39,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 2.291376125781695
+            },
+            {
+              "group": 39,
+              "mode": "native",
+              "label": 0,
+              "score": -1.1156441879841652
+            }
+          ]
+        }
+      ],
+      "retrained_each_mode": [
+        {
+          "trained_proxy_mode": "p0",
+          "tested_proxy_mode": "p0",
+          "train_sessions": 48,
+          "heldout_sessions": 32,
+          "heldout_groups": 16,
+          "auc": 1.0,
+          "auc_paired_group_bootstrap_95": [
+            1.0,
+            1.0
+          ],
+          "threshold": -0.8479466190206212,
+          "threshold_rule": "strictly greater than maximum native training score (empirical training FPR zero)",
+          "true_positives": 16,
+          "positives": 16,
+          "tpr": 1.0,
+          "tpr_wilson_95": [
+            0.8063923194655637,
+            1.0
+          ],
+          "false_positives": 1,
+          "negatives": 16,
+          "fpr": 0.0625,
+          "fpr_wilson_95": [
+            0.01111934476464252,
+            0.28328737570298945
+          ],
+          "largest_standardized_coefficients": [
+            [
+              "up_iat_below_1ms",
+              0.1991121232682353
+            ],
+            [
+              "down_iat_below_1ms",
+              -0.18052347107044933
+            ],
+            [
+              "up_iat_mean_ms",
+              -0.16026349747493926
+            ],
+            [
+              "down_iat_q90_ms",
+              -0.15909662801623523
+            ],
+            [
+              "up_packets_per_second",
+              0.1590537805917015
+            ],
+            [
+              "down_iat_std_ms",
+              -0.14511341913066267
+            ],
+            [
+              "down_iat_mean_ms",
+              -0.14253727648321396
+            ],
+            [
+              "down_packets_per_second",
+              0.14036858395175913
+            ]
+          ],
+          "test_scores": [
+            {
+              "group": 24,
+              "mode": "native",
+              "label": 0,
+              "score": -0.9024160389520794
+            },
+            {
+              "group": 24,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.2279520753087994
+            },
+            {
+              "group": 25,
+              "mode": "native",
+              "label": 0,
+              "score": -1.5504208999485243
+            },
+            {
+              "group": 25,
+              "mode": "p0",
+              "label": 1,
+              "score": 1.1115106785064213
+            },
+            {
+              "group": 26,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.0297847417069246
+            },
+            {
+              "group": 26,
+              "mode": "native",
+              "label": 0,
+              "score": -0.9201937604800704
+            },
+            {
+              "group": 27,
+              "mode": "p0",
+              "label": 1,
+              "score": 1.1890357103990818
+            },
+            {
+              "group": 27,
+              "mode": "native",
+              "label": 0,
+              "score": -1.540031123208116
+            },
+            {
+              "group": 28,
+              "mode": "p0",
+              "label": 1,
+              "score": 0.8233293951928042
+            },
+            {
+              "group": 28,
+              "mode": "native",
+              "label": 0,
+              "score": -1.9836165529023333
+            },
+            {
+              "group": 29,
+              "mode": "native",
+              "label": 0,
+              "score": -0.9495458885822823
+            },
+            {
+              "group": 29,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.090888104794426
+            },
+            {
+              "group": 30,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.2219580817666076
+            },
+            {
+              "group": 30,
+              "mode": "native",
+              "label": 0,
+              "score": -0.7567876952161618
+            },
+            {
+              "group": 31,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.0993715112945273
+            },
+            {
+              "group": 31,
+              "mode": "native",
+              "label": 0,
+              "score": -1.0113371146597543
+            },
+            {
+              "group": 32,
+              "mode": "native",
+              "label": 0,
+              "score": -1.4345865267121898
+            },
+            {
+              "group": 32,
+              "mode": "p0",
+              "label": 1,
+              "score": 1.2912040398732427
+            },
+            {
+              "group": 33,
+              "mode": "p0",
+              "label": 1,
+              "score": 2.1986524000054013
+            },
+            {
+              "group": 33,
+              "mode": "native",
+              "label": 0,
+              "score": -0.9036342110024482
+            },
+            {
+              "group": 34,
+              "mode": "p0",
+              "label": 1,
+              "score": 0.8468156876842691
+            },
+            {
+              "group": 34,
+              "mode": "native",
+              "label": 0,
+              "score": -1.9909646684970075
+            },
+            {
+              "group": 35,
+              "mode": "native",
+              "label": 0,
+              "score": -1.7569491541036353
+            },
+            {
+              "group": 35,
+              "mode": "p0",
+              "label": 1,
+              "score": 0.9416516686459494
+            },
+            {
+              "group": 36,
+              "mode": "p0",
+              "label": 1,
+              "score": 0.8602669134097193
+            },
+            {
+              "group": 36,
+              "mode": "native",
+              "label": 0,
+              "score": -1.9883961319334293
+            },
+            {
+              "group": 37,
+              "mode": "native",
+              "label": 0,
+              "score": -1.021728659211944
+            },
+            {
+              "group": 37,
+              "mode": "p0",
+              "label": 1,
+              "score": 1.9774614474591532
+            },
+            {
+              "group": 38,
+              "mode": "native",
+              "label": 0,
+              "score": -1.300723194288048
+            },
+            {
+              "group": 38,
+              "mode": "p0",
+              "label": 1,
+              "score": 1.8418592561520406
+            },
+            {
+              "group": 39,
+              "mode": "p0",
+              "label": 1,
+              "score": 1.998872342081726
+            },
+            {
+              "group": 39,
+              "mode": "native",
+              "label": 0,
+              "score": -1.1156441879841652
+            }
+          ]
+        },
+        {
+          "trained_proxy_mode": "ack-p0",
+          "tested_proxy_mode": "ack-p0",
+          "train_sessions": 48,
+          "heldout_sessions": 32,
+          "heldout_groups": 16,
+          "auc": 1.0,
+          "auc_paired_group_bootstrap_95": [
+            1.0,
+            1.0
+          ],
+          "threshold": -0.8494609402001096,
+          "threshold_rule": "strictly greater than maximum native training score (empirical training FPR zero)",
+          "true_positives": 16,
+          "positives": 16,
+          "tpr": 1.0,
+          "tpr_wilson_95": [
+            0.8063923194655637,
+            1.0
+          ],
+          "false_positives": 1,
+          "negatives": 16,
+          "fpr": 0.0625,
+          "fpr_wilson_95": [
+            0.01111934476464252,
+            0.28328737570298945
+          ],
+          "largest_standardized_coefficients": [
+            [
+              "down_iat_below_1ms",
+              -0.1922558458973145
+            ],
+            [
+              "up_iat_below_1ms",
+              0.16985907187806717
+            ],
+            [
+              "down_bursts_per_second",
+              -0.16687293915515866
+            ],
+            [
+              "down_iat_q90_ms",
+              -0.14802817559010045
+            ],
+            [
+              "up_bursts_per_second",
+              -0.1479155484187856
+            ],
+            [
+              "up_packets_per_second",
+              0.1325079296426536
+            ],
+            [
+              "up_iat_mean_ms",
+              -0.1314444967208855
+            ],
+            [
+              "direction_changes_per_second",
+              0.12107064632336119
+            ]
+          ],
+          "test_scores": [
+            {
+              "group": 24,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 2.277302627448994
+            },
+            {
+              "group": 24,
+              "mode": "native",
+              "label": 0,
+              "score": -0.881168362837546
+            },
+            {
+              "group": 25,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.6976330091008678
+            },
+            {
+              "group": 25,
+              "mode": "native",
+              "label": 0,
+              "score": -1.6486039547641755
+            },
+            {
+              "group": 26,
+              "mode": "native",
+              "label": 0,
+              "score": -0.9902171547934859
+            },
+            {
+              "group": 26,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 2.020009395922339
+            },
+            {
+              "group": 27,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.6550632825544183
+            },
+            {
+              "group": 27,
+              "mode": "native",
+              "label": 0,
+              "score": -1.701669651976431
+            },
+            {
+              "group": 28,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 0.6803161484879122
+            },
+            {
+              "group": 28,
+              "mode": "native",
+              "label": 0,
+              "score": -2.192908867288807
+            },
+            {
+              "group": 29,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 2.169365931181083
+            },
+            {
+              "group": 29,
+              "mode": "native",
+              "label": 0,
+              "score": -1.05756600081748
+            },
+            {
+              "group": 30,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 2.3485741331243206
+            },
+            {
+              "group": 30,
+              "mode": "native",
+              "label": 0,
+              "score": -0.8368891230149993
+            },
+            {
+              "group": 31,
+              "mode": "native",
+              "label": 0,
+              "score": -1.0500384307272765
+            },
+            {
+              "group": 31,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 2.015761841918268
+            },
+            {
+              "group": 32,
+              "mode": "native",
+              "label": 0,
+              "score": -1.5281010503587815
+            },
+            {
+              "group": 32,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.7082130877685748
+            },
+            {
+              "group": 33,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 2.0978253521523964
+            },
+            {
+              "group": 33,
+              "mode": "native",
+              "label": 0,
+              "score": -0.8912574914751097
+            },
+            {
+              "group": 34,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 0.5583602658057765
+            },
+            {
+              "group": 34,
+              "mode": "native",
+              "label": 0,
+              "score": -2.1697301002820053
+            },
+            {
+              "group": 35,
+              "mode": "native",
+              "label": 0,
+              "score": -1.882560453232829
+            },
+            {
+              "group": 35,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 0.8378762959110062
+            },
+            {
+              "group": 36,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 0.6877464186230327
+            },
+            {
+              "group": 36,
+              "mode": "native",
+              "label": 0,
+              "score": -2.153050052400677
+            },
+            {
+              "group": 37,
+              "mode": "native",
+              "label": 0,
+              "score": -1.0754092773796324
+            },
+            {
+              "group": 37,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.958541536482529
+            },
+            {
+              "group": 38,
+              "mode": "native",
+              "label": 0,
+              "score": -1.376297145297134
+            },
+            {
+              "group": 38,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.6630588544151301
+            },
+            {
+              "group": 39,
+              "mode": "ack-p0",
+              "label": 1,
+              "score": 1.8028161081666125
+            },
+            {
+              "group": 39,
+              "mode": "native",
+              "label": 0,
+              "score": -1.1954567852426112
+            }
+          ]
+        },
+        {
+          "trained_proxy_mode": "ack-p127",
+          "tested_proxy_mode": "ack-p127",
+          "train_sessions": 48,
+          "heldout_sessions": 32,
+          "heldout_groups": 16,
+          "auc": 1.0,
+          "auc_paired_group_bootstrap_95": [
+            1.0,
+            1.0
+          ],
+          "threshold": -0.8321285728262224,
+          "threshold_rule": "strictly greater than maximum native training score (empirical training FPR zero)",
+          "true_positives": 16,
+          "positives": 16,
+          "tpr": 1.0,
+          "tpr_wilson_95": [
+            0.8063923194655637,
+            1.0
+          ],
+          "false_positives": 0,
+          "negatives": 16,
+          "fpr": 0.0,
+          "fpr_wilson_95": [
+            0.0,
+            0.1936076805344365
+          ],
+          "largest_standardized_coefficients": [
+            [
+              "down_iat_below_1ms",
+              -0.19331181670688102
+            ],
+            [
+              "down_bursts_per_second",
+              -0.1683958925978174
+            ],
+            [
+              "up_bursts_per_second",
+              -0.14957688509886402
+            ],
+            [
+              "down_iat_q90_ms",
+              -0.1495084040661694
+            ],
+            [
+              "up_iat_below_1ms",
+              0.14877672287156335
+            ],
+            [
+              "up_packets_per_second",
+              0.1333623814559434
+            ],
+            [
+              "up_iat_mean_ms",
+              -0.13263105028416425
+            ],
+            [
+              "direction_changes_per_second",
+              0.12555851064215073
+            ]
+          ],
+          "test_scores": [
+            {
+              "group": 24,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 2.2749883718437234
+            },
+            {
+              "group": 24,
+              "mode": "native",
+              "label": 0,
+              "score": -0.8684021544907645
+            },
+            {
+              "group": 25,
+              "mode": "native",
+              "label": 0,
+              "score": -1.6386078727482971
+            },
+            {
+              "group": 25,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 1.6477735600842667
+            },
+            {
+              "group": 26,
+              "mode": "native",
+              "label": 0,
+              "score": -0.9677821831603696
+            },
+            {
+              "group": 26,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 2.0777187127899834
+            },
+            {
+              "group": 27,
+              "mode": "native",
+              "label": 0,
+              "score": -1.7028809645361498
+            },
+            {
+              "group": 27,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 1.6640034145702711
+            },
+            {
+              "group": 28,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 0.5990375128938121
+            },
+            {
+              "group": 28,
+              "mode": "native",
+              "label": 0,
+              "score": -2.178932511236608
+            },
+            {
+              "group": 29,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 2.148209566216993
+            },
+            {
+              "group": 29,
+              "mode": "native",
+              "label": 0,
+              "score": -1.0409693533005946
+            },
+            {
+              "group": 30,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 2.333812927509369
+            },
+            {
+              "group": 30,
+              "mode": "native",
+              "label": 0,
+              "score": -0.8342281263030042
+            },
+            {
+              "group": 31,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 2.064739691657704
+            },
+            {
+              "group": 31,
+              "mode": "native",
+              "label": 0,
+              "score": -1.0340467008607013
+            },
+            {
+              "group": 32,
+              "mode": "native",
+              "label": 0,
+              "score": -1.4996014037200025
+            },
+            {
+              "group": 32,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 1.64776997978638
+            },
+            {
+              "group": 33,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 2.037259984694759
+            },
+            {
+              "group": 33,
+              "mode": "native",
+              "label": 0,
+              "score": -0.8596987152445469
+            },
+            {
+              "group": 34,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 0.4778115578201075
+            },
+            {
+              "group": 34,
+              "mode": "native",
+              "label": 0,
+              "score": -2.1149095697235696
+            },
+            {
+              "group": 35,
+              "mode": "native",
+              "label": 0,
+              "score": -1.8544564068839864
+            },
+            {
+              "group": 35,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 0.7655057395535927
+            },
+            {
+              "group": 36,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 0.46207503044448606
+            },
+            {
+              "group": 36,
+              "mode": "native",
+              "label": 0,
+              "score": -2.1072352189756183
+            },
+            {
+              "group": 37,
+              "mode": "native",
+              "label": 0,
+              "score": -1.0620884475512276
+            },
+            {
+              "group": 37,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 1.9096686146279698
+            },
+            {
+              "group": 38,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 1.7423529561472841
+            },
+            {
+              "group": 38,
+              "mode": "native",
+              "label": 0,
+              "score": -1.3791869713615477
+            },
+            {
+              "group": 39,
+              "mode": "ack-p127",
+              "label": 1,
+              "score": 1.8841810783947477
+            },
+            {
+              "group": 39,
+              "mode": "native",
+              "label": 0,
+              "score": -1.1855019256498054
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "scope": "controlled proxy-vs-native-Go-H3 streaming task; lab evidence only",
+  "design": {
+    "model": "fixed L2=1 logistic regression; train-only normalization; Newton solver",
+    "split": "whole paired workload groups; heldout collected after training groups",
+    "window": "business start +200ms through configured end -100ms",
+    "not_features": [
+      "IP",
+      "port",
+      "SNI",
+      "TLS/ECH contents",
+      "certificate",
+      "raw payload",
+      "absolute clock",
+      "group seed",
+      "mode",
+      "filename",
+      "process identity"
+    ],
+    "uncertainty": "2000 paired-group bootstrap AUC; Wilson 95% TPR/FPR; does not establish 1% FPR operation",
+    "cost_denominator": "validated HTTP body/download + received SSE payload; legacy helper checked SSE JSON/sequence only, new helper also verifies payload; excludes requests and inner syntax",
+    "line_scope": "UDP payload; IPv4 estimate adds 28 bytes per actual datagram; no Ethernet/NIC headers"
+  }
+}

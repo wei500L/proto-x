@@ -1,0 +1,71 @@
+{
+  "background_mbps": 2,
+  "client_private_config_sha256": "3bd8db39134be2e3e8d74d5c460ebd24a2a5ff3947ee5f6a200bfc05d1794528",
+  "completed": true,
+  "dead_ms": 2000,
+  "direction": "both",
+  "ech_required": true,
+  "ended_utc": "2026-11-07T11:16:27.79949Z",
+  "fault": "blackhole",
+  "fault_after_ns": 5000000000,
+  "fault_for_ns": 5000000000,
+  "harness_sha256": "b41507d7a2b8062b117ab266967fd8603a95b1271b923b315840d1ecad31ae83",
+  "heartbeat_ms": 500,
+  "idle": false,
+  "label": "baseline-pilot",
+  "padding": 127,
+  "planned_duration_ns": 14000000000,
+  "protox_sha256": "8a8fd8b25be1eed3882d0396c5ca311fb51048fb75ba190dc9cfebdde63f4c2d",
+  "scope": "real loopback H3/H2 with UDP datagram delay/drop and independent TLS byte-chunk relay; not kernel packet emulation",
+  "server_private_config_sha256": "da9dfe549dbec0168ca6b079c067557f4d8a99b31189179586d5e77d8c253cbb",
+  "started_utc": "2026-11-07T11:16:13.242694Z",
+  "tcp_counts": {
+    "connections": 1,
+    "down": {
+      "dropped_bytes": 0,
+      "dropped_packets": 0,
+      "forwarded_bytes": 2256636,
+      "forwarded_packets": 127,
+      "io_errors": 0,
+      "queue_drops": 0,
+      "received_bytes": 2292307,
+      "received_packets": 128
+    },
+    "units": "TLS bytes and read/write chunks; no TCP packet or retransmission counters",
+    "up": {
+      "dropped_bytes": 0,
+      "dropped_packets": 0,
+      "forwarded_bytes": 99037,
+      "forwarded_packets": 128,
+      "io_errors": 0,
+      "queue_drops": 0,
+      "received_bytes": 99139,
+      "received_packets": 129
+    }
+  },
+  "tcp_one_way_chunk_delay_ns": 50000000,
+  "trust": "fresh private CA, hostname and leaf pin; no public trust claim",
+  "udp_counts": {
+    "down": {
+      "dropped_bytes": 66411,
+      "dropped_packets": 98,
+      "forwarded_bytes": 1404931,
+      "forwarded_packets": 2478,
+      "io_errors": 0,
+      "queue_drops": 0,
+      "received_bytes": 1471365,
+      "received_packets": 2577
+    },
+    "up": {
+      "dropped_bytes": 6101,
+      "dropped_packets": 45,
+      "forwarded_bytes": 183723,
+      "forwarded_packets": 1797,
+      "io_errors": 0,
+      "queue_drops": 0,
+      "received_bytes": 189824,
+      "received_packets": 1842
+    }
+  },
+  "udp_one_way_delay_ns": 50000000
+}

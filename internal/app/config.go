@@ -28,42 +28,48 @@ type Endpoint struct {
 	ServerName string `json:"server_name"`
 }
 type Config struct {
-	WebListen           string     `json:"web_listen,omitempty"`
-	HTTP3Listen         string     `json:"http3_listen,omitempty"`
-	CoverDir            string     `json:"cover_dir,omitempty"`
-	WebPath             string     `json:"web_path,omitempty"`
-	WebPadding          int        `json:"web_padding"`
-	CAFile              string     `json:"ca_file,omitempty"`
-	ExperimentalPinOnly bool       `json:"experimental_pin_only,omitempty"`
-	ECHConfigFile       string     `json:"ech_config_file,omitempty"`
-	ECHKeysFile         string     `json:"ech_keys_file,omitempty"`
-	TLSListen           string     `json:"tls_listen,omitempty"`
-	QUICListen          string     `json:"quic_listen,omitempty"`
-	SOCKSListen         string     `json:"socks_listen,omitempty"`
-	Endpoints           []Endpoint `json:"endpoints,omitempty"`
-	CertFile            string     `json:"cert_file,omitempty"`
-	KeyFile             string     `json:"key_file,omitempty"`
-	TokenFile           string     `json:"token_file"`
-	Pin                 string     `json:"pin_sha256,omitempty"`
-	RateMbps            float64    `json:"rate_mbps"`
-	Priority            bool       `json:"priority"`
-	Adaptive            bool       `json:"adaptive"`
-	AllowPrivate        bool       `json:"allow_private_targets,omitempty"`
-	Window              int        `json:"window_bytes"`
-	MaxFlows            int        `json:"max_flows"`
-	MaxSessions         int        `json:"max_sessions,omitempty"`
-	HeartbeatMS         int        `json:"heartbeat_ms"`
-	DeadMS              int        `json:"dead_ms"`
-	ResumeSeconds       int        `json:"resume_seconds"`
-	DialTimeoutMS       int        `json:"dial_timeout_ms"`
-	RotateSeconds       int        `json:"test_rotate_seconds,omitempty"`
+	WebListen            string     `json:"web_listen,omitempty"`
+	HTTP3Listen          string     `json:"http3_listen,omitempty"`
+	CoverDir             string     `json:"cover_dir,omitempty"`
+	WebPath              string     `json:"web_path,omitempty"`
+	WebPadding           int        `json:"web_padding"`
+	CAFile               string     `json:"ca_file,omitempty"`
+	ExperimentalPinOnly  bool       `json:"experimental_pin_only,omitempty"`
+	ECHConfigFile        string     `json:"ech_config_file,omitempty"`
+	ECHKeysFile          string     `json:"ech_keys_file,omitempty"`
+	TLSListen            string     `json:"tls_listen,omitempty"`
+	QUICListen           string     `json:"quic_listen,omitempty"`
+	SOCKSListen          string     `json:"socks_listen,omitempty"`
+	Endpoints            []Endpoint `json:"endpoints,omitempty"`
+	CertFile             string     `json:"cert_file,omitempty"`
+	KeyFile              string     `json:"key_file,omitempty"`
+	TokenFile            string     `json:"token_file"`
+	Pin                  string     `json:"pin_sha256,omitempty"`
+	RateMbps             float64    `json:"rate_mbps"`
+	Priority             bool       `json:"priority"`
+	Adaptive             bool       `json:"adaptive"`
+	AllowPrivate         bool       `json:"allow_private_targets,omitempty"`
+	Window               int        `json:"window_bytes"`
+	MaxFlows             int        `json:"max_flows"`
+	MaxSessions          int        `json:"max_sessions,omitempty"`
+	HeartbeatMS          int        `json:"heartbeat_ms"`
+	DeadMS               int        `json:"dead_ms"`
+	ResumeSeconds        int        `json:"resume_seconds"`
+	DialTimeoutMS        int        `json:"dial_timeout_ms"`
+	RotateSeconds        int        `json:"test_rotate_seconds,omitempty"`
+	RecoveryMode         string     `json:"recovery_mode,omitempty"`
+	RecoveryNoPrepare    bool       `json:"recovery_no_prepare,omitempty"`
+	RecoveryTrace        bool       `json:"recovery_trace,omitempty"`
+	RecoveryCountHistory bool       `json:"recovery_count_history"`
+	RecoveryProbeOnly    bool       `json:"recovery_probe_only,omitempty"`
+	ACKCoalesce          bool       `json:"ack_coalesce,omitempty"`
 }
 
 func Defaults() Config {
-	return Config{WebPath: "/api/sync", WebPadding: 127, RateMbps: 8, Priority: true, Window: 64 << 10, MaxFlows: 32, MaxSessions: 2, HeartbeatMS: 500, DeadMS: 2000, ResumeSeconds: 90, DialTimeoutMS: 1200}
+	return Config{WebPath: "/api/sync", WebPadding: 0, RateMbps: 8, Priority: true, Window: 64 << 10, MaxFlows: 32, MaxSessions: 2, HeartbeatMS: 500, DeadMS: 2000, ResumeSeconds: 90, DialTimeoutMS: 1200, RecoveryCountHistory: true}
 }
 func (c Config) Session() session.Config {
-	return session.Config{Window: c.Window, MaxFlows: c.MaxFlows, Rate: c.RateMbps * 1e6 / 8, Priority: c.Priority, Adaptive: c.Adaptive, Heartbeat: time.Duration(c.HeartbeatMS) * time.Millisecond, DeadAfter: time.Duration(c.DeadMS) * time.Millisecond, ResumeTTL: time.Duration(c.ResumeSeconds) * time.Second}
+	return session.Config{Window: c.Window, MaxFlows: c.MaxFlows, Rate: c.RateMbps * 1e6 / 8, Priority: c.Priority, Adaptive: c.Adaptive, Heartbeat: time.Duration(c.HeartbeatMS) * time.Millisecond, DeadAfter: time.Duration(c.DeadMS) * time.Millisecond, ResumeTTL: time.Duration(c.ResumeSeconds) * time.Second, RecoveryMode: c.RecoveryMode, RecoveryTrace: c.RecoveryTrace, ACKCoalesce: c.ACKCoalesce, RecoveryCountHistory: c.RecoveryCountHistory, RecoveryProbeOnly: c.RecoveryProbeOnly}
 }
 func Load(path string) (Config, error) {
 	c := Defaults()

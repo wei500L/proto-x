@@ -1,6 +1,49 @@
 # 构建、部署、接入与恢复
 
-更新：2026-11-07。当前主线为 `0.2.0-experimental`，默认使用真实 HTTP/2 / HTTP/3。旧 `.local/vps/` 与 v0.1 测量保留为历史记录；当前实验配置为 `.local/vps-web/`。真实地址、登录信息和密钥不放在公开文档中，以下 `192.0.2.1` / `notes.example` 均为占位符。
+更新：2026-11-10。源码为 `0.3.0-experimental`；默认使用真实 HTTP/2 / HTTP/3。真实地址、登录信息和密钥不放在公开文档中，以下地址与名称均为占位符。
+
+## v0.3 构建与当前状态
+
+本轮实际构建在 `bin/v03/`，保留原 `bin/protox`、本地 `1088` 进程和 `.local/vps-web/` 配置。经干净 `e4c93d9` 重建确认这些旧磁盘二进制的身份；但 11 月 10 日 SSH 与服务端口超时，本地 SOCKS 的公共 HTTPS 探测也超时，**没有完成 v0.3 远端部署**。不能用三天前的资源清单或 active 记录代替当前核验。见 [source-identity.json](../results/verification-v03-20261110/source-identity.json)。
+
+保留旧程序另行构建：
+
+```sh
+PROTOX_BUILD_DIR=bin/v03 sh scripts/build.sh
+bin/v03/protox version
+```
+
+新程序可读取原 v0.2 配置。未指定 `recovery_mode` 时保持 legacy 行为；新建配置及省略 `web_padding` 的配置默认填充 0。已有显式 `web_padding: 127` 的配置仍为 127。以下字段都是 JSON 配置字段，应合并到原对象，不能拼接第二个对象：
+
+| 字段 | 作用与兼容 |
+| --- | --- |
+| `recovery_mode: "adaptive"` | 客户端启用双向探针、因果业务进展及备用准备策略；必须连接支持 attempt 回显的 v0.3 服务端。 |
+| `recovery_mode: "legacy"` | 与 v0.2 服务端互通时使用；新服务器仍接受未进入 fenced 状态的 legacy 会话。 |
+| `recovery_no_prepare: true` | 研究消融；同检测器确认后冷拨，不提前准备。 |
+| `recovery_count_history: true` | 默认按最后 32 次 RTT；显式 false 启用未显示稳定总体收益的时间窗口实验。 |
+| `recovery_probe_only: true` | 研究消融；忽略因果业务确认，仅依据匹配探针进展。 |
+| `ack_coalesce: true` | 该方向合并累计 ACK；两端各自配置，线格式保持兼容。 |
+| `recovery_trace: true` | 记录单调阶段时间、真实 ECH 接受和代次；实验使用，常态建议关闭。 |
+| `web_padding: 0` | 关闭额外随机填充；H2/H3 记录封装仍存在。 |
+
+先升级服务端再让新客户端使用 adaptive。v0.2 客户端/服务端拒绝未知配置字段，因此回滚须使用原整包配置，不能把新增字段的配置直接交给旧程序。已经 fenced 的同一会话不允许降到 attempt=0；回滚进程会结束原会话，后续应用建立新连接。ECH 要求不会因恢复模式变化而取消。
+
+本轮已从原配置准备私密完整副本 `.local/vps-web-v03/`：采用联合实验参数（adaptive、纯计数 RTT、因果业务证据、ACK 合并、填充 0），保留原 CA/ECH/认证，关闭 trace 和私网目标权限；客户端暂用空闲测试入口 1089。配置加载、服务器证书与密钥匹配、客户端 CA/ECH 配置解析及取消启动检查通过；这不代表完成网络握手。最终直连 SSH 超时，经本机代理的 SSH 也未成功，见 [最终可达性记录](../results/verification-v03-20261110/final-reachability.json)。
+
+SSH 可达后可按原事务脚本部署测试机：
+
+```sh
+PROTOX_BUILD_DIR=bin/v03 sh scripts/deploy-test.sh \
+  .local/ssh_config protox-test .local/vps-web-v03
+```
+
+该目录需要原证书、token、网站、CA/ECH 及配套配置，不能只有一份 JSON。脚本整包备份和自动回滚语义不变，选择新目录二进制不会改 SSH、防火墙或生产服务。激活后仍要验证普通 HTTPS、H2/H3+实际 ECH 和真实 SOCKS 业务。`recovery_trace` 每个探针有日志，现有 systemd 日志限流可能截断轨迹；严谨测量使用本轮私有实验 harness 的完整捕获。
+
+停止旧本地客户端前核实 PID 对应的可执行文件与配置；停止会结束现有应用 socket。新程序使用配套配置时先选择空闲 SOCKS 端口做实际探测，成功后再替换 `1088`。本轮没有因端口仍监听而宣布业务健康，也没有在 SSH 不可达时实施远端替换。
+
+## 历史 v0.2 入口与运行方法
+
+下文记录 11 月 7 日部署布局。路径仍可用于恢复，但状态须重新实测。旧 `.local/vps/` 与 v0.1 测量仅为历史记录；最近一次成功部署配置是 `.local/vps-web/`。
 
 ## 当前入口
 
@@ -77,7 +120,7 @@ bin/protox ech-keygen -dir .local/example-web -public-name cover.example
 
 ECH 无法隐藏目的 IP、outer 名称和流量行为。本轮单张证书包含 inner / outer SAN，主动证书枚举仍可能获知 inner 名称。当前直接 TLS 终止与 exporter 认证绑定，不能直接部署在终止 TLS 的 CDN/nginx 后面。详见 [Web 承载说明](WEB-CARRIER.md)。
 
-默认下行 / 上行发送调度预算为 8 / 2 Mbps，Flow 每方向窗口 64 KiB，单 Session 最多 32 流，服务端最多 2 个 Session，priority 开启。它们不是外层精确线速或资源总量保证。新 Web 填充默认 0–127 字节，每记录预扣最大填充成本；本轮实测额外承载成本约一成，见 [成本报告](../results/web-overhead-20261107/REPORT.md)。
+默认下行 / 上行发送调度预算为 8 / 2 Mbps，Flow 每方向窗口 64 KiB，单 Session 最多 32 流，服务端最多 2 个 Session，priority 开启。它们不是外层精确线速或资源总量保证。v0.2 部署配置的 Web 填充为 0–127 字节，每记录预扣最大填充成本；本轮实测额外承载成本约一成，见 [成本报告](../results/web-overhead-20261107/REPORT.md)。
 
 ## 服务端部署和整套恢复
 

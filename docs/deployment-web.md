@@ -1,8 +1,10 @@
 # HTTP/2、HTTP/3 整套部署与恢复
 
-更新：2026-11-07。此页对应新版 `scripts/deploy-test.sh`；旧文档中只复制五个文件的恢复命令不适用于带 cover / ECH / CA 的部署包。
+更新：2026-11-10。此页对应新版 `scripts/deploy-test.sh`；旧文档中只复制五个文件的恢复命令不适用于带 cover / ECH / CA 的部署包。
 
-主任务已在专用 VPS 完成首次安装与后续整包更新，并单独核对普通 HTTPS、H2/H3 SOCKS 与 ECH 要求。当前配置、实际版本及脱敏状态见 [部署状态](../results/deployment-web-20261107/final-state.json)。下面 21 项故障事务测试仍是本地替身测试，不能把它们改称远端回滚实测。
+2026-11-07 曾在专用 VPS 完成 v0.2 首次安装与后续整包更新，并单独核对普通 HTTPS、H2/H3 SOCKS 与 ECH 要求。当时配置、版本及脱敏状态见 [部署状态](../results/deployment-web-20261107/final-state.json)。下面 21 项故障事务测试仍是本地替身测试，不能把它们改称远端回滚实测。
+
+11 月 10 日 SSH/服务连接超时，尚未部署 v0.3。构建和部署脚本现在支持 `PROTOX_BUILD_DIR=bin/v03`，默认仍为 `bin`；回滚必须恢复原整包配置（旧程序拒绝新的恢复字段）。详见 [当前部署状态](deployment.md)。
 
 ## 适用范围与准备
 

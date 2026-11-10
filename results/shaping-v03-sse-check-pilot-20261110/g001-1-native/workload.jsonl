@@ -1,0 +1,22 @@
+{"elapsed_clock":"Go monotonic; same-host wall epoch aligns process starts","epoch_unix_ns":1794301342596710000,"kind":"clock","t_ns":1042}
+{"alpn":"h3","ech_accepted":true,"kind":"transport","t_ns":55374250}
+{"background_mbps":2,"duration_ms":500,"http_bytes":384,"kind":"workload_start","rps":6,"seed":20262111,"sse_interval_ms":40,"t_ns":102219917}
+{"kind":"sse_connect","latency_ms":45.725834,"status":"success","t_ns":148018834}
+{"bytes":64,"gap_ms":0.307667,"kind":"sse_token","payload_valid":true,"seq":0,"sequence_ok":true,"source_elapsed_ns":333,"t_ns":148343667}
+{"bytes":384,"kind":"http","latency_ms":46.533333000000006,"scheduled_latency_ms":46.6095,"seq":0,"status":"success","t_ns":148828792,"ttfb_ms":46.527791}
+{"bytes":64,"gap_ms":36.28175,"kind":"sse_token","payload_valid":true,"seq":1,"sequence_ok":true,"source_elapsed_ns":40536208,"t_ns":184626375}
+{"bytes":64,"gap_ms":40.329499999999996,"kind":"sse_token","payload_valid":true,"seq":2,"sequence_ok":true,"source_elapsed_ns":80203250,"t_ns":224956459}
+{"bytes":64,"gap_ms":41.922958,"kind":"sse_token","payload_valid":true,"seq":3,"sequence_ok":true,"source_elapsed_ns":120238208,"t_ns":266878834}
+{"bytes":64,"gap_ms":37.708292,"kind":"sse_token","payload_valid":true,"seq":4,"sequence_ok":true,"source_elapsed_ns":160530041,"t_ns":304586959}
+{"bytes":384,"kind":"http","latency_ms":41.845833,"scheduled_latency_ms":41.990257,"seq":1,"status":"success","t_ns":337556417,"ttfb_ms":41.830667000000005}
+{"bytes":64,"gap_ms":39.871625,"kind":"sse_token","payload_valid":true,"seq":5,"sequence_ok":true,"source_elapsed_ns":200373291,"t_ns":344458417}
+{"bytes":64,"gap_ms":40.717042,"kind":"sse_token","payload_valid":true,"seq":6,"sequence_ok":true,"source_elapsed_ns":240109541,"t_ns":385175625}
+{"bytes":64,"gap_ms":39.514458000000005,"kind":"sse_token","payload_valid":true,"seq":7,"sequence_ok":true,"source_elapsed_ns":280263208,"t_ns":424690667}
+{"bytes":64,"gap_ms":40.17825,"kind":"sse_token","payload_valid":true,"seq":8,"sequence_ok":true,"source_elapsed_ns":320587125,"t_ns":464868875}
+{"bytes":384,"kind":"http","latency_ms":41.650042,"scheduled_latency_ms":41.839316000000004,"seq":2,"status":"success","t_ns":495379334,"ttfb_ms":41.634625}
+{"bytes":64,"gap_ms":39.940125,"kind":"sse_token","payload_valid":true,"seq":9,"sequence_ok":true,"source_elapsed_ns":360694625,"t_ns":504808250}
+{"bytes":64,"gap_ms":39.348,"kind":"sse_token","payload_valid":true,"seq":10,"sequence_ok":true,"source_elapsed_ns":400044708,"t_ns":544156500}
+{"bytes":64,"gap_ms":42.732958,"kind":"sse_token","payload_valid":true,"seq":11,"sequence_ok":true,"source_elapsed_ns":440147375,"t_ns":586892209}
+{"bytes":113360,"kind":"download","status":"censored","t_ns":602360750}
+{"kind":"sse_end","status":"censored","t_ns":602418959,"terminal_gap_ms":15.5305}
+{"elapsed_ms":500.21616700000004,"kind":"workload_end","t_ns":602435875,"wall_unix_ns":1794301343199150000}

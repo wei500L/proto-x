@@ -1,0 +1,293 @@
+{
+  "schema": 1,
+  "audited_utc": "2026-11-10T09:09:19.648700+00:00",
+  "kind": "post-hoc descriptive audit; detector model and data split unchanged",
+  "complete_groups": 2,
+  "sessions": 4,
+  "modes": {
+    "native": {
+      "sessions": 2,
+      "http_all_outcomes": {
+        "success": 5,
+        "censored": 1
+      },
+      "first_http_success_latency_ms": {
+        "n": 2,
+        "p50": 46.533333000000006,
+        "p95": 47.171875,
+        "p99": 47.171875,
+        "max": 47.171875
+      },
+      "later_http_success_latency_ms": {
+        "n": 3,
+        "p50": 41.845833,
+        "p95": 42.9,
+        "p99": 42.9,
+        "max": 42.9
+      },
+      "sse_end_outcomes": {
+        "censored": 2
+      },
+      "download_outcomes": {
+        "censored": 2
+      },
+      "sse_receive_minus_source_gap_ms": {
+        "n": 22,
+        "p50": -0.1456670000000031,
+        "p95": 1.8879999999999981,
+        "p99": 2.630291000000007,
+        "max": 2.630291000000007
+      },
+      "largest_received_sse_gaps": [
+        {
+          "trial": "g001-1-native",
+          "seq": 11,
+          "receive_gap_ms": 42.732958,
+          "source_gap_ms": 40.102667,
+          "receive_minus_source_gap_ms": 2.630291000000007
+        },
+        {
+          "trial": "g000-1-native",
+          "seq": 10,
+          "receive_gap_ms": 42.365333,
+          "source_gap_ms": 40.603792,
+          "receive_minus_source_gap_ms": 1.7615410000000011
+        },
+        {
+          "trial": "g001-1-native",
+          "seq": 3,
+          "receive_gap_ms": 41.922958,
+          "source_gap_ms": 40.034958,
+          "receive_minus_source_gap_ms": 1.8879999999999981
+        },
+        {
+          "trial": "g000-1-native",
+          "seq": 7,
+          "receive_gap_ms": 41.137709,
+          "source_gap_ms": 40.23075,
+          "receive_minus_source_gap_ms": 0.9069590000000005
+        },
+        {
+          "trial": "g001-1-native",
+          "seq": 6,
+          "receive_gap_ms": 40.717042,
+          "source_gap_ms": 39.73625,
+          "receive_minus_source_gap_ms": 0.980792000000001
+        }
+      ],
+      "sse_payload_validation": {
+        "checked": 24,
+        "unchecked_legacy": 0
+      },
+      "median_paired_relative_cost": {
+        "udp_ingress_bytes": {
+          "n": 2,
+          "median": -0.15178946164385976,
+          "median_paired_group_bootstrap_95": [
+            -0.15178946164385976,
+            -0.14693688969812457
+          ],
+          "min": -0.15178946164385976,
+          "max": -0.14693688969812457
+        },
+        "ipv4_ingress_bytes": {
+          "n": 2,
+          "median": -0.17803204807972428,
+          "median_paired_group_bootstrap_95": [
+            -0.17803204807972428,
+            -0.1764572518462557
+          ],
+          "min": -0.17803204807972428,
+          "max": -0.1764572518462557
+        }
+      },
+      "mean_per_session_features": {
+        "up_packets_per_second": 162.5,
+        "up_bytes_per_second": 11907.5,
+        "up_size_mean": 75.6625,
+        "up_size_std": 235.114407276821,
+        "up_size_q10": 28.5,
+        "up_size_q50": 29.0,
+        "up_size_q90": 35.0,
+        "up_size_below_128": 0.9675,
+        "up_size_below_256": 0.9675,
+        "up_size_below_512": 0.9675,
+        "up_size_below_1000": 0.9675,
+        "up_iat_mean_ms": 6.183851499999999,
+        "up_iat_std_ms": 6.276272008476832,
+        "up_iat_q90_ms": 16.50916699999999,
+        "up_bursts_per_second": 40.0,
+        "up_iat_below_1ms": 0.16826923076923078,
+        "down_packets_per_second": 287.5,
+        "down_bytes_per_second": 216010.0,
+        "down_size_mean": 749.7230158730158,
+        "down_size_std": 614.5244758397614,
+        "down_size_q10": 28.0,
+        "down_size_q50": 1193.0,
+        "down_size_q90": 1366.0,
+        "down_size_below_128": 0.34523809523809523,
+        "down_size_below_256": 0.34523809523809523,
+        "down_size_below_512": 0.4873015873015873,
+        "down_size_below_1000": 0.4873015873015873,
+        "down_iat_mean_ms": 3.3794709609683795,
+        "down_iat_std_ms": 6.378506816391189,
+        "down_iat_q90_ms": 15.575770500000004,
+        "down_bursts_per_second": 40.0,
+        "down_iat_below_1ms": 0.7104743083003953,
+        "direction_changes_per_second": 122.5
+      }
+    },
+    "p0": {
+      "sessions": 2,
+      "http_all_outcomes": {
+        "success": 5,
+        "censored": 1
+      },
+      "first_http_success_latency_ms": {
+        "n": 2,
+        "p50": 42.737125,
+        "p95": 91.493459,
+        "p99": 91.493459,
+        "max": 91.493459
+      },
+      "later_http_success_latency_ms": {
+        "n": 3,
+        "p50": 43.260958,
+        "p95": 44.056375,
+        "p99": 44.056375,
+        "max": 44.056375
+      },
+      "sse_end_outcomes": {
+        "censored": 2
+      },
+      "download_outcomes": {
+        "censored": 2
+      },
+      "sse_receive_minus_source_gap_ms": {
+        "n": 20,
+        "p50": -0.14229199999999764,
+        "p95": 1.3215009999999907,
+        "p99": 1.4968750000000028,
+        "max": 1.4968750000000028
+      },
+      "largest_received_sse_gaps": [
+        {
+          "trial": "g001-0-p0",
+          "seq": 9,
+          "receive_gap_ms": 41.071125,
+          "source_gap_ms": 39.57425,
+          "receive_minus_source_gap_ms": 1.4968750000000028
+        },
+        {
+          "trial": "g001-0-p0",
+          "seq": 1,
+          "receive_gap_ms": 40.957208,
+          "source_gap_ms": 40.503292,
+          "receive_minus_source_gap_ms": 0.45391599999999954
+        },
+        {
+          "trial": "g001-0-p0",
+          "seq": 4,
+          "receive_gap_ms": 40.796042,
+          "source_gap_ms": 40.374834,
+          "receive_minus_source_gap_ms": 0.421208
+        },
+        {
+          "trial": "g000-0-p0",
+          "seq": 3,
+          "receive_gap_ms": 40.656209,
+          "source_gap_ms": 39.835166,
+          "receive_minus_source_gap_ms": 0.821042999999996
+        },
+        {
+          "trial": "g000-0-p0",
+          "seq": 10,
+          "receive_gap_ms": 40.616083999999994,
+          "source_gap_ms": 39.294583,
+          "receive_minus_source_gap_ms": 1.3215009999999907
+        }
+      ],
+      "sse_payload_validation": {
+        "checked": 22,
+        "unchecked_legacy": 0
+      },
+      "median_paired_relative_cost": {
+        "udp_ingress_bytes": {
+          "n": 2,
+          "median": 0.0,
+          "median_paired_group_bootstrap_95": [
+            0.0,
+            0.0
+          ],
+          "min": 0.0,
+          "max": 0.0
+        },
+        "ipv4_ingress_bytes": {
+          "n": 2,
+          "median": 0.0,
+          "median_paired_group_bootstrap_95": [
+            0.0,
+            0.0
+          ],
+          "min": 0.0,
+          "max": 0.0
+        }
+      },
+      "mean_per_session_features": {
+        "up_packets_per_second": 315.0,
+        "up_bytes_per_second": 23762.5,
+        "up_size_mean": 76.61052631578947,
+        "up_size_std": 173.90189276655857,
+        "up_size_q10": 29.0,
+        "up_size_q50": 65.0,
+        "up_size_q90": 71.0,
+        "up_size_below_128": 0.966842105263158,
+        "up_size_below_256": 0.983421052631579,
+        "up_size_below_512": 0.983421052631579,
+        "up_size_below_1000": 0.983421052631579,
+        "up_iat_mean_ms": 3.064227957959184,
+        "up_iat_std_ms": 4.732799276103194,
+        "up_iat_q90_ms": 12.28170849999998,
+        "up_bursts_per_second": 40.0,
+        "up_iat_below_1ms": 0.568843537414966,
+        "down_packets_per_second": 452.5,
+        "down_bytes_per_second": 232080.0,
+        "down_size_mean": 510.28290653008963,
+        "down_size_std": 543.5454416074001,
+        "down_size_q10": 25.0,
+        "down_size_q50": 184.5,
+        "down_size_q90": 1366.0,
+        "down_size_below_128": 0.49897567221510886,
+        "down_size_below_256": 0.49897567221510886,
+        "down_size_below_512": 0.5569142125480153,
+        "down_size_below_1000": 0.7736875800256082,
+        "down_iat_mean_ms": 2.190458327522936,
+        "down_iat_std_ms": 2.9634517697478504,
+        "down_iat_q90_ms": 7.6946044999999685,
+        "down_bursts_per_second": 22.5,
+        "down_iat_below_1ms": 0.49462647444298824,
+        "direction_changes_per_second": 192.5
+      }
+    }
+  },
+  "evidence": {
+    "max_clock_error_ns": 6458,
+    "forced_kills": 0,
+    "native_ech_accepted_sessions": 2,
+    "nonzero_owned_process_exits": [],
+    "registration_time": "2026-11-10T09:02:18.468832+00:00",
+    "first_heldout_start": "2026-11-10T09:02:21.595664+00:00",
+    "registration_precedes_all_heldout": true,
+    "trial_sha256": {
+      "g000-0-p0/trial.json": "291090f03cb44f4f504fbffb4a00e92fc1d0971624b30ef33db89d0b041852b7",
+      "g000-1-native/trial.json": "7282afb55f1ec551a3eb647c08507a5af80c6fc8d46f72e3f9e70ce69ba3d43b",
+      "g001-0-p0/trial.json": "3e575ce01a4a4c8c37230472582c43d9e6fd2016b6b1be3285e701c13f9058a2",
+      "g001-1-native/trial.json": "8baadfc33c783d1974976e6a075aa56b3bc0aefeb4fb82b051decb877ed5956a"
+    }
+  },
+  "limitations": [
+    "group bootstrap conditions on this single-network, single-implementation workload population",
+    "dropping first HTTP here is descriptive; main analysis retains all requests including failures",
+    "timestamps and local registration are auditable metadata, not immutable proof of no prior access"
+  ]
+}

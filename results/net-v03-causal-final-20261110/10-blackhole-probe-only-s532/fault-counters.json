@@ -1,0 +1,144 @@
+{
+  "client": {
+    "nftables": [
+      {
+        "metainfo": {
+          "version": "1.1.3",
+          "release_name": "Commodore Bullmoose #4",
+          "json_schema_version": 1
+        }
+      },
+      {
+        "table": {
+          "family": "inet",
+          "name": "protox_fault",
+          "handle": 36
+        }
+      },
+      {
+        "chain": {
+          "family": "inet",
+          "table": "protox_fault",
+          "name": "in",
+          "handle": 1,
+          "type": "filter",
+          "hook": "input",
+          "prio": 0,
+          "policy": "accept"
+        }
+      },
+      {
+        "rule": {
+          "family": "inet",
+          "table": "protox_fault",
+          "chain": "in",
+          "handle": 2,
+          "expr": [
+            {
+              "match": {
+                "op": "==",
+                "left": {
+                  "meta": {
+                    "key": "iifname"
+                  }
+                },
+                "right": "pxlinkc"
+              }
+            },
+            {
+              "match": {
+                "op": "==",
+                "left": {
+                  "meta": {
+                    "key": "l4proto"
+                  }
+                },
+                "right": "udp"
+              }
+            },
+            {
+              "counter": {
+                "packets": 152,
+                "bytes": 89826
+              }
+            },
+            {
+              "drop": null
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "server": {
+    "nftables": [
+      {
+        "metainfo": {
+          "version": "1.1.3",
+          "release_name": "Commodore Bullmoose #4",
+          "json_schema_version": 1
+        }
+      },
+      {
+        "table": {
+          "family": "inet",
+          "name": "protox_fault",
+          "handle": 41
+        }
+      },
+      {
+        "chain": {
+          "family": "inet",
+          "table": "protox_fault",
+          "name": "in",
+          "handle": 1,
+          "type": "filter",
+          "hook": "input",
+          "prio": 0,
+          "policy": "accept"
+        }
+      },
+      {
+        "rule": {
+          "family": "inet",
+          "table": "protox_fault",
+          "chain": "in",
+          "handle": 2,
+          "expr": [
+            {
+              "match": {
+                "op": "==",
+                "left": {
+                  "meta": {
+                    "key": "iifname"
+                  }
+                },
+                "right": "pxlinks"
+              }
+            },
+            {
+              "match": {
+                "op": "==",
+                "left": {
+                  "meta": {
+                    "key": "l4proto"
+                  }
+                },
+                "right": "udp"
+              }
+            },
+            {
+              "counter": {
+                "packets": 19,
+                "bytes": 3497
+              }
+            },
+            {
+              "drop": null
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

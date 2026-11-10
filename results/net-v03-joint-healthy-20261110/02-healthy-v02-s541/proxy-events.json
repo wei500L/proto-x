@@ -1,0 +1,51 @@
+[
+  {
+    "role": "server",
+    "observed_mono_ns": 143762011326893,
+    "observed_wall_ns": 1794303450990475038,
+    "time": "2026-11-10T12:37:30.990436852+03:00",
+    "msg": "HTTPS listener ready"
+  },
+  {
+    "role": "server",
+    "observed_mono_ns": 143762011455791,
+    "observed_wall_ns": 1794303450990603102,
+    "time": "2026-11-10T12:37:30.990597891+03:00",
+    "msg": "HTTP/3 listener ready"
+  },
+  {
+    "role": "client",
+    "observed_mono_ns": 143762169304183,
+    "observed_wall_ns": 1794303451148453480,
+    "time": "2026-11-10T12:37:31.148378277+03:00",
+    "msg": "SOCKS5 listener ready"
+  },
+  {
+    "role": "server",
+    "observed_mono_ns": 143762286638143,
+    "observed_wall_ns": 1794303451265788369,
+    "time": "2026-11-10T12:37:31.265648851+03:00",
+    "msg": "carrier attached",
+    "carrier": "h3",
+    "generation": 1,
+    "resumed_flows": 0
+  },
+  {
+    "role": "client",
+    "observed_mono_ns": 143762323012884,
+    "observed_wall_ns": 1794303451302162054,
+    "time": "2026-11-10T12:37:31.302060011+03:00",
+    "msg": "carrier attached",
+    "carrier": "h3",
+    "generation": 1,
+    "resumed_flows": 0
+  },
+  {
+    "role": "server",
+    "observed_mono_ns": 143781848676942,
+    "observed_wall_ns": 1794303470727269599,
+    "time": "2026-11-10T12:37:50.727227495+03:00",
+    "msg": "carrier detached",
+    "carrier": "h3"
+  }
+]

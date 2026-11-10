@@ -1,0 +1,78 @@
+{
+  "created_utc": "2026-11-07T11:23:26.437667+00:00",
+  "source": "dedicated Linux VM, tc netem, real IP packets",
+  "kernel": "Linux lima-protox-lab 6.12.115+deb13.1-cloud-arm64 #1 SMP Debian 6.12.115-2 (2026-11-01) aarch64 GNU/Linux",
+  "parameters": {
+    "root": "/tmp/pxlab-v03",
+    "run_id": "net-v03-v02-pilot-20261107",
+    "seeds": [
+      401
+    ],
+    "schedule_seed": 74031,
+    "variants": [
+      "v02"
+    ],
+    "profiles": [
+      "blackhole"
+    ],
+    "duration": 16.0,
+    "warmup": 3,
+    "queue_ms": 75,
+    "background": 1,
+    "background_mbps": 2,
+    "fault_after": 5,
+    "fault_for": 6
+  },
+  "binaries_sha256": {
+    "xray": "5939649960deaf535bcd5f7ce0467a2b1d63b72a2758a6f42eade714ae8d5328",
+    "tlscover": "6bcf2a2aa5348e4185c63deee2977ccec65a6ffcd6ad34a236f487bef9b39cd3",
+    "pxbench": "e5e22d2dee14da7eb0ae8c8f6bca4f9f53fde138434b1748589661fdecff743e",
+    "protox-v02": "a5855444ee5c45bd667cc4c9f8fd69f83dc648166199809d2b63ae5d70351679",
+    "protox-candidate": "a5855444ee5c45bd667cc4c9f8fd69f83dc648166199809d2b63ae5d70351679",
+    "hysteria": "a68a61a84452ca250ce0368202521965ca9cc9d801a404f1dc9008ac6cf677a7"
+  },
+  "scripts_sha256": {
+    "v03_matrix.py": "356d5422cd5401666dd902876f9dcf5064cb34348807b8684346d3833cb116b4",
+    "matrix.py": "85e1d8cf7a9b9545395d4d5e5d50bba48e44495815b96110b76c6250372c7fa5",
+    "netlab.py": "aff761f96aba34f6b61eca7d343060c856c27cefc8575e3e0675fe37dbfe2ba5"
+  },
+  "public_parameters": {
+    "link": "tc netem with actual IP packets, 8/2Mbps unless profile states otherwise",
+    "proxy": {
+      "baseline": "v0.2 frozen",
+      "candidate": "hash in manifest",
+      "padding": 127,
+      "ech_required": true,
+      "normal_CA_hostname_and_pin_validation": true,
+      "server_rate_mbps": 8,
+      "client_rate_mbps": 2
+    },
+    "variants": {
+      "v02": "500/2000ms legacy",
+      "fixed": "100/400ms legacy; manager100ms retained",
+      "adaptive": "RTT/probe evidence, prepare before commit",
+      "no_prepare": "same detector; cold dial after drop"
+    },
+    "reference": {
+      "xray": "26.10.31 REALITY+Vision, actual owned TLS target, HTTPS workload",
+      "hysteria": "2.13.0 BBR standard, no H2 standby"
+    },
+    "scope": "fresh private CA in a synthetic network, no browser or field-DPI equivalence"
+  },
+  "schedule": [
+    {
+      "variant": "v02",
+      "profile": "blackhole",
+      "seed": 401
+    }
+  ],
+  "notes": [
+    "tc accounts shared outer traffic, including padding, probes, recovery and retransmissions.",
+    "qdisc deltas are IP packet bytes; startup/warmup are recorded separately.",
+    "No equal-fallback claim: Xray uses TCP; Hysteria has no H2 standby in these configs.",
+    "Fault install/remove timestamps bracket kernel command completion, not exact packet loss onset.",
+    "VPS management and host network are outside these two namespaces."
+  ],
+  "finished_utc": "2026-11-07T11:23:46.467502+00:00",
+  "completed_trials": 1
+}

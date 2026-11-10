@@ -1,0 +1,258 @@
+{
+  "trial_id": "10-healthy-adaptive-s502",
+  "variant": "adaptive",
+  "profile": "healthy",
+  "seed": 502,
+  "utc_start": "2026-11-10T09:01:57.489098+00:00",
+  "status": "completed",
+  "duration_s": 16.0,
+  "warmup_s": 3.0,
+  "gomaxprocs": 1,
+  "background_workers": 1,
+  "background_mbps_source_budget": 2,
+  "warmup_exit_code": 0,
+  "workload_exit_code": 0,
+  "observed": {
+    "operations": {
+      "download_end": {
+        "total": 1,
+        "success": 0,
+        "failure": 0,
+        "timeout": 0,
+        "censored": 1,
+        "rejected": 0,
+        "connection_attempts": 0,
+        "success_rate_total": 0,
+        "successful_latency_ms": {
+          "n": 0,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "successful_scheduled_latency_ms": {
+          "n": 0,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "successful_ttfb_ms": {
+          "n": 0,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0,
+          "mean": 0
+        }
+      },
+      "echo": {
+        "total": 159,
+        "success": 159,
+        "failure": 0,
+        "timeout": 0,
+        "censored": 0,
+        "rejected": 0,
+        "connection_attempts": 0,
+        "success_rate_total": 1,
+        "successful_latency_ms": {
+          "n": 159,
+          "p50": 63.942802,
+          "p95": 70.866502,
+          "p99": 75.759307,
+          "max": 126.632016,
+          "mean": 65.02412662264153
+        },
+        "successful_scheduled_latency_ms": {
+          "n": 0,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "successful_ttfb_ms": {
+          "n": 0,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0,
+          "mean": 0
+        }
+      },
+      "http": {
+        "total": 80,
+        "success": 79,
+        "failure": 0,
+        "timeout": 0,
+        "censored": 1,
+        "rejected": 0,
+        "connection_attempts": 80,
+        "success_rate_total": 0.9875,
+        "successful_latency_ms": {
+          "n": 79,
+          "p50": 205.255282,
+          "p95": 211.324682,
+          "p99": 215.350064,
+          "max": 215.350064,
+          "mean": 205.87765684810128
+        },
+        "successful_scheduled_latency_ms": {
+          "n": 79,
+          "p50": 205.866659,
+          "p95": 211.766159,
+          "p99": 215.359104,
+          "max": 215.359104,
+          "mean": 206.45622444303794
+        },
+        "successful_ttfb_ms": {
+          "n": 79,
+          "p50": 205.093066,
+          "p95": 211.225291,
+          "p99": 215.262888,
+          "max": 215.262888,
+          "mean": 205.765899556962
+        }
+      }
+    },
+    "sse": {
+      "connections": 1,
+      "connect_failure": 0,
+      "tokens": 316,
+      "sequence_errors": 0,
+      "source_errors": 0,
+      "unexpected_ends": 0,
+      "receive_gap_ms": {
+        "n": 315,
+        "p50": 50.01533,
+        "p95": 52.867153,
+        "p99": 54.08705,
+        "max": 56.63001,
+        "mean": 49.97876552380951
+      },
+      "source_gap_ms": {
+        "n": 315,
+        "p50": 50.009639,
+        "p95": 50.706882,
+        "p99": 50.875575,
+        "max": 51.156798,
+        "mean": 50.002017863492036
+      },
+      "excess_gap_ms": {
+        "n": 315,
+        "p50": 0.03593299999999999,
+        "p95": 2.6248590000000007,
+        "p99": 4.486474999999999,
+        "max": 6.646346999999999,
+        "mean": 0.5515635682539681
+      },
+      "gaps_over_250ms": 0,
+      "gaps_over_1000ms": 0,
+      "excess_over_250ms": 0,
+      "excess_over_1000ms": 0,
+      "terminal_gaps_over_250ms": 0,
+      "terminal_gaps_over_1000ms": 0,
+      "max_terminal_gap_ms": 28.11851,
+      "run_tail_gap_ms": 28.143857,
+      "source_generation_delay_ms": {
+        "n": 316,
+        "p50": 0.594742,
+        "p95": 1.047096,
+        "p99": 1.231537,
+        "max": 1.381822,
+        "mean": 0.5694469240506329
+      }
+    },
+    "download_goodput_mbps": 1.8881348952638344
+  },
+  "commands": {
+    "fixture": [
+      "ip",
+      "netns",
+      "exec",
+      "px-server",
+      "env",
+      "GOMAXPROCS=1",
+      "/tmp/pxlab-v03/bin/recoverybench",
+      "-fixture",
+      "-fixture-http",
+      "127.0.0.1:18443",
+      "-fixture-echo",
+      "127.0.0.1:18081",
+      "-fixture-cert",
+      "/tmp/pxlab-v03/private/baseline/tls-cert.pem",
+      "-fixture-key",
+      "/tmp/pxlab-v03/private/baseline/tls-key.pem",
+      "-fixture-log",
+      "/tmp/pxlab-v03/results/net-v03-discrimination-pilot-20261110/10-healthy-adaptive-s502/target-events.jsonl"
+    ],
+    "server": [
+      "ip",
+      "netns",
+      "exec",
+      "px-server",
+      "env",
+      "GOMAXPROCS=1",
+      "/tmp/pxlab-v03/bin/protox-candidate",
+      "server",
+      "-config",
+      "/tmp/pxlab-v03/private/px/server-adaptive.json"
+    ],
+    "client": [
+      "ip",
+      "netns",
+      "exec",
+      "px-client",
+      "env",
+      "GOMAXPROCS=1",
+      "/tmp/pxlab-v03/bin/protox-candidate",
+      "client",
+      "-config",
+      "/tmp/pxlab-v03/private/px/client-adaptive.json"
+    ],
+    "workload": [
+      "ip",
+      "netns",
+      "exec",
+      "px-client",
+      "env",
+      "GOMAXPROCS=1",
+      "/tmp/pxlab-v03/bin/pxbench",
+      "run",
+      "-proxy",
+      "127.0.0.1:1088",
+      "-http-target",
+      "https://protox-baseline.test:18443",
+      "-echo-target",
+      "127.0.0.1:18081",
+      "-ca",
+      "/tmp/pxlab-v03/private/baseline/tls-cert.pem",
+      "-duration",
+      "16.0s",
+      "-timeout",
+      "3s",
+      "-rps",
+      "5",
+      "-echo-interval",
+      "100ms",
+      "-stream-interval",
+      "50ms",
+      "-background",
+      "1",
+      "-uploads",
+      "0",
+      "-output",
+      "/tmp/pxlab-v03/results/net-v03-discrimination-pilot-20261110/10-healthy-adaptive-s502/events.jsonl",
+      "-summary",
+      "/tmp/pxlab-v03/results/net-v03-discrimination-pilot-20261110/10-healthy-adaptive-s502/events.summary.json",
+      "-run-id",
+      "10-healthy-adaptive-s502",
+      "-background-mbps",
+      "2",
+      "-cold-http"
+    ]
+  },
+  "utc_end": "2026-11-10T09:02:17.310158+00:00"
+}

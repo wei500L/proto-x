@@ -1,0 +1,6 @@
+{"time":"2026-11-07T14:23:26.582107551+03:00","level":"INFO","msg":"HTTPS listener ready","listen":":14443"}
+{"time":"2026-11-07T14:23:26.582218927+03:00","level":"INFO","msg":"HTTP/3 listener ready","listen":":14443"}
+{"time":"2026-11-07T14:23:27.010036823+03:00","level":"INFO","msg":"carrier attached","carrier":"h3","generation":1,"resumed_flows":0}
+{"time":"2026-11-07T14:23:35.381557489+03:00","level":"INFO","msg":"carrier detached","carrier":"h3"}
+{"time":"2026-11-07T14:23:35.730995676+03:00","level":"INFO","msg":"carrier attached","carrier":"h2","generation":2,"resumed_flows":6}
+{"time":"2026-11-07T14:23:46.466194244+03:00","level":"INFO","msg":"carrier detached","carrier":"h2"}

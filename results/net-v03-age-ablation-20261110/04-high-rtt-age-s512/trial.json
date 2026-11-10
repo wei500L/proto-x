@@ -1,0 +1,263 @@
+{
+  "trial_id": "04-high-rtt-age-s512",
+  "variant": "age",
+  "profile": "high-rtt",
+  "seed": 512,
+  "utc_start": "2026-11-10T09:10:03.024870+00:00",
+  "status": "completed",
+  "duration_s": 16.0,
+  "warmup_s": 3.0,
+  "gomaxprocs": 1,
+  "background_workers": 1,
+  "background_mbps_source_budget": 2,
+  "warmup_exit_code": 0,
+  "benchmark_epoch_mono_bounds": {
+    "lower_ns": 142112879643329,
+    "upper_ns": 142112887706577,
+    "width_ns": 8063248
+  },
+  "workload_exit_code": 0,
+  "observed": {
+    "operations": {
+      "download_end": {
+        "total": 1,
+        "success": 0,
+        "failure": 0,
+        "timeout": 0,
+        "censored": 1,
+        "rejected": 0,
+        "connection_attempts": 0,
+        "success_rate_total": 0,
+        "successful_latency_ms": {
+          "n": 0,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "successful_scheduled_latency_ms": {
+          "n": 0,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "successful_ttfb_ms": {
+          "n": 0,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0,
+          "mean": 0
+        }
+      },
+      "echo": {
+        "total": 28,
+        "success": 27,
+        "failure": 0,
+        "timeout": 0,
+        "censored": 1,
+        "rejected": 0,
+        "connection_attempts": 0,
+        "success_rate_total": 0.9642857142857143,
+        "successful_latency_ms": {
+          "n": 27,
+          "p50": 559.686972,
+          "p95": 629.030195,
+          "p99": 1125.359881,
+          "max": 1125.359881,
+          "mean": 587.7042524444445
+        },
+        "successful_scheduled_latency_ms": {
+          "n": 0,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "successful_ttfb_ms": {
+          "n": 0,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0,
+          "mean": 0
+        }
+      },
+      "http": {
+        "total": 80,
+        "success": 70,
+        "failure": 0,
+        "timeout": 0,
+        "censored": 10,
+        "rejected": 0,
+        "connection_attempts": 74,
+        "success_rate_total": 0.875,
+        "successful_latency_ms": {
+          "n": 70,
+          "p50": 1782.298257,
+          "p95": 1944.583332,
+          "p99": 2298.441886,
+          "max": 2298.441886,
+          "mean": 1801.3414633428577
+        },
+        "successful_scheduled_latency_ms": {
+          "n": 70,
+          "p50": 1782.704772,
+          "p95": 1945.47605,
+          "p99": 2298.98734,
+          "max": 2298.98734,
+          "mean": 1801.9482118428568
+        },
+        "successful_ttfb_ms": {
+          "n": 70,
+          "p50": 1782.164857,
+          "p95": 1944.329914,
+          "p99": 2298.319378,
+          "max": 2298.319378,
+          "mean": 1801.2064247142855
+        }
+      }
+    },
+    "sse": {
+      "connections": 1,
+      "connect_failure": 0,
+      "tokens": 287,
+      "sequence_errors": 0,
+      "source_errors": 0,
+      "unexpected_ends": 0,
+      "receive_gap_ms": {
+        "n": 286,
+        "p50": 47.354439,
+        "p95": 120.363055,
+        "p99": 180.218688,
+        "max": 186.845158,
+        "mean": 49.927931129370634
+      },
+      "source_gap_ms": {
+        "n": 286,
+        "p50": 50.035177,
+        "p95": 50.854563,
+        "p99": 51.02705,
+        "max": 51.364349,
+        "mean": 50.00315994755244
+      },
+      "excess_gap_ms": {
+        "n": 286,
+        "p50": 0,
+        "p95": 70.65138400000001,
+        "p99": 130.45990799999998,
+        "max": 137.056677,
+        "mean": 14.868509381118876
+      },
+      "gaps_over_250ms": 0,
+      "gaps_over_1000ms": 0,
+      "excess_over_250ms": 0,
+      "excess_over_1000ms": 0,
+      "terminal_gaps_over_250ms": 0,
+      "terminal_gaps_over_1000ms": 0,
+      "max_terminal_gap_ms": 33.466121,
+      "run_tail_gap_ms": 33.483945,
+      "source_generation_delay_ms": {
+        "n": 287,
+        "p50": 0.697861,
+        "p95": 1.162403,
+        "p99": 1.330453,
+        "max": 1.510147,
+        "mean": 0.666189780487805
+      }
+    },
+    "download_goodput_mbps": 0.5979456062555579
+  },
+  "commands": {
+    "fixture": [
+      "ip",
+      "netns",
+      "exec",
+      "px-server",
+      "env",
+      "GOMAXPROCS=1",
+      "/tmp/pxlab-v03/bin/recoverybench",
+      "-fixture",
+      "-fixture-http",
+      "127.0.0.1:18443",
+      "-fixture-echo",
+      "127.0.0.1:18081",
+      "-fixture-cert",
+      "/tmp/pxlab-v03/private/baseline/tls-cert.pem",
+      "-fixture-key",
+      "/tmp/pxlab-v03/private/baseline/tls-key.pem",
+      "-fixture-log",
+      "/tmp/pxlab-v03/results/net-v03-age-ablation-20261110/04-high-rtt-age-s512/target-events.jsonl"
+    ],
+    "server": [
+      "ip",
+      "netns",
+      "exec",
+      "px-server",
+      "env",
+      "GOMAXPROCS=1",
+      "/tmp/pxlab-v03/bin/protox-candidate",
+      "server",
+      "-config",
+      "/tmp/pxlab-v03/private/px/server-age.json"
+    ],
+    "client": [
+      "ip",
+      "netns",
+      "exec",
+      "px-client",
+      "env",
+      "GOMAXPROCS=1",
+      "/tmp/pxlab-v03/bin/protox-candidate",
+      "client",
+      "-config",
+      "/tmp/pxlab-v03/private/px/client-age.json"
+    ],
+    "workload": [
+      "ip",
+      "netns",
+      "exec",
+      "px-client",
+      "env",
+      "GOMAXPROCS=1",
+      "/tmp/pxlab-v03/bin/pxbench",
+      "run",
+      "-proxy",
+      "127.0.0.1:1088",
+      "-http-target",
+      "https://protox-baseline.test:18443",
+      "-echo-target",
+      "127.0.0.1:18081",
+      "-ca",
+      "/tmp/pxlab-v03/private/baseline/tls-cert.pem",
+      "-duration",
+      "16.0s",
+      "-timeout",
+      "3s",
+      "-rps",
+      "5",
+      "-echo-interval",
+      "100ms",
+      "-stream-interval",
+      "50ms",
+      "-background",
+      "1",
+      "-uploads",
+      "0",
+      "-output",
+      "/tmp/pxlab-v03/results/net-v03-age-ablation-20261110/04-high-rtt-age-s512/events.jsonl",
+      "-summary",
+      "/tmp/pxlab-v03/results/net-v03-age-ablation-20261110/04-high-rtt-age-s512/events.summary.json",
+      "-run-id",
+      "04-high-rtt-age-s512",
+      "-background-mbps",
+      "2",
+      "-cold-http"
+    ]
+  },
+  "utc_end": "2026-11-10T09:10:22.840680+00:00"
+}

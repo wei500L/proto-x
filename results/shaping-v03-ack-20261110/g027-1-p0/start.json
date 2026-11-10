@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "id": "g027-1-p0",
+  "group": 27,
+  "split": "heldout",
+  "mode": "p0",
+  "order_in_group": 1,
+  "started_utc": "2026-11-10T08:56:31.447001+00:00",
+  "seed": 20261137,
+  "status": "running",
+  "workload": {
+    "rps": 4.0,
+    "http_bytes": 384,
+    "sse_interval_ms": 50,
+    "background_mbps": 1.6,
+    "duration_ms": 3000,
+    "seed": 20261137
+  },
+  "relay": {
+    "one_way_delay_ms": 20,
+    "up_ipv4_mbps": 2.0,
+    "down_ipv4_mbps": 8.0
+  }
+}

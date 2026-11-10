@@ -1,0 +1,20 @@
+{"elapsed_clock":"Go monotonic; same-host wall epoch aligns process starts","epoch_unix_ns":1794300467834029000,"kind":"clock","t_ns":958}
+{"alpn":"h3","ech_accepted":true,"kind":"transport","t_ns":55969667}
+{"background_mbps":1.2,"duration_ms":500,"http_bytes":1024,"kind":"workload_start","rps":6,"seed":20261111,"sse_interval_ms":50,"t_ns":103887750}
+{"kind":"sse_connect","latency_ms":42.698750000000004,"status":"success","t_ns":146665125}
+{"bytes":64,"gap_ms":3.660083,"kind":"sse_token","seq":0,"sequence_ok":true,"source_elapsed_ns":583,"t_ns":150360500}
+{"bytes":1024,"kind":"http","latency_ms":47.673083,"scheduled_latency_ms":47.768291999999995,"seq":0,"status":"success","t_ns":151654708,"ttfb_ms":47.657041}
+{"bytes":64,"gap_ms":45.861042,"kind":"sse_token","seq":1,"sequence_ok":true,"source_elapsed_ns":50041292,"t_ns":196222458}
+{"bytes":64,"gap_ms":50.735667,"kind":"sse_token","seq":2,"sequence_ok":true,"source_elapsed_ns":100029833,"t_ns":246958583}
+{"bytes":64,"gap_ms":50.407333,"kind":"sse_token","seq":3,"sequence_ok":true,"source_elapsed_ns":151030292,"t_ns":297365792}
+{"bytes":1024,"kind":"http","latency_ms":42.485125,"scheduled_latency_ms":43.082378,"seq":1,"status":"success","t_ns":320119417,"ttfb_ms":42.456374999999994}
+{"bytes":64,"gap_ms":49.0105,"kind":"sse_token","seq":4,"sequence_ok":true,"source_elapsed_ns":200525833,"t_ns":346375750}
+{"bytes":64,"gap_ms":49.812917,"kind":"sse_token","seq":5,"sequence_ok":true,"source_elapsed_ns":250159417,"t_ns":396189167}
+{"bytes":64,"gap_ms":51.090165999999996,"kind":"sse_token","seq":6,"sequence_ok":true,"source_elapsed_ns":300387958,"t_ns":447279042}
+{"bytes":1024,"kind":"http","latency_ms":42.382417,"scheduled_latency_ms":42.87067,"seq":2,"status":"success","t_ns":480608042,"ttfb_ms":42.358458}
+{"bytes":64,"gap_ms":49.713917,"kind":"sse_token","seq":7,"sequence_ok":true,"source_elapsed_ns":350705083,"t_ns":496992958}
+{"bytes":64,"gap_ms":51.291416999999996,"kind":"sse_token","seq":8,"sequence_ok":true,"source_elapsed_ns":400962667,"t_ns":548284667}
+{"bytes":64,"gap_ms":50.113583000000006,"kind":"sse_token","seq":9,"sequence_ok":true,"source_elapsed_ns":450238833,"t_ns":598398167}
+{"kind":"sse_end","status":"censored","t_ns":603977167,"terminal_gap_ms":5.580375}
+{"bytes":69632,"kind":"download","status":"censored","t_ns":604000042}
+{"elapsed_ms":500.1285,"kind":"workload_end","t_ns":604014625,"wall_unix_ns":1794300468438049000}

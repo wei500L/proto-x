@@ -1,0 +1,35 @@
+{
+  "checked_utc": "2026-11-10T08:43:21.134718+00:00",
+  "sources": [
+    {
+      "name": "rfc9849.txt",
+      "url": "https://www.rfc-editor.org/rfc/rfc9849.txt",
+      "bytes": 112500,
+      "sha256": "56cf7f40c41b2566bfe9c3df18e73cd649b7c0e33690439a43582a65a3b3a0cc"
+    },
+    {
+      "name": "rfc8446.txt",
+      "url": "https://www.rfc-editor.org/rfc/rfc8446.txt",
+      "bytes": 337736,
+      "sha256": "47871bc8820a2c3b6ea89f061055577058862cf543686b82d10131239702b3bd"
+    },
+    {
+      "name": "rfc9001.txt",
+      "url": "https://www.rfc-editor.org/rfc/rfc9001.txt",
+      "bytes": 126175,
+      "sha256": "3bbaecdf5afd278052a2c48348ce118c4ff8d0cf6b9915549858171b3f98a591"
+    },
+    {
+      "name": "rfc9000.txt",
+      "url": "https://www.rfc-editor.org/rfc/rfc9000.txt",
+      "bytes": 403442,
+      "sha256": "f88aae47f8b18e102024916e975e919201d8dde689cba79b01079eaedd402e22"
+    },
+    {
+      "name": "maybenot.html",
+      "url": "https://arxiv.org/html/2304.09510",
+      "bytes": 441879,
+      "sha256": "2a11fed9933efe9a806a46f4b10495ceccf54f68532c7b2f7e53e35e593885f3"
+    }
+  ]
+}

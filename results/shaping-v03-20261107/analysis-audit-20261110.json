@@ -1,0 +1,149 @@
+{
+  "original_analysis_sha256": "a19e9073156386e65ada537a7e6fb8d262c62f89622f5130dff5f8ad3348eb37",
+  "original_matches_registered_sha": true,
+  "comparison_kind": "original registered model versus equivalent explicit contractions and JSON scalar fix; uses all evidence only to check arithmetic equivalence",
+  "fits_checked": 12,
+  "comparisons": [
+    {
+      "family": "full",
+      "mode": "p0",
+      "max_abs_coefficient_change": 8.673617379884035e-17,
+      "max_abs_score_change": 3.552713678800501e-15,
+      "threshold_abs_change": 0.0,
+      "all_predictions_same": true,
+      "all_values_finite": true
+    },
+    {
+      "family": "full",
+      "mode": "p63",
+      "max_abs_coefficient_change": 5.724587470723463e-17,
+      "max_abs_score_change": 1.3322676295501878e-15,
+      "threshold_abs_change": 2.220446049250313e-16,
+      "all_predictions_same": true,
+      "all_values_finite": true
+    },
+    {
+      "family": "full",
+      "mode": "p127",
+      "max_abs_coefficient_change": 5.898059818321144e-17,
+      "max_abs_score_change": 1.7763568394002505e-15,
+      "threshold_abs_change": 2.220446049250313e-16,
+      "all_predictions_same": true,
+      "all_values_finite": true
+    },
+    {
+      "family": "full",
+      "mode": "p255",
+      "max_abs_coefficient_change": 5.898059818321144e-17,
+      "max_abs_score_change": 8.881784197001252e-16,
+      "threshold_abs_change": 0.0,
+      "all_predictions_same": true,
+      "all_values_finite": true
+    },
+    {
+      "family": "size_only",
+      "mode": "p0",
+      "max_abs_coefficient_change": 6.938893903907228e-17,
+      "max_abs_score_change": 3.552713678800501e-15,
+      "threshold_abs_change": 0.0,
+      "all_predictions_same": true,
+      "all_values_finite": true
+    },
+    {
+      "family": "size_only",
+      "mode": "p63",
+      "max_abs_coefficient_change": 4.206704429243757e-17,
+      "max_abs_score_change": 1.7763568394002505e-15,
+      "threshold_abs_change": 2.220446049250313e-16,
+      "all_predictions_same": false,
+      "all_values_finite": true
+    },
+    {
+      "family": "size_only",
+      "mode": "p127",
+      "max_abs_coefficient_change": 2.7755575615628914e-17,
+      "max_abs_score_change": 1.7763568394002505e-15,
+      "threshold_abs_change": 0.0,
+      "all_predictions_same": true,
+      "all_values_finite": true
+    },
+    {
+      "family": "size_only",
+      "mode": "p255",
+      "max_abs_coefficient_change": 2.7755575615628914e-17,
+      "max_abs_score_change": 6.661338147750939e-16,
+      "threshold_abs_change": 2.220446049250313e-16,
+      "all_predictions_same": true,
+      "all_values_finite": true
+    },
+    {
+      "family": "timing_counts_only",
+      "mode": "p0",
+      "max_abs_coefficient_change": 9.367506770274758e-17,
+      "max_abs_score_change": 8.881784197001252e-16,
+      "threshold_abs_change": 1.1102230246251565e-16,
+      "all_predictions_same": false,
+      "all_values_finite": true
+    },
+    {
+      "family": "timing_counts_only",
+      "mode": "p63",
+      "max_abs_coefficient_change": 5.204170427930421e-17,
+      "max_abs_score_change": 4.440892098500626e-16,
+      "threshold_abs_change": 0.0,
+      "all_predictions_same": true,
+      "all_values_finite": true
+    },
+    {
+      "family": "timing_counts_only",
+      "mode": "p127",
+      "max_abs_coefficient_change": 2.7755575615628914e-17,
+      "max_abs_score_change": 4.440892098500626e-16,
+      "threshold_abs_change": 1.1102230246251565e-16,
+      "all_predictions_same": true,
+      "all_values_finite": true
+    },
+    {
+      "family": "timing_counts_only",
+      "mode": "p255",
+      "max_abs_coefficient_change": 4.85722573273506e-17,
+      "max_abs_score_change": 4.440892098500626e-16,
+      "threshold_abs_change": 0.0,
+      "all_predictions_same": true,
+      "all_values_finite": true
+    }
+  ],
+  "legacy_warning_count": 465,
+  "numpy_version": "2.0.2",
+  "changes": [
+    "cast numpy boolean counts to builtin int for strict JSON",
+    "replace matrix products by equivalent explicit contractions",
+    "reject nonfinite features/fits/scores and missing class/splits",
+    "add previously unreported SSE malformed-event and connect-failure counters",
+    "dynamic mode list from manifest for later preregistered experiments"
+  ],
+  "original_failure": "TypeError: Object of type int64 is not JSON serializable; no analysis file was emitted",
+  "analysis_tests": "python3 -m unittest discover -s tools/shapebench: 8 passed",
+  "carrier_tests": "go test ./internal/carrier -run TestWeb(ECH|TLS) -count=1 -v: all 9 top-level tests passed on 2026-11-10; no deployed binary claim",
+  "floating_boundary_changes": [
+    {
+      "family": "size_only",
+      "trained_mode": "p63",
+      "trial": "g012-2-native",
+      "split": "train",
+      "mode": "native",
+      "old_margin": 2.220446049250313e-16,
+      "new_margin": 0.0
+    },
+    {
+      "family": "timing_counts_only",
+      "trained_mode": "p0",
+      "trial": "g018-4-native",
+      "split": "train",
+      "mode": "native",
+      "old_margin": 1.1102230246251565e-16,
+      "new_margin": 0.0
+    }
+  ],
+  "heldout_predictions_unchanged": true
+}

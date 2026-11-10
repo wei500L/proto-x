@@ -1,0 +1,1546 @@
+{
+  "trials": [
+    {
+      "trial_id": "01-blackhole-adaptive-s501",
+      "variant": "adaptive",
+      "profile": "blackhole",
+      "seed": 501,
+      "status": "completed",
+      "error": null,
+      "operations": {
+        "download_end": {
+          "total": 1,
+          "success": 0,
+          "failure": 0,
+          "timeout": 0,
+          "censored": 1,
+          "rejected": 0,
+          "connection_attempts": 0,
+          "success_rate_total": 0,
+          "successful_latency_ms": {
+            "n": 0,
+            "p50": 0,
+            "p95": 0,
+            "p99": 0,
+            "max": 0,
+            "mean": 0
+          },
+          "successful_scheduled_latency_ms": {
+            "n": 0,
+            "p50": 0,
+            "p95": 0,
+            "p99": 0,
+            "max": 0,
+            "mean": 0
+          },
+          "successful_ttfb_ms": {
+            "n": 0,
+            "p50": 0,
+            "p95": 0,
+            "p99": 0,
+            "max": 0,
+            "mean": 0
+          }
+        },
+        "echo": {
+          "total": 115,
+          "success": 114,
+          "failure": 0,
+          "timeout": 0,
+          "censored": 1,
+          "rejected": 0,
+          "connection_attempts": 0,
+          "success_rate_total": 0.991304347826087,
+          "successful_latency_ms": {
+            "n": 114,
+            "p50": 115.063136,
+            "p95": 209.204281,
+            "p99": 224.302371,
+            "max": 1773.155685,
+            "mean": 139.63417255263155
+          },
+          "successful_scheduled_latency_ms": {
+            "n": 0,
+            "p50": 0,
+            "p95": 0,
+            "p99": 0,
+            "max": 0,
+            "mean": 0
+          },
+          "successful_ttfb_ms": {
+            "n": 0,
+            "p50": 0,
+            "p95": 0,
+            "p99": 0,
+            "max": 0,
+            "mean": 0
+          }
+        },
+        "http": {
+          "total": 80,
+          "success": 78,
+          "failure": 0,
+          "timeout": 0,
+          "censored": 2,
+          "rejected": 0,
+          "connection_attempts": 79,
+          "success_rate_total": 0.975,
+          "successful_latency_ms": {
+            "n": 78,
+            "p50": 373.830881,
+            "p95": 1642.480078,
+            "p99": 2049.830895,
+            "max": 2049.830895,
+            "mean": 501.32549941025655
+          },
+          "successful_scheduled_latency_ms": {
+            "n": 78,
+            "p50": 374.353986,
+            "p95": 1642.733307,
+            "p99": 2050.659607,
+            "max": 2050.659607,
+            "mean": 501.8260691025642
+          },
+          "successful_ttfb_ms": {
+            "n": 78,
+            "p50": 373.714156,
+            "p95": 1642.409826,
+            "p99": 2049.728841,
+            "max": 2049.728841,
+            "mean": 501.1991525
+          }
+        }
+      },
+      "sse": {
+        "connections": 1,
+        "connect_failure": 0,
+        "tokens": 314,
+        "sequence_errors": 0,
+        "source_errors": 0,
+        "unexpected_ends": 0,
+        "receive_gap_ms": {
+          "n": 313,
+          "p50": 49.898639,
+          "p95": 52.748768,
+          "p99": 60.646576,
+          "max": 1643.366229,
+          "mean": 49.99600246645367
+        },
+        "source_gap_ms": {
+          "n": 313,
+          "p50": 50.026488,
+          "p95": 50.881544,
+          "p99": 51.059405,
+          "max": 51.195052,
+          "mean": 50.0007755942492
+        },
+        "excess_gap_ms": {
+          "n": 313,
+          "p50": 0,
+          "p95": 2.761216999999995,
+          "p99": 9.973059000000006,
+          "max": 1594.09473,
+          "mean": 5.8869907571884985
+        },
+        "gaps_over_250ms": 1,
+        "gaps_over_1000ms": 1,
+        "excess_over_250ms": 1,
+        "excess_over_1000ms": 1,
+        "terminal_gaps_over_250ms": 0,
+        "terminal_gaps_over_1000ms": 0,
+        "max_terminal_gap_ms": 25.372668,
+        "run_tail_gap_ms": 25.378523,
+        "source_generation_delay_ms": {
+          "n": 314,
+          "p50": 0.604218,
+          "p95": 1.09028,
+          "p99": 1.267263,
+          "max": 1.385555,
+          "mean": 0.5874069140127393
+        }
+      },
+      "echo_connections": 1,
+      "download_goodput_mbps": 1.86972811286346,
+      "link": {
+        "px-client": {
+          "qdisc": {
+            "bytes": 1027790,
+            "packets": 4824,
+            "drops": 134,
+            "overlimits": 0,
+            "requeues": 0
+          },
+          "namespace_tcp_retrans_segments_includes_loopback": 0
+        },
+        "px-server": {
+          "qdisc": {
+            "bytes": 5234887,
+            "packets": 7421,
+            "drops": 0,
+            "overlimits": 0,
+            "requeues": 0
+          },
+          "namespace_tcp_retrans_segments_includes_loopback": 8
+        }
+      },
+      "startup_link": {
+        "px-client": {
+          "qdisc": {
+            "bytes": 205787,
+            "packets": 1177,
+            "drops": 50,
+            "overlimits": 0,
+            "requeues": 0
+          },
+          "namespace_tcp_retrans_segments_includes_loopback": 0
+        },
+        "px-server": {
+          "qdisc": {
+            "bytes": 922627,
+            "packets": 1619,
+            "drops": 0,
+            "overlimits": 0,
+            "requeues": 0
+          },
+          "namespace_tcp_retrans_segments_includes_loopback": 2
+        }
+      },
+      "resource": {
+        "sampling_interval_s": 0.1,
+        "roles": {
+          "fixture": {
+            "samples": 159,
+            "sampled_seconds": 15.927534281974658,
+            "cpu_seconds_delta": 0.24,
+            "cpu_percent_one_core": 1.5068245702764569,
+            "rss_peak_bytes": 15314944,
+            "rss_mean_bytes": 14447081.459119497,
+            "rss_last_bytes": 15314944
+          },
+          "server": {
+            "samples": 159,
+            "sampled_seconds": 15.927534281974658,
+            "cpu_seconds_delta": 0.49,
+            "cpu_percent_one_core": 3.0764334976477663,
+            "rss_peak_bytes": 19308544,
+            "rss_mean_bytes": 17101109.13207547,
+            "rss_last_bytes": 19308544
+          },
+          "client": {
+            "samples": 159,
+            "sampled_seconds": 15.927534281974658,
+            "cpu_seconds_delta": 0.48,
+            "cpu_percent_one_core": 3.0136491405529138,
+            "rss_peak_bytes": 17211392,
+            "rss_mean_bytes": 16977533.58490566,
+            "rss_last_bytes": 17211392
+          },
+          "workload": {
+            "samples": 159,
+            "sampled_seconds": 15.927534281974658,
+            "cpu_seconds_delta": 0.28,
+            "cpu_percent_one_core": 1.7579619986558666,
+            "rss_peak_bytes": 15073280,
+            "rss_mean_bytes": 14676715.06918239,
+            "rss_last_bytes": 14966784
+          }
+        }
+      },
+      "clock_bridge": {
+        "valid": false,
+        "vm_offset_spread_ns": 271906131,
+        "bench_offset_spread_ns": 135633881,
+        "bench_epoch_wall_ns": 1794300311535962837,
+        "observed_bench_epoch_delta_ns": -1280.0
+      },
+      "attach_count": 2,
+      "client_switches": 1,
+      "preparation_count": 2,
+      "canceled_preparations": 1,
+      "commit_count": 1,
+      "ech_observations": [
+        {
+          "event": "tls_ready",
+          "carrier": "h3",
+          "ech_required": true,
+          "ech_accepted": true,
+          "tls_version": 772,
+          "alpn": "h3"
+        },
+        {
+          "event": "prepare_ready",
+          "carrier": "h2",
+          "ech_accepted": true,
+          "tls_version": 772,
+          "alpn": "h2"
+        },
+        {
+          "event": "tls_ready",
+          "carrier": "h2",
+          "ech_required": true,
+          "ech_accepted": true,
+          "tls_version": 772,
+          "alpn": "h2"
+        }
+      ],
+      "target": {
+        "sse_requests": 1,
+        "sse_connections": [
+          20
+        ],
+        "echo_accepts": 1,
+        "echo_connections": [
+          19
+        ],
+        "small_requests": 79
+      },
+      "same_sse_target_continuity": true,
+      "same_echo_target_continuity": true,
+      "fault_timeline": {
+        "install_bracket_ms": 65.044296,
+        "client_events_ms_from_fault_install_begin": {
+          "suspected": 730.830203,
+          "prepare_start": 730.930872,
+          "prepare_ready": 945.206919,
+          "commit": 1355.111279,
+          "dial_start": 1355.19152,
+          "tls_ready": 1355.207821,
+          "activation_ready": 1458.369587,
+          "attach": 1458.762491
+        },
+        "client_event_session_mono_ns": {
+          "suspected": 9302345722,
+          "prepare_start": 9302414547,
+          "prepare_ready": 9516732252,
+          "commit": 9926347958,
+          "dial_start": 9926430304,
+          "tls_ready": 9926510208,
+          "activation_ready": 10029957680
+        },
+        "carrier_at_fault": "h3"
+      },
+      "blackhole_dropped": {
+        "client": [
+          {
+            "packets": 114,
+            "bytes": 60194
+          }
+        ],
+        "server": [
+          {
+            "packets": 36,
+            "bytes": 6606
+          }
+        ]
+      }
+    },
+    {
+      "trial_id": "02-blackhole-v02-s501",
+      "variant": "v02",
+      "profile": "blackhole",
+      "seed": 501,
+      "status": "completed",
+      "error": null,
+      "operations": {
+        "download_end": {
+          "total": 1,
+          "success": 0,
+          "failure": 0,
+          "timeout": 0,
+          "censored": 1,
+          "rejected": 0,
+          "connection_attempts": 0,
+          "success_rate_total": 0,
+          "successful_latency_ms": {
+            "n": 0,
+            "p50": 0,
+            "p95": 0,
+            "p99": 0,
+            "max": 0,
+            "mean": 0
+          },
+          "successful_scheduled_latency_ms": {
+            "n": 0,
+            "p50": 0,
+            "p95": 0,
+            "p99": 0,
+            "max": 0,
+            "mean": 0
+          },
+          "successful_ttfb_ms": {
+            "n": 0,
+            "p50": 0,
+            "p95": 0,
+            "p99": 0,
+            "max": 0,
+            "mean": 0
+          }
+        },
+        "echo": {
+          "total": 101,
+          "success": 99,
+          "failure": 1,
+          "timeout": 0,
+          "censored": 1,
+          "rejected": 0,
+          "connection_attempts": 0,
+          "success_rate_total": 0.9801980198019802,
+          "successful_latency_ms": {
+            "n": 99,
+            "p50": 114.608486,
+            "p95": 211.134943,
+            "p99": 430.713631,
+            "max": 430.713631,
+            "mean": 130.97162324242422
+          },
+          "successful_scheduled_latency_ms": {
+            "n": 0,
+            "p50": 0,
+            "p95": 0,
+            "p99": 0,
+            "max": 0,
+            "mean": 0
+          },
+          "successful_ttfb_ms": {
+            "n": 0,
+            "p50": 0,
+            "p95": 0,
+            "p99": 0,
+            "max": 0,
+            "mean": 0
+          }
+        },
+        "http": {
+          "total": 80,
+          "success": 75,
+          "failure": 1,
+          "timeout": 3,
+          "censored": 1,
+          "rejected": 0,
+          "connection_attempts": 77,
+          "success_rate_total": 0.9375,
+          "successful_latency_ms": {
+            "n": 75,
+            "p50": 406.897902,
+            "p95": 2354.492162,
+            "p99": 2921.400755,
+            "max": 2921.400755,
+            "mean": 615.7272566133333
+          },
+          "successful_scheduled_latency_ms": {
+            "n": 75,
+            "p50": 407.462641,
+            "p95": 2355.468292,
+            "p99": 2922.395752,
+            "max": 2922.395752,
+            "mean": 616.3971578666666
+          },
+          "successful_ttfb_ms": {
+            "n": 75,
+            "p50": 406.798728,
+            "p95": 2354.387237,
+            "p99": 2921.344363,
+            "max": 2921.344363,
+            "mean": 615.6154667333333
+          }
+        }
+      },
+      "sse": {
+        "connections": 2,
+        "connect_failure": 0,
+        "tokens": 243,
+        "sequence_errors": 0,
+        "source_errors": 0,
+        "unexpected_ends": 1,
+        "receive_gap_ms": {
+          "n": 242,
+          "p50": 50.206532,
+          "p95": 52.348436,
+          "p99": 56.288463,
+          "max": 3619.188754,
+          "mean": 64.71677077685949
+        },
+        "source_gap_ms": {
+          "n": 241,
+          "p50": 50.029682,
+          "p95": 50.849006,
+          "p99": 50.998927,
+          "max": 51.054592,
+          "mean": 50.00840520331952
+        },
+        "excess_gap_ms": {
+          "n": 241,
+          "p50": 0,
+          "p95": 2.269537999999997,
+          "p99": 5.637819,
+          "max": 6.5151889999999995,
+          "mean": 0.5569787261410787
+        },
+        "gaps_over_250ms": 1,
+        "gaps_over_1000ms": 1,
+        "excess_over_250ms": 0,
+        "excess_over_1000ms": 0,
+        "terminal_gaps_over_250ms": 1,
+        "terminal_gaps_over_1000ms": 1,
+        "max_terminal_gap_ms": 3000.326691,
+        "run_tail_gap_ms": 13.514065,
+        "source_generation_delay_ms": {
+          "n": 243,
+          "p50": 0.647443,
+          "p95": 1.094735,
+          "p99": 1.26078,
+          "max": 1.308515,
+          "mean": 0.5969667407407411
+        }
+      },
+      "echo_connections": 2,
+      "download_goodput_mbps": 1.8656944876959765,
+      "link": {
+        "px-client": {
+          "qdisc": {
+            "bytes": 968006,
+            "packets": 4575,
+            "drops": 74,
+            "overlimits": 0,
+            "requeues": 0
+          },
+          "namespace_tcp_retrans_segments_includes_loopback": 0
+        },
+        "px-server": {
+          "qdisc": {
+            "bytes": 5171798,
+            "packets": 7041,
+            "drops": 0,
+            "overlimits": 0,
+            "requeues": 0
+          },
+          "namespace_tcp_retrans_segments_includes_loopback": 6
+        }
+      },
+      "startup_link": {
+        "px-client": {
+          "qdisc": {
+            "bytes": 206726,
+            "packets": 1170,
+            "drops": 33,
+            "overlimits": 0,
+            "requeues": 0
+          },
+          "namespace_tcp_retrans_segments_includes_loopback": 0
+        },
+        "px-server": {
+          "qdisc": {
+            "bytes": 918075,
+            "packets": 1608,
+            "drops": 0,
+            "overlimits": 0,
+            "requeues": 0
+          },
+          "namespace_tcp_retrans_segments_includes_loopback": 0
+        }
+      },
+      "resource": {
+        "sampling_interval_s": 0.1,
+        "roles": {
+          "fixture": {
+            "samples": 159,
+            "sampled_seconds": 15.941448353987653,
+            "cpu_seconds_delta": 0.22999999999999998,
+            "cpu_percent_one_core": 1.4427798208339517,
+            "rss_peak_bytes": 15273984,
+            "rss_mean_bytes": 14335072.603773585,
+            "rss_last_bytes": 15273984
+          },
+          "server": {
+            "samples": 159,
+            "sampled_seconds": 15.941448353987653,
+            "cpu_seconds_delta": 0.43,
+            "cpu_percent_one_core": 2.697370969385214,
+            "rss_peak_bytes": 21549056,
+            "rss_mean_bytes": 19751556.02515723,
+            "rss_last_bytes": 20381696
+          },
+          "client": {
+            "samples": 159,
+            "sampled_seconds": 15.941448353987653,
+            "cpu_seconds_delta": 0.36,
+            "cpu_percent_one_core": 2.2582640673922723,
+            "rss_peak_bytes": 19353600,
+            "rss_mean_bytes": 19096505.157232706,
+            "rss_last_bytes": 19353600
+          },
+          "workload": {
+            "samples": 159,
+            "sampled_seconds": 15.941448353987653,
+            "cpu_seconds_delta": 0.25,
+            "cpu_percent_one_core": 1.568238935689078,
+            "rss_peak_bytes": 15273984,
+            "rss_mean_bytes": 14693459.72327044,
+            "rss_last_bytes": 14913536
+          }
+        }
+      },
+      "clock_bridge": {
+        "valid": false,
+        "vm_offset_spread_ns": 272286290,
+        "bench_offset_spread_ns": 135852783,
+        "bench_epoch_wall_ns": 1794300331166051899,
+        "observed_bench_epoch_delta_ns": -135842609
+      },
+      "attach_count": 2,
+      "client_switches": 1,
+      "preparation_count": 0,
+      "canceled_preparations": 0,
+      "commit_count": 0,
+      "ech_observations": [],
+      "target": {
+        "sse_requests": 2,
+        "sse_connections": [
+          19,
+          64
+        ],
+        "echo_accepts": 2,
+        "echo_connections": [
+          20,
+          62
+        ],
+        "small_requests": 76
+      },
+      "same_sse_target_continuity": false,
+      "same_echo_target_continuity": false,
+      "fault_timeline": {
+        "install_bracket_ms": 59.402309,
+        "client_events_ms_from_fault_install_begin": {
+          "attach": 2881.945028,
+          "detach": 2460.772798
+        },
+        "client_event_session_mono_ns": {},
+        "carrier_at_fault": "h3"
+      },
+      "blackhole_dropped": {
+        "client": [
+          {
+            "packets": 161,
+            "bytes": 86858
+          }
+        ],
+        "server": [
+          {
+            "packets": 42,
+            "bytes": 8013
+          }
+        ]
+      }
+    },
+    {
+      "trial_id": "03-blackhole-fixed-s501",
+      "variant": "fixed",
+      "profile": "blackhole",
+      "seed": 501,
+      "status": "completed",
+      "error": null,
+      "operations": {
+        "download_end": {
+          "total": 1,
+          "success": 0,
+          "failure": 0,
+          "timeout": 0,
+          "censored": 1,
+          "rejected": 0,
+          "connection_attempts": 0,
+          "success_rate_total": 0,
+          "successful_latency_ms": {
+            "n": 0,
+            "p50": 0,
+            "p95": 0,
+            "p99": 0,
+            "max": 0,
+            "mean": 0
+          },
+          "successful_scheduled_latency_ms": {
+            "n": 0,
+            "p50": 0,
+            "p95": 0,
+            "p99": 0,
+            "max": 0,
+            "mean": 0
+          },
+          "successful_ttfb_ms": {
+            "n": 0,
+            "p50": 0,
+            "p95": 0,
+            "p99": 0,
+            "max": 0,
+            "mean": 0
+          }
+        },
+        "echo": {
+          "total": 118,
+          "success": 117,
+          "failure": 0,
+          "timeout": 0,
+          "censored": 1,
+          "rejected": 0,
+          "connection_attempts": 0,
+          "success_rate_total": 0.9915254237288136,
+          "successful_latency_ms": {
+            "n": 117,
+            "p50": 113.70788,
+            "p95": 215.166962,
+            "p99": 229.482764,
+            "max": 1199.569835,
+            "mean": 136.18693882051275
+          },
+          "successful_scheduled_latency_ms": {
+            "n": 0,
+            "p50": 0,
+            "p95": 0,
+            "p99": 0,
+            "max": 0,
+            "mean": 0
+          },
+          "successful_ttfb_ms": {
+            "n": 0,
+            "p50": 0,
+            "p95": 0,
+            "p99": 0,
+            "max": 0,
+            "mean": 0
+          }
+        },
+        "http": {
+          "total": 80,
+          "success": 78,
+          "failure": 0,
+          "timeout": 0,
+          "censored": 2,
+          "rejected": 0,
+          "connection_attempts": 79,
+          "success_rate_total": 0.975,
+          "successful_latency_ms": {
+            "n": 78,
+            "p50": 382.933375,
+            "p95": 1164.683526,
+            "p99": 1536.180829,
+            "max": 1536.180829,
+            "mean": 440.30959125641033
+          },
+          "successful_scheduled_latency_ms": {
+            "n": 78,
+            "p50": 383.898378,
+            "p95": 1164.728449,
+            "p99": 1536.442281,
+            "max": 1536.442281,
+            "mean": 441.04818569230775
+          },
+          "successful_ttfb_ms": {
+            "n": 78,
+            "p50": 382.821457,
+            "p95": 1164.616046,
+            "p99": 1536.046797,
+            "max": 1536.046797,
+            "mean": 440.18929260256397
+          }
+        }
+      },
+      "sse": {
+        "connections": 1,
+        "connect_failure": 0,
+        "tokens": 314,
+        "sequence_errors": 0,
+        "source_errors": 0,
+        "unexpected_ends": 0,
+        "receive_gap_ms": {
+          "n": 313,
+          "p50": 49.923619,
+          "p95": 52.690527,
+          "p99": 54.576272,
+          "max": 1260.486033,
+          "mean": 49.99960777316296
+        },
+        "source_gap_ms": {
+          "n": 313,
+          "p50": 49.998643,
+          "p95": 50.815992,
+          "p99": 51.079071,
+          "max": 52.272648,
+          "mean": 50.00338308626199
+        },
+        "excess_gap_ms": {
+          "n": 313,
+          "p50": 0,
+          "p95": 2.609349999999999,
+          "p99": 4.4556809999999984,
+          "max": 1210.375986,
+          "mean": 4.364864214057508
+        },
+        "gaps_over_250ms": 1,
+        "gaps_over_1000ms": 1,
+        "excess_over_250ms": 1,
+        "excess_over_1000ms": 1,
+        "terminal_gaps_over_250ms": 0,
+        "terminal_gaps_over_1000ms": 0,
+        "max_terminal_gap_ms": 16.002757,
+        "run_tail_gap_ms": 16.006427,
+        "source_generation_delay_ms": {
+          "n": 314,
+          "p50": 0.630254,
+          "p95": 1.082309,
+          "p99": 1.282357,
+          "max": 3.099462,
+          "mean": 0.6153865350318471
+        }
+      },
+      "echo_connections": 1,
+      "download_goodput_mbps": 1.8738438729845854,
+      "link": {
+        "px-client": {
+          "qdisc": {
+            "bytes": 1052064,
+            "packets": 4992,
+            "drops": 182,
+            "overlimits": 0,
+            "requeues": 0
+          },
+          "namespace_tcp_retrans_segments_includes_loopback": 0
+        },
+        "px-server": {
+          "qdisc": {
+            "bytes": 5287737,
+            "packets": 7671,
+            "drops": 0,
+            "overlimits": 0,
+            "requeues": 0
+          },
+          "namespace_tcp_retrans_segments_includes_loopback": 12
+        }
+      },
+      "startup_link": {
+        "px-client": {
+          "qdisc": {
+            "bytes": 211820,
+            "packets": 1201,
+            "drops": 31,
+            "overlimits": 0,
+            "requeues": 0
+          },
+          "namespace_tcp_retrans_segments_includes_loopback": 0
+        },
+        "px-server": {
+          "qdisc": {
+            "bytes": 924966,
+            "packets": 1646,
+            "drops": 0,
+            "overlimits": 0,
+            "requeues": 0
+          },
+          "namespace_tcp_retrans_segments_includes_loopback": 0
+        }
+      },
+      "resource": {
+        "sampling_interval_s": 0.1,
+        "roles": {
+          "fixture": {
+            "samples": 159,
+            "sampled_seconds": 15.92532587601454,
+            "cpu_seconds_delta": 0.24000000000000002,
+            "cpu_percent_one_core": 1.5070335255209375,
+            "rss_peak_bytes": 15286272,
+            "rss_mean_bytes": 14327112.452830188,
+            "rss_last_bytes": 15286272
+          },
+          "server": {
+            "samples": 159,
+            "sampled_seconds": 15.92532587601454,
+            "cpu_seconds_delta": 0.48999999999999994,
+            "cpu_percent_one_core": 3.0768601146052466,
+            "rss_peak_bytes": 17199104,
+            "rss_mean_bytes": 17054378.666666668,
+            "rss_last_bytes": 17199104
+          },
+          "client": {
+            "samples": 159,
+            "sampled_seconds": 15.92532587601454,
+            "cpu_seconds_delta": 0.42,
+            "cpu_percent_one_core": 2.63730866966164,
+            "rss_peak_bytes": 19214336,
+            "rss_mean_bytes": 18002667.06918239,
+            "rss_last_bytes": 19099648
+          },
+          "workload": {
+            "samples": 159,
+            "sampled_seconds": 15.92532587601454,
+            "cpu_seconds_delta": 0.27,
+            "cpu_percent_one_core": 1.6954127162110544,
+            "rss_peak_bytes": 15335424,
+            "rss_mean_bytes": 14849957.836477987,
+            "rss_last_bytes": 15335424
+          }
+        }
+      },
+      "clock_bridge": {
+        "valid": false,
+        "vm_offset_spread_ns": 272902960,
+        "bench_offset_spread_ns": 135757433,
+        "bench_epoch_wall_ns": 1794300350836426788,
+        "observed_bench_epoch_delta_ns": -1024.0
+      },
+      "attach_count": 2,
+      "client_switches": 1,
+      "preparation_count": 0,
+      "canceled_preparations": 0,
+      "commit_count": 0,
+      "ech_observations": [
+        {
+          "event": "tls_ready",
+          "carrier": "h3",
+          "ech_required": true,
+          "ech_accepted": true,
+          "tls_version": 772,
+          "alpn": "h3"
+        },
+        {
+          "event": "tls_ready",
+          "carrier": "h2",
+          "ech_required": true,
+          "ech_accepted": true,
+          "tls_version": 772,
+          "alpn": "h2"
+        }
+      ],
+      "target": {
+        "sse_requests": 1,
+        "sse_connections": [
+          20
+        ],
+        "echo_accepts": 1,
+        "echo_connections": [
+          21
+        ],
+        "small_requests": 79
+      },
+      "same_sse_target_continuity": true,
+      "same_echo_target_continuity": true,
+      "fault_timeline": {
+        "install_bracket_ms": 54.537861,
+        "client_events_ms_from_fault_install_begin": {
+          "dead_timeout": 451.129058,
+          "dial_start": 552.375098,
+          "tls_ready": 768.432721,
+          "activation_ready": 873.138568,
+          "attach": 873.219056,
+          "detach": 451.447084
+        },
+        "client_event_session_mono_ns": {
+          "dead_timeout": 9002242620,
+          "dial_start": 9103491148,
+          "tls_ready": 9319556195,
+          "activation_ready": 9424244789
+        },
+        "carrier_at_fault": "h3"
+      },
+      "blackhole_dropped": {
+        "client": [
+          {
+            "packets": 90,
+            "bytes": 54311
+          }
+        ],
+        "server": [
+          {
+            "packets": 28,
+            "bytes": 3893
+          }
+        ]
+      }
+    },
+    {
+      "trial_id": "04-blackhole-no-prepare-s501",
+      "variant": "no-prepare",
+      "profile": "blackhole",
+      "seed": 501,
+      "status": "completed",
+      "error": null,
+      "operations": {
+        "download_end": {
+          "total": 1,
+          "success": 0,
+          "failure": 0,
+          "timeout": 0,
+          "censored": 1,
+          "rejected": 0,
+          "connection_attempts": 0,
+          "success_rate_total": 0,
+          "successful_latency_ms": {
+            "n": 0,
+            "p50": 0,
+            "p95": 0,
+            "p99": 0,
+            "max": 0,
+            "mean": 0
+          },
+          "successful_scheduled_latency_ms": {
+            "n": 0,
+            "p50": 0,
+            "p95": 0,
+            "p99": 0,
+            "max": 0,
+            "mean": 0
+          },
+          "successful_ttfb_ms": {
+            "n": 0,
+            "p50": 0,
+            "p95": 0,
+            "p99": 0,
+            "max": 0,
+            "mean": 0
+          }
+        },
+        "echo": {
+          "total": 119,
+          "success": 118,
+          "failure": 0,
+          "timeout": 0,
+          "censored": 1,
+          "rejected": 0,
+          "connection_attempts": 0,
+          "success_rate_total": 0.9915966386554622,
+          "successful_latency_ms": {
+            "n": 118,
+            "p50": 115.358163,
+            "p95": 210.040456,
+            "p99": 268.216458,
+            "max": 1138.757898,
+            "mean": 135.3719896525424
+          },
+          "successful_scheduled_latency_ms": {
+            "n": 0,
+            "p50": 0,
+            "p95": 0,
+            "p99": 0,
+            "max": 0,
+            "mean": 0
+          },
+          "successful_ttfb_ms": {
+            "n": 0,
+            "p50": 0,
+            "p95": 0,
+            "p99": 0,
+            "max": 0,
+            "mean": 0
+          }
+        },
+        "http": {
+          "total": 80,
+          "success": 79,
+          "failure": 0,
+          "timeout": 0,
+          "censored": 1,
+          "rejected": 0,
+          "connection_attempts": 79,
+          "success_rate_total": 0.9875,
+          "successful_latency_ms": {
+            "n": 79,
+            "p50": 378.088408,
+            "p95": 963.518247,
+            "p99": 1378.661844,
+            "max": 1378.661844,
+            "mean": 422.6896683164557
+          },
+          "successful_scheduled_latency_ms": {
+            "n": 79,
+            "p50": 378.586315,
+            "p95": 963.712281,
+            "p99": 1379.205832,
+            "max": 1379.205832,
+            "mean": 423.2887718101265
+          },
+          "successful_ttfb_ms": {
+            "n": 79,
+            "p50": 377.971934,
+            "p95": 963.431075,
+            "p99": 1378.542435,
+            "max": 1378.542435,
+            "mean": 422.57029362025315
+          }
+        }
+      },
+      "sse": {
+        "connections": 1,
+        "connect_failure": 0,
+        "tokens": 314,
+        "sequence_errors": 0,
+        "source_errors": 0,
+        "unexpected_ends": 0,
+        "receive_gap_ms": {
+          "n": 313,
+          "p50": 49.951021,
+          "p95": 52.872235,
+          "p99": 55.936825,
+          "max": 1008.968133,
+          "mean": 50.00633915654953
+        },
+        "source_gap_ms": {
+          "n": 313,
+          "p50": 49.995829,
+          "p95": 50.88808,
+          "p99": 51.069738,
+          "max": 51.457507,
+          "mean": 50.00120945047924
+        },
+        "excess_gap_ms": {
+          "n": 313,
+          "p50": 0,
+          "p95": 2.459108999999998,
+          "p99": 5.912149999999997,
+          "max": 959.27478,
+          "mean": 3.7726505495207667
+        },
+        "gaps_over_250ms": 1,
+        "gaps_over_1000ms": 1,
+        "excess_over_250ms": 1,
+        "excess_over_1000ms": 0,
+        "terminal_gaps_over_250ms": 0,
+        "terminal_gaps_over_1000ms": 0,
+        "max_terminal_gap_ms": 25.410951,
+        "run_tail_gap_ms": 25.415803,
+        "source_generation_delay_ms": {
+          "n": 314,
+          "p50": 0.558281,
+          "p95": 1.126881,
+          "p99": 1.286332,
+          "max": 1.53247,
+          "mean": 0.5699568821656056
+        }
+      },
+      "echo_connections": 1,
+      "download_goodput_mbps": 1.863598658926959,
+      "link": {
+        "px-client": {
+          "qdisc": {
+            "bytes": 1058102,
+            "packets": 5057,
+            "drops": 144,
+            "overlimits": 0,
+            "requeues": 0
+          },
+          "namespace_tcp_retrans_segments_includes_loopback": 0
+        },
+        "px-server": {
+          "qdisc": {
+            "bytes": 5272699,
+            "packets": 7646,
+            "drops": 0,
+            "overlimits": 0,
+            "requeues": 0
+          },
+          "namespace_tcp_retrans_segments_includes_loopback": 7
+        }
+      },
+      "startup_link": {
+        "px-client": {
+          "qdisc": {
+            "bytes": 204062,
+            "packets": 1166,
+            "drops": 42,
+            "overlimits": 0,
+            "requeues": 0
+          },
+          "namespace_tcp_retrans_segments_includes_loopback": 0
+        },
+        "px-server": {
+          "qdisc": {
+            "bytes": 920951,
+            "packets": 1609,
+            "drops": 0,
+            "overlimits": 0,
+            "requeues": 0
+          },
+          "namespace_tcp_retrans_segments_includes_loopback": 2
+        }
+      },
+      "resource": {
+        "sampling_interval_s": 0.1,
+        "roles": {
+          "fixture": {
+            "samples": 160,
+            "sampled_seconds": 16.026834824995603,
+            "cpu_seconds_delta": 0.23,
+            "cpu_percent_one_core": 1.4350930954956236,
+            "rss_peak_bytes": 15343616,
+            "rss_mean_bytes": 14286489.6,
+            "rss_last_bytes": 15343616
+          },
+          "server": {
+            "samples": 160,
+            "sampled_seconds": 16.026834824995603,
+            "cpu_seconds_delta": 0.48,
+            "cpu_percent_one_core": 2.994976894947388,
+            "rss_peak_bytes": 19329024,
+            "rss_mean_bytes": 19076070.4,
+            "rss_last_bytes": 19329024
+          },
+          "client": {
+            "samples": 160,
+            "sampled_seconds": 16.026834824995603,
+            "cpu_seconds_delta": 0.4600000000000001,
+            "cpu_percent_one_core": 2.8701861909912476,
+            "rss_peak_bytes": 19230720,
+            "rss_mean_bytes": 18987571.2,
+            "rss_last_bytes": 19230720
+          },
+          "workload": {
+            "samples": 160,
+            "sampled_seconds": 16.026834824995603,
+            "cpu_seconds_delta": 0.28,
+            "cpu_percent_one_core": 1.7470698553859767,
+            "rss_peak_bytes": 15355904,
+            "rss_mean_bytes": 14854348.8,
+            "rss_last_bytes": 0
+          }
+        }
+      },
+      "clock_bridge": {
+        "valid": false,
+        "vm_offset_spread_ns": 274571935,
+        "bench_offset_spread_ns": 138081913,
+        "bench_epoch_wall_ns": 1794300370463092049,
+        "observed_bench_epoch_delta_ns": -1024.0
+      },
+      "attach_count": 2,
+      "client_switches": 1,
+      "preparation_count": 0,
+      "canceled_preparations": 0,
+      "commit_count": 1,
+      "ech_observations": [
+        {
+          "event": "tls_ready",
+          "carrier": "h3",
+          "ech_required": true,
+          "ech_accepted": true,
+          "tls_version": 772,
+          "alpn": "h3"
+        },
+        {
+          "event": "tls_ready",
+          "carrier": "h2",
+          "ech_required": true,
+          "ech_accepted": true,
+          "tls_version": 772,
+          "alpn": "h2"
+        }
+      ],
+      "target": {
+        "sse_requests": 1,
+        "sse_connections": [
+          19
+        ],
+        "echo_accepts": 1,
+        "echo_connections": [
+          21
+        ],
+        "small_requests": 79
+      },
+      "same_sse_target_continuity": true,
+      "same_echo_target_continuity": true,
+      "fault_timeline": {
+        "install_bracket_ms": 56.9531,
+        "client_events_ms_from_fault_install_begin": {
+          "suspected": 274.5317,
+          "commit": 499.383064,
+          "dial_start": 499.695833,
+          "tls_ready": 714.14102,
+          "activation_ready": 819.368251,
+          "attach": 819.43458,
+          "detach": 499.6777
+        },
+        "client_event_session_mono_ns": {
+          "suspected": 8830533720,
+          "commit": 9055429422,
+          "dial_start": 9055800771,
+          "tls_ready": 9270167727,
+          "activation_ready": 9375349052
+        },
+        "carrier_at_fault": "h3"
+      },
+      "blackhole_dropped": {
+        "client": [
+          {
+            "packets": 137,
+            "bytes": 80896
+          }
+        ],
+        "server": [
+          {
+            "packets": 25,
+            "bytes": 3827
+          }
+        ]
+      }
+    }
+  ],
+  "groups": [
+    {
+      "profile": "blackhole",
+      "variant": "adaptive",
+      "trials": 1,
+      "completed": 1,
+      "same_sse_target": 1,
+      "same_echo_target": 1,
+      "client_switches": 1,
+      "preparation_count": 2,
+      "canceled_preparations": 1,
+      "http": {
+        "total": 80,
+        "success": 78,
+        "failure": 0,
+        "timeout": 0,
+        "censored": 2,
+        "rejected": 0,
+        "per_trial_p95_ms": {
+          "n": 1,
+          "min": 1642.480078,
+          "median": 1642.480078,
+          "max": 1642.480078
+        }
+      },
+      "echo": {
+        "total": 115,
+        "success": 114,
+        "failure": 0,
+        "timeout": 0,
+        "censored": 1,
+        "rejected": 0,
+        "per_trial_p95_ms": {
+          "n": 1,
+          "min": 209.204281,
+          "median": 209.204281,
+          "max": 209.204281
+        }
+      },
+      "per_trial_sse_max_gap_ms": {
+        "n": 1,
+        "min": 1643.366229,
+        "median": 1643.366229,
+        "max": 1643.366229
+      },
+      "per_trial_attach_ms_from_fault": {
+        "n": 1,
+        "min": 1458.762491,
+        "median": 1458.762491,
+        "max": 1458.762491
+      },
+      "per_trial_goodput_mbps": {
+        "n": 1,
+        "min": 1.86972811286346,
+        "median": 1.86972811286346,
+        "max": 1.86972811286346
+      },
+      "per_trial_wire_ip_bytes": {
+        "n": 1,
+        "min": 6262677,
+        "median": 6262677,
+        "max": 6262677
+      }
+    },
+    {
+      "profile": "blackhole",
+      "variant": "fixed",
+      "trials": 1,
+      "completed": 1,
+      "same_sse_target": 1,
+      "same_echo_target": 1,
+      "client_switches": 1,
+      "preparation_count": 0,
+      "canceled_preparations": 0,
+      "http": {
+        "total": 80,
+        "success": 78,
+        "failure": 0,
+        "timeout": 0,
+        "censored": 2,
+        "rejected": 0,
+        "per_trial_p95_ms": {
+          "n": 1,
+          "min": 1164.683526,
+          "median": 1164.683526,
+          "max": 1164.683526
+        }
+      },
+      "echo": {
+        "total": 118,
+        "success": 117,
+        "failure": 0,
+        "timeout": 0,
+        "censored": 1,
+        "rejected": 0,
+        "per_trial_p95_ms": {
+          "n": 1,
+          "min": 215.166962,
+          "median": 215.166962,
+          "max": 215.166962
+        }
+      },
+      "per_trial_sse_max_gap_ms": {
+        "n": 1,
+        "min": 1260.486033,
+        "median": 1260.486033,
+        "max": 1260.486033
+      },
+      "per_trial_attach_ms_from_fault": {
+        "n": 1,
+        "min": 873.219056,
+        "median": 873.219056,
+        "max": 873.219056
+      },
+      "per_trial_goodput_mbps": {
+        "n": 1,
+        "min": 1.8738438729845854,
+        "median": 1.8738438729845854,
+        "max": 1.8738438729845854
+      },
+      "per_trial_wire_ip_bytes": {
+        "n": 1,
+        "min": 6339801,
+        "median": 6339801,
+        "max": 6339801
+      }
+    },
+    {
+      "profile": "blackhole",
+      "variant": "no-prepare",
+      "trials": 1,
+      "completed": 1,
+      "same_sse_target": 1,
+      "same_echo_target": 1,
+      "client_switches": 1,
+      "preparation_count": 0,
+      "canceled_preparations": 0,
+      "http": {
+        "total": 80,
+        "success": 79,
+        "failure": 0,
+        "timeout": 0,
+        "censored": 1,
+        "rejected": 0,
+        "per_trial_p95_ms": {
+          "n": 1,
+          "min": 963.518247,
+          "median": 963.518247,
+          "max": 963.518247
+        }
+      },
+      "echo": {
+        "total": 119,
+        "success": 118,
+        "failure": 0,
+        "timeout": 0,
+        "censored": 1,
+        "rejected": 0,
+        "per_trial_p95_ms": {
+          "n": 1,
+          "min": 210.040456,
+          "median": 210.040456,
+          "max": 210.040456
+        }
+      },
+      "per_trial_sse_max_gap_ms": {
+        "n": 1,
+        "min": 1008.968133,
+        "median": 1008.968133,
+        "max": 1008.968133
+      },
+      "per_trial_attach_ms_from_fault": {
+        "n": 1,
+        "min": 819.43458,
+        "median": 819.43458,
+        "max": 819.43458
+      },
+      "per_trial_goodput_mbps": {
+        "n": 1,
+        "min": 1.863598658926959,
+        "median": 1.863598658926959,
+        "max": 1.863598658926959
+      },
+      "per_trial_wire_ip_bytes": {
+        "n": 1,
+        "min": 6330801,
+        "median": 6330801,
+        "max": 6330801
+      }
+    },
+    {
+      "profile": "blackhole",
+      "variant": "v02",
+      "trials": 1,
+      "completed": 1,
+      "same_sse_target": 0,
+      "same_echo_target": 0,
+      "client_switches": 1,
+      "preparation_count": 0,
+      "canceled_preparations": 0,
+      "http": {
+        "total": 80,
+        "success": 75,
+        "failure": 1,
+        "timeout": 3,
+        "censored": 1,
+        "rejected": 0,
+        "per_trial_p95_ms": {
+          "n": 1,
+          "min": 2354.492162,
+          "median": 2354.492162,
+          "max": 2354.492162
+        }
+      },
+      "echo": {
+        "total": 101,
+        "success": 99,
+        "failure": 1,
+        "timeout": 0,
+        "censored": 1,
+        "rejected": 0,
+        "per_trial_p95_ms": {
+          "n": 1,
+          "min": 211.134943,
+          "median": 211.134943,
+          "max": 211.134943
+        }
+      },
+      "per_trial_sse_max_gap_ms": {
+        "n": 1,
+        "min": 3619.188754,
+        "median": 3619.188754,
+        "max": 3619.188754
+      },
+      "per_trial_attach_ms_from_fault": {
+        "n": 1,
+        "min": 2881.945028,
+        "median": 2881.945028,
+        "max": 2881.945028
+      },
+      "per_trial_goodput_mbps": {
+        "n": 1,
+        "min": 1.8656944876959765,
+        "median": 1.8656944876959765,
+        "max": 1.8656944876959765
+      },
+      "per_trial_wire_ip_bytes": {
+        "n": 1,
+        "min": 6139804,
+        "median": 6139804,
+        "max": 6139804
+      }
+    }
+  ],
+  "notes": [
+    "Each trial restarts client, server and fixture; requests/tokens within a trial are not independent repetitions.",
+    "Input-hook UDP drops are silent; IP qdisc counters include traffic dropped later at the destination.",
+    "First receipt after injection can be an in-flight reply; restoration is reported after client attach, with largest nearby receipt gap.",
+    "Fault timestamps bracket firewall commands; proxy log receipt is an upper bound on the internal event.",
+    "Matched source connection IDs and client connection counts establish same-target continuity; SSE tail is right-censored.",
+    "Total IP bytes include padding, standby, probes, retransmission and interactive/background traffic; warmup/startup separate.",
+    "Xray is TCP-only and Hysteria here has no TCP standby. Cross-protocol blackhole results are not equal-fallback evidence.",
+    "16-second windows and few seeds do not establish long-term false-positive rates or population p99."
+  ]
+}

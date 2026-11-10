@@ -1,0 +1,42 @@
+{
+  "created_utc": "2026-11-10T09:24:26.593066+00:00",
+  "base_commit": "e4c93d91d228ef6ebb33f1e6fbf112e1805aeff3",
+  "note": "v0.3 working tree causal progress candidate; per-source hashes exclude tests, docs and harness",
+  "toolchain": "go version go1.27.1 darwin/arm64",
+  "build_flags": "-trimpath -buildvcs=false -ldflags=-s -w",
+  "sources": {
+    "cmd/protox/main.go": "7a4e0042d45572c6ca1a68c7d5ddf88570ee83da69d9e9fcc4819af6b9c58ed9",
+    "cmd/pxbench/main.go": "9e139ba49264571061de1b29f99f3a691fd3f687d815ed6599591a62ea09b6df",
+    "go.mod": "49db1cf1ea93fc4c1ac57834687e4ae6f046990eae1dfcbea68b63a43d8311ee",
+    "go.sum": "66bd5384a551086586fcf25c0c572f724aa5ac1987d71c8bcde3da9fb9bc23fc",
+    "internal/app/client.go": "3b7bf7fb9bcbb859b931e90983ea2b89905683b09d6fb4df4bc59aec53a09bc4",
+    "internal/app/client_recovery.go": "b9dc0637149eed8a24b2e3c74a713c33763c2f3d23cdef642c6b808e464ec304",
+    "internal/app/config.go": "e8cc2b5f0bad638e681dde0fa27144c5f66f556af6d4645450a6cdc770f8b271",
+    "internal/app/private_files.go": "b09c5cdbd088074cafe0203d4f7143f502094414f07e05571bb84bb30baeca65",
+    "internal/app/server.go": "89fc0f4d965b58e269d8762d49b71e024a7166c86839ee4ae9fef7c9d688c8e6",
+    "internal/app/web.go": "7f676df6e5ec498fb6146a246aca75e09df056074a6335e325647b2786b41b79",
+    "internal/app/web_init.go": "1d5cebc4397e4c15b7f55581a63470ab5bd1fb2a20f4655ccb18369055eb7367",
+    "internal/bench/events.go": "3407be85842e46e26f9d2b78f94b4da0dea356d1675ef09b828845f5d755e389",
+    "internal/bench/payload.go": "e81ab00e863b6f0cd567727e2c1bd31f832a0235997fd2a8b4599c6a975aa577",
+    "internal/bench/run.go": "6956c37a3653c4ed02c29840a7e81be7a23e5eb9f4bb02b21e52e25e01e37620",
+    "internal/bench/serve.go": "fdced44b2e507cc0c8db5891b22fd694161df80d71c4b31d64a1533162c34aba",
+    "internal/bench/socks.go": "fe2ad579300172d260233772ed4e5917ec5b062151104f9fedff42b90f5ead69",
+    "internal/carrier/carrier.go": "b5bb977636ee79ab10951b0903c1d5869bc7388ae61fee59e48ac581f39c3479",
+    "internal/carrier/web.go": "55af862407e68ddd0b215ac3737b7d3b0f2a842998ad613fa7de30a340f27fb1",
+    "internal/carrier/web_h2_go126.go": "fc6c255eb0c87665b78091ca251722ca5bed19aaa446a77cc9dbb1b7057cb1a9",
+    "internal/carrier/web_h2_go127.go": "613339ae5a7fd0fc7a9763f935eed673d5d0a9d3429d4f8097c045114c806a3e",
+    "internal/carrier/web_records.go": "1e5dc2314c17c1bd58888d790d3ce4f336772eae4b366e1b2684a7ca44227091",
+    "internal/carrier/web_tls.go": "ddeae5b4d071d7b9392edf14b4c407c43c8e7725ea682d42c9aa4b12ed97a33b",
+    "internal/cover/auth.go": "b4f6fe924880a31ac67827414c9f163cd654f8c5d3a3439e09ed17236887b948",
+    "internal/cover/site.go": "8d8073bfb477f6e087f5fd56f3e7a55cdb7a1e2774f55f0e7a9e8f43f64d62f5",
+    "internal/scheduler/budget.go": "6205179eb8d05938e1429a15ffd182af86596a7ec2a53316c3e5b21394543bbe",
+    "internal/session/delivery.go": "28deec47840c7b79821ccfbbb5ce06e200dfb99297141ac18d559481243f40d0",
+    "internal/session/path.go": "06b274d6e703b4ba8bd024f0da09aa92ec7e5c61bc4b57b72f5e1568a1279402",
+    "internal/session/session.go": "5160806669bf4c6fbf598620b0d85dae3dbe42eb86f836d54dd34f44f794e2f5",
+    "internal/wire/frame.go": "bc1d02545261a1171e26f1aa7edb81c577199c4bb98fde3b5bf768f5ea3dafad"
+  },
+  "binaries": {
+    "protox": "cf0665191fbe2df5afaf22667b30a7895caabcae6335d3488490c7abb0b22683",
+    "protox-linux-arm64": "00d7ed43943d53e58554ac01fa6b138e3117d078ed8f51a4c49c59e0ae7ecea4"
+  }
+}

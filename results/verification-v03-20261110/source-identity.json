@@ -1,0 +1,30 @@
+{
+  "checked_utc": "2026-11-10T08:53:07.875672+00:00",
+  "git_head": "e4c93d91d228ef6ebb33f1e6fbf112e1805aeff3",
+  "initial_branch": "main",
+  "initial_worktree": "dirty; inherited tracked diff and untracked work archived privately before edits",
+  "toolchain": "go version go1.27.1 darwin/arm64",
+  "rebuild_command": "git archive e4c93d9; go build -trimpath -buildvcs=false -ldflags='-s -w' ./cmd/protox",
+  "macos_binary_sha256": "8a8fd8b25be1eed3882d0396c5ca311fb51048fb75ba190dc9cfebdde63f4c2d",
+  "clean_rebuild_sha256": "8a8fd8b25be1eed3882d0396c5ca311fb51048fb75ba190dc9cfebdde63f4c2d",
+  "existing_linux_amd64_sha256": "35f066d0b2b7f906e972d35df8b4727c31876c16136c6475b5a7846dd5c685b7",
+  "historical_remote_deployment_sha256": "35f066d0b2b7f906e972d35df8b4727c31876c16136c6475b5a7846dd5c685b7",
+  "existing_local_listener": {
+    "port": 1088,
+    "process_executable": "bin/protox",
+    "observed_listening": true,
+    "public_https_probe": "connect timeout after 4 seconds"
+  },
+  "remote_now": {
+    "management_ssh": "connect timeout",
+    "service_tcp": "connect timeout",
+    "remote_binary_hash": "unavailable",
+    "new_deployment_performed": false
+  },
+  "limits": [
+    "Historical remote hash is not a current remote inventory.",
+    "Local process maps the preserved bin/protox pathname; the executable file was not replaced during these probes.",
+    "Timeouts do not establish a censorship mechanism; server-side capture was unavailable."
+  ],
+  "clean_rebuild_linux_amd64_sha256": "35f066d0b2b7f906e972d35df8b4727c31876c16136c6475b5a7846dd5c685b7"
+}

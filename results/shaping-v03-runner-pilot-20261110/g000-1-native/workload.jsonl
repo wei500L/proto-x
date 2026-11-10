@@ -1,0 +1,18 @@
+{"elapsed_clock":"Go monotonic; same-host wall epoch aligns process starts","epoch_unix_ns":1794300466050561000,"kind":"clock","t_ns":1209}
+{"alpn":"h3","ech_accepted":true,"kind":"transport","t_ns":56285709}
+{"background_mbps":2,"duration_ms":500,"http_bytes":768,"kind":"workload_start","rps":6,"seed":20261110,"sse_interval_ms":70,"t_ns":105037584}
+{"kind":"sse_connect","latency_ms":45.606583,"status":"success","t_ns":150718125}
+{"bytes":768,"kind":"http","latency_ms":46.606458,"scheduled_latency_ms":46.698375,"seq":0,"status":"success","t_ns":151734959,"ttfb_ms":46.584624999999996}
+{"bytes":64,"gap_ms":1.1633749999999998,"kind":"sse_token","seq":0,"sequence_ok":true,"source_elapsed_ns":458,"t_ns":151913834}
+{"bytes":64,"gap_ms":68.012792,"kind":"sse_token","seq":1,"sequence_ok":true,"source_elapsed_ns":70248833,"t_ns":219927375}
+{"bytes":64,"gap_ms":68.119208,"kind":"sse_token","seq":2,"sequence_ok":true,"source_elapsed_ns":140460250,"t_ns":288046542}
+{"bytes":768,"kind":"http","latency_ms":42.139417,"scheduled_latency_ms":43.204186,"seq":1,"status":"success","t_ns":307638834,"ttfb_ms":42.121708}
+{"bytes":64,"gap_ms":69.7215,"kind":"sse_token","seq":3,"sequence_ok":true,"source_elapsed_ns":210231958,"t_ns":357768000}
+{"bytes":64,"gap_ms":69.54475000000001,"kind":"sse_token","seq":4,"sequence_ok":true,"source_elapsed_ns":280047291,"t_ns":427312792}
+{"bytes":768,"kind":"http","latency_ms":42.576042,"scheduled_latency_ms":43.056672,"seq":2,"status":"success","t_ns":435103875,"ttfb_ms":42.557959}
+{"bytes":64,"gap_ms":70.59987500000001,"kind":"sse_token","seq":5,"sequence_ok":true,"source_elapsed_ns":350323000,"t_ns":497913334}
+{"bytes":64,"gap_ms":70.28295800000001,"kind":"sse_token","seq":6,"sequence_ok":true,"source_elapsed_ns":420274875,"t_ns":568195834}
+{"bytes":110592,"kind":"download","status":"censored","t_ns":605434417}
+{"kind":"sse_end","status":"censored","t_ns":605463792,"terminal_gap_ms":37.245625}
+{"bytes":0,"kind":"http","latency_ms":35.7365,"scheduled_latency_ms":35.99365,"seq":3,"status":"censored","t_ns":605505584,"ttfb_ms":35.734916999999996}
+{"elapsed_ms":500.500916,"kind":"workload_end","t_ns":605537500,"wall_unix_ns":1794300466656103000}

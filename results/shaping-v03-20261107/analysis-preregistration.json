@@ -1,0 +1,11 @@
+{
+  "frozen_utc": "2026-11-07T11:22:24.597646+00:00",
+  "files": {
+    "tools/shapebench/analyze.py": "a19e9073156386e65ada537a7e6fb8d262c62f89622f5130dff5f8ad3348eb37",
+    "tools/shapebench/main.go": "5176212ce0f545b140920c5c58da50e85cc0a7b101aabb39dfe0b28aa172ae38",
+    "tools/shapebench/run.py": "d4b9ffa5d09c413d685b121a8e1d5d5f24b6dd755fb9b36990e40065a5207422"
+  },
+  "model": "L2=1 logistic, full/length-only/timing-counts-only; frozen p0 and retrain per padding cap",
+  "selection": "whole matched seed group; train groups 0..23 then untouched groups24..39",
+  "note": "fixed before collection completes; pilot only used for application/clock integrity checks, not detector selection"
+}

@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "id": "g007-1-native",
+  "group": 7,
+  "split": "train",
+  "mode": "native",
+  "order_in_group": 1,
+  "started_utc": "2026-11-07T11:21:44.553113+00:00",
+  "seed": 71707,
+  "status": "running",
+  "workload": {
+    "rps": 8.0,
+    "http_bytes": 1024,
+    "sse_interval_ms": 70,
+    "background_mbps": 1.2,
+    "duration_ms": 3000,
+    "seed": 71707
+  },
+  "relay": {
+    "one_way_delay_ms": 20,
+    "up_ipv4_mbps": 2.0,
+    "down_ipv4_mbps": 8.0
+  }
+}

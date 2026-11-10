@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "created_utc": "2026-11-07T11:17:49.369006+00:00",
+  "binaries_sha256": {
+    "protox": "8a8fd8b25be1eed3882d0396c5ca311fb51048fb75ba190dc9cfebdde63f4c2d",
+    "pxbench": "d02bc17f6aca81d5330baa190b72e15cdce7b11964540eeff3deed68e9505584",
+    "helper": "cb7530d486581c432ecc31a112a51c001621c03766aba4985e683ba71657c831",
+    "recognition": "54081bab1a0360b0b45994b190457879f0b4ae76551175986a21e35670256197"
+  },
+  "proxy_source_commit": "e4c93d91d228ef6ebb33f1e6fbf112e1805aeff3",
+  "proxy_source_identity": "binary hash; only e4c93d9 verified baseline is intended",
+  "duration_seconds": 1.5,
+  "train_groups": 1,
+  "heldout_groups": 1,
+  "modes": [
+    "native",
+    "p0",
+    "p63",
+    "p127",
+    "p255"
+  ],
+  "paired_group_fields": "seed, workload, all modes; no fragments cross split",
+  "capture": "actual UDP ingress metadata at controlled relay; no payload retained",
+  "network": "loopback sockets with per-direction serialization at 8/2 Mbps including IPv4+UDP headers, propagation delay",
+  "limitations": [
+    "native reference is a scripted Go H3 application, not a browser population",
+    "fixed per-run private CA, names and capture tool are identical for all labels and excluded from features",
+    "cost includes handshake, health and closure; classifier uses business-only window",
+    "post-2026-11-07 real network/DPI or production access is not part of this experiment"
+  ]
+}

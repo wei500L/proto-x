@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "id": "g030-0-p255",
+  "group": 30,
+  "split": "heldout",
+  "mode": "p255",
+  "order_in_group": 0,
+  "started_utc": "2026-11-07T11:28:16.547433+00:00",
+  "seed": 71730,
+  "status": "completed",
+  "workload": {
+    "rps": 6.0,
+    "http_bytes": 1536,
+    "sse_interval_ms": 50,
+    "background_mbps": 1.6,
+    "duration_ms": 3000,
+    "seed": 71730
+  },
+  "relay": {
+    "one_way_delay_ms": 20,
+    "up_ipv4_mbps": 2.0,
+    "down_ipv4_mbps": 8.0
+  },
+  "workload_process_begin_ns": 222863625,
+  "workload_exit": 0,
+  "processes": {
+    "workload": {
+      "exit": 0,
+      "forced_kill": false
+    },
+    "client": {
+      "exit": 0,
+      "forced_kill": false
+    },
+    "relay": {
+      "exit": 0,
+      "forced_kill": false
+    },
+    "server": {
+      "exit": 0,
+      "forced_kill": false
+    },
+    "origin": {
+      "exit": 0,
+      "forced_kill": false
+    }
+  },
+  "wall_ms": 3483.150916,
+  "files": {
+    "packets.jsonl": "55b11659a7c492406ef0f5cd81323bbf5e566bca63e4b6900f7fbad328add2fc",
+    "workload.jsonl": "6908056f3a53c0a30b5a8993a5da2b09a4028a5a93e3e37bad14d768fb879084"
+  }
+}

@@ -1,0 +1,4912 @@
+{
+  "schema": 1,
+  "source_batch": "shaping-v03-20261107",
+  "target_batch": "shaping-v03-ack-20261110",
+  "kind": "post-hoc diagnostic: source training groups only; fixed p0 model and native-training threshold; target used only for evaluation",
+  "target_scope": "all target groups, including groups used to fit the separate within-target experiment; no target sample is used for this transfer fit",
+  "detectors": {
+    "full": [
+      {
+        "trained_proxy_mode": "p0",
+        "tested_proxy_mode": "p0",
+        "train_sessions": 48,
+        "heldout_sessions": 80,
+        "heldout_groups": 40,
+        "auc": 1.0,
+        "auc_paired_group_bootstrap_95": [
+          1.0,
+          1.0
+        ],
+        "threshold": -1.8551964551997333,
+        "threshold_rule": "strictly greater than maximum native training score (empirical training FPR zero)",
+        "true_positives": 40,
+        "positives": 40,
+        "tpr": 1.0,
+        "tpr_wilson_95": [
+          0.9123783988027135,
+          1.0
+        ],
+        "false_positives": 4,
+        "negatives": 40,
+        "fpr": 0.1,
+        "fpr_wilson_95": [
+          0.03957952868260638,
+          0.23051775227522298
+        ],
+        "largest_standardized_coefficients": [
+          [
+            "up_size_q90",
+            0.09850232890540221
+          ],
+          [
+            "up_size_q50",
+            0.09846103445307461
+          ],
+          [
+            "down_size_q10",
+            -0.09846103445307461
+          ],
+          [
+            "down_size_below_1000",
+            0.09840064699360423
+          ],
+          [
+            "up_size_mean",
+            0.09835303639438474
+          ],
+          [
+            "down_size_mean",
+            -0.09816204281591841
+          ],
+          [
+            "up_iat_below_1ms",
+            0.09773585024970795
+          ],
+          [
+            "down_size_below_128",
+            0.09723481050866696
+          ]
+        ],
+        "test_scores": [
+          {
+            "group": "target-0",
+            "mode": "native",
+            "label": 0,
+            "score": -2.2540151239945443
+          },
+          {
+            "group": "target-0",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.5734528267291665
+          },
+          {
+            "group": "target-1",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.9330029994261126
+          },
+          {
+            "group": "target-1",
+            "mode": "native",
+            "label": 0,
+            "score": -2.707941015036436
+          },
+          {
+            "group": "target-2",
+            "mode": "native",
+            "label": 0,
+            "score": -2.1996755012940596
+          },
+          {
+            "group": "target-2",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.5272273680080337
+          },
+          {
+            "group": "target-3",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.9983662536154538
+          },
+          {
+            "group": "target-3",
+            "mode": "native",
+            "label": 0,
+            "score": -2.299373384619719
+          },
+          {
+            "group": "target-4",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.475123677518052
+          },
+          {
+            "group": "target-4",
+            "mode": "native",
+            "label": 0,
+            "score": -2.2246301361465948
+          },
+          {
+            "group": "target-5",
+            "mode": "native",
+            "label": 0,
+            "score": -2.0567443725619867
+          },
+          {
+            "group": "target-5",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.66545816168672
+          },
+          {
+            "group": "target-6",
+            "mode": "native",
+            "label": 0,
+            "score": -2.5132902445116616
+          },
+          {
+            "group": "target-6",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.8587764170330459
+          },
+          {
+            "group": "target-7",
+            "mode": "native",
+            "label": 0,
+            "score": -2.709026696897409
+          },
+          {
+            "group": "target-7",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.8407412554542013
+          },
+          {
+            "group": "target-8",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.1339041744516356
+          },
+          {
+            "group": "target-8",
+            "mode": "native",
+            "label": 0,
+            "score": -2.477500297543524
+          },
+          {
+            "group": "target-9",
+            "mode": "native",
+            "label": 0,
+            "score": -2.192954937822437
+          },
+          {
+            "group": "target-9",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.1186646435646064
+          },
+          {
+            "group": "target-10",
+            "mode": "native",
+            "label": 0,
+            "score": -1.8788877614378712
+          },
+          {
+            "group": "target-10",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.6542795670729924
+          },
+          {
+            "group": "target-11",
+            "mode": "native",
+            "label": 0,
+            "score": -2.115606834012735
+          },
+          {
+            "group": "target-11",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.2747591592051686
+          },
+          {
+            "group": "target-12",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.1762295097327096
+          },
+          {
+            "group": "target-12",
+            "mode": "native",
+            "label": 0,
+            "score": -2.1984891445679686
+          },
+          {
+            "group": "target-13",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.185085550484174
+          },
+          {
+            "group": "target-13",
+            "mode": "native",
+            "label": 0,
+            "score": -2.0754070102614843
+          },
+          {
+            "group": "target-14",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.597157285477998
+          },
+          {
+            "group": "target-14",
+            "mode": "native",
+            "label": 0,
+            "score": -2.0575318589746314
+          },
+          {
+            "group": "target-15",
+            "mode": "native",
+            "label": 0,
+            "score": -2.2112432813567606
+          },
+          {
+            "group": "target-15",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.5319140540775056
+          },
+          {
+            "group": "target-16",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.6890350701338406
+          },
+          {
+            "group": "target-16",
+            "mode": "native",
+            "label": 0,
+            "score": -1.851055527962857
+          },
+          {
+            "group": "target-17",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.5564925653280337
+          },
+          {
+            "group": "target-17",
+            "mode": "native",
+            "label": 0,
+            "score": -2.1946219978690404
+          },
+          {
+            "group": "target-18",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.8819430437724363
+          },
+          {
+            "group": "target-18",
+            "mode": "native",
+            "label": 0,
+            "score": -2.8844921550263587
+          },
+          {
+            "group": "target-19",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.7955689481853236
+          },
+          {
+            "group": "target-19",
+            "mode": "native",
+            "label": 0,
+            "score": -2.46860057636525
+          },
+          {
+            "group": "target-20",
+            "mode": "native",
+            "label": 0,
+            "score": -2.4025999073421307
+          },
+          {
+            "group": "target-20",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.0489189350718604
+          },
+          {
+            "group": "target-21",
+            "mode": "native",
+            "label": 0,
+            "score": -1.8106778174610192
+          },
+          {
+            "group": "target-21",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.732608723989404
+          },
+          {
+            "group": "target-22",
+            "mode": "native",
+            "label": 0,
+            "score": -2.195192783137001
+          },
+          {
+            "group": "target-22",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.134162240281757
+          },
+          {
+            "group": "target-23",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.9932402929180641
+          },
+          {
+            "group": "target-23",
+            "mode": "native",
+            "label": 0,
+            "score": -2.6661881528649465
+          },
+          {
+            "group": "target-24",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9178440473816125
+          },
+          {
+            "group": "target-24",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.791969150974965
+          },
+          {
+            "group": "target-25",
+            "mode": "native",
+            "label": 0,
+            "score": -2.376649750472769
+          },
+          {
+            "group": "target-25",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.003596317061209
+          },
+          {
+            "group": "target-26",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.7378382849449467
+          },
+          {
+            "group": "target-26",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9403201864520845
+          },
+          {
+            "group": "target-27",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.9840468374027382
+          },
+          {
+            "group": "target-27",
+            "mode": "native",
+            "label": 0,
+            "score": -2.4219006485424064
+          },
+          {
+            "group": "target-28",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.047775141942985
+          },
+          {
+            "group": "target-28",
+            "mode": "native",
+            "label": 0,
+            "score": -2.6472045236133708
+          },
+          {
+            "group": "target-29",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9609088751282457
+          },
+          {
+            "group": "target-29",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.7031928410877404
+          },
+          {
+            "group": "target-30",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.8875117954909104
+          },
+          {
+            "group": "target-30",
+            "mode": "native",
+            "label": 0,
+            "score": -1.7825272741960687
+          },
+          {
+            "group": "target-31",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.6910349341239006
+          },
+          {
+            "group": "target-31",
+            "mode": "native",
+            "label": 0,
+            "score": -2.022175393648894
+          },
+          {
+            "group": "target-32",
+            "mode": "native",
+            "label": 0,
+            "score": -2.2381990451903
+          },
+          {
+            "group": "target-32",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.218936135977448
+          },
+          {
+            "group": "target-33",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.790945547161325
+          },
+          {
+            "group": "target-33",
+            "mode": "native",
+            "label": 0,
+            "score": -1.7767538825182914
+          },
+          {
+            "group": "target-34",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.0197623272168874
+          },
+          {
+            "group": "target-34",
+            "mode": "native",
+            "label": 0,
+            "score": -2.516361959548985
+          },
+          {
+            "group": "target-35",
+            "mode": "native",
+            "label": 0,
+            "score": -2.433623519883624
+          },
+          {
+            "group": "target-35",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.193739184926924
+          },
+          {
+            "group": "target-36",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.078927998488631
+          },
+          {
+            "group": "target-36",
+            "mode": "native",
+            "label": 0,
+            "score": -2.641855172573026
+          },
+          {
+            "group": "target-37",
+            "mode": "native",
+            "label": 0,
+            "score": -1.988972700378287
+          },
+          {
+            "group": "target-37",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.711256266754817
+          },
+          {
+            "group": "target-38",
+            "mode": "native",
+            "label": 0,
+            "score": -2.2336137494910258
+          },
+          {
+            "group": "target-38",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.4455052974390856
+          },
+          {
+            "group": "target-39",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.536031342035268
+          },
+          {
+            "group": "target-39",
+            "mode": "native",
+            "label": 0,
+            "score": -2.0637691701892975
+          }
+        ]
+      },
+      {
+        "trained_proxy_mode": "p0",
+        "tested_proxy_mode": "ack-p0",
+        "train_sessions": 48,
+        "heldout_sessions": 80,
+        "heldout_groups": 40,
+        "auc": 1.0,
+        "auc_paired_group_bootstrap_95": [
+          1.0,
+          1.0
+        ],
+        "threshold": -1.8551964551997333,
+        "threshold_rule": "strictly greater than maximum native training score (empirical training FPR zero)",
+        "true_positives": 40,
+        "positives": 40,
+        "tpr": 1.0,
+        "tpr_wilson_95": [
+          0.9123783988027135,
+          1.0
+        ],
+        "false_positives": 4,
+        "negatives": 40,
+        "fpr": 0.1,
+        "fpr_wilson_95": [
+          0.03957952868260638,
+          0.23051775227522298
+        ],
+        "largest_standardized_coefficients": [
+          [
+            "up_size_q90",
+            0.09850232890540221
+          ],
+          [
+            "up_size_q50",
+            0.09846103445307461
+          ],
+          [
+            "down_size_q10",
+            -0.09846103445307461
+          ],
+          [
+            "down_size_below_1000",
+            0.09840064699360423
+          ],
+          [
+            "up_size_mean",
+            0.09835303639438474
+          ],
+          [
+            "down_size_mean",
+            -0.09816204281591841
+          ],
+          [
+            "up_iat_below_1ms",
+            0.09773585024970795
+          ],
+          [
+            "down_size_below_128",
+            0.09723481050866696
+          ]
+        ],
+        "test_scores": [
+          {
+            "group": "target-0",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.5978857324639086
+          },
+          {
+            "group": "target-0",
+            "mode": "native",
+            "label": 0,
+            "score": -2.2540151239945443
+          },
+          {
+            "group": "target-1",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.9098174854847475
+          },
+          {
+            "group": "target-1",
+            "mode": "native",
+            "label": 0,
+            "score": -2.707941015036436
+          },
+          {
+            "group": "target-2",
+            "mode": "native",
+            "label": 0,
+            "score": -2.1996755012940596
+          },
+          {
+            "group": "target-2",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.4937606852570702
+          },
+          {
+            "group": "target-3",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.5286416960070448
+          },
+          {
+            "group": "target-3",
+            "mode": "native",
+            "label": 0,
+            "score": -2.299373384619719
+          },
+          {
+            "group": "target-4",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.4526095437166626
+          },
+          {
+            "group": "target-4",
+            "mode": "native",
+            "label": 0,
+            "score": -2.2246301361465948
+          },
+          {
+            "group": "target-5",
+            "mode": "native",
+            "label": 0,
+            "score": -2.0567443725619867
+          },
+          {
+            "group": "target-5",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.640011117143232
+          },
+          {
+            "group": "target-6",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.266370209977382
+          },
+          {
+            "group": "target-6",
+            "mode": "native",
+            "label": 0,
+            "score": -2.5132902445116616
+          },
+          {
+            "group": "target-7",
+            "mode": "native",
+            "label": 0,
+            "score": -2.709026696897409
+          },
+          {
+            "group": "target-7",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.8891294867512148
+          },
+          {
+            "group": "target-8",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.2051091039005333
+          },
+          {
+            "group": "target-8",
+            "mode": "native",
+            "label": 0,
+            "score": -2.477500297543524
+          },
+          {
+            "group": "target-9",
+            "mode": "native",
+            "label": 0,
+            "score": -2.192954937822437
+          },
+          {
+            "group": "target-9",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.6545255475584226
+          },
+          {
+            "group": "target-10",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.6769434071931224
+          },
+          {
+            "group": "target-10",
+            "mode": "native",
+            "label": 0,
+            "score": -1.8788877614378712
+          },
+          {
+            "group": "target-11",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.6201951586139898
+          },
+          {
+            "group": "target-11",
+            "mode": "native",
+            "label": 0,
+            "score": -2.115606834012735
+          },
+          {
+            "group": "target-12",
+            "mode": "native",
+            "label": 0,
+            "score": -2.1984891445679686
+          },
+          {
+            "group": "target-12",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.6451606381958475
+          },
+          {
+            "group": "target-13",
+            "mode": "native",
+            "label": 0,
+            "score": -2.0754070102614843
+          },
+          {
+            "group": "target-13",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.3435873950256012
+          },
+          {
+            "group": "target-14",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.636196256247804
+          },
+          {
+            "group": "target-14",
+            "mode": "native",
+            "label": 0,
+            "score": -2.0575318589746314
+          },
+          {
+            "group": "target-15",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.533288880985157
+          },
+          {
+            "group": "target-15",
+            "mode": "native",
+            "label": 0,
+            "score": -2.2112432813567606
+          },
+          {
+            "group": "target-16",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.7320391738100347
+          },
+          {
+            "group": "target-16",
+            "mode": "native",
+            "label": 0,
+            "score": -1.851055527962857
+          },
+          {
+            "group": "target-17",
+            "mode": "native",
+            "label": 0,
+            "score": -2.1946219978690404
+          },
+          {
+            "group": "target-17",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.4902789361496165
+          },
+          {
+            "group": "target-18",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.8927229075158465
+          },
+          {
+            "group": "target-18",
+            "mode": "native",
+            "label": 0,
+            "score": -2.8844921550263587
+          },
+          {
+            "group": "target-19",
+            "mode": "native",
+            "label": 0,
+            "score": -2.46860057636525
+          },
+          {
+            "group": "target-19",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.2437827212902286
+          },
+          {
+            "group": "target-20",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.3338665752786039
+          },
+          {
+            "group": "target-20",
+            "mode": "native",
+            "label": 0,
+            "score": -2.4025999073421307
+          },
+          {
+            "group": "target-21",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.7746621689933044
+          },
+          {
+            "group": "target-21",
+            "mode": "native",
+            "label": 0,
+            "score": -1.8106778174610192
+          },
+          {
+            "group": "target-22",
+            "mode": "native",
+            "label": 0,
+            "score": -2.195192783137001
+          },
+          {
+            "group": "target-22",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.6561454848342563
+          },
+          {
+            "group": "target-23",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.9997304378488913
+          },
+          {
+            "group": "target-23",
+            "mode": "native",
+            "label": 0,
+            "score": -2.6661881528649465
+          },
+          {
+            "group": "target-24",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.861470390504694
+          },
+          {
+            "group": "target-24",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9178440473816125
+          },
+          {
+            "group": "target-25",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.4214159700381332
+          },
+          {
+            "group": "target-25",
+            "mode": "native",
+            "label": 0,
+            "score": -2.376649750472769
+          },
+          {
+            "group": "target-26",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9403201864520845
+          },
+          {
+            "group": "target-26",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.779590101579739
+          },
+          {
+            "group": "target-27",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.333391766052138
+          },
+          {
+            "group": "target-27",
+            "mode": "native",
+            "label": 0,
+            "score": -2.4219006485424064
+          },
+          {
+            "group": "target-28",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.0451693822956543
+          },
+          {
+            "group": "target-28",
+            "mode": "native",
+            "label": 0,
+            "score": -2.6472045236133708
+          },
+          {
+            "group": "target-29",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.7719798542181817
+          },
+          {
+            "group": "target-29",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9609088751282457
+          },
+          {
+            "group": "target-30",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.9605199135695022
+          },
+          {
+            "group": "target-30",
+            "mode": "native",
+            "label": 0,
+            "score": -1.7825272741960687
+          },
+          {
+            "group": "target-31",
+            "mode": "native",
+            "label": 0,
+            "score": -2.022175393648894
+          },
+          {
+            "group": "target-31",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.6604021536608315
+          },
+          {
+            "group": "target-32",
+            "mode": "native",
+            "label": 0,
+            "score": -2.2381990451903
+          },
+          {
+            "group": "target-32",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.5687306756542068
+          },
+          {
+            "group": "target-33",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.8114866601865376
+          },
+          {
+            "group": "target-33",
+            "mode": "native",
+            "label": 0,
+            "score": -1.7767538825182914
+          },
+          {
+            "group": "target-34",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.9816619055321053
+          },
+          {
+            "group": "target-34",
+            "mode": "native",
+            "label": 0,
+            "score": -2.516361959548985
+          },
+          {
+            "group": "target-35",
+            "mode": "native",
+            "label": 0,
+            "score": -2.433623519883624
+          },
+          {
+            "group": "target-35",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.2235557887243709
+          },
+          {
+            "group": "target-36",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.0618187336988156
+          },
+          {
+            "group": "target-36",
+            "mode": "native",
+            "label": 0,
+            "score": -2.641855172573026
+          },
+          {
+            "group": "target-37",
+            "mode": "native",
+            "label": 0,
+            "score": -1.988972700378287
+          },
+          {
+            "group": "target-37",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.73932919810178
+          },
+          {
+            "group": "target-38",
+            "mode": "native",
+            "label": 0,
+            "score": -2.2336137494910258
+          },
+          {
+            "group": "target-38",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.4360839020814216
+          },
+          {
+            "group": "target-39",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.5130945717007471
+          },
+          {
+            "group": "target-39",
+            "mode": "native",
+            "label": 0,
+            "score": -2.0637691701892975
+          }
+        ]
+      },
+      {
+        "trained_proxy_mode": "p0",
+        "tested_proxy_mode": "ack-p127",
+        "train_sessions": 48,
+        "heldout_sessions": 80,
+        "heldout_groups": 40,
+        "auc": 1.0,
+        "auc_paired_group_bootstrap_95": [
+          1.0,
+          1.0
+        ],
+        "threshold": -1.8551964551997333,
+        "threshold_rule": "strictly greater than maximum native training score (empirical training FPR zero)",
+        "true_positives": 40,
+        "positives": 40,
+        "tpr": 1.0,
+        "tpr_wilson_95": [
+          0.9123783988027135,
+          1.0
+        ],
+        "false_positives": 4,
+        "negatives": 40,
+        "fpr": 0.1,
+        "fpr_wilson_95": [
+          0.03957952868260638,
+          0.23051775227522298
+        ],
+        "largest_standardized_coefficients": [
+          [
+            "up_size_q90",
+            0.09850232890540221
+          ],
+          [
+            "up_size_q50",
+            0.09846103445307461
+          ],
+          [
+            "down_size_q10",
+            -0.09846103445307461
+          ],
+          [
+            "down_size_below_1000",
+            0.09840064699360423
+          ],
+          [
+            "up_size_mean",
+            0.09835303639438474
+          ],
+          [
+            "down_size_mean",
+            -0.09816204281591841
+          ],
+          [
+            "up_iat_below_1ms",
+            0.09773585024970795
+          ],
+          [
+            "down_size_below_128",
+            0.09723481050866696
+          ]
+        ],
+        "test_scores": [
+          {
+            "group": "target-0",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 4.087119486123372
+          },
+          {
+            "group": "target-0",
+            "mode": "native",
+            "label": 0,
+            "score": -2.2540151239945443
+          },
+          {
+            "group": "target-1",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.4753144074550497
+          },
+          {
+            "group": "target-1",
+            "mode": "native",
+            "label": 0,
+            "score": -2.707941015036436
+          },
+          {
+            "group": "target-2",
+            "mode": "native",
+            "label": 0,
+            "score": -2.1996755012940596
+          },
+          {
+            "group": "target-2",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 4.065263110818538
+          },
+          {
+            "group": "target-3",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 4.248873103071101
+          },
+          {
+            "group": "target-3",
+            "mode": "native",
+            "label": 0,
+            "score": -2.299373384619719
+          },
+          {
+            "group": "target-4",
+            "mode": "native",
+            "label": 0,
+            "score": -2.2246301361465948
+          },
+          {
+            "group": "target-4",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.934547075773251
+          },
+          {
+            "group": "target-5",
+            "mode": "native",
+            "label": 0,
+            "score": -2.0567443725619867
+          },
+          {
+            "group": "target-5",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.9801563137727163
+          },
+          {
+            "group": "target-6",
+            "mode": "native",
+            "label": 0,
+            "score": -2.5132902445116616
+          },
+          {
+            "group": "target-6",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.6449743068043867
+          },
+          {
+            "group": "target-7",
+            "mode": "native",
+            "label": 0,
+            "score": -2.709026696897409
+          },
+          {
+            "group": "target-7",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.7460858191466384
+          },
+          {
+            "group": "target-8",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.7745751453286154
+          },
+          {
+            "group": "target-8",
+            "mode": "native",
+            "label": 0,
+            "score": -2.477500297543524
+          },
+          {
+            "group": "target-9",
+            "mode": "native",
+            "label": 0,
+            "score": -2.192954937822437
+          },
+          {
+            "group": "target-9",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 4.145821788512955
+          },
+          {
+            "group": "target-10",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 4.163338469345346
+          },
+          {
+            "group": "target-10",
+            "mode": "native",
+            "label": 0,
+            "score": -1.8788877614378712
+          },
+          {
+            "group": "target-11",
+            "mode": "native",
+            "label": 0,
+            "score": -2.115606834012735
+          },
+          {
+            "group": "target-11",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.887113643774784
+          },
+          {
+            "group": "target-12",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.8221972758780796
+          },
+          {
+            "group": "target-12",
+            "mode": "native",
+            "label": 0,
+            "score": -2.1984891445679686
+          },
+          {
+            "group": "target-13",
+            "mode": "native",
+            "label": 0,
+            "score": -2.0754070102614843
+          },
+          {
+            "group": "target-13",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.792286809661624
+          },
+          {
+            "group": "target-14",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 4.00746718456463
+          },
+          {
+            "group": "target-14",
+            "mode": "native",
+            "label": 0,
+            "score": -2.0575318589746314
+          },
+          {
+            "group": "target-15",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 4.09603031390883
+          },
+          {
+            "group": "target-15",
+            "mode": "native",
+            "label": 0,
+            "score": -2.2112432813567606
+          },
+          {
+            "group": "target-16",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 4.264314742961886
+          },
+          {
+            "group": "target-16",
+            "mode": "native",
+            "label": 0,
+            "score": -1.851055527962857
+          },
+          {
+            "group": "target-17",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 4.008079188963352
+          },
+          {
+            "group": "target-17",
+            "mode": "native",
+            "label": 0,
+            "score": -2.1946219978690404
+          },
+          {
+            "group": "target-18",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.032854708557311
+          },
+          {
+            "group": "target-18",
+            "mode": "native",
+            "label": 0,
+            "score": -2.8844921550263587
+          },
+          {
+            "group": "target-19",
+            "mode": "native",
+            "label": 0,
+            "score": -2.46860057636525
+          },
+          {
+            "group": "target-19",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.6424262080360794
+          },
+          {
+            "group": "target-20",
+            "mode": "native",
+            "label": 0,
+            "score": -2.4025999073421307
+          },
+          {
+            "group": "target-20",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.7573626030963228
+          },
+          {
+            "group": "target-21",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 4.199551755317
+          },
+          {
+            "group": "target-21",
+            "mode": "native",
+            "label": 0,
+            "score": -1.8106778174610192
+          },
+          {
+            "group": "target-22",
+            "mode": "native",
+            "label": 0,
+            "score": -2.195192783137001
+          },
+          {
+            "group": "target-22",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 4.095139792243859
+          },
+          {
+            "group": "target-23",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.727474000349735
+          },
+          {
+            "group": "target-23",
+            "mode": "native",
+            "label": 0,
+            "score": -2.6661881528649465
+          },
+          {
+            "group": "target-24",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 4.240427068758034
+          },
+          {
+            "group": "target-24",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9178440473816125
+          },
+          {
+            "group": "target-25",
+            "mode": "native",
+            "label": 0,
+            "score": -2.376649750472769
+          },
+          {
+            "group": "target-25",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.822294844309
+          },
+          {
+            "group": "target-26",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9403201864520845
+          },
+          {
+            "group": "target-26",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 4.118727752063185
+          },
+          {
+            "group": "target-27",
+            "mode": "native",
+            "label": 0,
+            "score": -2.4219006485424064
+          },
+          {
+            "group": "target-27",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.787527426675539
+          },
+          {
+            "group": "target-28",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.337633165545287
+          },
+          {
+            "group": "target-28",
+            "mode": "native",
+            "label": 0,
+            "score": -2.6472045236133708
+          },
+          {
+            "group": "target-29",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 4.034736692864902
+          },
+          {
+            "group": "target-29",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9609088751282457
+          },
+          {
+            "group": "target-30",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 4.202869937536114
+          },
+          {
+            "group": "target-30",
+            "mode": "native",
+            "label": 0,
+            "score": -1.7825272741960687
+          },
+          {
+            "group": "target-31",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 4.069646783680412
+          },
+          {
+            "group": "target-31",
+            "mode": "native",
+            "label": 0,
+            "score": -2.022175393648894
+          },
+          {
+            "group": "target-32",
+            "mode": "native",
+            "label": 0,
+            "score": -2.2381990451903
+          },
+          {
+            "group": "target-32",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.810392629042352
+          },
+          {
+            "group": "target-33",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 4.279080572459419
+          },
+          {
+            "group": "target-33",
+            "mode": "native",
+            "label": 0,
+            "score": -1.7767538825182914
+          },
+          {
+            "group": "target-34",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.397648316865439
+          },
+          {
+            "group": "target-34",
+            "mode": "native",
+            "label": 0,
+            "score": -2.516361959548985
+          },
+          {
+            "group": "target-35",
+            "mode": "native",
+            "label": 0,
+            "score": -2.433623519883624
+          },
+          {
+            "group": "target-35",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.849909753858883
+          },
+          {
+            "group": "target-36",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.145504751716583
+          },
+          {
+            "group": "target-36",
+            "mode": "native",
+            "label": 0,
+            "score": -2.641855172573026
+          },
+          {
+            "group": "target-37",
+            "mode": "native",
+            "label": 0,
+            "score": -1.988972700378287
+          },
+          {
+            "group": "target-37",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.660328303335308
+          },
+          {
+            "group": "target-38",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 4.068029258417615
+          },
+          {
+            "group": "target-38",
+            "mode": "native",
+            "label": 0,
+            "score": -2.2336137494910258
+          },
+          {
+            "group": "target-39",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.8528243138707494
+          },
+          {
+            "group": "target-39",
+            "mode": "native",
+            "label": 0,
+            "score": -2.0637691701892975
+          }
+        ]
+      }
+    ],
+    "size_only": [
+      {
+        "trained_proxy_mode": "p0",
+        "tested_proxy_mode": "p0",
+        "train_sessions": 48,
+        "heldout_sessions": 80,
+        "heldout_groups": 40,
+        "auc": 1.0,
+        "auc_paired_group_bootstrap_95": [
+          1.0,
+          1.0
+        ],
+        "threshold": -1.6985626653753623,
+        "threshold_rule": "strictly greater than maximum native training score (empirical training FPR zero)",
+        "true_positives": 40,
+        "positives": 40,
+        "tpr": 1.0,
+        "tpr_wilson_95": [
+          0.9123783988027135,
+          1.0
+        ],
+        "false_positives": 2,
+        "negatives": 40,
+        "fpr": 0.05,
+        "fpr_wilson_95": [
+          0.013820667386148344,
+          0.16503877369140962
+        ],
+        "largest_standardized_coefficients": [
+          [
+            "up_size_q90",
+            0.1289875708170692
+          ],
+          [
+            "up_size_q50",
+            0.12896615257983338
+          ],
+          [
+            "down_size_q10",
+            -0.12896615257983338
+          ],
+          [
+            "down_size_below_1000",
+            0.12792997340984918
+          ],
+          [
+            "down_size_below_128",
+            0.1273807750361192
+          ],
+          [
+            "down_size_mean",
+            -0.12731863048701078
+          ],
+          [
+            "down_size_q50",
+            -0.12699612570024674
+          ],
+          [
+            "down_size_std",
+            -0.126461836478213
+          ]
+        ],
+        "test_scores": [
+          {
+            "group": "target-0",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9331498734468755
+          },
+          {
+            "group": "target-0",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.9174919051553756
+          },
+          {
+            "group": "target-1",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.9700231796431735
+          },
+          {
+            "group": "target-1",
+            "mode": "native",
+            "label": 0,
+            "score": -2.1177819995433893
+          },
+          {
+            "group": "target-2",
+            "mode": "native",
+            "label": 0,
+            "score": -1.981917797094256
+          },
+          {
+            "group": "target-2",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.856073024108312
+          },
+          {
+            "group": "target-3",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.753729409157729
+          },
+          {
+            "group": "target-3",
+            "mode": "native",
+            "label": 0,
+            "score": -1.978560449300483
+          },
+          {
+            "group": "target-4",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.8638438732568887
+          },
+          {
+            "group": "target-4",
+            "mode": "native",
+            "label": 0,
+            "score": -1.970717737480515
+          },
+          {
+            "group": "target-5",
+            "mode": "native",
+            "label": 0,
+            "score": -1.8584254490862135
+          },
+          {
+            "group": "target-5",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.9741065876739734
+          },
+          {
+            "group": "target-6",
+            "mode": "native",
+            "label": 0,
+            "score": -2.087157074601988
+          },
+          {
+            "group": "target-6",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.6735527140886117
+          },
+          {
+            "group": "target-7",
+            "mode": "native",
+            "label": 0,
+            "score": -2.1390031268588356
+          },
+          {
+            "group": "target-7",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.857181589169492
+          },
+          {
+            "group": "target-8",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.1873332269523833
+          },
+          {
+            "group": "target-8",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9634201812229444
+          },
+          {
+            "group": "target-9",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9070414119968557
+          },
+          {
+            "group": "target-9",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.8066904112903237
+          },
+          {
+            "group": "target-10",
+            "mode": "native",
+            "label": 0,
+            "score": -1.7263437703331153
+          },
+          {
+            "group": "target-10",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.9628641662882438
+          },
+          {
+            "group": "target-11",
+            "mode": "native",
+            "label": 0,
+            "score": -1.8455408079007944
+          },
+          {
+            "group": "target-11",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.954754902243171
+          },
+          {
+            "group": "target-12",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.9306528635218587
+          },
+          {
+            "group": "target-12",
+            "mode": "native",
+            "label": 0,
+            "score": -1.866198115078558
+          },
+          {
+            "group": "target-13",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.1697984001817563
+          },
+          {
+            "group": "target-13",
+            "mode": "native",
+            "label": 0,
+            "score": -1.6645339674598962
+          },
+          {
+            "group": "target-14",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.8852625685916666
+          },
+          {
+            "group": "target-14",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9026107462429453
+          },
+          {
+            "group": "target-15",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9658125658202952
+          },
+          {
+            "group": "target-15",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.8429565902926375
+          },
+          {
+            "group": "target-16",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.9453600497828063
+          },
+          {
+            "group": "target-16",
+            "mode": "native",
+            "label": 0,
+            "score": -1.714460724860716
+          },
+          {
+            "group": "target-17",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.838716684767252
+          },
+          {
+            "group": "target-17",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9637297426087383
+          },
+          {
+            "group": "target-18",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.9849236986011642
+          },
+          {
+            "group": "target-18",
+            "mode": "native",
+            "label": 0,
+            "score": -2.147677838552581
+          },
+          {
+            "group": "target-19",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.6385884677505969
+          },
+          {
+            "group": "target-19",
+            "mode": "native",
+            "label": 0,
+            "score": -2.021542271930153
+          },
+          {
+            "group": "target-20",
+            "mode": "native",
+            "label": 0,
+            "score": -2.027726602209173
+          },
+          {
+            "group": "target-20",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.7569291021584927
+          },
+          {
+            "group": "target-21",
+            "mode": "native",
+            "label": 0,
+            "score": -1.7065925979676153
+          },
+          {
+            "group": "target-21",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.9481762920587347
+          },
+          {
+            "group": "target-22",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9062795517020825
+          },
+          {
+            "group": "target-22",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.8406512371205497
+          },
+          {
+            "group": "target-23",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.0441278140830765
+          },
+          {
+            "group": "target-23",
+            "mode": "native",
+            "label": 0,
+            "score": -2.074088778642067
+          },
+          {
+            "group": "target-24",
+            "mode": "native",
+            "label": 0,
+            "score": -1.8131105840088504
+          },
+          {
+            "group": "target-24",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.0199602458212134
+          },
+          {
+            "group": "target-25",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9812524791103732
+          },
+          {
+            "group": "target-25",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.7954240360400093
+          },
+          {
+            "group": "target-26",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.078402572450721
+          },
+          {
+            "group": "target-26",
+            "mode": "native",
+            "label": 0,
+            "score": -1.822089372797886
+          },
+          {
+            "group": "target-27",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.7272400514663362
+          },
+          {
+            "group": "target-27",
+            "mode": "native",
+            "label": 0,
+            "score": -2.0387266025845983
+          },
+          {
+            "group": "target-28",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.100856233361955
+          },
+          {
+            "group": "target-28",
+            "mode": "native",
+            "label": 0,
+            "score": -2.043921035654932
+          },
+          {
+            "group": "target-29",
+            "mode": "native",
+            "label": 0,
+            "score": -1.8322388369128007
+          },
+          {
+            "group": "target-29",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.9989023053908421
+          },
+          {
+            "group": "target-30",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.1378853470380728
+          },
+          {
+            "group": "target-30",
+            "mode": "native",
+            "label": 0,
+            "score": -1.7256711701607692
+          },
+          {
+            "group": "target-31",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.9847492933808573
+          },
+          {
+            "group": "target-31",
+            "mode": "native",
+            "label": 0,
+            "score": -1.87575913474888
+          },
+          {
+            "group": "target-32",
+            "mode": "native",
+            "label": 0,
+            "score": -1.8769562808124607
+          },
+          {
+            "group": "target-32",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.944652132034082
+          },
+          {
+            "group": "target-33",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.044148158410325
+          },
+          {
+            "group": "target-33",
+            "mode": "native",
+            "label": 0,
+            "score": -1.6369825640352493
+          },
+          {
+            "group": "target-34",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.0593983118589785
+          },
+          {
+            "group": "target-34",
+            "mode": "native",
+            "label": 0,
+            "score": -1.8700960676248997
+          },
+          {
+            "group": "target-35",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9155279336328799
+          },
+          {
+            "group": "target-35",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.204347865789015
+          },
+          {
+            "group": "target-36",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.1095975154457154
+          },
+          {
+            "group": "target-36",
+            "mode": "native",
+            "label": 0,
+            "score": -2.037505525704608
+          },
+          {
+            "group": "target-37",
+            "mode": "native",
+            "label": 0,
+            "score": -1.8297995101703006
+          },
+          {
+            "group": "target-37",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.0695209772121723
+          },
+          {
+            "group": "target-38",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9685885861622208
+          },
+          {
+            "group": "target-38",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.8444681236023155
+          },
+          {
+            "group": "target-39",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.857312382022501
+          },
+          {
+            "group": "target-39",
+            "mode": "native",
+            "label": 0,
+            "score": -1.8609680212187882
+          }
+        ]
+      },
+      {
+        "trained_proxy_mode": "p0",
+        "tested_proxy_mode": "ack-p0",
+        "train_sessions": 48,
+        "heldout_sessions": 80,
+        "heldout_groups": 40,
+        "auc": 1.0,
+        "auc_paired_group_bootstrap_95": [
+          1.0,
+          1.0
+        ],
+        "threshold": -1.6985626653753623,
+        "threshold_rule": "strictly greater than maximum native training score (empirical training FPR zero)",
+        "true_positives": 40,
+        "positives": 40,
+        "tpr": 1.0,
+        "tpr_wilson_95": [
+          0.9123783988027135,
+          1.0
+        ],
+        "false_positives": 2,
+        "negatives": 40,
+        "fpr": 0.05,
+        "fpr_wilson_95": [
+          0.013820667386148344,
+          0.16503877369140962
+        ],
+        "largest_standardized_coefficients": [
+          [
+            "up_size_q90",
+            0.1289875708170692
+          ],
+          [
+            "up_size_q50",
+            0.12896615257983338
+          ],
+          [
+            "down_size_q10",
+            -0.12896615257983338
+          ],
+          [
+            "down_size_below_1000",
+            0.12792997340984918
+          ],
+          [
+            "down_size_below_128",
+            0.1273807750361192
+          ],
+          [
+            "down_size_mean",
+            -0.12731863048701078
+          ],
+          [
+            "down_size_q50",
+            -0.12699612570024674
+          ],
+          [
+            "down_size_std",
+            -0.126461836478213
+          ]
+        ],
+        "test_scores": [
+          {
+            "group": "target-0",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.6998409142447362
+          },
+          {
+            "group": "target-0",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9331498734468755
+          },
+          {
+            "group": "target-1",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.9623120641512889
+          },
+          {
+            "group": "target-1",
+            "mode": "native",
+            "label": 0,
+            "score": -2.1177819995433893
+          },
+          {
+            "group": "target-2",
+            "mode": "native",
+            "label": 0,
+            "score": -1.981917797094256
+          },
+          {
+            "group": "target-2",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.6118046200017068
+          },
+          {
+            "group": "target-3",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.8265711840411712
+          },
+          {
+            "group": "target-3",
+            "mode": "native",
+            "label": 0,
+            "score": -1.978560449300483
+          },
+          {
+            "group": "target-4",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.5736783845525056
+          },
+          {
+            "group": "target-4",
+            "mode": "native",
+            "label": 0,
+            "score": -1.970717737480515
+          },
+          {
+            "group": "target-5",
+            "mode": "native",
+            "label": 0,
+            "score": -1.8584254490862135
+          },
+          {
+            "group": "target-5",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.7142905326742108
+          },
+          {
+            "group": "target-6",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.6508181058203917
+          },
+          {
+            "group": "target-6",
+            "mode": "native",
+            "label": 0,
+            "score": -2.087157074601988
+          },
+          {
+            "group": "target-7",
+            "mode": "native",
+            "label": 0,
+            "score": -2.1390031268588356
+          },
+          {
+            "group": "target-7",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.8623923756489975
+          },
+          {
+            "group": "target-8",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.1755050906731137
+          },
+          {
+            "group": "target-8",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9634201812229444
+          },
+          {
+            "group": "target-9",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9070414119968557
+          },
+          {
+            "group": "target-9",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.9348563225019105
+          },
+          {
+            "group": "target-10",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.7164962743545543
+          },
+          {
+            "group": "target-10",
+            "mode": "native",
+            "label": 0,
+            "score": -1.7263437703331153
+          },
+          {
+            "group": "target-11",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.9606920137151423
+          },
+          {
+            "group": "target-11",
+            "mode": "native",
+            "label": 0,
+            "score": -1.8455408079007944
+          },
+          {
+            "group": "target-12",
+            "mode": "native",
+            "label": 0,
+            "score": -1.866198115078558
+          },
+          {
+            "group": "target-12",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.9731175771467626
+          },
+          {
+            "group": "target-13",
+            "mode": "native",
+            "label": 0,
+            "score": -1.6645339674598962
+          },
+          {
+            "group": "target-13",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.192132292926761
+          },
+          {
+            "group": "target-14",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.6394091952205825
+          },
+          {
+            "group": "target-14",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9026107462429453
+          },
+          {
+            "group": "target-15",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.5888958502364945
+          },
+          {
+            "group": "target-15",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9658125658202952
+          },
+          {
+            "group": "target-16",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.748140346084774
+          },
+          {
+            "group": "target-16",
+            "mode": "native",
+            "label": 0,
+            "score": -1.714460724860716
+          },
+          {
+            "group": "target-17",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9637297426087383
+          },
+          {
+            "group": "target-17",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.5741829476283872
+          },
+          {
+            "group": "target-18",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.9401953789090467
+          },
+          {
+            "group": "target-18",
+            "mode": "native",
+            "label": 0,
+            "score": -2.147677838552581
+          },
+          {
+            "group": "target-19",
+            "mode": "native",
+            "label": 0,
+            "score": -2.021542271930153
+          },
+          {
+            "group": "target-19",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.592178101244047
+          },
+          {
+            "group": "target-20",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.6616414279439178
+          },
+          {
+            "group": "target-20",
+            "mode": "native",
+            "label": 0,
+            "score": -2.027726602209173
+          },
+          {
+            "group": "target-21",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.7558054271141272
+          },
+          {
+            "group": "target-21",
+            "mode": "native",
+            "label": 0,
+            "score": -1.7065925979676153
+          },
+          {
+            "group": "target-22",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9062795517020825
+          },
+          {
+            "group": "target-22",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.9366140170447107
+          },
+          {
+            "group": "target-23",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.0105266594925075
+          },
+          {
+            "group": "target-23",
+            "mode": "native",
+            "label": 0,
+            "score": -2.074088778642067
+          },
+          {
+            "group": "target-24",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.8323854320981912
+          },
+          {
+            "group": "target-24",
+            "mode": "native",
+            "label": 0,
+            "score": -1.8131105840088504
+          },
+          {
+            "group": "target-25",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.7604413527007905
+          },
+          {
+            "group": "target-25",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9812524791103732
+          },
+          {
+            "group": "target-26",
+            "mode": "native",
+            "label": 0,
+            "score": -1.822089372797886
+          },
+          {
+            "group": "target-26",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.8563934248427956
+          },
+          {
+            "group": "target-27",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.6335618939527775
+          },
+          {
+            "group": "target-27",
+            "mode": "native",
+            "label": 0,
+            "score": -2.0387266025845983
+          },
+          {
+            "group": "target-28",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.0687790770455403
+          },
+          {
+            "group": "target-28",
+            "mode": "native",
+            "label": 0,
+            "score": -2.043921035654932
+          },
+          {
+            "group": "target-29",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.7947510389611001
+          },
+          {
+            "group": "target-29",
+            "mode": "native",
+            "label": 0,
+            "score": -1.8322388369128007
+          },
+          {
+            "group": "target-30",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.9389057340156127
+          },
+          {
+            "group": "target-30",
+            "mode": "native",
+            "label": 0,
+            "score": -1.7256711701607692
+          },
+          {
+            "group": "target-31",
+            "mode": "native",
+            "label": 0,
+            "score": -1.87575913474888
+          },
+          {
+            "group": "target-31",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.7065657501072282
+          },
+          {
+            "group": "target-32",
+            "mode": "native",
+            "label": 0,
+            "score": -1.8769562808124607
+          },
+          {
+            "group": "target-32",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.9419441813590689
+          },
+          {
+            "group": "target-33",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.8276535198721462
+          },
+          {
+            "group": "target-33",
+            "mode": "native",
+            "label": 0,
+            "score": -1.6369825640352493
+          },
+          {
+            "group": "target-34",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.0512349444874798
+          },
+          {
+            "group": "target-34",
+            "mode": "native",
+            "label": 0,
+            "score": -1.8700960676248997
+          },
+          {
+            "group": "target-35",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9155279336328799
+          },
+          {
+            "group": "target-35",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.1854898449977533
+          },
+          {
+            "group": "target-36",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.0615648503748663
+          },
+          {
+            "group": "target-36",
+            "mode": "native",
+            "label": 0,
+            "score": -2.037505525704608
+          },
+          {
+            "group": "target-37",
+            "mode": "native",
+            "label": 0,
+            "score": -1.8297995101703006
+          },
+          {
+            "group": "target-37",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.8061562131438669
+          },
+          {
+            "group": "target-38",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9685885861622208
+          },
+          {
+            "group": "target-38",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.5758156458347983
+          },
+          {
+            "group": "target-39",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.5970493471407864
+          },
+          {
+            "group": "target-39",
+            "mode": "native",
+            "label": 0,
+            "score": -1.8609680212187882
+          }
+        ]
+      },
+      {
+        "trained_proxy_mode": "p0",
+        "tested_proxy_mode": "ack-p127",
+        "train_sessions": 48,
+        "heldout_sessions": 80,
+        "heldout_groups": 40,
+        "auc": 1.0,
+        "auc_paired_group_bootstrap_95": [
+          1.0,
+          1.0
+        ],
+        "threshold": -1.6985626653753623,
+        "threshold_rule": "strictly greater than maximum native training score (empirical training FPR zero)",
+        "true_positives": 40,
+        "positives": 40,
+        "tpr": 1.0,
+        "tpr_wilson_95": [
+          0.9123783988027135,
+          1.0
+        ],
+        "false_positives": 2,
+        "negatives": 40,
+        "fpr": 0.05,
+        "fpr_wilson_95": [
+          0.013820667386148344,
+          0.16503877369140962
+        ],
+        "largest_standardized_coefficients": [
+          [
+            "up_size_q90",
+            0.1289875708170692
+          ],
+          [
+            "up_size_q50",
+            0.12896615257983338
+          ],
+          [
+            "down_size_q10",
+            -0.12896615257983338
+          ],
+          [
+            "down_size_below_1000",
+            0.12792997340984918
+          ],
+          [
+            "down_size_below_128",
+            0.1273807750361192
+          ],
+          [
+            "down_size_mean",
+            -0.12731863048701078
+          ],
+          [
+            "down_size_q50",
+            -0.12699612570024674
+          ],
+          [
+            "down_size_std",
+            -0.126461836478213
+          ]
+        ],
+        "test_scores": [
+          {
+            "group": "target-0",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.6995188053178034
+          },
+          {
+            "group": "target-0",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9331498734468755
+          },
+          {
+            "group": "target-1",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.9262469269226767
+          },
+          {
+            "group": "target-1",
+            "mode": "native",
+            "label": 0,
+            "score": -2.1177819995433893
+          },
+          {
+            "group": "target-2",
+            "mode": "native",
+            "label": 0,
+            "score": -1.981917797094256
+          },
+          {
+            "group": "target-2",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.655388497861066
+          },
+          {
+            "group": "target-3",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 4.050165736028963
+          },
+          {
+            "group": "target-3",
+            "mode": "native",
+            "label": 0,
+            "score": -1.978560449300483
+          },
+          {
+            "group": "target-4",
+            "mode": "native",
+            "label": 0,
+            "score": -1.970717737480515
+          },
+          {
+            "group": "target-4",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.4872538668783495
+          },
+          {
+            "group": "target-5",
+            "mode": "native",
+            "label": 0,
+            "score": -1.8584254490862135
+          },
+          {
+            "group": "target-5",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.4460715032645997
+          },
+          {
+            "group": "target-6",
+            "mode": "native",
+            "label": 0,
+            "score": -2.087157074601988
+          },
+          {
+            "group": "target-6",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.4568732302563436
+          },
+          {
+            "group": "target-7",
+            "mode": "native",
+            "label": 0,
+            "score": -2.1390031268588356
+          },
+          {
+            "group": "target-7",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 4.249427928923358
+          },
+          {
+            "group": "target-8",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 4.257809853873778
+          },
+          {
+            "group": "target-8",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9634201812229444
+          },
+          {
+            "group": "target-9",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9070414119968557
+          },
+          {
+            "group": "target-9",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.8003530340862977
+          },
+          {
+            "group": "target-10",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.649812774786893
+          },
+          {
+            "group": "target-10",
+            "mode": "native",
+            "label": 0,
+            "score": -1.7263437703331153
+          },
+          {
+            "group": "target-11",
+            "mode": "native",
+            "label": 0,
+            "score": -1.8455408079007944
+          },
+          {
+            "group": "target-11",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.5909554023051
+          },
+          {
+            "group": "target-12",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.5342123204519624
+          },
+          {
+            "group": "target-12",
+            "mode": "native",
+            "label": 0,
+            "score": -1.866198115078558
+          },
+          {
+            "group": "target-13",
+            "mode": "native",
+            "label": 0,
+            "score": -1.6645339674598962
+          },
+          {
+            "group": "target-13",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 4.072717595051804
+          },
+          {
+            "group": "target-14",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.4484001515912794
+          },
+          {
+            "group": "target-14",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9026107462429453
+          },
+          {
+            "group": "target-15",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.6823901954911733
+          },
+          {
+            "group": "target-15",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9658125658202952
+          },
+          {
+            "group": "target-16",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.661570730182241
+          },
+          {
+            "group": "target-16",
+            "mode": "native",
+            "label": 0,
+            "score": -1.714460724860716
+          },
+          {
+            "group": "target-17",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.545914367593909
+          },
+          {
+            "group": "target-17",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9637297426087383
+          },
+          {
+            "group": "target-18",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.542758155300511
+          },
+          {
+            "group": "target-18",
+            "mode": "native",
+            "label": 0,
+            "score": -2.147677838552581
+          },
+          {
+            "group": "target-19",
+            "mode": "native",
+            "label": 0,
+            "score": -2.021542271930153
+          },
+          {
+            "group": "target-19",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.448265914896779
+          },
+          {
+            "group": "target-20",
+            "mode": "native",
+            "label": 0,
+            "score": -2.027726602209173
+          },
+          {
+            "group": "target-20",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.549812467726433
+          },
+          {
+            "group": "target-21",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.5865464823819106
+          },
+          {
+            "group": "target-21",
+            "mode": "native",
+            "label": 0,
+            "score": -1.7065925979676153
+          },
+          {
+            "group": "target-22",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9062795517020825
+          },
+          {
+            "group": "target-22",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.839978961982058
+          },
+          {
+            "group": "target-23",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 4.194448639386303
+          },
+          {
+            "group": "target-23",
+            "mode": "native",
+            "label": 0,
+            "score": -2.074088778642067
+          },
+          {
+            "group": "target-24",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.6151715356008087
+          },
+          {
+            "group": "target-24",
+            "mode": "native",
+            "label": 0,
+            "score": -1.8131105840088504
+          },
+          {
+            "group": "target-25",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9812524791103732
+          },
+          {
+            "group": "target-25",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.5955202947766445
+          },
+          {
+            "group": "target-26",
+            "mode": "native",
+            "label": 0,
+            "score": -1.822089372797886
+          },
+          {
+            "group": "target-26",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.5706484745188893
+          },
+          {
+            "group": "target-27",
+            "mode": "native",
+            "label": 0,
+            "score": -2.0387266025845983
+          },
+          {
+            "group": "target-27",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.5557506050105796
+          },
+          {
+            "group": "target-28",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.7307721231608175
+          },
+          {
+            "group": "target-28",
+            "mode": "native",
+            "label": 0,
+            "score": -2.043921035654932
+          },
+          {
+            "group": "target-29",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.4268419818036913
+          },
+          {
+            "group": "target-29",
+            "mode": "native",
+            "label": 0,
+            "score": -1.8322388369128007
+          },
+          {
+            "group": "target-30",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.5210210315556223
+          },
+          {
+            "group": "target-30",
+            "mode": "native",
+            "label": 0,
+            "score": -1.7256711701607692
+          },
+          {
+            "group": "target-31",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.513496003152503
+          },
+          {
+            "group": "target-31",
+            "mode": "native",
+            "label": 0,
+            "score": -1.87575913474888
+          },
+          {
+            "group": "target-32",
+            "mode": "native",
+            "label": 0,
+            "score": -1.8769562808124607
+          },
+          {
+            "group": "target-32",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.5429036525055233
+          },
+          {
+            "group": "target-33",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.7189694890066165
+          },
+          {
+            "group": "target-33",
+            "mode": "native",
+            "label": 0,
+            "score": -1.6369825640352493
+          },
+          {
+            "group": "target-34",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.869871225245179
+          },
+          {
+            "group": "target-34",
+            "mode": "native",
+            "label": 0,
+            "score": -1.8700960676248997
+          },
+          {
+            "group": "target-35",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9155279336328799
+          },
+          {
+            "group": "target-35",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 4.332763981865772
+          },
+          {
+            "group": "target-36",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.5734335239555137
+          },
+          {
+            "group": "target-36",
+            "mode": "native",
+            "label": 0,
+            "score": -2.037505525704608
+          },
+          {
+            "group": "target-37",
+            "mode": "native",
+            "label": 0,
+            "score": -1.8297995101703006
+          },
+          {
+            "group": "target-37",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.0617983951549324
+          },
+          {
+            "group": "target-38",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.6751792971206356
+          },
+          {
+            "group": "target-38",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9685885861622208
+          },
+          {
+            "group": "target-39",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 3.3694963189272005
+          },
+          {
+            "group": "target-39",
+            "mode": "native",
+            "label": 0,
+            "score": -1.8609680212187882
+          }
+        ]
+      }
+    ],
+    "timing_counts_only": [
+      {
+        "trained_proxy_mode": "p0",
+        "tested_proxy_mode": "p0",
+        "train_sessions": 48,
+        "heldout_sessions": 80,
+        "heldout_groups": 40,
+        "auc": 1.0,
+        "auc_paired_group_bootstrap_95": [
+          1.0,
+          1.0
+        ],
+        "threshold": -0.8163611768777135,
+        "threshold_rule": "strictly greater than maximum native training score (empirical training FPR zero)",
+        "true_positives": 40,
+        "positives": 40,
+        "tpr": 1.0,
+        "tpr_wilson_95": [
+          0.9123783988027135,
+          1.0
+        ],
+        "false_positives": 1,
+        "negatives": 40,
+        "fpr": 0.025,
+        "fpr_wilson_95": [
+          0.0044268315026814095,
+          0.1288136896347409
+        ],
+        "largest_standardized_coefficients": [
+          [
+            "up_iat_below_1ms",
+            0.20309199212898216
+          ],
+          [
+            "down_iat_below_1ms",
+            -0.18393966920528976
+          ],
+          [
+            "up_iat_mean_ms",
+            -0.16041889213916802
+          ],
+          [
+            "up_packets_per_second",
+            0.1600139939534737
+          ],
+          [
+            "down_iat_q90_ms",
+            -0.1590844474982633
+          ],
+          [
+            "down_iat_std_ms",
+            -0.14596832552078576
+          ],
+          [
+            "down_packets_per_second",
+            0.14417981593932538
+          ],
+          [
+            "down_iat_mean_ms",
+            -0.14369291579440038
+          ]
+        ],
+        "test_scores": [
+          {
+            "group": "target-0",
+            "mode": "native",
+            "label": 0,
+            "score": -1.4153171084268932
+          },
+          {
+            "group": "target-0",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.0133046588002594
+          },
+          {
+            "group": "target-1",
+            "mode": "p0",
+            "label": 1,
+            "score": 0.827602470653556
+          },
+          {
+            "group": "target-1",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9807847956936369
+          },
+          {
+            "group": "target-2",
+            "mode": "native",
+            "label": 0,
+            "score": -1.214912284095501
+          },
+          {
+            "group": "target-2",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.0229969816330913
+          },
+          {
+            "group": "target-3",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.193081436876159
+          },
+          {
+            "group": "target-3",
+            "mode": "native",
+            "label": 0,
+            "score": -1.4054685786402454
+          },
+          {
+            "group": "target-4",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.8928228831822542
+          },
+          {
+            "group": "target-4",
+            "mode": "native",
+            "label": 0,
+            "score": -1.2962485069875949
+          },
+          {
+            "group": "target-5",
+            "mode": "native",
+            "label": 0,
+            "score": -1.1406219676668017
+          },
+          {
+            "group": "target-5",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.096743456002269
+          },
+          {
+            "group": "target-6",
+            "mode": "native",
+            "label": 0,
+            "score": -1.6653132904757713
+          },
+          {
+            "group": "target-6",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.0500880782555073
+          },
+          {
+            "group": "target-7",
+            "mode": "native",
+            "label": 0,
+            "score": -1.949103457172742
+          },
+          {
+            "group": "target-7",
+            "mode": "p0",
+            "label": 1,
+            "score": 0.8226199641744458
+          },
+          {
+            "group": "target-8",
+            "mode": "p0",
+            "label": 1,
+            "score": 0.8604464138897552
+          },
+          {
+            "group": "target-8",
+            "mode": "native",
+            "label": 0,
+            "score": -1.7589496248537861
+          },
+          {
+            "group": "target-9",
+            "mode": "native",
+            "label": 0,
+            "score": -1.3052531363124285
+          },
+          {
+            "group": "target-9",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.332023171951111
+          },
+          {
+            "group": "target-10",
+            "mode": "native",
+            "label": 0,
+            "score": -0.9756018778032053
+          },
+          {
+            "group": "target-10",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.0729465181383757
+          },
+          {
+            "group": "target-11",
+            "mode": "native",
+            "label": 0,
+            "score": -1.2400544476340076
+          },
+          {
+            "group": "target-11",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.3983170108882763
+          },
+          {
+            "group": "target-12",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.2489665670250616
+          },
+          {
+            "group": "target-12",
+            "mode": "native",
+            "label": 0,
+            "score": -1.3789334182155202
+          },
+          {
+            "group": "target-13",
+            "mode": "p0",
+            "label": 1,
+            "score": 0.9621144275259037
+          },
+          {
+            "group": "target-13",
+            "mode": "native",
+            "label": 0,
+            "score": -1.411009628761817
+          },
+          {
+            "group": "target-14",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.1008637266491723
+          },
+          {
+            "group": "target-14",
+            "mode": "native",
+            "label": 0,
+            "score": -1.0587908838511835
+          },
+          {
+            "group": "target-15",
+            "mode": "native",
+            "label": 0,
+            "score": -1.2877975517113005
+          },
+          {
+            "group": "target-15",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.0435988176068003
+          },
+          {
+            "group": "target-16",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.164481270327253
+          },
+          {
+            "group": "target-16",
+            "mode": "native",
+            "label": 0,
+            "score": -0.944805704546376
+          },
+          {
+            "group": "target-17",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.1022693389936666
+          },
+          {
+            "group": "target-17",
+            "mode": "native",
+            "label": 0,
+            "score": -1.2469564144655219
+          },
+          {
+            "group": "target-18",
+            "mode": "p0",
+            "label": 1,
+            "score": 0.7267749632098259
+          },
+          {
+            "group": "target-18",
+            "mode": "native",
+            "label": 0,
+            "score": -2.296108300689922
+          },
+          {
+            "group": "target-19",
+            "mode": "p0",
+            "label": 1,
+            "score": 0.9816861263622387
+          },
+          {
+            "group": "target-19",
+            "mode": "native",
+            "label": 0,
+            "score": -1.6752265428369821
+          },
+          {
+            "group": "target-20",
+            "mode": "native",
+            "label": 0,
+            "score": -1.5309309355167449
+          },
+          {
+            "group": "target-20",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.287445529848867
+          },
+          {
+            "group": "target-21",
+            "mode": "native",
+            "label": 0,
+            "score": -0.8697512677289039
+          },
+          {
+            "group": "target-21",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.256882794167404
+          },
+          {
+            "group": "target-22",
+            "mode": "native",
+            "label": 0,
+            "score": -1.311162332584653
+          },
+          {
+            "group": "target-22",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.2921475147584993
+          },
+          {
+            "group": "target-23",
+            "mode": "p0",
+            "label": 1,
+            "score": 0.8242695903141063
+          },
+          {
+            "group": "target-23",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9697773618341112
+          },
+          {
+            "group": "target-24",
+            "mode": "native",
+            "label": 0,
+            "score": -0.9239784281449293
+          },
+          {
+            "group": "target-24",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.2432241345913013
+          },
+          {
+            "group": "target-25",
+            "mode": "native",
+            "label": 0,
+            "score": -1.5628442000848517
+          },
+          {
+            "group": "target-25",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.1354879827475441
+          },
+          {
+            "group": "target-26",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.0484465975213255
+          },
+          {
+            "group": "target-26",
+            "mode": "native",
+            "label": 0,
+            "score": -0.946309919949364
+          },
+          {
+            "group": "target-27",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.211981530198708
+          },
+          {
+            "group": "target-27",
+            "mode": "native",
+            "label": 0,
+            "score": -1.5528328796296251
+          },
+          {
+            "group": "target-28",
+            "mode": "p0",
+            "label": 1,
+            "score": 0.844313119781179
+          },
+          {
+            "group": "target-28",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9809098574349453
+          },
+          {
+            "group": "target-29",
+            "mode": "native",
+            "label": 0,
+            "score": -0.9727790013304167
+          },
+          {
+            "group": "target-29",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.107810090385833
+          },
+          {
+            "group": "target-30",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.2344454486170253
+          },
+          {
+            "group": "target-30",
+            "mode": "native",
+            "label": 0,
+            "score": -0.7834399883217207
+          },
+          {
+            "group": "target-31",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.1169014495327314
+          },
+          {
+            "group": "target-31",
+            "mode": "native",
+            "label": 0,
+            "score": -1.0336603303670682
+          },
+          {
+            "group": "target-32",
+            "mode": "native",
+            "label": 0,
+            "score": -1.4458619216215256
+          },
+          {
+            "group": "target-32",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.3104458161329977
+          },
+          {
+            "group": "target-33",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.2113716585215686
+          },
+          {
+            "group": "target-33",
+            "mode": "native",
+            "label": 0,
+            "score": -0.92273263395604
+          },
+          {
+            "group": "target-34",
+            "mode": "p0",
+            "label": 1,
+            "score": 0.86686975475095
+          },
+          {
+            "group": "target-34",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9843436071288933
+          },
+          {
+            "group": "target-35",
+            "mode": "native",
+            "label": 0,
+            "score": -1.7519235120059924
+          },
+          {
+            "group": "target-35",
+            "mode": "p0",
+            "label": 1,
+            "score": 0.95765400724132
+          },
+          {
+            "group": "target-36",
+            "mode": "p0",
+            "label": 1,
+            "score": 0.8823493948012024
+          },
+          {
+            "group": "target-36",
+            "mode": "native",
+            "label": 0,
+            "score": -1.982535662552591
+          },
+          {
+            "group": "target-37",
+            "mode": "native",
+            "label": 0,
+            "score": -1.0442022897265626
+          },
+          {
+            "group": "target-37",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.999432511182306
+          },
+          {
+            "group": "target-38",
+            "mode": "native",
+            "label": 0,
+            "score": -1.3224375840972074
+          },
+          {
+            "group": "target-38",
+            "mode": "p0",
+            "label": 1,
+            "score": 1.8665940413017177
+          },
+          {
+            "group": "target-39",
+            "mode": "p0",
+            "label": 1,
+            "score": 2.020058458640818
+          },
+          {
+            "group": "target-39",
+            "mode": "native",
+            "label": 0,
+            "score": -1.1380087254610403
+          }
+        ]
+      },
+      {
+        "trained_proxy_mode": "p0",
+        "tested_proxy_mode": "ack-p0",
+        "train_sessions": 48,
+        "heldout_sessions": 80,
+        "heldout_groups": 40,
+        "auc": 1.0,
+        "auc_paired_group_bootstrap_95": [
+          1.0,
+          1.0
+        ],
+        "threshold": -0.8163611768777135,
+        "threshold_rule": "strictly greater than maximum native training score (empirical training FPR zero)",
+        "true_positives": 40,
+        "positives": 40,
+        "tpr": 1.0,
+        "tpr_wilson_95": [
+          0.9123783988027135,
+          1.0
+        ],
+        "false_positives": 1,
+        "negatives": 40,
+        "fpr": 0.025,
+        "fpr_wilson_95": [
+          0.0044268315026814095,
+          0.1288136896347409
+        ],
+        "largest_standardized_coefficients": [
+          [
+            "up_iat_below_1ms",
+            0.20309199212898216
+          ],
+          [
+            "down_iat_below_1ms",
+            -0.18393966920528976
+          ],
+          [
+            "up_iat_mean_ms",
+            -0.16041889213916802
+          ],
+          [
+            "up_packets_per_second",
+            0.1600139939534737
+          ],
+          [
+            "down_iat_q90_ms",
+            -0.1590844474982633
+          ],
+          [
+            "down_iat_std_ms",
+            -0.14596832552078576
+          ],
+          [
+            "down_packets_per_second",
+            0.14417981593932538
+          ],
+          [
+            "down_iat_mean_ms",
+            -0.14369291579440038
+          ]
+        ],
+        "test_scores": [
+          {
+            "group": "target-0",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 2.258246681802861
+          },
+          {
+            "group": "target-0",
+            "mode": "native",
+            "label": 0,
+            "score": -1.4153171084268932
+          },
+          {
+            "group": "target-1",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.4108191952315312
+          },
+          {
+            "group": "target-1",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9807847956936369
+          },
+          {
+            "group": "target-2",
+            "mode": "native",
+            "label": 0,
+            "score": -1.214912284095501
+          },
+          {
+            "group": "target-2",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 2.1983798760903084
+          },
+          {
+            "group": "target-3",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.8991184895469944
+          },
+          {
+            "group": "target-3",
+            "mode": "native",
+            "label": 0,
+            "score": -1.4054685786402454
+          },
+          {
+            "group": "target-4",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 2.1897751781250583
+          },
+          {
+            "group": "target-4",
+            "mode": "native",
+            "label": 0,
+            "score": -1.2962485069875949
+          },
+          {
+            "group": "target-5",
+            "mode": "native",
+            "label": 0,
+            "score": -1.1406219676668017
+          },
+          {
+            "group": "target-5",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 2.3101875543639316
+          },
+          {
+            "group": "target-6",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.666901063801582
+          },
+          {
+            "group": "target-6",
+            "mode": "native",
+            "label": 0,
+            "score": -1.6653132904757713
+          },
+          {
+            "group": "target-7",
+            "mode": "native",
+            "label": 0,
+            "score": -1.949103457172742
+          },
+          {
+            "group": "target-7",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.5461985795305699
+          },
+          {
+            "group": "target-8",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.6521815492253755
+          },
+          {
+            "group": "target-8",
+            "mode": "native",
+            "label": 0,
+            "score": -1.7589496248537861
+          },
+          {
+            "group": "target-9",
+            "mode": "native",
+            "label": 0,
+            "score": -1.3052531363124285
+          },
+          {
+            "group": "target-9",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.9663313362959003
+          },
+          {
+            "group": "target-10",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 2.375491909955902
+          },
+          {
+            "group": "target-10",
+            "mode": "native",
+            "label": 0,
+            "score": -0.9756018778032053
+          },
+          {
+            "group": "target-11",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.8352872761584076
+          },
+          {
+            "group": "target-11",
+            "mode": "native",
+            "label": 0,
+            "score": -1.2400544476340076
+          },
+          {
+            "group": "target-12",
+            "mode": "native",
+            "label": 0,
+            "score": -1.3789334182155202
+          },
+          {
+            "group": "target-12",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.8810161683204771
+          },
+          {
+            "group": "target-13",
+            "mode": "native",
+            "label": 0,
+            "score": -1.411009628761817
+          },
+          {
+            "group": "target-13",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.8983510961901111
+          },
+          {
+            "group": "target-14",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 2.430640319740519
+          },
+          {
+            "group": "target-14",
+            "mode": "native",
+            "label": 0,
+            "score": -1.0587908838511835
+          },
+          {
+            "group": "target-15",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 2.3099214322622865
+          },
+          {
+            "group": "target-15",
+            "mode": "native",
+            "label": 0,
+            "score": -1.2877975517113005
+          },
+          {
+            "group": "target-16",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 2.4216747006013484
+          },
+          {
+            "group": "target-16",
+            "mode": "native",
+            "label": 0,
+            "score": -0.944805704546376
+          },
+          {
+            "group": "target-17",
+            "mode": "native",
+            "label": 0,
+            "score": -1.2469564144655219
+          },
+          {
+            "group": "target-17",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 2.249698389289084
+          },
+          {
+            "group": "target-18",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.44071226095467464
+          },
+          {
+            "group": "target-18",
+            "mode": "native",
+            "label": 0,
+            "score": -2.296108300689922
+          },
+          {
+            "group": "target-19",
+            "mode": "native",
+            "label": 0,
+            "score": -1.6752265428369821
+          },
+          {
+            "group": "target-19",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.7245717684033592
+          },
+          {
+            "group": "target-20",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.7798499172018887
+          },
+          {
+            "group": "target-20",
+            "mode": "native",
+            "label": 0,
+            "score": -1.5309309355167449
+          },
+          {
+            "group": "target-21",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 2.498022146832128
+          },
+          {
+            "group": "target-21",
+            "mode": "native",
+            "label": 0,
+            "score": -0.8697512677289039
+          },
+          {
+            "group": "target-22",
+            "mode": "native",
+            "label": 0,
+            "score": -1.311162332584653
+          },
+          {
+            "group": "target-22",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.9707175694469234
+          },
+          {
+            "group": "target-23",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.5240049830733945
+          },
+          {
+            "group": "target-23",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9697773618341112
+          },
+          {
+            "group": "target-24",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 2.5361467631348664
+          },
+          {
+            "group": "target-24",
+            "mode": "native",
+            "label": 0,
+            "score": -0.9239784281449293
+          },
+          {
+            "group": "target-25",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.7861570752659528
+          },
+          {
+            "group": "target-25",
+            "mode": "native",
+            "label": 0,
+            "score": -1.5628442000848517
+          },
+          {
+            "group": "target-26",
+            "mode": "native",
+            "label": 0,
+            "score": -0.946309919949364
+          },
+          {
+            "group": "target-26",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 2.350394128931406
+          },
+          {
+            "group": "target-27",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.8345794967112008
+          },
+          {
+            "group": "target-27",
+            "mode": "native",
+            "label": 0,
+            "score": -1.5528328796296251
+          },
+          {
+            "group": "target-28",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.5092956544913605
+          },
+          {
+            "group": "target-28",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9809098574349453
+          },
+          {
+            "group": "target-29",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 2.422821633237981
+          },
+          {
+            "group": "target-29",
+            "mode": "native",
+            "label": 0,
+            "score": -0.9727790013304167
+          },
+          {
+            "group": "target-30",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 2.5543230996204063
+          },
+          {
+            "group": "target-30",
+            "mode": "native",
+            "label": 0,
+            "score": -0.7834399883217207
+          },
+          {
+            "group": "target-31",
+            "mode": "native",
+            "label": 0,
+            "score": -1.0336603303670682
+          },
+          {
+            "group": "target-31",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 2.362851559297666
+          },
+          {
+            "group": "target-32",
+            "mode": "native",
+            "label": 0,
+            "score": -1.4458619216215256
+          },
+          {
+            "group": "target-32",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 1.7666272546063044
+          },
+          {
+            "group": "target-33",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 2.4488858014542
+          },
+          {
+            "group": "target-33",
+            "mode": "native",
+            "label": 0,
+            "score": -0.92273263395604
+          },
+          {
+            "group": "target-34",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.425618486426242
+          },
+          {
+            "group": "target-34",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9843436071288933
+          },
+          {
+            "group": "target-35",
+            "mode": "native",
+            "label": 0,
+            "score": -1.7519235120059924
+          },
+          {
+            "group": "target-35",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.6775797784897153
+          },
+          {
+            "group": "target-36",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 0.5566979158479501
+          },
+          {
+            "group": "target-36",
+            "mode": "native",
+            "label": 0,
+            "score": -1.982535662552591
+          },
+          {
+            "group": "target-37",
+            "mode": "native",
+            "label": 0,
+            "score": -1.0442022897265626
+          },
+          {
+            "group": "target-37",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 2.350229024068785
+          },
+          {
+            "group": "target-38",
+            "mode": "native",
+            "label": 0,
+            "score": -1.3224375840972074
+          },
+          {
+            "group": "target-38",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 2.1541077062432654
+          },
+          {
+            "group": "target-39",
+            "mode": "ack-p0",
+            "label": 1,
+            "score": 2.2557336249626982
+          },
+          {
+            "group": "target-39",
+            "mode": "native",
+            "label": 0,
+            "score": -1.1380087254610403
+          }
+        ]
+      },
+      {
+        "trained_proxy_mode": "p0",
+        "tested_proxy_mode": "ack-p127",
+        "train_sessions": 48,
+        "heldout_sessions": 80,
+        "heldout_groups": 40,
+        "auc": 1.0,
+        "auc_paired_group_bootstrap_95": [
+          1.0,
+          1.0
+        ],
+        "threshold": -0.8163611768777135,
+        "threshold_rule": "strictly greater than maximum native training score (empirical training FPR zero)",
+        "true_positives": 40,
+        "positives": 40,
+        "tpr": 1.0,
+        "tpr_wilson_95": [
+          0.9123783988027135,
+          1.0
+        ],
+        "false_positives": 1,
+        "negatives": 40,
+        "fpr": 0.025,
+        "fpr_wilson_95": [
+          0.0044268315026814095,
+          0.1288136896347409
+        ],
+        "largest_standardized_coefficients": [
+          [
+            "up_iat_below_1ms",
+            0.20309199212898216
+          ],
+          [
+            "down_iat_below_1ms",
+            -0.18393966920528976
+          ],
+          [
+            "up_iat_mean_ms",
+            -0.16041889213916802
+          ],
+          [
+            "up_packets_per_second",
+            0.1600139939534737
+          ],
+          [
+            "down_iat_q90_ms",
+            -0.1590844474982633
+          ],
+          [
+            "down_iat_std_ms",
+            -0.14596832552078576
+          ],
+          [
+            "down_packets_per_second",
+            0.14417981593932538
+          ],
+          [
+            "down_iat_mean_ms",
+            -0.14369291579440038
+          ]
+        ],
+        "test_scores": [
+          {
+            "group": "target-0",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 2.155214931386091
+          },
+          {
+            "group": "target-0",
+            "mode": "native",
+            "label": 0,
+            "score": -1.4153171084268932
+          },
+          {
+            "group": "target-1",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 0.5228194736709942
+          },
+          {
+            "group": "target-1",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9807847956936369
+          },
+          {
+            "group": "target-2",
+            "mode": "native",
+            "label": 0,
+            "score": -1.214912284095501
+          },
+          {
+            "group": "target-2",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 2.1746291255002728
+          },
+          {
+            "group": "target-3",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 1.8838254883965768
+          },
+          {
+            "group": "target-3",
+            "mode": "native",
+            "label": 0,
+            "score": -1.4054685786402454
+          },
+          {
+            "group": "target-4",
+            "mode": "native",
+            "label": 0,
+            "score": -1.2962485069875949
+          },
+          {
+            "group": "target-4",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 2.1896137769110737
+          },
+          {
+            "group": "target-5",
+            "mode": "native",
+            "label": 0,
+            "score": -1.1406219676668017
+          },
+          {
+            "group": "target-5",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 2.3350384386589833
+          },
+          {
+            "group": "target-6",
+            "mode": "native",
+            "label": 0,
+            "score": -1.6653132904757713
+          },
+          {
+            "group": "target-6",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 1.6680004254555316
+          },
+          {
+            "group": "target-7",
+            "mode": "native",
+            "label": 0,
+            "score": -1.949103457172742
+          },
+          {
+            "group": "target-7",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 0.5781146929482495
+          },
+          {
+            "group": "target-8",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 0.5981441763608399
+          },
+          {
+            "group": "target-8",
+            "mode": "native",
+            "label": 0,
+            "score": -1.7589496248537861
+          },
+          {
+            "group": "target-9",
+            "mode": "native",
+            "label": 0,
+            "score": -1.3052531363124285
+          },
+          {
+            "group": "target-9",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 2.104275177688746
+          },
+          {
+            "group": "target-10",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 2.358619940672809
+          },
+          {
+            "group": "target-10",
+            "mode": "native",
+            "label": 0,
+            "score": -0.9756018778032053
+          },
+          {
+            "group": "target-11",
+            "mode": "native",
+            "label": 0,
+            "score": -1.2400544476340076
+          },
+          {
+            "group": "target-11",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 1.8354359492461287
+          },
+          {
+            "group": "target-12",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 1.8182619618502496
+          },
+          {
+            "group": "target-12",
+            "mode": "native",
+            "label": 0,
+            "score": -1.3789334182155202
+          },
+          {
+            "group": "target-13",
+            "mode": "native",
+            "label": 0,
+            "score": -1.411009628761817
+          },
+          {
+            "group": "target-13",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 0.8613862472105707
+          },
+          {
+            "group": "target-14",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 2.40848799562764
+          },
+          {
+            "group": "target-14",
+            "mode": "native",
+            "label": 0,
+            "score": -1.0587908838511835
+          },
+          {
+            "group": "target-15",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 2.197143697570006
+          },
+          {
+            "group": "target-15",
+            "mode": "native",
+            "label": 0,
+            "score": -1.2877975517113005
+          },
+          {
+            "group": "target-16",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 2.5252938231881
+          },
+          {
+            "group": "target-16",
+            "mode": "native",
+            "label": 0,
+            "score": -0.944805704546376
+          },
+          {
+            "group": "target-17",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 2.2582230988882253
+          },
+          {
+            "group": "target-17",
+            "mode": "native",
+            "label": 0,
+            "score": -1.2469564144655219
+          },
+          {
+            "group": "target-18",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 0.302076621282715
+          },
+          {
+            "group": "target-18",
+            "mode": "native",
+            "label": 0,
+            "score": -2.296108300689922
+          },
+          {
+            "group": "target-19",
+            "mode": "native",
+            "label": 0,
+            "score": -1.6752265428369821
+          },
+          {
+            "group": "target-19",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 1.711519691490383
+          },
+          {
+            "group": "target-20",
+            "mode": "native",
+            "label": 0,
+            "score": -1.5309309355167449
+          },
+          {
+            "group": "target-20",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 1.792523381511294
+          },
+          {
+            "group": "target-21",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 2.5019928797621307
+          },
+          {
+            "group": "target-21",
+            "mode": "native",
+            "label": 0,
+            "score": -0.8697512677289039
+          },
+          {
+            "group": "target-22",
+            "mode": "native",
+            "label": 0,
+            "score": -1.311162332584653
+          },
+          {
+            "group": "target-22",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 1.9369339095165181
+          },
+          {
+            "group": "target-23",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 0.5734162834595893
+          },
+          {
+            "group": "target-23",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9697773618341112
+          },
+          {
+            "group": "target-24",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 2.52999585313521
+          },
+          {
+            "group": "target-24",
+            "mode": "native",
+            "label": 0,
+            "score": -0.9239784281449293
+          },
+          {
+            "group": "target-25",
+            "mode": "native",
+            "label": 0,
+            "score": -1.5628442000848517
+          },
+          {
+            "group": "target-25",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 1.7928952488255692
+          },
+          {
+            "group": "target-26",
+            "mode": "native",
+            "label": 0,
+            "score": -0.946309919949364
+          },
+          {
+            "group": "target-26",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 2.382417469970588
+          },
+          {
+            "group": "target-27",
+            "mode": "native",
+            "label": 0,
+            "score": -1.5528328796296251
+          },
+          {
+            "group": "target-27",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 1.82651251411648
+          },
+          {
+            "group": "target-28",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 0.4645406944999714
+          },
+          {
+            "group": "target-28",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9809098574349453
+          },
+          {
+            "group": "target-29",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 2.427461950724746
+          },
+          {
+            "group": "target-29",
+            "mode": "native",
+            "label": 0,
+            "score": -0.9727790013304167
+          },
+          {
+            "group": "target-30",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 2.567776568860504
+          },
+          {
+            "group": "target-30",
+            "mode": "native",
+            "label": 0,
+            "score": -0.7834399883217207
+          },
+          {
+            "group": "target-31",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 2.3792875787200254
+          },
+          {
+            "group": "target-31",
+            "mode": "native",
+            "label": 0,
+            "score": -1.0336603303670682
+          },
+          {
+            "group": "target-32",
+            "mode": "native",
+            "label": 0,
+            "score": -1.4458619216215256
+          },
+          {
+            "group": "target-32",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 1.7968696419239802
+          },
+          {
+            "group": "target-33",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 2.42738163570693
+          },
+          {
+            "group": "target-33",
+            "mode": "native",
+            "label": 0,
+            "score": -0.92273263395604
+          },
+          {
+            "group": "target-34",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 0.42986531545557577
+          },
+          {
+            "group": "target-34",
+            "mode": "native",
+            "label": 0,
+            "score": -1.9843436071288933
+          },
+          {
+            "group": "target-35",
+            "mode": "native",
+            "label": 0,
+            "score": -1.7519235120059924
+          },
+          {
+            "group": "target-35",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 0.5903657573716199
+          },
+          {
+            "group": "target-36",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 0.3669957012799785
+          },
+          {
+            "group": "target-36",
+            "mode": "native",
+            "label": 0,
+            "score": -1.982535662552591
+          },
+          {
+            "group": "target-37",
+            "mode": "native",
+            "label": 0,
+            "score": -1.0442022897265626
+          },
+          {
+            "group": "target-37",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 2.2860888157645514
+          },
+          {
+            "group": "target-38",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 2.1883531962088165
+          },
+          {
+            "group": "target-38",
+            "mode": "native",
+            "label": 0,
+            "score": -1.3224375840972074
+          },
+          {
+            "group": "target-39",
+            "mode": "ack-p127",
+            "label": 1,
+            "score": 2.2165051230755104
+          },
+          {
+            "group": "target-39",
+            "mode": "native",
+            "label": 0,
+            "score": -1.1380087254610403
+          }
+        ]
+      }
+    ]
+  },
+  "limitation": "different collection dates and workload seeds on the same host/emulator/Go implementation family; not cross-network or independent-site generalization"
+}

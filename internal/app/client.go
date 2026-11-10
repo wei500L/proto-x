@@ -2,12 +2,9 @@ package app
 
 import (
 	"context"
-	"crypto/tls"
 	"encoding/binary"
 	"encoding/hex"
-	"encoding/json"
 	"errors"
-	"fmt"
 	"io"
 	"log/slog"
 	"net"
@@ -18,7 +15,6 @@ import (
 	"proto-x/internal/carrier"
 	"proto-x/internal/cover"
 	"proto-x/internal/session"
-	"proto-x/internal/wire"
 )
 
 type Client struct {
@@ -150,57 +146,7 @@ func (c *Client) manage(ctx context.Context) {
 		for attempt := range c.cfg.Endpoints {
 			index := (startIndex + attempt) % len(c.cfg.Endpoints)
 			ep := c.cfg.Endpoints[index]
-			dctx, cancel := context.WithTimeout(ctx, time.Duration(c.cfg.DialTimeoutMS)*time.Millisecond)
-			var l *carrier.Link
-			var e error
-			helloBody, _ := json.Marshal(hello{Version: wire.Version, Session: s.ID, Token: c.token, Resume: resuming, Window: c.cfg.Window})
-			helloFrame := wire.Frame{Kind: wire.Hello, Payload: helloBody}
-			httpCarrier := ep.Network == "h2" || ep.Network == "h3"
-			if httpCarrier {
-				var tc *tls.Config
-				tc, e = c.cfg.webTLS(ep)
-				if e == nil {
-					l, e = carrier.DialWeb(dctx, carrier.WebOptions{Network: ep.Network, Address: ep.Address,
-						Authority: ep.ServerName, Path: c.cfg.WebPath, TLSConfig: tc, Gate: c.gate, Padding: c.cfg.WebPadding, Initial: &helloFrame})
-				}
-			} else {
-				tc, _ := carrier.ClientTLS(c.cfg.Pin, ep.ServerName)
-				l, e = carrier.Dial(dctx, ep.Network, ep.Address, tc)
-			}
-			if e == nil {
-				// DialContext ends after the transport handshake. Also interrupt
-				// the following application handshake when its parent is canceled.
-				stop := context.AfterFunc(dctx, func() { _ = l.Close() })
-				deadline, _ := dctx.Deadline()
-				l.SetHandshakeDeadline(deadline)
-				if !httpCarrier {
-					e = l.HandshakeWrite(helloFrame)
-				}
-				if e == nil {
-					var p wire.Frame
-					p, e = l.HandshakeRead()
-					if e == nil {
-						var w welcome
-						if p.Kind != wire.Welcome || json.Unmarshal(p.Payload, &w) != nil {
-							e = wire.ErrFrame
-						} else if !w.OK {
-							if w.Error == "session_lost" {
-								e = session.ErrSessionLost
-							} else {
-								e = fmt.Errorf("server: %s", w.Error)
-							}
-						} else if resuming && !w.Resumed {
-							e = session.ErrSessionLost
-						}
-					}
-				}
-				if !stop() && e == nil {
-					// A cancellation callback may already be closing this link.
-					// Never publish it as an attached carrier.
-					e = dctx.Err()
-				}
-			}
-			cancel()
+			l, e := c.connectCarrier(ctx, s, ep, resuming, nil)
 			if e != nil {
 				if l != nil {
 					_ = l.Close()
@@ -236,33 +182,22 @@ func (c *Client) manage(ctx context.Context) {
 			}
 			continue
 		}
-		var rotate <-chan time.Time
-		var timer *time.Timer
-		if c.cfg.RotateSeconds > 0 {
-			timer = time.NewTimer(time.Duration(c.cfg.RotateSeconds) * time.Second)
-			rotate = timer.C
-		}
-		select {
-		case <-ctx.Done():
-			if timer != nil {
-				timer.Stop()
+		for {
+			next, index := c.waitCarrier(ctx, s, connected, connectedIndex)
+			if next == nil {
+				break
 			}
-			return
-		case <-connected.Done():
-		case <-s.Done():
-		case <-rotate:
-			s.Drop(connected)
-		}
-		if timer != nil {
-			timer.Stop()
+			connected, connectedIndex = next, index
 		}
 		// A carrier that just failed does not get another full dial timeout
 		// ahead of an available alternate path.
 		startIndex = (connectedIndex + 1) % len(c.cfg.Endpoints)
-		select {
-		case <-ctx.Done():
-			return
-		case <-time.After(100 * time.Millisecond):
+		if c.cfg.RecoveryMode != "adaptive" {
+			select {
+			case <-ctx.Done():
+				return
+			case <-time.After(100 * time.Millisecond):
+			}
 		}
 	}
 }

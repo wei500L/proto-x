@@ -1,0 +1,278 @@
+{
+  "trial_id": "04-blackhole-xray-vision-s521",
+  "variant": "xray-vision",
+  "profile": "blackhole",
+  "seed": 521,
+  "utc_start": "2026-11-10T09:17:59.380231+00:00",
+  "status": "completed",
+  "duration_s": 16.0,
+  "warmup_s": 3.0,
+  "gomaxprocs": 1,
+  "background_workers": 1,
+  "background_mbps_source_budget": 2,
+  "warmup_exit_code": 0,
+  "benchmark_epoch_mono_bounds": {
+    "lower_ns": 142592288075690,
+    "upper_ns": 142592296002914,
+    "width_ns": 7927224
+  },
+  "workload_exit_code": 0,
+  "observed": {
+    "operations": {
+      "download_end": {
+        "total": 1,
+        "success": 0,
+        "failure": 0,
+        "timeout": 0,
+        "censored": 1,
+        "rejected": 0,
+        "connection_attempts": 0,
+        "success_rate_total": 0,
+        "successful_latency_ms": {
+          "n": 0,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "successful_scheduled_latency_ms": {
+          "n": 0,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "successful_ttfb_ms": {
+          "n": 0,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0,
+          "mean": 0
+        }
+      },
+      "echo": {
+        "total": 153,
+        "success": 152,
+        "failure": 0,
+        "timeout": 0,
+        "censored": 1,
+        "rejected": 0,
+        "connection_attempts": 0,
+        "success_rate_total": 0.9934640522875817,
+        "successful_latency_ms": {
+          "n": 152,
+          "p50": 102.705254,
+          "p95": 111.55036,
+          "p99": 115.070666,
+          "max": 318.214034,
+          "mean": 104.95797808552635
+        },
+        "successful_scheduled_latency_ms": {
+          "n": 0,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "successful_ttfb_ms": {
+          "n": 0,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0,
+          "mean": 0
+        }
+      },
+      "http": {
+        "total": 80,
+        "success": 78,
+        "failure": 0,
+        "timeout": 0,
+        "censored": 2,
+        "rejected": 0,
+        "connection_attempts": 79,
+        "success_rate_total": 0.975,
+        "successful_latency_ms": {
+          "n": 78,
+          "p50": 440.73296,
+          "p95": 446.852184,
+          "p99": 469.368545,
+          "max": 469.368545,
+          "mean": 441.5240789102565
+        },
+        "successful_scheduled_latency_ms": {
+          "n": 78,
+          "p50": 441.315561,
+          "p95": 447.749428,
+          "p99": 469.375446,
+          "max": 469.375446,
+          "mean": 442.1507326410257
+        },
+        "successful_ttfb_ms": {
+          "n": 78,
+          "p50": 440.600228,
+          "p95": 446.708373,
+          "p99": 469.243282,
+          "max": 469.243282,
+          "mean": 441.3890383205128
+        }
+      }
+    },
+    "sse": {
+      "connections": 1,
+      "connect_failure": 0,
+      "tokens": 312,
+      "sequence_errors": 0,
+      "source_errors": 0,
+      "unexpected_ends": 0,
+      "receive_gap_ms": {
+        "n": 311,
+        "p50": 50.236489,
+        "p95": 52.008224,
+        "p99": 53.688088,
+        "max": 54.922937,
+        "mean": 49.99945448231507
+      },
+      "source_gap_ms": {
+        "n": 311,
+        "p50": 50.060763,
+        "p95": 50.739685,
+        "p99": 50.932578,
+        "max": 51.298021,
+        "mean": 50.00261125723469
+      },
+      "excess_gap_ms": {
+        "n": 311,
+        "p50": 0.019586000000003878,
+        "p95": 2.0521770000000004,
+        "p99": 3.274405999999999,
+        "max": 4.3534330000000026,
+        "mean": 0.36409314147909966
+      },
+      "gaps_over_250ms": 0,
+      "gaps_over_1000ms": 0,
+      "excess_over_250ms": 0,
+      "excess_over_1000ms": 0,
+      "terminal_gaps_over_250ms": 0,
+      "terminal_gaps_over_1000ms": 0,
+      "max_terminal_gap_ms": 4.086139,
+      "run_tail_gap_ms": 4.090623,
+      "source_generation_delay_ms": {
+        "n": 312,
+        "p50": 0.613355,
+        "p95": 1.169394,
+        "p99": 1.261417,
+        "max": 1.685961,
+        "mean": 0.6212358749999999
+      }
+    },
+    "download_goodput_mbps": 1.8574649171394522
+  },
+  "commands": {
+    "fixture": [
+      "ip",
+      "netns",
+      "exec",
+      "px-server",
+      "env",
+      "GOMAXPROCS=1",
+      "/tmp/pxlab-v03/bin/recoverybench",
+      "-fixture",
+      "-fixture-http",
+      "127.0.0.1:18443",
+      "-fixture-echo",
+      "127.0.0.1:18081",
+      "-fixture-cert",
+      "/tmp/pxlab-v03/private/baseline/tls-cert.pem",
+      "-fixture-key",
+      "/tmp/pxlab-v03/private/baseline/tls-key.pem",
+      "-fixture-log",
+      "/tmp/pxlab-v03/results/net-v03-reference-20261110/04-blackhole-xray-vision-s521/target-events.jsonl"
+    ],
+    "cover": [
+      "ip",
+      "netns",
+      "exec",
+      "px-server",
+      "env",
+      "GOMAXPROCS=1",
+      "/tmp/pxlab-v03/bin/tlscover",
+      "-listen",
+      "127.0.0.1:39443",
+      "-cert",
+      "/tmp/pxlab-v03/private/baseline/tls-cert.pem",
+      "-key",
+      "/tmp/pxlab-v03/private/baseline/tls-key.pem"
+    ],
+    "server": [
+      "ip",
+      "netns",
+      "exec",
+      "px-server",
+      "env",
+      "GOMAXPROCS=1",
+      "/tmp/pxlab-v03/bin/xray",
+      "run",
+      "-config",
+      "/tmp/pxlab-v03/private/baseline/xray-server.json"
+    ],
+    "client": [
+      "ip",
+      "netns",
+      "exec",
+      "px-client",
+      "env",
+      "GOMAXPROCS=1",
+      "/tmp/pxlab-v03/bin/xray",
+      "run",
+      "-config",
+      "/tmp/pxlab-v03/private/baseline/xray-client.json"
+    ],
+    "workload": [
+      "ip",
+      "netns",
+      "exec",
+      "px-client",
+      "env",
+      "GOMAXPROCS=1",
+      "/tmp/pxlab-v03/bin/pxbench",
+      "run",
+      "-proxy",
+      "127.0.0.1:10801",
+      "-http-target",
+      "https://protox-baseline.test:18443",
+      "-echo-target",
+      "127.0.0.1:18081",
+      "-ca",
+      "/tmp/pxlab-v03/private/baseline/tls-cert.pem",
+      "-duration",
+      "16.0s",
+      "-timeout",
+      "3s",
+      "-rps",
+      "5",
+      "-echo-interval",
+      "100ms",
+      "-stream-interval",
+      "50ms",
+      "-background",
+      "1",
+      "-uploads",
+      "0",
+      "-output",
+      "/tmp/pxlab-v03/results/net-v03-reference-20261110/04-blackhole-xray-vision-s521/events.jsonl",
+      "-summary",
+      "/tmp/pxlab-v03/results/net-v03-reference-20261110/04-blackhole-xray-vision-s521/events.summary.json",
+      "-run-id",
+      "04-blackhole-xray-vision-s521",
+      "-background-mbps",
+      "2",
+      "-cold-http"
+    ]
+  },
+  "utc_end": "2026-11-10T09:18:19.209758+00:00"
+}

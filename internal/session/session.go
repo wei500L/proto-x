@@ -21,18 +21,24 @@ import (
 var ErrSessionLost = errors.New("session state unavailable; existing sockets cannot resume")
 var ErrFlowLimit = errors.New("concurrent flow limit reached")
 var ErrProtocol = errors.New("invalid flow state")
+var ErrStaleAttempt = errors.New("stale carrier attempt")
 
 type Config struct {
-	Window    int
-	MaxFlows  int
-	Rate      float64 // shared bytes/s, including record headers and an overhead estimate
-	Priority  bool
-	Adaptive  bool
-	Heartbeat time.Duration
-	DeadAfter time.Duration
-	ResumeTTL time.Duration
-	Dial      func(context.Context, string) (net.Conn, error)
-	Logger    *slog.Logger
+	Window               int
+	MaxFlows             int
+	Rate                 float64 // shared bytes/s, including record headers and an overhead estimate
+	Priority             bool
+	Adaptive             bool
+	Heartbeat            time.Duration
+	DeadAfter            time.Duration
+	ResumeTTL            time.Duration
+	RecoveryMode         string // legacy or adaptive; adaptive hedging is driven by the client manager
+	RecoveryTrace        bool
+	RecoveryCountHistory bool // retain last 32 RTTs; false enables experimental age filtering
+	RecoveryProbeOnly    bool // ablation: ignore causally matched application progress
+	ACKCoalesce          bool // coalesce cumulative ACKs while preserving credit and FIN progress
+	Dial                 func(context.Context, string) (net.Conn, error)
+	Logger               *slog.Logger
 }
 
 func (c *Config) defaults() {
@@ -57,35 +63,40 @@ func (c *Config) defaults() {
 }
 func (c Config) Validate() error {
 	c.defaults()
-	if c.Window < 4096 || c.Window > 1<<20 || c.MaxFlows < 1 || c.MaxFlows > 64 || c.Rate < 0 || c.Heartbeat < 100*time.Millisecond || c.DeadAfter < c.Heartbeat*2 || c.ResumeTTL < c.DeadAfter {
+	if c.Window < 4096 || c.Window > 1<<20 || c.MaxFlows < 1 || c.MaxFlows > 64 || c.Rate < 0 || c.Heartbeat < 100*time.Millisecond || c.DeadAfter < c.Heartbeat*2 || c.ResumeTTL < c.DeadAfter || (c.RecoveryMode != "" && c.RecoveryMode != "legacy" && c.RecoveryMode != "adaptive") {
 		return errors.New("invalid session limits")
 	}
 	return nil
 }
 
 type Session struct {
-	ID             string
-	Server         bool
-	cfg            Config
-	ctx            context.Context
-	cancel         context.CancelFunc
-	mu             sync.Mutex
-	link           *carrier.Link
-	gen            uint64
-	flows          map[uint64]*Flow
-	tombs          map[uint64]tombstone
-	maxID          uint64
-	nextID         uint64
-	detached       time.Time
-	changed        chan struct{}
-	budget         *scheduler.Budget
-	lastRX         atomic.Int64
-	started        time.Time
-	Reattachments  atomic.Uint64
-	RecordSent     atomic.Uint64
-	RecordReceived atomic.Uint64
-	DuplicateBytes atomic.Uint64
-	RTTNanos       atomic.Int64
+	ID              string
+	Server          bool
+	cfg             Config
+	ctx             context.Context
+	cancel          context.CancelFunc
+	mu              sync.Mutex
+	link            *carrier.Link
+	gen             uint64
+	flows           map[uint64]*Flow
+	tombs           map[uint64]tombstone
+	maxID           uint64
+	nextID          uint64
+	detached        time.Time
+	changed         chan struct{}
+	budget          *scheduler.Budget
+	lastRX          atomic.Int64
+	started         time.Time
+	path            pathMonitor // protected by mu, including samples and queued probes
+	lastApplication atomic.Int64
+	progressGen     uint64
+	nextAttempt     uint64 // client HELLO sequence, independent of attached generations
+	attachedAttempt uint64 // server's committed sequence; zero denotes legacy mode
+	Reattachments   atomic.Uint64
+	RecordSent      atomic.Uint64
+	RecordReceived  atomic.Uint64
+	DuplicateBytes  atomic.Uint64
+	RTTNanos        atomic.Int64
 }
 
 type tombstone struct {
@@ -109,22 +120,55 @@ func (s *Session) Current() (*carrier.Link, uint64, <-chan struct{}) {
 	return s.link, s.gen, s.changed
 }
 func (s *Session) Attach(l *carrier.Link) error {
+	return s.AttachAttempt(l, 0)
+}
+
+// NextAttempt consumes a sequence number for every activation, including failed
+// attempts. TLS-only preparation does not change it. Never wrap the sequence.
+func (s *Session) NextAttempt() (uint64, error) {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+	if s.ctx.Err() != nil || s.nextAttempt == ^uint64(0) {
+		return 0, ErrSessionLost
+	}
+	s.nextAttempt++
+	return s.nextAttempt, nil
+}
+
+// AttachAttempt fences delayed authenticated activations. The check and path
+// publication are atomic. Once fenced, legacy Attach cannot replace this session.
+// WELCOME delivery is not an atomic distributed commit: its loss can still
+// leave the client uncertain, but a newer retry cannot be rolled back by it.
+func (s *Session) AttachAttempt(l *carrier.Link, attempt uint64) error {
 	s.mu.Lock()
 	if s.ctx.Err() != nil {
 		s.mu.Unlock()
 		return ErrSessionLost
 	}
+	if (attempt == 0 && s.attachedAttempt != 0) || (attempt != 0 && attempt <= s.attachedAttempt) {
+		s.mu.Unlock()
+		return ErrStaleAttempt
+	}
+	select {
+	case <-l.Done():
+		s.mu.Unlock()
+		return io.ErrClosedPipe
+	default:
+	}
 	old := s.link
+	s.attachedAttempt = attempt
 	s.link = l
 	s.gen++
 	gen := s.gen
+	s.path = pathMonitor{countHistory: s.cfg.RecoveryCountHistory}
+	s.progressGen = 0
 	s.detached = time.Time{}
 	s.lastRX.Store(int64(time.Since(s.started)))
 	s.notifyLocked()
 	flows := s.flowListLocked()
 	s.mu.Unlock()
 	if old != nil {
-		_ = old.Close()
+		s.retireLink(old)
 	}
 	s.budget.ResetRTT()
 	s.Reattachments.Add(1)
@@ -134,6 +178,7 @@ func (s *Session) Attach(l *carrier.Link) error {
 	}
 	go s.receive(l)
 	s.cfg.Logger.Info("carrier attached", "carrier", l.Kind, "generation", gen, "resumed_flows", len(flows))
+	s.RecoveryEvent("attached", "carrier", l.Kind, "generation", gen, "attempt", attempt, "resumed_flows", len(flows))
 	return nil
 }
 func (s *Session) Drop(l *carrier.Link) {
@@ -144,16 +189,24 @@ func (s *Session) Drop(l *carrier.Link) {
 	}
 	s.link = nil
 	s.detached = time.Now()
-	s.RecordSent.Add(l.Sent.Load())
-	s.RecordReceived.Add(l.Received.Load())
 	s.notifyLocked()
 	fs := s.flowListLocked()
 	s.mu.Unlock()
-	_ = l.Close()
+	s.retireLink(l)
 	for _, f := range fs {
 		f.signal()
 	}
 	s.cfg.Logger.Info("carrier detached", "carrier", l.Kind)
+	s.RecoveryEvent("detached", "carrier", l.Kind)
+}
+
+// Diagnostic snapshots of retired application records, not wire-byte meters.
+// Include direct replacement as well as detached paths. Outer ACKs, probes,
+// padding, handshake traffic and in-flight completion require link capture.
+func (s *Session) retireLink(l *carrier.Link) {
+	_ = l.Close()
+	s.RecordSent.Add(l.Sent.Load())
+	s.RecordReceived.Add(l.Received.Load())
 }
 func (s *Session) Close(err error) {
 	s.cancel()
@@ -204,6 +257,7 @@ func (s *Session) Open(ctx context.Context, target string) (*Flow, error) {
 	s.maxID = id
 	f := newFlow(s, id, target)
 	s.flows[id] = f
+	s.lastApplication.Store(int64(time.Since(s.started)))
 	s.mu.Unlock()
 	go f.sendLoop()
 	f.signal()
@@ -224,6 +278,11 @@ func (s *Session) Open(ctx context.Context, target string) (*Flow, error) {
 	}
 }
 
+// receiveFrame holds the generation lock through state mutation. A frame
+// already dequeued from an old carrier cannot reset or half-close a resumed
+// flow after Attach publishes a new generation.
+var errStaleCarrier = errors.New("stale carrier generation")
+
 func (s *Session) receive(l *carrier.Link) {
 	for {
 		select {
@@ -233,91 +292,103 @@ func (s *Session) receive(l *carrier.Link) {
 			s.Drop(l)
 			return
 		case p := <-l.Frames():
-			current, _, _ := s.Current()
-			if current != l {
-				return
-			}
-			s.lastRX.Store(int64(time.Since(s.started)))
-			if p.ID == 0 {
-				switch p.Kind {
-				case wire.Ping:
-					if !l.QueueControl(wire.Frame{Kind: wire.Pong, Offset: p.Offset}) {
-						s.Drop(l)
-						return
-					}
-				case wire.Pong:
-					elapsed := time.Since(s.started)
-					if p.Offset > uint64(elapsed) {
-						s.Drop(l)
-						return
-					}
-					rtt := elapsed - time.Duration(p.Offset)
-					s.RTTNanos.Store(int64(rtt))
-					s.budget.ObserveRTT(rtt)
-				default:
+			if err := s.receiveFrame(l, p); err != nil {
+				if !errors.Is(err, errStaleCarrier) {
 					s.Drop(l)
-					return
 				}
-				continue
-			}
-			if p.ID%2 != 1 {
-				s.Drop(l)
 				return
-			}
-			s.mu.Lock()
-			f := s.flows[p.ID]
-			tomb, closed := s.tombs[p.ID]
-			stale := s.maxID > 8192 && p.ID < s.maxID-8192
-			if f == nil && p.Kind == wire.Open && s.Server && !closed && !stale && len(s.flows) < s.cfg.MaxFlows {
-				target := string(p.Payload)
-				if len(target) == 0 || len(target) > 1024 {
-					s.mu.Unlock()
-					s.Drop(l)
-					return
-				}
-				f = newFlow(s, p.ID, target)
-				s.flows[p.ID] = f
-				if p.ID > s.maxID {
-					s.maxID = p.ID
-				}
-				go f.sendLoop()
-				go s.connectTarget(f)
-			}
-			s.mu.Unlock()
-			if f == nil {
-				if p.Kind == wire.Reset || p.Kind == wire.Ack {
-					continue
-				}
-				// A completed flow's compact tombstone preserves graceful FIN
-				// semantics if its last ACK was lost with the previous carrier.
-				if closed && !tomb.reset {
-					kind := uint8(wire.Ack)
-					if p.Kind == wire.Open {
-						kind = wire.Opened
-					}
-					if !l.QueueControl(wire.Frame{Kind: kind, Flags: wire.FlagFIN, ID: p.ID, Offset: tomb.received, Limit: tomb.received + uint64(s.cfg.Window)}) {
-						s.Drop(l)
-						return
-					}
-					if p.Kind == wire.Open {
-						if !l.QueueControl(wire.Frame{Kind: wire.Fin, ID: p.ID, Offset: tomb.sent}) {
-							s.Drop(l)
-							return
-						}
-					}
-				} else {
-					if !l.QueueControl(wire.Frame{Kind: wire.Reset, ID: p.ID, Payload: []byte("flow unavailable")}) {
-						s.Drop(l)
-						return
-					}
-				}
-				continue
-			}
-			if err := f.receive(p); err != nil {
-				f.fail(err, true)
 			}
 		}
 	}
+}
+
+func (s *Session) receiveFrame(l *carrier.Link, p wire.Frame) error {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+	if s.link != l {
+		return errStaleCarrier
+	}
+	now := time.Since(s.started)
+	s.lastRX.Store(int64(now))
+	if p.ID == 0 {
+		switch p.Kind {
+		case wire.Ping:
+			if !l.QueueControl(wire.Frame{Kind: wire.Pong, Offset: p.Offset}) {
+				return ErrProtocol
+			}
+		case wire.Pong:
+			if p.Offset > uint64(now) {
+				return ErrProtocol
+			}
+			rtt, matched := s.path.replied(time.Duration(p.Offset), now)
+			if !matched && s.cfg.RecoveryMode != "adaptive" {
+				rtt = now - time.Duration(p.Offset)
+			}
+			if matched || s.cfg.RecoveryMode != "adaptive" {
+				s.RTTNanos.Store(int64(rtt))
+				s.budget.ObserveRTT(rtt)
+				s.RecoveryEvent("probe_reply", "generation", s.gen, "carrier", l.Kind, "probe_ns", p.Offset, "rtt_ns", int64(rtt))
+			}
+		default:
+			return ErrProtocol
+		}
+		return nil
+	}
+	if p.ID%2 != 1 {
+		return ErrProtocol
+	}
+	f := s.flows[p.ID]
+	tomb, closed := s.tombs[p.ID]
+	stale := s.maxID > 8192 && p.ID < s.maxID-8192
+	if f == nil && p.Kind == wire.Open && s.Server && !closed && !stale && len(s.flows) < s.cfg.MaxFlows {
+		target := string(p.Payload)
+		if len(target) == 0 || len(target) > 1024 {
+			return ErrProtocol
+		}
+		f = newFlow(s, p.ID, target)
+		s.flows[p.ID] = f
+		if p.ID > s.maxID {
+			s.maxID = p.ID
+		}
+		go f.sendLoop()
+		go s.connectTarget(f)
+	}
+	if f == nil {
+		if p.Kind == wire.Reset || p.Kind == wire.Ack {
+			return nil
+		}
+		if closed && !tomb.reset {
+			kind := uint8(wire.Ack)
+			if p.Kind == wire.Open {
+				kind = wire.Opened
+			}
+			if !l.QueueControl(wire.Frame{Kind: kind, Flags: wire.FlagFIN, ID: p.ID, Offset: tomb.received, Limit: tomb.received + uint64(s.cfg.Window)}) {
+				return ErrProtocol
+			}
+			if p.Kind == wire.Open && !l.QueueControl(wire.Frame{Kind: wire.Fin, ID: p.ID, Offset: tomb.sent}) {
+				return ErrProtocol
+			}
+		} else if !l.QueueControl(wire.Frame{Kind: wire.Reset, ID: p.ID, Payload: []byte("flow unavailable")}) {
+			return ErrProtocol
+		}
+		return nil
+	}
+	proofAt, err := f.receiveWithProof(p, s.gen)
+	if err != nil {
+		f.fail(err, true)
+		return nil
+	}
+	if proofAt > 0 && s.cfg.RecoveryMode == "adaptive" && !s.Server && !s.cfg.RecoveryProbeOnly && s.path.delivered(proofAt, now, s.path.threshold(s.cfg.DeadAfter)) {
+		s.RecoveryEvent("delivery_proof", "generation", s.gen, "carrier", l.Kind, "kind", p.Kind, "sent_ns", int64(proofAt), "age_ns", int64(now-proofAt))
+	}
+	if p.Kind == wire.Data || p.Kind == wire.Open || p.Kind == wire.Opened {
+		s.lastApplication.Store(int64(now))
+		if s.progressGen != s.gen {
+			s.progressGen = s.gen
+			s.RecoveryEvent("first_progress", "generation", s.gen, "carrier", l.Kind, "kind", p.Kind)
+		}
+	}
+	return nil
 }
 
 func (s *Session) connectTarget(f *Flow) {
@@ -375,7 +446,11 @@ func Bridge(c net.Conn, f *Flow) {
 }
 
 func (s *Session) maintenance() {
-	t := time.NewTicker(s.cfg.Heartbeat)
+	interval := s.cfg.Heartbeat
+	if s.cfg.RecoveryMode == "adaptive" && !s.Server {
+		interval = min(interval, 25*time.Millisecond)
+	}
+	t := time.NewTicker(interval)
 	defer t.Stop()
 	for {
 		select {
@@ -384,18 +459,7 @@ func (s *Session) maintenance() {
 		case now := <-t.C:
 			l, _, _ := s.Current()
 			if l != nil {
-				quiet := time.Since(s.started) - time.Duration(s.lastRX.Load())
-				if quiet > s.cfg.DeadAfter {
-					s.Drop(l)
-				} else if !s.Server || s.cfg.Adaptive || quiet >= s.cfg.DeadAfter/2 {
-					// Client probes and server replies keep both directions live.
-					// The adaptive sender needs its own RTT samples. Otherwise a
-					// server probes only after prolonged silence, also allowing a
-					// peer whose configured heartbeat is slower than our timeout.
-					if !l.QueueControl(wire.Frame{Kind: wire.Ping, Offset: uint64(time.Since(s.started))}) {
-						s.Drop(l)
-					}
-				}
+				s.maintainPath(l)
 			}
 			s.mu.Lock()
 			expired := s.link == nil && !s.detached.IsZero() && now.Sub(s.detached) > s.cfg.ResumeTTL
@@ -462,11 +526,14 @@ type Flow struct {
 	rxFinAckSent bool
 	inFlight     bool
 	ackPending   bool
+	ackDue       time.Time
+	lastAcked    uint64
 	lastLimit    uint64
 	resetPending bool
 	resetSent    bool
 	credit       float64
 	creditAt     time.Time
+	delivery     deliveryProof
 }
 
 func newFlow(s *Session, id uint64, target string) *Flow {
@@ -513,8 +580,7 @@ func (f *Flow) Read(b []byte) (int, error) {
 		f.rxBuf = f.rxBuf[n:]
 		f.rxConsumed += uint64(n)
 		if f.rxConsumed+uint64(f.s.cfg.Window)-f.lastLimit >= uint64(f.s.cfg.Window/4) {
-			f.ackPending = true
-			f.signal()
+			f.queueAckLocked(false)
 		}
 		return n, nil
 	}
@@ -541,6 +607,7 @@ func (f *Flow) Write(b []byte) (int, error) {
 		n := min(len(b), f.s.cfg.Window-len(f.txBuf))
 		f.txBuf = append(f.txBuf, b[:n]...)
 		f.txEnd += uint64(n)
+		f.s.lastApplication.Store(int64(time.Since(f.s.started)))
 		written += n
 		b = b[n:]
 		f.signal()
@@ -568,6 +635,10 @@ func (f *Flow) Close() error {
 func (f *Flow) receive(p wire.Frame) error {
 	f.mu.Lock()
 	defer f.mu.Unlock()
+	return f.receiveLocked(p)
+}
+
+func (f *Flow) receiveLocked(p wire.Frame) error {
 	if f.err != nil {
 		if p.Kind != wire.Reset {
 			f.resetPending = true
@@ -624,14 +695,12 @@ func (f *Flow) receive(p wire.Frame) error {
 			return ErrProtocol
 		}
 		if p.Offset > f.rxNext {
-			f.ackPending = true
-			f.signal()
+			f.queueAckLocked(false)
 			return nil
 		}
 		if end <= f.rxNext {
 			f.s.DuplicateBytes.Add(uint64(len(p.Payload)))
-			f.ackPending = true
-			f.signal()
+			f.queueAckLocked(false)
 			return nil
 		}
 		skip := f.rxNext - p.Offset
@@ -641,17 +710,15 @@ func (f *Flow) receive(p wire.Frame) error {
 		f.s.DuplicateBytes.Add(skip)
 		f.rxBuf = append(f.rxBuf, p.Payload[skip:]...)
 		f.rxNext = end
-		f.ackPending = true
+		f.queueAckLocked(true)
 		f.cond.Broadcast()
-		f.signal()
 	case wire.Fin:
 		if !f.opened || p.Offset != f.rxNext {
 			return ErrProtocol
 		}
 		f.rxEOF = true
-		f.ackPending = true
+		f.queueAckLocked(false)
 		f.cond.Broadcast()
-		f.signal()
 	case wire.Reset:
 		f.err = errors.New("peer reset flow")
 		f.resetSent = true
@@ -697,6 +764,7 @@ func (f *Flow) sendLoop() {
 			finSent = false
 			f.txSent = f.txBase
 			f.ackPending = true
+			f.ackDue = time.Time{} // state reconciliation cannot wait for coalescing
 			f.rxFinAckSent = false
 			if f.s.Server && f.opened {
 				f.openReply = true
@@ -704,6 +772,7 @@ func (f *Flow) sendLoop() {
 		}
 		var p wire.Frame
 		high := true
+		ackReady := f.ackPending && (f.ackDue.IsZero() || !time.Now().Before(f.ackDue))
 		switch {
 		case f.resetPending:
 			p = wire.Frame{Kind: wire.Reset, ID: f.id, Payload: []byte("flow closed")}
@@ -717,7 +786,8 @@ func (f *Flow) sendLoop() {
 			p = wire.Frame{Kind: wire.Opened, ID: f.id, Offset: f.rxNext, Limit: f.rxConsumed + uint64(f.s.cfg.Window)}
 			f.openReply = false
 			f.lastLimit = p.Limit
-		case f.opened && f.ackPending && (!lastAck || f.txSent == f.txEnd || f.txSent >= f.remoteLimit):
+			f.lastAcked = p.Offset
+		case f.opened && ackReady && (!lastAck || f.txSent == f.txEnd || f.txSent >= f.remoteLimit):
 			p = f.ackFrameLocked()
 			lastAck = true
 		case f.opened && f.txSent < f.txEnd && f.txSent < f.remoteLimit:
@@ -735,34 +805,55 @@ func (f *Flow) sendLoop() {
 		case f.opened && f.txEOF && f.txSent == f.txEnd && !finSent:
 			p = wire.Frame{Kind: wire.Fin, ID: f.id, Offset: f.txEnd}
 			finSent = true
-		case f.opened && f.ackPending:
+		case f.opened && ackReady:
 			p = f.ackFrameLocked()
 			lastAck = true
 		}
 		f.inFlight = p.Kind != 0
+		var ackWait time.Duration
+		if p.Kind == 0 && f.opened && f.ackPending && !f.ackDue.IsZero() {
+			ackWait = max(time.Nanosecond, time.Until(f.ackDue))
+		}
 		f.mu.Unlock()
 		if p.Kind == 0 {
+			var timer *time.Timer
+			var tick <-chan time.Time
+			if ackWait > 0 {
+				timer = time.NewTimer(ackWait)
+				tick = timer.C
+			}
 			select {
 			case <-f.s.Done():
-				return
 			case <-f.done:
-				return
 			case <-changed:
-				continue
 			case <-f.kick:
-				continue
+			case <-tick:
 			}
+			if timer != nil {
+				timer.Stop()
+			}
+			if f.s.ctx.Err() != nil {
+				return
+			}
+			continue
 		}
 		if err := f.s.budget.Acquire(f.s.ctx, l.RecordCost(p)+64, high); err != nil {
 			return
 		}
-		current, nowGen, _ := f.s.Current()
-		if current != l || nowGen != generation {
+		f.s.mu.Lock()
+		if f.s.link != l || f.s.gen != generation {
+			f.s.mu.Unlock()
 			f.mu.Lock()
 			f.inFlight = false
 			f.mu.Unlock()
 			continue
 		}
+		if f.s.cfg.RecoveryMode == "adaptive" && !f.s.Server && !f.s.cfg.RecoveryProbeOnly {
+			f.mu.Lock()
+			f.delivery.sent(generation, p, time.Since(f.s.started))
+			f.mu.Unlock()
+		}
+		f.s.mu.Unlock()
 		err := l.Send(p)
 		f.mu.Lock()
 		f.inFlight = false
@@ -790,8 +881,27 @@ func (f *Flow) ackFrameLocked() wire.Frame {
 		p.Flags = wire.FlagFIN
 	}
 	f.ackPending = false
+	f.ackDue = time.Time{}
+	f.lastAcked = f.rxNext
 	f.lastLimit = p.Limit
 	return p
+}
+
+// Only cumulative receipt acknowledgements may wait. A quarter-window of
+// outstanding bytes, newly released credit, FIN and replay reconciliation are
+// urgent. DATA, OPEN and application delivery never wait for this timer.
+func (f *Flow) queueAckLocked(coalesce bool) {
+	if !f.s.cfg.ACKCoalesce || !coalesce || f.rxNext-f.lastAcked >= uint64(f.s.cfg.Window/4) {
+		f.ackDue = time.Time{}
+	} else if !f.ackPending {
+		delay := 5 * time.Millisecond
+		if rtt := time.Duration(f.s.RTTNanos.Load()); rtt > 0 {
+			delay = min(10*time.Millisecond, max(time.Millisecond, rtt/4))
+		}
+		f.ackDue = time.Now().Add(delay)
+	}
+	f.ackPending = true
+	f.signal()
 }
 
 func (s *Session) String() string {

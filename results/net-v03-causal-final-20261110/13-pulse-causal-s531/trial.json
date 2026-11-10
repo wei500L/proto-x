@@ -1,0 +1,263 @@
+{
+  "trial_id": "13-pulse-causal-s531",
+  "variant": "causal",
+  "profile": "pulse",
+  "seed": 531,
+  "utc_start": "2026-11-10T09:30:13.912952+00:00",
+  "status": "completed",
+  "duration_s": 16.0,
+  "warmup_s": 3.0,
+  "gomaxprocs": 1,
+  "background_workers": 1,
+  "background_mbps_source_budget": 2,
+  "warmup_exit_code": 0,
+  "benchmark_epoch_mono_bounds": {
+    "lower_ns": 143328021167430,
+    "upper_ns": 143328029181793,
+    "width_ns": 8014363
+  },
+  "workload_exit_code": 0,
+  "observed": {
+    "operations": {
+      "download_end": {
+        "total": 1,
+        "success": 0,
+        "failure": 0,
+        "timeout": 0,
+        "censored": 1,
+        "rejected": 0,
+        "connection_attempts": 0,
+        "success_rate_total": 0,
+        "successful_latency_ms": {
+          "n": 0,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "successful_scheduled_latency_ms": {
+          "n": 0,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "successful_ttfb_ms": {
+          "n": 0,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0,
+          "mean": 0
+        }
+      },
+      "echo": {
+        "total": 116,
+        "success": 115,
+        "failure": 0,
+        "timeout": 0,
+        "censored": 1,
+        "rejected": 0,
+        "connection_attempts": 0,
+        "success_rate_total": 0.9913793103448276,
+        "successful_latency_ms": {
+          "n": 115,
+          "p50": 117.341516,
+          "p95": 214.884756,
+          "p99": 448.717409,
+          "max": 529.916862,
+          "mean": 137.43427308695652
+        },
+        "successful_scheduled_latency_ms": {
+          "n": 0,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "successful_ttfb_ms": {
+          "n": 0,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0,
+          "mean": 0
+        }
+      },
+      "http": {
+        "total": 80,
+        "success": 78,
+        "failure": 0,
+        "timeout": 0,
+        "censored": 2,
+        "rejected": 0,
+        "connection_attempts": 79,
+        "success_rate_total": 0.975,
+        "successful_latency_ms": {
+          "n": 78,
+          "p50": 391.660227,
+          "p95": 760.907917,
+          "p99": 1218.225014,
+          "max": 1218.225014,
+          "mean": 426.9973961666667
+        },
+        "successful_scheduled_latency_ms": {
+          "n": 78,
+          "p50": 391.933775,
+          "p95": 761.618974,
+          "p99": 1219.603933,
+          "max": 1219.603933,
+          "mean": 427.63231962820504
+        },
+        "successful_ttfb_ms": {
+          "n": 78,
+          "p50": 391.522334,
+          "p95": 760.779288,
+          "p99": 1218.104088,
+          "max": 1218.104088,
+          "mean": 426.8560536666665
+        }
+      }
+    },
+    "sse": {
+      "connections": 1,
+      "connect_failure": 0,
+      "tokens": 312,
+      "sequence_errors": 0,
+      "source_errors": 0,
+      "unexpected_ends": 0,
+      "receive_gap_ms": {
+        "n": 311,
+        "p50": 50.023663,
+        "p95": 54.077039,
+        "p99": 85.539991,
+        "max": 382.238629,
+        "mean": 49.993925141479075
+      },
+      "source_gap_ms": {
+        "n": 311,
+        "p50": 49.999015,
+        "p95": 50.895355,
+        "p99": 51.272398,
+        "max": 64.632927,
+        "mean": 50.00110045980709
+      },
+      "excess_gap_ms": {
+        "n": 311,
+        "p50": 0,
+        "p95": 3.5926509999999965,
+        "p99": 35.273981,
+        "max": 332.366277,
+        "mean": 2.7449045627009645
+      },
+      "gaps_over_250ms": 2,
+      "gaps_over_1000ms": 0,
+      "excess_over_250ms": 1,
+      "excess_over_1000ms": 0,
+      "terminal_gaps_over_250ms": 0,
+      "terminal_gaps_over_1000ms": 0,
+      "max_terminal_gap_ms": 7.267176,
+      "run_tail_gap_ms": 7.273134,
+      "source_generation_delay_ms": {
+        "n": 312,
+        "p50": 0.623991,
+        "p95": 1.23425,
+        "p99": 1.436009,
+        "max": 15.796744,
+        "mean": 0.7320616346153845
+      }
+    },
+    "download_goodput_mbps": 1.857466397831782
+  },
+  "commands": {
+    "fixture": [
+      "ip",
+      "netns",
+      "exec",
+      "px-server",
+      "env",
+      "GOMAXPROCS=1",
+      "/tmp/pxlab-v03/bin/recoverybench",
+      "-fixture",
+      "-fixture-http",
+      "127.0.0.1:18443",
+      "-fixture-echo",
+      "127.0.0.1:18081",
+      "-fixture-cert",
+      "/tmp/pxlab-v03/private/baseline/tls-cert.pem",
+      "-fixture-key",
+      "/tmp/pxlab-v03/private/baseline/tls-key.pem",
+      "-fixture-log",
+      "/tmp/pxlab-v03/results/net-v03-causal-final-20261110/13-pulse-causal-s531/target-events.jsonl"
+    ],
+    "server": [
+      "ip",
+      "netns",
+      "exec",
+      "px-server",
+      "env",
+      "GOMAXPROCS=1",
+      "/tmp/pxlab-v03/bin/protox-candidate",
+      "server",
+      "-config",
+      "/tmp/pxlab-v03/private/px/server-causal.json"
+    ],
+    "client": [
+      "ip",
+      "netns",
+      "exec",
+      "px-client",
+      "env",
+      "GOMAXPROCS=1",
+      "/tmp/pxlab-v03/bin/protox-candidate",
+      "client",
+      "-config",
+      "/tmp/pxlab-v03/private/px/client-causal.json"
+    ],
+    "workload": [
+      "ip",
+      "netns",
+      "exec",
+      "px-client",
+      "env",
+      "GOMAXPROCS=1",
+      "/tmp/pxlab-v03/bin/pxbench",
+      "run",
+      "-proxy",
+      "127.0.0.1:1088",
+      "-http-target",
+      "https://protox-baseline.test:18443",
+      "-echo-target",
+      "127.0.0.1:18081",
+      "-ca",
+      "/tmp/pxlab-v03/private/baseline/tls-cert.pem",
+      "-duration",
+      "16.0s",
+      "-timeout",
+      "3s",
+      "-rps",
+      "5",
+      "-echo-interval",
+      "100ms",
+      "-stream-interval",
+      "50ms",
+      "-background",
+      "1",
+      "-uploads",
+      "0",
+      "-output",
+      "/tmp/pxlab-v03/results/net-v03-causal-final-20261110/13-pulse-causal-s531/events.jsonl",
+      "-summary",
+      "/tmp/pxlab-v03/results/net-v03-causal-final-20261110/13-pulse-causal-s531/events.summary.json",
+      "-run-id",
+      "13-pulse-causal-s531",
+      "-background-mbps",
+      "2",
+      "-cold-http"
+    ]
+  },
+  "utc_end": "2026-11-10T09:30:33.848364+00:00"
+}

@@ -1,0 +1,87 @@
+[
+  {
+    "role": "server",
+    "observed_mono_ns": 141878359942973,
+    "observed_wall_ns": 1794301573799371005,
+    "time": "2026-11-10T12:06:13.799334032+03:00",
+    "msg": "HTTPS listener ready"
+  },
+  {
+    "role": "server",
+    "observed_mono_ns": 141878360091201,
+    "observed_wall_ns": 1794301573799518314,
+    "time": "2026-11-10T12:06:13.799513253+03:00",
+    "msg": "HTTP/3 listener ready"
+  },
+  {
+    "role": "client",
+    "observed_mono_ns": 141878512446872,
+    "observed_wall_ns": 1794301573951875198,
+    "time": "2026-11-10T12:06:13.951765699+03:00",
+    "msg": "SOCKS5 listener ready"
+  },
+  {
+    "role": "server",
+    "observed_mono_ns": 141878687046489,
+    "observed_wall_ns": 1794301574126476862,
+    "time": "2026-11-10T12:06:14.126346965+03:00",
+    "msg": "carrier attached",
+    "carrier": "h3",
+    "generation": 1,
+    "resumed_flows": 0
+  },
+  {
+    "role": "client",
+    "observed_mono_ns": 141878740185119,
+    "observed_wall_ns": 1794301574179614280,
+    "time": "2026-11-10T12:06:14.179515279+03:00",
+    "msg": "carrier attached",
+    "carrier": "h3",
+    "generation": 1,
+    "resumed_flows": 0
+  },
+  {
+    "role": "server",
+    "observed_mono_ns": 141889188098899,
+    "observed_wall_ns": 1794301584497300239,
+    "time": "2026-11-10T12:06:24.497142406+03:00",
+    "msg": "carrier detached",
+    "carrier": "h3"
+  },
+  {
+    "role": "client",
+    "observed_mono_ns": 141889515461505,
+    "observed_wall_ns": 1794301584824662634,
+    "time": "2026-11-10T12:06:24.824532947+03:00",
+    "msg": "carrier detached",
+    "carrier": "h3"
+  },
+  {
+    "role": "server",
+    "observed_mono_ns": 141889886489447,
+    "observed_wall_ns": 1794301585195689899,
+    "time": "2026-11-10T12:06:25.195589122+03:00",
+    "msg": "carrier attached",
+    "carrier": "h2",
+    "generation": 2,
+    "resumed_flows": 6
+  },
+  {
+    "role": "client",
+    "observed_mono_ns": 141889936884171,
+    "observed_wall_ns": 1794301585246082814,
+    "time": "2026-11-10T12:06:25.246026345+03:00",
+    "msg": "carrier attached",
+    "carrier": "h2",
+    "generation": 2,
+    "resumed_flows": 19
+  },
+  {
+    "role": "server",
+    "observed_mono_ns": 141898192766607,
+    "observed_wall_ns": 1794301593501965035,
+    "time": "2026-11-10T12:06:33.501926267+03:00",
+    "msg": "carrier detached",
+    "carrier": "h2"
+  }
+]

@@ -1,0 +1,4 @@
+{"time":"2026-11-07T14:23:26.734101008+03:00","level":"INFO","msg":"SOCKS5 listener ready","listen":"127.0.0.1:1088"}
+{"time":"2026-11-07T14:23:27.060646766+03:00","level":"INFO","msg":"carrier attached","carrier":"h3","generation":1,"resumed_flows":0}
+{"time":"2026-11-07T14:23:35.362127671+03:00","level":"INFO","msg":"carrier detached","carrier":"h3"}
+{"time":"2026-11-07T14:23:35.78154082+03:00","level":"INFO","msg":"carrier attached","carrier":"h2","generation":2,"resumed_flows":7}

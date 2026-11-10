@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "id": "g034-2-p127",
+  "group": 34,
+  "split": "heldout",
+  "mode": "p127",
+  "order_in_group": 2,
+  "started_utc": "2026-11-07T11:29:32.209100+00:00",
+  "seed": 71734,
+  "status": "running",
+  "workload": {
+    "rps": 4.0,
+    "http_bytes": 768,
+    "sse_interval_ms": 40,
+    "background_mbps": 1.2,
+    "duration_ms": 3000,
+    "seed": 71734
+  },
+  "relay": {
+    "one_way_delay_ms": 20,
+    "up_ipv4_mbps": 2.0,
+    "down_ipv4_mbps": 8.0
+  }
+}

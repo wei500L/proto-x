@@ -1,0 +1,15 @@
+{
+  "utc": "2026-11-10T09:28:39.503152+00:00",
+  "local_proxy_port": "reachable",
+  "ssh_via_proxy": "failed",
+  "direct_ssh": "connect timeout",
+  "proxy_error_categories": {
+    "timeout": false,
+    "proxy_negotiation": false,
+    "connection_closed": true,
+    "refused": false,
+    "identity_or_auth": false,
+    "host_key": false,
+    "proxy_syntax": false
+  }
+}

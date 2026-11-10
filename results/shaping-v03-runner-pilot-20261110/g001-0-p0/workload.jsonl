@@ -1,0 +1,18 @@
+{"elapsed_clock":"Go monotonic; same-host wall epoch aligns process starts","epoch_unix_ns":1794300467052595000,"kind":"clock","t_ns":917}
+{"background_mbps":1.2,"duration_ms":500,"http_bytes":1024,"kind":"workload_start","rps":6,"seed":20261111,"sse_interval_ms":50,"t_ns":87471709}
+{"bytes":1024,"kind":"http","latency_ms":91.088375,"scheduled_latency_ms":91.206125,"seq":0,"status":"success","t_ns":178676542,"ttfb_ms":91.036459}
+{"kind":"sse_connect","latency_ms":91.443792,"status":"success","t_ns":179111417}
+{"bytes":64,"gap_ms":0.050584000000000004,"kind":"sse_token","seq":0,"sequence_ok":true,"source_elapsed_ns":1709,"t_ns":179176250}
+{"bytes":64,"gap_ms":50.503708,"kind":"sse_token","seq":1,"sequence_ok":true,"source_elapsed_ns":51047667,"t_ns":229681709}
+{"bytes":64,"gap_ms":49.75375,"kind":"sse_token","seq":2,"sequence_ok":true,"source_elapsed_ns":100534792,"t_ns":279439959}
+{"bytes":1024,"kind":"http","latency_ms":43.070499999999996,"scheduled_latency_ms":43.50767,"seq":1,"status":"success","t_ns":304129084,"ttfb_ms":43.035583}
+{"bytes":64,"gap_ms":51.066333,"kind":"sse_token","seq":3,"sequence_ok":true,"source_elapsed_ns":150396000,"t_ns":330501334}
+{"bytes":64,"gap_ms":48.425875,"kind":"sse_token","seq":4,"sequence_ok":true,"source_elapsed_ns":200359792,"t_ns":378927375}
+{"bytes":64,"gap_ms":50.634459,"kind":"sse_token","seq":5,"sequence_ok":true,"source_elapsed_ns":251062542,"t_ns":429561709}
+{"bytes":1024,"kind":"http","latency_ms":42.995125,"scheduled_latency_ms":44.009628,"seq":2,"status":"success","t_ns":465331084,"ttfb_ms":42.970167}
+{"bytes":64,"gap_ms":50.218416000000005,"kind":"sse_token","seq":6,"sequence_ok":true,"source_elapsed_ns":301055209,"t_ns":479780500}
+{"bytes":64,"gap_ms":49.52425,"kind":"sse_token","seq":7,"sequence_ok":true,"source_elapsed_ns":350482792,"t_ns":529304959}
+{"bytes":64,"gap_ms":51.356917,"kind":"sse_token","seq":8,"sequence_ok":true,"source_elapsed_ns":400052584,"t_ns":580661459}
+{"bytes":69632,"kind":"download","status":"censored","t_ns":588133417}
+{"kind":"sse_end","status":"censored","t_ns":588190417,"terminal_gap_ms":7.476166999999999}
+{"elapsed_ms":500.740709,"kind":"workload_end","t_ns":588210959,"wall_unix_ns":1794300467640811000}

@@ -127,3 +127,21 @@ python3 tools/recognition/native_check.py \
 结果索引：`results/recognition-smoke-20261107-01` 保留首轮失败；`-02` 是显式 UDP bind 后的校验；`-03` 增加回流/端口隔离检查并执行四轮。各轮只对实际完成的范围作结论。
 
 当前完整实验索引和失败历史见 `results/recognition-http-v02-20261107/ANALYSIS.md`；最新原生功能与 ECH 记录在 `results/recognition-native-final2-full-20261107/`。公开文件在交付前使用 `redaction_check.py` 按私有值索引扫描；该工具只报告类别、计数和脱敏路径，不输出私有值。
+
+## 最终交付检查
+
+`packaging_check.py` 检查 Git 已跟踪及未忽略的新文件，包含源码 `.tar.gz` / `.tgz` / `.tar` 的解压后普通文件。它先检查 archive 路径、成员类型与大小限制，只在内存读取，不执行 `extractall`；同时核对公开 Markdown 的本地文件链接。已删除的 tracked 文件不属于交付内容，本次报告自身不进入自己的哈希清单。
+
+私有索引格式仍为 `{"values":[{"label":"category","value":"PRIVATE_VALUE"}]}`，可传多份；应放在 `.local/` 并限制文件权限。只输出类别、计数和脱敏路径。检查覆盖精确 UTF-8 值与列出的私钥/API-key 模式，不能证明不存在未知或转换后的秘密。本地链接检查覆盖 inline/reference Markdown 目标，不验证锚点、外部网址、HTML 或代码块中的路径。
+
+```sh
+python3 tools/recognition/packaging_check.py \
+  --values-private .local/PRIVATE-VALUES.json \
+  --phase preliminary --out .local/NEW-PACKAGING-PRELIMINARY.json
+# 实验、文档和其他检查文件全部完成后，再使用新的输出路径：
+python3 tools/recognition/packaging_check.py \
+  --values-private .local/PRIVATE-VALUES.json \
+  --phase final --out results/NEW-VERIFICATION/packaging-checks.json
+```
+
+`preliminary_passed` 不等于最终打包通过。工具拒绝覆盖已有检查记录；后续修改应另存新检查，并明确哪份对应交付状态。测试用例验证压缩内秘密和文件名脱敏、危险 archive 成员、不公开/缺失链接，以及预检与最终状态的区别。

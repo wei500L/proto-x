@@ -27,11 +27,13 @@ type hello struct {
 	Token   string `json:"token"`
 	Resume  bool   `json:"resume"`
 	Window  int    `json:"window"`
+	Attempt uint64 `json:"attempt,omitempty"`
 }
 type welcome struct {
 	OK      bool   `json:"ok"`
 	Resumed bool   `json:"resumed"`
 	Error   string `json:"error,omitempty"`
+	Attempt uint64 `json:"attempt,omitempty"`
 }
 type Server struct {
 	cfg      Config
@@ -181,7 +183,7 @@ func (s *Server) handshake(ctx context.Context, l *carrier.Link) {
 		default:
 		}
 	}
-	w := welcome{OK: true, Resumed: ss != nil}
+	w := welcome{OK: true, Resumed: ss != nil, Attempt: h.Attempt}
 	if ss == nil && h.Resume {
 		w.OK = false
 		w.Error = "session_lost"
@@ -203,12 +205,17 @@ func (s *Server) handshake(ctx context.Context, l *carrier.Link) {
 		}(h.Session, ss)
 	}
 	s.mu.Unlock()
+	if ss != nil {
+		ss.RecoveryEvent("hello_valid", "carrier", l.Kind, "attempt", h.Attempt, "resuming", h.Resume)
+	}
 	b, _ := json.Marshal(w)
 	if l.HandshakeWrite(wire.Frame{Kind: wire.Welcome, Payload: b}) != nil || !w.OK {
 		return
 	}
 	l.SetHandshakeDeadline(time.Time{})
-	if e = ss.Attach(l); e != nil {
+	ss.RecoveryEvent("welcome_sent", "carrier", l.Kind, "attempt", h.Attempt)
+	if e = ss.AttachAttempt(l, h.Attempt); e != nil {
+		ss.RecoveryEvent("attach_rejected", "carrier", l.Kind, "attempt", h.Attempt)
 		return
 	}
 	accepted = true

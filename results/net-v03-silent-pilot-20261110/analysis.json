@@ -1,0 +1,85 @@
+{
+  "trials": [
+    {
+      "trial_id": "01-blackhole-adaptive-s501",
+      "profile": "analysis_failed",
+      "variant": "unknown",
+      "error": "ValueError(\"Invalid isoformat string: '2026-11-10T08:45:11.535962837+00:00'\")"
+    },
+    {
+      "trial_id": "02-blackhole-v02-s501",
+      "profile": "analysis_failed",
+      "variant": "unknown",
+      "error": "ValueError(\"Invalid isoformat string: '2026-11-10T08:45:31.166051899+00:00'\")"
+    },
+    {
+      "trial_id": "03-blackhole-fixed-s501",
+      "profile": "analysis_failed",
+      "variant": "unknown",
+      "error": "ValueError(\"Invalid isoformat string: '2026-11-10T08:45:50.836426788+00:00'\")"
+    },
+    {
+      "trial_id": "04-blackhole-no-prepare-s501",
+      "profile": "analysis_failed",
+      "variant": "unknown",
+      "error": "ValueError(\"Invalid isoformat string: '2026-11-10T08:46:10.463092049+00:00'\")"
+    }
+  ],
+  "groups": [
+    {
+      "profile": "analysis_failed",
+      "variant": "unknown",
+      "trials": 4,
+      "completed": 0,
+      "same_sse_target": 0,
+      "same_echo_target": 0,
+      "client_switches": 0,
+      "preparation_count": 0,
+      "canceled_preparations": 0,
+      "http": {
+        "total": 0,
+        "success": 0,
+        "failure": 0,
+        "timeout": 0,
+        "censored": 0,
+        "rejected": 0,
+        "per_trial_p95_ms": {
+          "n": 0
+        }
+      },
+      "echo": {
+        "total": 0,
+        "success": 0,
+        "failure": 0,
+        "timeout": 0,
+        "censored": 0,
+        "rejected": 0,
+        "per_trial_p95_ms": {
+          "n": 0
+        }
+      },
+      "per_trial_sse_max_gap_ms": {
+        "n": 0
+      },
+      "per_trial_attach_ms_from_fault": {
+        "n": 0
+      },
+      "per_trial_goodput_mbps": {
+        "n": 0
+      },
+      "per_trial_wire_ip_bytes": {
+        "n": 0
+      }
+    }
+  ],
+  "notes": [
+    "Each trial restarts client, server and fixture; requests/tokens within a trial are not independent repetitions.",
+    "Input-hook UDP drops are silent; IP qdisc counters include traffic dropped later at the destination.",
+    "First receipt after injection can be an in-flight reply; restoration is reported after client attach, with largest nearby receipt gap.",
+    "Fault timestamps bracket firewall commands; proxy log receipt is an upper bound on the internal event.",
+    "Matched source connection IDs and client connection counts establish same-target continuity; SSE tail is right-censored.",
+    "Total IP bytes include padding, standby, probes, retransmission and interactive/background traffic; warmup/startup separate.",
+    "Xray is TCP-only and Hysteria here has no TCP standby. Cross-protocol blackhole results are not equal-fallback evidence.",
+    "16-second windows and few seeds do not establish long-term false-positive rates or population p99."
+  ]
+}

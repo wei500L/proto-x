@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "written_utc": "2026-11-10T09:13:16.340023+00:00",
+  "source_hashes_checked_at_collection_end": "All four registered files matched before post-collection analysis/payload audit changes; recorded by the execution transcript.",
+  "registered_sha256": {
+    "tools/shapebench/analyze.py": "507af6eb1d07f01d30e780356c2b5cae249cac1f5277002174ad3ce99a0a8142",
+    "tools/shapebench/audit.py": "a53204f6095144c900700cba085cfd7ee13ad8f77bb426e0c7c768206f42d29b",
+    "tools/shapebench/main.go": "5176212ce0f545b140920c5c58da50e85cc0a7b101aabb39dfe0b28aa172ae38",
+    "tools/shapebench/run.py": "ac1d26b5174821174d112c8b1c62fd01d7f9630e27dff31a99bb6e28b3dd31a3"
+  },
+  "current_analysis_source_sha256": {
+    "tools/shapebench/analyze.py": "6c3a0b6ce2fcf5cf9d822af959f8e8e217490356be34e6f3741d23197bf8abf2",
+    "tools/shapebench/audit.py": "2eec5c906142de88028c4a59dd8aa32c3f9d680a4f64c7334563c3a6456515f5",
+    "tools/shapebench/main.go": "31aa4395e1d5de0c4413e43217128b51e23b65e48ca5f81f02d14d713fc53c1f",
+    "tools/shapebench/run.py": "ac1d26b5174821174d112c8b1c62fd01d7f9630e27dff31a99bb6e28b3dd31a3"
+  },
+  "executed_helper_sha256": "340b58706b4f05c8f28fee726a357068fce4e166d45f5bd6374b2bf16ddd5c5a",
+  "post_collection_changes": [
+    "audit.py: source-vs-receive SSE gap decomposition and HTTP/download-only denominator sensitivity",
+    "main.go: future helper now checks SSE payload string and emits payload_valid; this was NOT the formal-batch helper",
+    "analyze.py: explicit SSE denominator qualification and rejection of future payload_valid=false bytes; formal-batch numeric results and detector unchanged",
+    "transfer.py: separate post-hoc original-training-to-new-batch evaluation; no target fitting"
+  ],
+  "formal_sse_limitation": "JSON/sequence parsed; payload lengths counted without full payload comparison; do not claim retrospective byte validation",
+  "supplemental_pilot": "results/shaping-v03-sse-check-pilot-20261110: 4 real sessions, 46 SSE tokens with payload_valid=true, zero unchecked legacy tokens",
+  "tests": "python3 -m unittest discover -s tools/shapebench: 8 passed; helper built and 4-session post-fix pilot completed"
+}

@@ -1,0 +1,18 @@
+{
+  "frozen_utc": "2026-11-10T08:47:43.727910+00:00",
+  "files": {
+    "tools/shapebench/analyze.py": "507af6eb1d07f01d30e780356c2b5cae249cac1f5277002174ad3ce99a0a8142",
+    "tools/shapebench/audit.py": "a53204f6095144c900700cba085cfd7ee13ad8f77bb426e0c7c768206f42d29b",
+    "tools/shapebench/main.go": "5176212ce0f545b140920c5c58da50e85cc0a7b101aabb39dfe0b28aa172ae38",
+    "tools/shapebench/run.py": "2120d954ad0ca3d3166a9ebbc0d3b1ad2f793ebf75b16af17cb238669536eb85"
+  },
+  "model": "L2=1 logistic, full/length-only/timing-counts-only; frozen p0 and retrain per proxy mode",
+  "selection": "whole matched seed group; train groups then untouched heldout groups",
+  "threshold": "strictly greater than maximum native training score; not a guaranteed low-FPR operating point",
+  "modes": [
+    "native",
+    "p0"
+  ],
+  "seed_base": 20261110,
+  "note": "automatically written before identity generation and before any trial; earlier batches are exploratory evidence for this batch"
+}

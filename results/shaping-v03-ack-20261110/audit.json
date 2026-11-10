@@ -1,0 +1,753 @@
+{
+  "schema": 1,
+  "audited_utc": "2026-11-10T09:10:04.294979+00:00",
+  "kind": "post-hoc descriptive audit; detector model and data split unchanged",
+  "complete_groups": 40,
+  "sessions": 160,
+  "modes": {
+    "native": {
+      "sessions": 40,
+      "http_all_outcomes": {
+        "success": 736,
+        "censored": 11
+      },
+      "first_http_success_latency_ms": {
+        "n": 40,
+        "p50": 46.521167000000005,
+        "p95": 47.99937499999999,
+        "p99": 48.301667,
+        "max": 48.301667
+      },
+      "later_http_success_latency_ms": {
+        "n": 696,
+        "p50": 42.849833,
+        "p95": 46.914375,
+        "p99": 48.480583,
+        "max": 52.686249999999994
+      },
+      "sse_end_outcomes": {
+        "censored": 40
+      },
+      "download_outcomes": {
+        "censored": 40
+      },
+      "sse_receive_minus_source_gap_ms": {
+        "n": 2276,
+        "p50": 0.01012600000000674,
+        "p95": 3.0142919999999975,
+        "p99": 4.026707999999999,
+        "max": 8.489832999999997
+      },
+      "largest_received_sse_gaps": [
+        {
+          "trial": "g012-2-native",
+          "seq": 8,
+          "receive_gap_ms": 77.84037500000001,
+          "source_gap_ms": 70.778166,
+          "receive_minus_source_gap_ms": 7.06220900000001
+        },
+        {
+          "trial": "g028-3-native",
+          "seq": 12,
+          "receive_gap_ms": 75.67358300000001,
+          "source_gap_ms": 70.734208,
+          "receive_minus_source_gap_ms": 4.9393750000000125
+        },
+        {
+          "trial": "g018-3-native",
+          "seq": 6,
+          "receive_gap_ms": 74.83604100000001,
+          "source_gap_ms": 70.631542,
+          "receive_minus_source_gap_ms": 4.204499000000013
+        },
+        {
+          "trial": "g000-2-native",
+          "seq": 13,
+          "receive_gap_ms": 74.74579200000001,
+          "source_gap_ms": 71.055167,
+          "receive_minus_source_gap_ms": 3.6906250000000114
+        },
+        {
+          "trial": "g034-3-native",
+          "seq": 6,
+          "receive_gap_ms": 74.647583,
+          "source_gap_ms": 70.574542,
+          "receive_minus_source_gap_ms": 4.0730410000000035
+        }
+      ],
+      "sse_payload_validation": {
+        "checked": 0,
+        "unchecked_legacy": 2316
+      },
+      "median_paired_relative_cost": {
+        "udp_ingress_bytes": {
+          "n": 40,
+          "median": -0.10587481789065023,
+          "median_paired_group_bootstrap_95": [
+            -0.10780045025891494,
+            -0.10439950839190393
+          ],
+          "min": -0.12011411542440364,
+          "max": -0.09785493124269395
+        },
+        "ipv4_ingress_bytes": {
+          "n": 40,
+          "median": -0.13741963787660338,
+          "median_paired_group_bootstrap_95": [
+            -0.1387300263726009,
+            -0.13583877992194993
+          ],
+          "min": -0.15037254500304942,
+          "max": -0.12897816149881458
+        }
+      },
+      "cost_sensitivity_http_download_only": {
+        "udp_ingress_bytes": {
+          "n": 40,
+          "median": -0.10594062150522399
+        },
+        "ipv4_ingress_bytes": {
+          "n": 40,
+          "median": -0.13741002305775196
+        }
+      },
+      "mean_per_session_features": {
+        "up_packets_per_second": 144.77777777777777,
+        "up_bytes_per_second": 6796.12962962963,
+        "up_size_mean": 47.37482804272296,
+        "up_size_std": 140.76281316544708,
+        "up_size_q10": 29.0,
+        "up_size_q50": 29.0,
+        "up_size_q90": 35.15,
+        "up_size_below_128": 0.9895131849249642,
+        "up_size_below_256": 0.9895131849249642,
+        "up_size_below_512": 0.9895131849249642,
+        "up_size_below_1000": 0.9895131849249642,
+        "up_iat_mean_ms": 7.054653507536214,
+        "up_iat_std_ms": 6.794278961751315,
+        "up_iat_q90_ms": 17.887187424999958,
+        "up_bursts_per_second": 47.28703703703703,
+        "up_iat_below_1ms": 0.13836310677934244,
+        "down_packets_per_second": 245.51851851851853,
+        "down_bytes_per_second": 222583.00925925924,
+        "down_size_mean": 903.9928087651919,
+        "down_size_std": 625.7432694425742,
+        "down_size_q10": 28.0,
+        "down_size_q50": 1289.0,
+        "down_size_q90": 1441.0,
+        "down_size_below_128": 0.27464726446329435,
+        "down_size_below_256": 0.2794102013463167,
+        "down_size_below_512": 0.36914299360198066,
+        "down_size_below_1000": 0.37828623518407645,
+        "down_iat_mean_ms": 4.172477831276146,
+        "down_iat_std_ms": 7.133008306176665,
+        "down_iat_q90_ms": 18.687326024999965,
+        "down_bursts_per_second": 48.87037037037037,
+        "down_iat_below_1ms": 0.6833521033518105,
+        "direction_changes_per_second": 116.07407407407406
+      }
+    },
+    "p0": {
+      "sessions": 40,
+      "http_all_outcomes": {
+        "success": 736,
+        "censored": 11
+      },
+      "first_http_success_latency_ms": {
+        "n": 40,
+        "p50": 43.690792,
+        "p95": 92.605,
+        "p99": 93.976625,
+        "max": 93.976625
+      },
+      "later_http_success_latency_ms": {
+        "n": 696,
+        "p50": 43.234209,
+        "p95": 45.848958,
+        "p99": 48.768709,
+        "max": 57.860083
+      },
+      "sse_end_outcomes": {
+        "censored": 40
+      },
+      "download_outcomes": {
+        "censored": 40
+      },
+      "sse_receive_minus_source_gap_ms": {
+        "n": 2236,
+        "p50": 0.010291999999999746,
+        "p95": 1.9894160000000056,
+        "p99": 2.440541000000003,
+        "max": 21.773417000000002
+      },
+      "largest_received_sse_gaps": [
+        {
+          "trial": "g000-3-p0",
+          "seq": 30,
+          "receive_gap_ms": 73.914042,
+          "source_gap_ms": 71.479959,
+          "receive_minus_source_gap_ms": 2.434083000000001
+        },
+        {
+          "trial": "g006-3-p0",
+          "seq": 10,
+          "receive_gap_ms": 73.58379199999999,
+          "source_gap_ms": 69.992167,
+          "receive_minus_source_gap_ms": 3.5916249999999934
+        },
+        {
+          "trial": "g006-3-p0",
+          "seq": 31,
+          "receive_gap_ms": 73.385084,
+          "source_gap_ms": 69.826167,
+          "receive_minus_source_gap_ms": 3.558917000000008
+        },
+        {
+          "trial": "g028-1-p0",
+          "seq": 31,
+          "receive_gap_ms": 72.83824999999999,
+          "source_gap_ms": 70.511042,
+          "receive_minus_source_gap_ms": 2.3272079999999846
+        },
+        {
+          "trial": "g000-3-p0",
+          "seq": 27,
+          "receive_gap_ms": 72.791041,
+          "source_gap_ms": 70.261417,
+          "receive_minus_source_gap_ms": 2.5296240000000125
+        }
+      ],
+      "sse_payload_validation": {
+        "checked": 0,
+        "unchecked_legacy": 2276
+      },
+      "median_paired_relative_cost": {
+        "udp_ingress_bytes": {
+          "n": 40,
+          "median": 0.0,
+          "median_paired_group_bootstrap_95": [
+            0.0,
+            0.0
+          ],
+          "min": 0.0,
+          "max": 0.0
+        },
+        "ipv4_ingress_bytes": {
+          "n": 40,
+          "median": 0.0,
+          "median_paired_group_bootstrap_95": [
+            0.0,
+            0.0
+          ],
+          "min": 0.0,
+          "max": 0.0
+        }
+      },
+      "cost_sensitivity_http_download_only": {
+        "udp_ingress_bytes": {
+          "n": 40,
+          "median": 0.0
+        },
+        "ipv4_ingress_bytes": {
+          "n": 40,
+          "median": 0.0
+        }
+      },
+      "mean_per_session_features": {
+        "up_packets_per_second": 316.48148148148147,
+        "up_bytes_per_second": 18690.324074074073,
+        "up_size_mean": 59.318529008927634,
+        "up_size_std": 86.28189395919517,
+        "up_size_q10": 29.0,
+        "up_size_q50": 65.0,
+        "up_size_q90": 71.2,
+        "up_size_below_128": 0.9764704675410666,
+        "up_size_below_256": 0.9963868875827604,
+        "up_size_below_512": 0.9963868875827604,
+        "up_size_below_1000": 0.9963868875827604,
+        "up_iat_mean_ms": 3.241409398078472,
+        "up_iat_std_ms": 5.3060296200412465,
+        "up_iat_q90_ms": 14.301873950000026,
+        "up_bursts_per_second": 42.85185185185185,
+        "up_iat_below_1ms": 0.5961297603332527,
+        "down_packets_per_second": 453.39814814814815,
+        "down_bytes_per_second": 233549.9814814815,
+        "down_size_mean": 514.6575757707166,
+        "down_size_std": 559.8663740391079,
+        "down_size_q10": 25.0,
+        "down_size_q50": 142.05,
+        "down_size_q90": 1441.0,
+        "down_size_below_128": 0.502880039891381,
+        "down_size_below_256": 0.502880039891381,
+        "down_size_below_512": 0.5491576539699725,
+        "down_size_below_1000": 0.775100123328721,
+        "down_iat_mean_ms": 2.268871809287621,
+        "down_iat_std_ms": 3.3378647358465527,
+        "down_iat_q90_ms": 8.144121824999988,
+        "down_bursts_per_second": 21.99074074074074,
+        "down_iat_below_1ms": 0.5232851872027672,
+        "direction_changes_per_second": 229.03703703703704
+      }
+    },
+    "ack-p0": {
+      "sessions": 40,
+      "http_all_outcomes": {
+        "success": 736,
+        "censored": 11
+      },
+      "first_http_success_latency_ms": {
+        "n": 40,
+        "p50": 44.307458000000004,
+        "p95": 92.02449999999999,
+        "p99": 94.137292,
+        "max": 94.137292
+      },
+      "later_http_success_latency_ms": {
+        "n": 696,
+        "p50": 43.272375000000004,
+        "p95": 46.076167,
+        "p99": 48.546416,
+        "max": 93.221792
+      },
+      "sse_end_outcomes": {
+        "censored": 40
+      },
+      "download_outcomes": {
+        "censored": 40
+      },
+      "sse_receive_minus_source_gap_ms": {
+        "n": 2236,
+        "p50": -0.011958999999997388,
+        "p95": 1.9111249999999984,
+        "p99": 2.437666,
+        "max": 7.1378330000000005
+      },
+      "largest_received_sse_gaps": [
+        {
+          "trial": "g034-1-ack-p0",
+          "seq": 28,
+          "receive_gap_ms": 110.075792,
+          "source_gap_ms": 107.556,
+          "receive_minus_source_gap_ms": 2.5197920000000096
+        },
+        {
+          "trial": "g006-0-ack-p0",
+          "seq": 37,
+          "receive_gap_ms": 81.882125,
+          "source_gap_ms": 80.0185,
+          "receive_minus_source_gap_ms": 1.863624999999999
+        },
+        {
+          "trial": "g000-1-ack-p0",
+          "seq": 1,
+          "receive_gap_ms": 74.452583,
+          "source_gap_ms": 71.87725,
+          "receive_minus_source_gap_ms": 2.5753330000000005
+        },
+        {
+          "trial": "g034-1-ack-p0",
+          "seq": 37,
+          "receive_gap_ms": 73.639417,
+          "source_gap_ms": 70.6355,
+          "receive_minus_source_gap_ms": 3.0039170000000013
+        },
+        {
+          "trial": "g028-0-ack-p0",
+          "seq": 14,
+          "receive_gap_ms": 73.40825,
+          "source_gap_ms": 70.996666,
+          "receive_minus_source_gap_ms": 2.4115839999999906
+        }
+      ],
+      "sse_payload_validation": {
+        "checked": 0,
+        "unchecked_legacy": 2276
+      },
+      "median_paired_relative_cost": {
+        "udp_ingress_bytes": {
+          "n": 40,
+          "median": -0.02546572219801424,
+          "median_paired_group_bootstrap_95": [
+            -0.02644447071199485,
+            -0.024462382976095265
+          ],
+          "min": -0.03415793555218061,
+          "max": -0.016211205664881323
+        },
+        "ipv4_ingress_bytes": {
+          "n": 40,
+          "median": -0.033112305729700364,
+          "median_paired_group_bootstrap_95": [
+            -0.03505938317127655,
+            -0.032306260693491184
+          ],
+          "min": -0.04153019562290794,
+          "max": -0.024077526465298482
+        }
+      },
+      "cost_sensitivity_http_download_only": {
+        "udp_ingress_bytes": {
+          "n": 40,
+          "median": -0.025456028010714338
+        },
+        "ipv4_ingress_bytes": {
+          "n": 40,
+          "median": -0.03307572229527311
+        }
+      },
+      "mean_per_session_features": {
+        "up_packets_per_second": 265.71296296296293,
+        "up_bytes_per_second": 13244.574074074073,
+        "up_size_mean": 50.180969528845445,
+        "up_size_std": 94.2206527188697,
+        "up_size_q10": 29.0,
+        "up_size_q50": 29.0,
+        "up_size_q90": 71.975,
+        "up_size_below_128": 0.9720204938443988,
+        "up_size_below_256": 0.9957032677377379,
+        "up_size_below_512": 0.9957032677377379,
+        "up_size_below_1000": 0.9957032677377379,
+        "up_iat_mean_ms": 3.863283577025173,
+        "up_iat_std_ms": 3.54799894107317,
+        "up_iat_q90_ms": 9.80315315000001,
+        "up_bursts_per_second": 11.268518518518519,
+        "up_iat_below_1ms": 0.2816709302920345,
+        "down_packets_per_second": 401.2777777777777,
+        "down_bytes_per_second": 232918.5,
+        "down_size_mean": 578.3022627781339,
+        "down_size_std": 564.7700565390502,
+        "down_size_q10": 28.0,
+        "down_size_q50": 564.65,
+        "down_size_q90": 1441.0,
+        "down_size_below_128": 0.4386813289504282,
+        "down_size_below_256": 0.4386813289504282,
+        "down_size_below_512": 0.49067386830376086,
+        "down_size_below_1000": 0.7458300508101422,
+        "down_iat_mean_ms": 2.547799971395041,
+        "down_iat_std_ms": 4.315183063112945,
+        "down_iat_q90_ms": 9.547156200000003,
+        "down_bursts_per_second": 37.28703703703703,
+        "down_iat_below_1ms": 0.5425919115788033,
+        "direction_changes_per_second": 241.7407407407407
+      }
+    },
+    "ack-p127": {
+      "sessions": 40,
+      "http_all_outcomes": {
+        "success": 736,
+        "censored": 11
+      },
+      "first_http_success_latency_ms": {
+        "n": 40,
+        "p50": 45.438,
+        "p95": 95.815208,
+        "p99": 149.303042,
+        "max": 149.303042
+      },
+      "later_http_success_latency_ms": {
+        "n": 696,
+        "p50": 43.640792,
+        "p95": 46.514917000000004,
+        "p99": 49.463958000000005,
+        "max": 59.562833000000005
+      },
+      "sse_end_outcomes": {
+        "censored": 40
+      },
+      "download_outcomes": {
+        "censored": 40
+      },
+      "sse_receive_minus_source_gap_ms": {
+        "n": 2235,
+        "p50": -0.010500000000000398,
+        "p95": 2.154375999999999,
+        "p99": 2.619792000000004,
+        "max": 5.597874999999995
+      },
+      "largest_received_sse_gaps": [
+        {
+          "trial": "g004-3-ack-p127",
+          "seq": 15,
+          "receive_gap_ms": 79.522916,
+          "source_gap_ms": 75.076916,
+          "receive_minus_source_gap_ms": 4.445999999999998
+        },
+        {
+          "trial": "g000-0-ack-p127",
+          "seq": 14,
+          "receive_gap_ms": 74.18466699999999,
+          "source_gap_ms": 71.576667,
+          "receive_minus_source_gap_ms": 2.60799999999999
+        },
+        {
+          "trial": "g026-3-ack-p127",
+          "seq": 33,
+          "receive_gap_ms": 73.94775000000001,
+          "source_gap_ms": 69.638417,
+          "receive_minus_source_gap_ms": 4.309333000000009
+        },
+        {
+          "trial": "g000-0-ack-p127",
+          "seq": 20,
+          "receive_gap_ms": 73.68816699999999,
+          "source_gap_ms": 71.193333,
+          "receive_minus_source_gap_ms": 2.4948339999999973
+        },
+        {
+          "trial": "g000-0-ack-p127",
+          "seq": 34,
+          "receive_gap_ms": 73.624167,
+          "source_gap_ms": 71.496292,
+          "receive_minus_source_gap_ms": 2.127875000000003
+        }
+      ],
+      "sse_payload_validation": {
+        "checked": 0,
+        "unchecked_legacy": 2275
+      },
+      "median_paired_relative_cost": {
+        "udp_ingress_bytes": {
+          "n": 40,
+          "median": 0.04476589715824586,
+          "median_paired_group_bootstrap_95": [
+            0.041646001648455,
+            0.04570413722163802
+          ],
+          "min": 0.034291776686265374,
+          "max": 0.06315550730475494
+        },
+        "ipv4_ingress_bytes": {
+          "n": 40,
+          "median": 0.031112481602787456,
+          "median_paired_group_bootstrap_95": [
+            0.02811450440299379,
+            0.03238998655633707
+          ],
+          "min": 0.019708593862958645,
+          "max": 0.048903128230119774
+        }
+      },
+      "cost_sensitivity_http_download_only": {
+        "udp_ingress_bytes": {
+          "n": 40,
+          "median": 0.04469729543506196
+        },
+        "ipv4_ingress_bytes": {
+          "n": 40,
+          "median": 0.031112481602787234
+        }
+      },
+      "mean_per_session_features": {
+        "up_packets_per_second": 268.0648148148148,
+        "up_bytes_per_second": 18678.76851851852,
+        "up_size_mean": 70.16048554913128,
+        "up_size_std": 105.86843742801007,
+        "up_size_q10": 29.0,
+        "up_size_q50": 29.0,
+        "up_size_q90": 164.45,
+        "up_size_below_128": 0.8152758376232206,
+        "up_size_below_256": 0.9856729451279878,
+        "up_size_below_512": 0.9957399012744069,
+        "up_size_below_1000": 0.9957399012744069,
+        "up_iat_mean_ms": 3.8300122356741797,
+        "up_iat_std_ms": 3.4258110458926074,
+        "up_iat_q90_ms": 9.549228100000027,
+        "up_bursts_per_second": 11.259259259259258,
+        "up_iat_below_1ms": 0.22070620519071102,
+        "down_packets_per_second": 401.0648148148148,
+        "down_bytes_per_second": 244710.09259259253,
+        "down_size_mean": 608.0219753221979,
+        "down_size_std": 560.1832675847405,
+        "down_size_q10": 28.0,
+        "down_size_q50": 617.925,
+        "down_size_q90": 1441.0,
+        "down_size_below_128": 0.3560159069444868,
+        "down_size_below_256": 0.4380976335098021,
+        "down_size_below_512": 0.4900760230971904,
+        "down_size_below_1000": 0.7411610947252795,
+        "down_iat_mean_ms": 2.547466579646516,
+        "down_iat_std_ms": 4.246438551304786,
+        "down_iat_q90_ms": 9.318256125000005,
+        "down_bursts_per_second": 36.37037037037037,
+        "down_iat_below_1ms": 0.543946323640685,
+        "direction_changes_per_second": 251.64814814814818
+      }
+    }
+  },
+  "evidence": {
+    "max_clock_error_ns": 27958,
+    "forced_kills": 0,
+    "native_ech_accepted_sessions": 40,
+    "nonzero_owned_process_exits": [],
+    "registration_time": "2026-11-10T08:50:15.676149+00:00",
+    "first_heldout_start": "2026-11-10T08:55:46.670731+00:00",
+    "registration_precedes_all_heldout": true,
+    "trial_sha256": {
+      "g000-0-ack-p127/trial.json": "635445672807e0424ebe77cfc0a6d3cfb50376a7c7dfa8849b8d55b073129f97",
+      "g000-1-ack-p0/trial.json": "f1871818f5a50d76f4affb8cf3582078b48199426d74e949ffad854e8d2d287f",
+      "g000-2-native/trial.json": "0677f3e6c2d7fec76c0e3905076cc8e5099e9cd3dd197ac9cc34309b5f764485",
+      "g000-3-p0/trial.json": "7ec863d38c8b5e00c831ce56c6ded745ca189670d2f141cd2a30d7f7c557088b",
+      "g001-0-ack-p0/trial.json": "5dd39915479a86bb1e46ac89137e65b934c7ccde2ea6a17fffd9402015c24a64",
+      "g001-1-p0/trial.json": "970f0d612f96e35bfe69fcb50ff6e278580613ee71c7be5ffc5024971beadde0",
+      "g001-2-ack-p127/trial.json": "98466524e96059a6d065d0dcb79d4caa5559c9c879062a9f3b3e045f1c67e98b",
+      "g001-3-native/trial.json": "c6e7c52ec719fd37fa3b0856b0eb7eff8887004ad454a3bcb6c72ea8d861160c",
+      "g002-0-native/trial.json": "bebadb79ad18cf9f09a1861b48fd6e8b702b5138ba9c3738a0e5c0b7821e0d8e",
+      "g002-1-ack-p0/trial.json": "b1738d70315e4cca1a0224f54b2dd94f7ef5e6f93266669cc52da2bdcf9dbb80",
+      "g002-2-p0/trial.json": "503731198d4379a009fd41ba678205c3bf0d21dfd86e62fc8beaca313d40bc64",
+      "g002-3-ack-p127/trial.json": "2a6a77e0a7076edc0fb410ef26274e2627bafee94e98ce89d6e825b033a25018",
+      "g003-0-p0/trial.json": "9034248eb491aef9a20b4d1f83de1a71e55ee70260abab72ecfc6126306d9b49",
+      "g003-1-ack-p0/trial.json": "d356d7015800381777b1a411032a87a5e0a00af49168819eecc4746c1dcb4f67",
+      "g003-2-ack-p127/trial.json": "91734d9398aba6f705b141072f578806632fe997a2f3708c73d93b4c208ad2a8",
+      "g003-3-native/trial.json": "eff6660bc116df3802b76231e8555a4af9c75c4879feb428830785f03c4c18ff",
+      "g004-0-ack-p0/trial.json": "fe6c87a038d9b50c883f3defeb4b3fc184acd41288d6c6ea63e505a2e32a5c07",
+      "g004-1-p0/trial.json": "33fad026f9b75f730ee66d9120ca8337b34bde8a6d7355ff488b8974fbdad550",
+      "g004-2-native/trial.json": "16c11ec0da5dfa8935ca9e8207bccb8dec55a09a8b21440b2e7712a97b213df9",
+      "g004-3-ack-p127/trial.json": "2ac52c791a16a49964c564a2f29ca4f20a9426e2ee15a53fb1e70ba620217e31",
+      "g005-0-native/trial.json": "4a0793c6d6aab4f5ce8356a31fe4c665c3609b43ab99d4609f382ce80ef3cae6",
+      "g005-1-p0/trial.json": "0fe50a97049ebe892790d36e94aaf2a1ea07f44a28edb7b4f0688596eefbe605",
+      "g005-2-ack-p0/trial.json": "fb331e4d5ac23cf5ac47e1e507b76319ae53608cf03c0b929f7691569ae60dd8",
+      "g005-3-ack-p127/trial.json": "a2288cfd92567bbf358beed60ea0ef1f0c10a1c13be2ff2ce882d5f2cca566ba",
+      "g006-0-ack-p0/trial.json": "88e146106884cfaaec64f13239efb471613781c9270b210a2e1af4ba3c47749f",
+      "g006-1-native/trial.json": "281e4a9e0cdaeedd5d7671887daf77b7e59a3aa97bacda66a98d44d9c74d4e02",
+      "g006-2-ack-p127/trial.json": "b5b1f1b34664a74b75e69a93a36eea246ee0b34c1805f679e2fe8705987bac87",
+      "g006-3-p0/trial.json": "8eca5e0043b865d70151d18c8994d7447ffe7198ba836016e41cd1771e9e1f6e",
+      "g007-0-native/trial.json": "5619b4da3d34e59054b1a1a03c2e5211d2ee50bde7c33d2b419b150f4ed60b16",
+      "g007-1-p0/trial.json": "742f5f042dd858c921cc33b60acc185ec58521118fff3935a5ce8417dde15011",
+      "g007-2-ack-p127/trial.json": "57a65e16f6732783c63fc6b1af75b911e549974d65c52afa2a8f8d7a2ff823d0",
+      "g007-3-ack-p0/trial.json": "faa20a4bd3dbf6dd3f13e883c0bf46aaab702c4ce60633e1de8f003de618c30e",
+      "g008-0-p0/trial.json": "8ece9e8796eec07dd5ef5083e2768a955c2568ae1501dba4898a6ab65311e1cf",
+      "g008-1-ack-p127/trial.json": "f4a1fd7e7c6cf6398dac8ea82f1dee8d07565017286fc364bdc3ec037fde8872",
+      "g008-2-ack-p0/trial.json": "a559a45b92920bcc72ee29b3911f7506de0607ad43b0136fc81b598b8defca97",
+      "g008-3-native/trial.json": "f593ed2c7bf09376a86732c5ef8ebe72d7156223f67ef6a1aaf2991143789546",
+      "g009-0-native/trial.json": "06af5405fcb6fe2bf2a92d49e7d09ce2cf8fbe6b3f012ebdfc7e7b71ef1cef13",
+      "g009-1-ack-p127/trial.json": "d661c13913fca0e0473330bbc8ac187484e34b819a4936b9ebca0b26953c3625",
+      "g009-2-p0/trial.json": "ac901a329fc1c41af3472923f530a65eb4b80f8e03157618c6fb296423760386",
+      "g009-3-ack-p0/trial.json": "e1d5d41b44e0ee4804904bf736775926e81d59209e438e5e9ac5906678bfe36e",
+      "g010-0-ack-p127/trial.json": "e0bf106ce3172656a4b5e538e2783fb84f0a1949de0db2654e6e28dcd4524dd4",
+      "g010-1-ack-p0/trial.json": "054960c0322a278bcb1f88a519c9acf3e413b160f392dbf988b1afc0b74b3de5",
+      "g010-2-native/trial.json": "92ce1759142510942021a459ce8b1f0105bd89a5f6da19ec7fbaacfe6f614f33",
+      "g010-3-p0/trial.json": "919dc945a477fad073a9e49c24129262831cd38f1511e3f2ac6f876c5ae8f901",
+      "g011-0-ack-p0/trial.json": "3d48698f532cad0af60dd15363dfa3ae384c772c72935547231c9ff0509a433d",
+      "g011-1-native/trial.json": "801540bf0d3010666f2835a516022a9439b47b87d9826d69d965cc65c3e017f5",
+      "g011-2-p0/trial.json": "be803019d5ec7caaa2b7cbf80fc5b669dd7d9d778e2b77674f247aaa20f98898",
+      "g011-3-ack-p127/trial.json": "42a24f69e9b99353cb13d7a707b88f642c105d2b44ab521035c56f1aa586cc53",
+      "g012-0-p0/trial.json": "04c5a96086c30482ceb68759f5a0fcb42e882622950b7ce199c679d743acf2e4",
+      "g012-1-ack-p127/trial.json": "f4de1c7d808d270d32252a65f49646859429dfcc11569f8b11036a5869ec5b56",
+      "g012-2-native/trial.json": "d1f1f035ed25123c7076331de41d4d95d6913756726073fe646a4e77802f0991",
+      "g012-3-ack-p0/trial.json": "926e9d02c86ba17406147873a9ce3ae319e972b0c87375aa74e481002805941a",
+      "g013-0-p0/trial.json": "0c609f0ef32245afcf6ad5a2316033dbb3ba2e83bb88b2b508fe31a46df5ed36",
+      "g013-1-native/trial.json": "c72c5f74e079299887754f28820f9c7d94d5b58bb4f736d9ef310e19a15d1dea",
+      "g013-2-ack-p127/trial.json": "980f4709d058b996c63db1a6c143b2e74b3a15205c0344d547f35f46af1cd30c",
+      "g013-3-ack-p0/trial.json": "c23346f520e0f45127fbd6f52dc8dd64daeb90d2d1ef0386fd6441cc5b50ecbe",
+      "g014-0-p0/trial.json": "09b77190ed5b56d99638d357a479dc283e9880eb33d73278a880ca9ea40c3581",
+      "g014-1-ack-p0/trial.json": "4a0eefc9a6e51c7bbfa49b2d22c31789a67b651d5c1c8deb183b256a1b4b72d1",
+      "g014-2-ack-p127/trial.json": "5063a2552937e06dec41d5796180fc92fd407ac7a362f63ca3a79bf6b37f0dee",
+      "g014-3-native/trial.json": "7be4885e8b78eacb904d5a0e6974353eb05d61cbca7e7f1bb6d53eeaf4bb8481",
+      "g015-0-ack-p127/trial.json": "b182a1ca8d49c0af5cfdbf651319acead3d4f947db83598b36b3d9f744e7974f",
+      "g015-1-ack-p0/trial.json": "2ed3f26770f9f2d7d27b0594530757ff3190dc704de6beda450b4e5499d6661a",
+      "g015-2-native/trial.json": "5be0c711989f9951f444425e64e1e290de167f4b4dde8c99bd84af5964380c2c",
+      "g015-3-p0/trial.json": "80e840328fbbb8eae1b1ddca19e7ae005b25de26d20957b8a66d66f948aacf40",
+      "g016-0-ack-p0/trial.json": "740934c60c360dca950a8b3ba772cc73aa3309a2cbc1eeec1f0439b8ee776740",
+      "g016-1-p0/trial.json": "c2c7ce211b3a25de976544482ed608de4eff2c8df39c6084b1823f5379afb1da",
+      "g016-2-ack-p127/trial.json": "993842a55208531574c188979fddab678a5c8631896c70b5154e465c98980a40",
+      "g016-3-native/trial.json": "723c17d41578479c4ffb7aa3d0dfba6cd3c525baee16d3da5f7417331433f25d",
+      "g017-0-ack-p127/trial.json": "00eb44adf55bbd2534360a22cc8663abbbb4c433c7af6266799e443d519393fb",
+      "g017-1-p0/trial.json": "36839fde0a37c142b839a01918d832a1f0b13ef774842bdcac85210285b58d28",
+      "g017-2-native/trial.json": "3b1acc9ad71d37bf797697ae4673029719c70d38785bab661f3c45262cffdd6a",
+      "g017-3-ack-p0/trial.json": "980f9e5778a3e5759b106aa7c940cbd98b55e5899e1d0f44375a1441e1cffa79",
+      "g018-0-ack-p127/trial.json": "274f9708b92d8716baf0cde6c760088dabae510d34ba7ce2f85562d66a1f90bd",
+      "g018-1-ack-p0/trial.json": "482dc08d0655482bedc57bea56967fa7fa7f45944248443bceb6f285d09295d5",
+      "g018-2-p0/trial.json": "b36ea8537f8f6513579dcdd039977dd621ae6f8e104a1b3bc94cd014d92916b1",
+      "g018-3-native/trial.json": "5815196832d65ac9aa410f8c14a199c0d6ee4f3c66d2698787436351c0db09a7",
+      "g019-0-p0/trial.json": "cf1f9c1f1952cb6ba250e64b37b946bfabaa2ea8a1ae8dc69a12569b11a48e81",
+      "g019-1-native/trial.json": "78d95a818cab87abb5e428fa21ea2eda141544bfb040a3355722e09b18bf3221",
+      "g019-2-ack-p127/trial.json": "f2e759703a9703cb9e25914986df02a9bca71ac22b9fac79e4d0b47faa85975d",
+      "g019-3-ack-p0/trial.json": "27881b81138a6b9be0dc6f2cf63e29c5995abecf8b13255efc593738f451d3e4",
+      "g020-0-ack-p0/trial.json": "a179d9e6405aacf0d303e2794b60cccc6172d5e488cfe93eb077f4a52714a004",
+      "g020-1-native/trial.json": "efde21ebf90eadfc3c37c1f127243d13ea53a6fce948e687363ee9d50538b77b",
+      "g020-2-p0/trial.json": "b9ef6f6661f7cc63cb633aca84709c3cd65bfc5a1274d077ea8e25bf66793deb",
+      "g020-3-ack-p127/trial.json": "c80f29219ef87baad22ac9e847dc4d06c6f8dacfe0e85b7b433b183c578c32c1",
+      "g021-0-ack-p127/trial.json": "0b2a22834c8079eeca28c4fd322d30a1cff6bf4857d3e8c04f61e4427640d2e2",
+      "g021-1-ack-p0/trial.json": "66ed5a7c8dc2082251679ce0c620481e7cc4f19269e9e51aa570abc278c1ba32",
+      "g021-2-native/trial.json": "9be90f82233cd79c1a58418ad6444b22d16258eb8c38d62ff14adf67278f965a",
+      "g021-3-p0/trial.json": "fcd9f3810d833c935a47336de167c9db94c98e151ffacb53cff4cc3c604edf8b",
+      "g022-0-native/trial.json": "a1c43c6c186b9ea394a8f91aa3e966b3de4a3be00c5d10e9b544e783a0a5983b",
+      "g022-1-ack-p127/trial.json": "92efb74b073aeaea6c8036b4dfa6713ad9958386985380c1ecf6ef6969a49082",
+      "g022-2-p0/trial.json": "734f62f2c07be6bf52d16dd3c76bd18d830efab8cae03ee53645ad33f507ec56",
+      "g022-3-ack-p0/trial.json": "4c50604246135130b6b648e858ba730606fafa937c377f6d6d18e23ec5b47404",
+      "g023-0-p0/trial.json": "4fe5a11c875d96983f1b1ae03d57a6bc46567e620ff6b3b128a2a6506b27714a",
+      "g023-1-ack-p0/trial.json": "e301feec466b7c16db4a61b621fec52459e02e6ef41ede26b3a434c17417c7bd",
+      "g023-2-ack-p127/trial.json": "6d6d05b382042eb6520dcdfca8f4c80f3cfd4b5584eb0cd6bae315a72c79d443",
+      "g023-3-native/trial.json": "6e591ad9ad29232cbbc1dbcdc63a6be8bb43fa88f55714e485b28eaeb00fe626",
+      "g024-0-ack-p127/trial.json": "94228b3f3d7fc00ca8cf7829b7aa4422121fc735f11dda597fdc4f67f47b9986",
+      "g024-1-ack-p0/trial.json": "6a8353a3242a7e918f09ee60b18aadd542c8efb933a14dedcda6338451d45ea9",
+      "g024-2-native/trial.json": "61015c1e2b2cf9eae7d0f7a8c10ec888a1f2d6fe9c70f683a6270bf112f9d9dd",
+      "g024-3-p0/trial.json": "e29e510ee05fe2d66f1e949ee004bcbe3639f1b74d7045ee7a023542a90e2879",
+      "g025-0-ack-p0/trial.json": "5aec4f2cf8c1e4db9bf67cf749cfab7f7b822044335be25b4c36b42b98e5aeca",
+      "g025-1-native/trial.json": "bea944f846c20e9e24a3bede2c144b4b9b11ae81dd7e5826057f1f4e86a4ff5d",
+      "g025-2-ack-p127/trial.json": "d59ecf0af5d92c3a015e9713510c614b12dc652141558372ebd801c06d9d415d",
+      "g025-3-p0/trial.json": "62851d8b14be1a4f74e2d97119f64364f042f7e1f23e84b8ec81cdff57f260a2",
+      "g026-0-p0/trial.json": "0b06205e674d3c5a351ee099f7f94288e246998e4f69c79f8027c94b6d30f15a",
+      "g026-1-native/trial.json": "b548f4d1ed92ac501065de962565abfa174940779cc272f126332f9dadd999fc",
+      "g026-2-ack-p0/trial.json": "9f2d6ece237a9bcb67d75143aa066034ab562e16fa49ca1b3d50a2f59992d7c4",
+      "g026-3-ack-p127/trial.json": "23d495d24d500f5913c55c202f5d8f2084b8db3e8741a835610f1b5403e67057",
+      "g027-0-ack-p0/trial.json": "8914cca2fcf0b63d5a2c7a9b10b012db1dffec862dc6200e17121747bccf8ada",
+      "g027-1-p0/trial.json": "64bd625ff6d4fe81a4814d7a8310750709b3b1fc00af9771c1ad12037a8edd0e",
+      "g027-2-native/trial.json": "46b2e0ef55e06a80ed86e574a57f6afd13b9c0db4734e25f03b69c2c3f39db78",
+      "g027-3-ack-p127/trial.json": "b2d6dfaa75ec3911ecfcdac605b61c8d6400996260b483c5f859ec950072b036",
+      "g028-0-ack-p0/trial.json": "9c66a16fda97d3570f8040931cf17c2668536c0db1133c0f3da31de2afe2ece7",
+      "g028-1-p0/trial.json": "36faa4afc6aaf24e4f9fd1a52fd32161bf52451f80004d158cf103c2688e67da",
+      "g028-2-ack-p127/trial.json": "d808bb198e7979eb169dd2b888001a6c78a6ce21760c5d134cf1c432ff2903d4",
+      "g028-3-native/trial.json": "d216cf04c1e43ad883660744460c648bf6af3fd1d683802201f9bbffa08c0d5c",
+      "g029-0-ack-p127/trial.json": "3d708c4649e1153c10c1de014c97fd0cd9727dbf9204a73ca7e68cf3e531de46",
+      "g029-1-ack-p0/trial.json": "ccfed180c04a621eae007cde8a662a79d15044e645189edffcd55573e5d7ba8c",
+      "g029-2-native/trial.json": "5c9b7db91a594a4e908375de511c95464134a5d38559ee5252c929a900ee95d9",
+      "g029-3-p0/trial.json": "679aed98f59d67ac29cf654f902dfc53069b6a9f0fd7efe97087714a4488844f",
+      "g030-0-ack-p127/trial.json": "c076b6186f28519bc3a8d6db9779b1ec72e0eff69c70684dcf78b6ddb6fd0ae9",
+      "g030-1-ack-p0/trial.json": "6c1df99623f279196ba99c5fcb73687eb33deb03b7c69d8d57229f6bf27eb9b9",
+      "g030-2-p0/trial.json": "f8c47b4ac65fceafa4b1e01f71169b189357e1a758930ffd24aa7455bb6e699a",
+      "g030-3-native/trial.json": "332f25d77573285036bd3c7b520b954fca7c6d15689b51796e387f9bff349e37",
+      "g031-0-ack-p127/trial.json": "1f852f01ff5dc4b85eb577f223f2000009d787525ba176e9f1b7220521a45175",
+      "g031-1-p0/trial.json": "e3f1082d9fb2f621b3e65780daf629693ab54a20f02f5099a477a5ea132a43fc",
+      "g031-2-native/trial.json": "06c745f65e44570d920bc53a8388c5849c248aaaad6ee1b51f9557508d539760",
+      "g031-3-ack-p0/trial.json": "e14992eae57aca0cbd8a54f8434d309a18b4e813e42abc34f5997af4f7eadc80",
+      "g032-0-native/trial.json": "b1dc86641cc46534419cf87517415e90007325be20a584cf26674fcee99202d8",
+      "g032-1-p0/trial.json": "981b74ae533a808e5915c3413fe2860e000353e137ec557f92329a4cc582b345",
+      "g032-2-ack-p127/trial.json": "ac045f9d925a8f346de723bdfdd14c98e2fa2dc553c8ef92a3dbe8dc10fea4a8",
+      "g032-3-ack-p0/trial.json": "c8254400e5bad14b5d179f91e64fc66938d5d10ce7107c04876316377ef8c840",
+      "g033-0-ack-p0/trial.json": "b84f3be8ee2805dd057b286047cfe7cc328b1a0a359be5109a092f8a9162f4fb",
+      "g033-1-ack-p127/trial.json": "87f12b318abe8371ff9a5a6d9689b09ddf439d1826a8c560ad8d64a6e9d27b8a",
+      "g033-2-p0/trial.json": "6ed106dd00f488c42391da37e54b1228c40c73f2b711d3d7b7e27a3e3708d7c2",
+      "g033-3-native/trial.json": "b6cc10a662884e8590ca73c65be09da50014478dd62756235579bf2c60b4eb2d",
+      "g034-0-p0/trial.json": "033d31433814e61ff03914d7d9bbeb7f9a07cfd865cbf4903ca8f9d88302606a",
+      "g034-1-ack-p0/trial.json": "1243abc4a19264693638d7742b0894949e5717c823618f84209aea916ba885b9",
+      "g034-2-ack-p127/trial.json": "4d3ef382fb4e720fc7c22ffa320f38ab576c39d8149c0f24eea1a26e1c10f327",
+      "g034-3-native/trial.json": "1ea92c1204e8ee5d91752135fe6eacbf5d4828218231d54c7b38225429951e62",
+      "g035-0-native/trial.json": "73ebda2b1349cb2a699c2561c4c9da1c186267310c3ad371678efad9f1ce7e24",
+      "g035-1-ack-p127/trial.json": "55a54694accd25fb8264919fa8b47d51ef2e6e31eb00f0677a80160ec2168f92",
+      "g035-2-p0/trial.json": "9c082cef23fadc844e4c9397e4cd55ff60f89cba860dc7063c21965f9a102cf5",
+      "g035-3-ack-p0/trial.json": "ff4131bdbf95cc3cb370a158847213ab0c8f7e7a253d0ac37a5e09aadd390dab",
+      "g036-0-ack-p127/trial.json": "dd9ca57ac85e3ee9a67414e1bf090ab8c63d778018a021183bc275a5f4b6f308",
+      "g036-1-ack-p0/trial.json": "03fcc2f1bc4ca91654c8c6b161a057068fa3c9088439f6a56f6160e9deb8927f",
+      "g036-2-p0/trial.json": "5e28ff7126953cd0269144450c9365910e5670db8bde2d838a8b3666d9600ff9",
+      "g036-3-native/trial.json": "6d2bde8a6d48f7accff91e922573c2cdcaa5fa424faa0030704925d3a1fe7876",
+      "g037-0-native/trial.json": "f7bbe50e50aff5a3de8cdca1f82526d5073ed4855af28ad0bff097eedb7cf187",
+      "g037-1-ack-p0/trial.json": "d5ac16d82a5fa0da126d2e98111eee0ea886bc05a19b36a78d2d8a44460d6363",
+      "g037-2-ack-p127/trial.json": "f4fc66f16bb485f5bc1642ec40f8185df432eca2d7dec4670be2616529efc7e0",
+      "g037-3-p0/trial.json": "11672c1c5006ed3e32a49d9082a39309f1074a8b4af1d26e0a19ef3fef780bc3",
+      "g038-0-ack-p127/trial.json": "5663b3762977f274aa000abb47a33fa253f0901a22ec2d2c033f13149a74e6b0",
+      "g038-1-native/trial.json": "c2f9399ae7d47a02545a9ed29e4cd5cf9861c5641aee43343dc998357f5360bc",
+      "g038-2-ack-p0/trial.json": "97e7ba00955bd7485aa92d28d93541a8dcd1b4ed71c92da8a12b042fe942ca4f",
+      "g038-3-p0/trial.json": "a3ff1b620ce654acb072b1e32403d273b2c9a920c715d5e1bd618c3f91aba8c8",
+      "g039-0-p0/trial.json": "4885408fbf63677cd23e130416e0afcc6060d2d8505f2ac8ecd6c12ffe647bf5",
+      "g039-1-ack-p0/trial.json": "1318a8478c01dbc49294f0b543a75213bdcecbbde49a7c42201fb4af0d408ed8",
+      "g039-2-ack-p127/trial.json": "71b8d2e831b515273f0e34181def55cf36ef80230491247d9188b518c9845895",
+      "g039-3-native/trial.json": "71fb427bdd716b5f6da46156906e8fd075ecc50da5b5d4fcbfc0c21f45eb087e"
+    }
+  },
+  "limitations": [
+    "group bootstrap conditions on this single-network, single-implementation workload population",
+    "dropping first HTTP here is descriptive; main analysis retains all requests including failures",
+    "timestamps and local registration are auditable metadata, not immutable proof of no prior access"
+  ]
+}

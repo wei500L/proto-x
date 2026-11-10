@@ -76,6 +76,26 @@ func newWebLink(kind string, client bool, padding int) *Link {
 }
 
 func DialWeb(ctx context.Context, o WebOptions) (*Link, error) {
+	p, err := PrepareWeb(ctx, o)
+	if err != nil {
+		return nil, err
+	}
+	return p.Activate(ctx, o.Initial)
+}
+
+// PreparedWeb owns an authenticated TLS transport, but has not sent a proxy
+// HTTP request or HELLO. Closing a speculative preparation cannot replace the
+// server's retained session. Activate is deliberately a one-shot operation.
+type PreparedWeb struct {
+	link      *Link
+	mu        sync.Mutex
+	activated bool
+}
+
+func (p *PreparedWeb) Close() error                         { return p.link.Close() }
+func (p *PreparedWeb) ConnectionState() tls.ConnectionState { return p.link.web.state }
+
+func PrepareWeb(ctx context.Context, o WebOptions) (*PreparedWeb, error) {
 	if o.Gate == nil || o.TLSConfig == nil || !validWebPadding(o.Padding) || o.Authority == "" || o.Path == "" {
 		return nil, errors.New("invalid HTTP carrier options")
 	}
@@ -128,12 +148,32 @@ func DialWeb(ctx context.Context, o WebOptions) (*Link, error) {
 		_ = l.Close()
 		return nil, err
 	}
+	if err := ctx.Err(); err != nil {
+		_ = l.Close()
+		return nil, err
+	}
+	return &PreparedWeb{link: l}, nil
+}
+
+func (p *PreparedWeb) Activate(ctx context.Context, initial *wire.Frame) (*Link, error) {
+	if initial != nil && (initial.Kind != wire.Hello || initial.ID != 0) {
+		_ = p.Close()
+		return nil, errors.New("HTTP initial record must be HELLO")
+	}
+	p.mu.Lock()
+	if p.activated {
+		p.mu.Unlock()
+		return nil, errors.New("HTTP preparation already activated")
+	}
+	p.activated = true
+	p.mu.Unlock()
+	l, w := p.link, p.link.web
 	// The HTTP request context belongs to the carrier, not the dial timeout:
 	// canceling a successful dial must not terminate its long-lived POST body.
 	stop := context.AfterFunc(ctx, func() { _ = l.Close() })
 	slot, err := w.slot(0)
 	if err == nil {
-		slot.once.Do(func() { slot.stream, slot.err = w.open(0, o.Initial); close(slot.ready) })
+		slot.once.Do(func() { slot.stream, slot.err = w.open(0, initial); close(slot.ready) })
 		err = slot.err
 	}
 	if !stop() && err == nil {

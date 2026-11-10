@@ -1,0 +1,258 @@
+{
+  "trial_id": "08-blackhole-adaptive-s504",
+  "variant": "adaptive",
+  "profile": "blackhole",
+  "seed": 504,
+  "utc_start": "2026-11-10T09:07:32.827103+00:00",
+  "status": "completed",
+  "duration_s": 16.0,
+  "warmup_s": 3.0,
+  "gomaxprocs": 1,
+  "background_workers": 1,
+  "background_mbps_source_budget": 2,
+  "warmup_exit_code": 0,
+  "workload_exit_code": 0,
+  "observed": {
+    "operations": {
+      "download_end": {
+        "total": 1,
+        "success": 0,
+        "failure": 0,
+        "timeout": 0,
+        "censored": 1,
+        "rejected": 0,
+        "connection_attempts": 0,
+        "success_rate_total": 0,
+        "successful_latency_ms": {
+          "n": 0,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "successful_scheduled_latency_ms": {
+          "n": 0,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "successful_ttfb_ms": {
+          "n": 0,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0,
+          "mean": 0
+        }
+      },
+      "echo": {
+        "total": 115,
+        "success": 114,
+        "failure": 0,
+        "timeout": 0,
+        "censored": 1,
+        "rejected": 0,
+        "connection_attempts": 0,
+        "success_rate_total": 0.991304347826087,
+        "successful_latency_ms": {
+          "n": 114,
+          "p50": 113.261894,
+          "p95": 216.382544,
+          "p99": 220.4892,
+          "max": 1878.262536,
+          "mean": 139.49812041228063
+        },
+        "successful_scheduled_latency_ms": {
+          "n": 0,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "successful_ttfb_ms": {
+          "n": 0,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0,
+          "mean": 0
+        }
+      },
+      "http": {
+        "total": 80,
+        "success": 78,
+        "failure": 0,
+        "timeout": 0,
+        "censored": 2,
+        "rejected": 0,
+        "connection_attempts": 79,
+        "success_rate_total": 0.975,
+        "successful_latency_ms": {
+          "n": 78,
+          "p50": 379.425751,
+          "p95": 1714.224339,
+          "p99": 2084.152112,
+          "max": 2084.152112,
+          "mean": 503.2988871538464
+        },
+        "successful_scheduled_latency_ms": {
+          "n": 78,
+          "p50": 380.296069,
+          "p95": 1716.256055,
+          "p99": 2084.360408,
+          "max": 2084.360408,
+          "mean": 503.854153051282
+        },
+        "successful_ttfb_ms": {
+          "n": 78,
+          "p50": 379.333054,
+          "p95": 1714.148102,
+          "p99": 2083.977097,
+          "max": 2083.977097,
+          "mean": 503.1821545512823
+        }
+      }
+    },
+    "sse": {
+      "connections": 1,
+      "connect_failure": 0,
+      "tokens": 314,
+      "sequence_errors": 0,
+      "source_errors": 0,
+      "unexpected_ends": 0,
+      "receive_gap_ms": {
+        "n": 313,
+        "p50": 49.821276,
+        "p95": 53.53723,
+        "p99": 57.869319,
+        "max": 1649.147656,
+        "mean": 49.99730692332266
+      },
+      "source_gap_ms": {
+        "n": 313,
+        "p50": 50.028835,
+        "p95": 50.800103,
+        "p99": 50.959387,
+        "max": 51.454812,
+        "mean": 50.00277703514375
+      },
+      "excess_gap_ms": {
+        "n": 313,
+        "p50": 0,
+        "p95": 3.484870000000001,
+        "p99": 7.609553999999996,
+        "max": 1598.688237,
+        "mean": 5.895658274760383
+      },
+      "gaps_over_250ms": 1,
+      "gaps_over_1000ms": 1,
+      "excess_over_250ms": 1,
+      "excess_over_1000ms": 1,
+      "terminal_gaps_over_250ms": 0,
+      "terminal_gaps_over_1000ms": 0,
+      "max_terminal_gap_ms": 29.301395,
+      "run_tail_gap_ms": 29.306086,
+      "source_generation_delay_ms": {
+        "n": 314,
+        "p50": 0.617409,
+        "p95": 1.117542,
+        "p99": 1.578638,
+        "max": 1.822345,
+        "mean": 0.615832350318471
+      }
+    },
+    "download_goodput_mbps": 1.8676733106521972
+  },
+  "commands": {
+    "fixture": [
+      "ip",
+      "netns",
+      "exec",
+      "px-server",
+      "env",
+      "GOMAXPROCS=1",
+      "/tmp/pxlab-v03/bin/recoverybench",
+      "-fixture",
+      "-fixture-http",
+      "127.0.0.1:18443",
+      "-fixture-echo",
+      "127.0.0.1:18081",
+      "-fixture-cert",
+      "/tmp/pxlab-v03/private/baseline/tls-cert.pem",
+      "-fixture-key",
+      "/tmp/pxlab-v03/private/baseline/tls-key.pem",
+      "-fixture-log",
+      "/tmp/pxlab-v03/results/net-v03-silent-repeat-20261110/08-blackhole-adaptive-s504/target-events.jsonl"
+    ],
+    "server": [
+      "ip",
+      "netns",
+      "exec",
+      "px-server",
+      "env",
+      "GOMAXPROCS=1",
+      "/tmp/pxlab-v03/bin/protox-candidate",
+      "server",
+      "-config",
+      "/tmp/pxlab-v03/private/px/server-adaptive.json"
+    ],
+    "client": [
+      "ip",
+      "netns",
+      "exec",
+      "px-client",
+      "env",
+      "GOMAXPROCS=1",
+      "/tmp/pxlab-v03/bin/protox-candidate",
+      "client",
+      "-config",
+      "/tmp/pxlab-v03/private/px/client-adaptive.json"
+    ],
+    "workload": [
+      "ip",
+      "netns",
+      "exec",
+      "px-client",
+      "env",
+      "GOMAXPROCS=1",
+      "/tmp/pxlab-v03/bin/pxbench",
+      "run",
+      "-proxy",
+      "127.0.0.1:1088",
+      "-http-target",
+      "https://protox-baseline.test:18443",
+      "-echo-target",
+      "127.0.0.1:18081",
+      "-ca",
+      "/tmp/pxlab-v03/private/baseline/tls-cert.pem",
+      "-duration",
+      "16.0s",
+      "-timeout",
+      "3s",
+      "-rps",
+      "5",
+      "-echo-interval",
+      "100ms",
+      "-stream-interval",
+      "50ms",
+      "-background",
+      "1",
+      "-uploads",
+      "0",
+      "-output",
+      "/tmp/pxlab-v03/results/net-v03-silent-repeat-20261110/08-blackhole-adaptive-s504/events.jsonl",
+      "-summary",
+      "/tmp/pxlab-v03/results/net-v03-silent-repeat-20261110/08-blackhole-adaptive-s504/events.summary.json",
+      "-run-id",
+      "08-blackhole-adaptive-s504",
+      "-background-mbps",
+      "2",
+      "-cold-http"
+    ]
+  },
+  "utc_end": "2026-11-10T09:07:52.648230+00:00"
+}

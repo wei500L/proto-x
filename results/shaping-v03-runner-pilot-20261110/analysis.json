@@ -1,0 +1,658 @@
+{
+  "schema": 1,
+  "extraction_errors": [],
+  "valid_sessions": 4,
+  "complete_paired_groups": 2,
+  "metrics": {
+    "native": {
+      "sessions": 2,
+      "http_status": {
+        "success": 6,
+        "censored": 1
+      },
+      "http_latency_ms": {
+        "n": 6,
+        "p50": 42.485125,
+        "p95": 47.673083,
+        "p99": 47.673083,
+        "max": 47.673083
+      },
+      "sse_gap_ms": {
+        "n": 17,
+        "p95": 70.59987500000001,
+        "p99": 70.59987500000001,
+        "max": 70.59987500000001
+      },
+      "sse_tokens": 17,
+      "sse_connects": 2,
+      "sse_connect_failures": 0,
+      "sse_sequence_errors": 0,
+      "sse_integrity_errors": 0,
+      "sse_unexpected_ends": 0,
+      "download_bytes": 180224,
+      "validated_received_bytes": 186688,
+      "udp_ingress_bytes": 244407,
+      "udp_ingress_packets": 466,
+      "ipv4_ingress_bytes": 257455,
+      "udp_forwarded_bytes": 244407,
+      "relay_drop_events": 0,
+      "relay_error_events": 0,
+      "carrier_bytes_per_validated_received_byte": 1.309173594446349,
+      "ipv4_bytes_per_validated_received_byte": 1.3790656067877958,
+      "paired_extra_carrier_fraction_vs_p0": [
+        -0.1250387323468215,
+        -0.14718489613725572
+      ],
+      "median_paired_extra_carrier_fraction_vs_p0": -0.14718489613725572
+    },
+    "p0": {
+      "sessions": 2,
+      "http_status": {
+        "success": 6,
+        "censored": 1
+      },
+      "http_latency_ms": {
+        "n": 6,
+        "p50": 43.070499999999996,
+        "p95": 91.088375,
+        "p99": 91.088375,
+        "max": 91.088375
+      },
+      "sse_gap_ms": {
+        "n": 15,
+        "p95": 72.055375,
+        "p99": 72.055375,
+        "max": 72.055375
+      },
+      "sse_tokens": 15,
+      "sse_connects": 2,
+      "sse_connect_failures": 0,
+      "sse_sequence_errors": 0,
+      "sse_integrity_errors": 0,
+      "sse_unexpected_ends": 0,
+      "download_bytes": 180224,
+      "validated_received_bytes": 186560,
+      "udp_ingress_bytes": 282010,
+      "udp_ingress_packets": 899,
+      "ipv4_ingress_bytes": 307182,
+      "udp_forwarded_bytes": 281932,
+      "relay_drop_events": 0,
+      "relay_error_events": 0,
+      "carrier_bytes_per_validated_received_byte": 1.5116316466552315,
+      "ipv4_bytes_per_validated_received_byte": 1.6465587478559176,
+      "paired_extra_carrier_fraction_vs_p0": [
+        0.0,
+        0.0
+      ],
+      "median_paired_extra_carrier_fraction_vs_p0": 0.0
+    }
+  },
+  "detectors": {
+    "full": {
+      "features": [
+        "up_packets_per_second",
+        "up_bytes_per_second",
+        "up_size_mean",
+        "up_size_std",
+        "up_size_q10",
+        "up_size_q50",
+        "up_size_q90",
+        "up_size_below_128",
+        "up_size_below_256",
+        "up_size_below_512",
+        "up_size_below_1000",
+        "up_iat_mean_ms",
+        "up_iat_std_ms",
+        "up_iat_q90_ms",
+        "up_bursts_per_second",
+        "up_iat_below_1ms",
+        "down_packets_per_second",
+        "down_bytes_per_second",
+        "down_size_mean",
+        "down_size_std",
+        "down_size_q10",
+        "down_size_q50",
+        "down_size_q90",
+        "down_size_below_128",
+        "down_size_below_256",
+        "down_size_below_512",
+        "down_size_below_1000",
+        "down_iat_mean_ms",
+        "down_iat_std_ms",
+        "down_iat_q90_ms",
+        "down_bursts_per_second",
+        "down_iat_below_1ms",
+        "direction_changes_per_second"
+      ],
+      "frozen_p0": [
+        {
+          "trained_proxy_mode": "p0",
+          "tested_proxy_mode": "p0",
+          "train_sessions": 2,
+          "heldout_sessions": 2,
+          "heldout_groups": 1,
+          "auc": 1.0,
+          "auc_paired_group_bootstrap_95": [
+            1.0,
+            1.0
+          ],
+          "threshold": -2.4538596052925383,
+          "threshold_rule": "strictly greater than maximum native training score (empirical training FPR zero)",
+          "true_positives": 1,
+          "positives": 1,
+          "tpr": 1.0,
+          "tpr_wilson_95": [
+            0.20654931437723745,
+            1.0
+          ],
+          "false_positives": 0,
+          "negatives": 1,
+          "fpr": 0.0,
+          "fpr_wilson_95": [
+            0.0,
+            0.7934506856227626
+          ],
+          "largest_standardized_coefficients": [
+            [
+              "up_packets_per_second",
+              0.07915676146104965
+            ],
+            [
+              "up_bytes_per_second",
+              0.07915676146104965
+            ],
+            [
+              "up_size_mean",
+              0.07915676146104965
+            ],
+            [
+              "up_size_std",
+              -0.07915676146104965
+            ],
+            [
+              "up_size_q50",
+              0.07915676146104965
+            ],
+            [
+              "up_size_q90",
+              0.07915676146104965
+            ],
+            [
+              "up_size_below_128",
+              0.07915676146104965
+            ],
+            [
+              "up_size_below_256",
+              0.07915676146104965
+            ]
+          ],
+          "test_scores": [
+            {
+              "group": 1,
+              "mode": "p0",
+              "label": 1,
+              "score": 66.42275000687181
+            },
+            {
+              "group": 1,
+              "mode": "native",
+              "label": 0,
+              "score": -196.50024432567434
+            }
+          ]
+        }
+      ],
+      "retrained_each_mode": [
+        {
+          "trained_proxy_mode": "p0",
+          "tested_proxy_mode": "p0",
+          "train_sessions": 2,
+          "heldout_sessions": 2,
+          "heldout_groups": 1,
+          "auc": 1.0,
+          "auc_paired_group_bootstrap_95": [
+            1.0,
+            1.0
+          ],
+          "threshold": -2.4538596052925383,
+          "threshold_rule": "strictly greater than maximum native training score (empirical training FPR zero)",
+          "true_positives": 1,
+          "positives": 1,
+          "tpr": 1.0,
+          "tpr_wilson_95": [
+            0.20654931437723745,
+            1.0
+          ],
+          "false_positives": 0,
+          "negatives": 1,
+          "fpr": 0.0,
+          "fpr_wilson_95": [
+            0.0,
+            0.7934506856227626
+          ],
+          "largest_standardized_coefficients": [
+            [
+              "up_packets_per_second",
+              0.07915676146104965
+            ],
+            [
+              "up_bytes_per_second",
+              0.07915676146104965
+            ],
+            [
+              "up_size_mean",
+              0.07915676146104965
+            ],
+            [
+              "up_size_std",
+              -0.07915676146104965
+            ],
+            [
+              "up_size_q50",
+              0.07915676146104965
+            ],
+            [
+              "up_size_q90",
+              0.07915676146104965
+            ],
+            [
+              "up_size_below_128",
+              0.07915676146104965
+            ],
+            [
+              "up_size_below_256",
+              0.07915676146104965
+            ]
+          ],
+          "test_scores": [
+            {
+              "group": 1,
+              "mode": "p0",
+              "label": 1,
+              "score": 66.42275000687181
+            },
+            {
+              "group": 1,
+              "mode": "native",
+              "label": 0,
+              "score": -196.50024432567434
+            }
+          ]
+        }
+      ]
+    },
+    "size_only": {
+      "features": [
+        "up_size_mean",
+        "up_size_std",
+        "up_size_q10",
+        "up_size_q50",
+        "up_size_q90",
+        "up_size_below_128",
+        "up_size_below_256",
+        "up_size_below_512",
+        "up_size_below_1000",
+        "down_size_mean",
+        "down_size_std",
+        "down_size_q10",
+        "down_size_q50",
+        "down_size_q90",
+        "down_size_below_128",
+        "down_size_below_256",
+        "down_size_below_512",
+        "down_size_below_1000"
+      ],
+      "frozen_p0": [
+        {
+          "trained_proxy_mode": "p0",
+          "tested_proxy_mode": "p0",
+          "train_sessions": 2,
+          "heldout_sessions": 2,
+          "heldout_groups": 1,
+          "auc": 1.0,
+          "auc_paired_group_bootstrap_95": [
+            1.0,
+            1.0
+          ],
+          "threshold": -1.9656720992272874,
+          "threshold_rule": "strictly greater than maximum native training score (empirical training FPR zero)",
+          "true_positives": 0,
+          "positives": 1,
+          "tpr": 0.0,
+          "tpr_wilson_95": [
+            0.0,
+            0.7934506856227626
+          ],
+          "false_positives": 0,
+          "negatives": 1,
+          "fpr": 0.0,
+          "fpr_wilson_95": [
+            0.0,
+            0.7934506856227626
+          ],
+          "largest_standardized_coefficients": [
+            [
+              "up_size_below_256",
+              0.12285450620170546
+            ],
+            [
+              "up_size_below_512",
+              0.12285450620170546
+            ],
+            [
+              "up_size_below_1000",
+              0.12285450620170546
+            ],
+            [
+              "down_size_below_128",
+              0.12285450620170546
+            ],
+            [
+              "down_size_below_256",
+              0.12285450620170546
+            ],
+            [
+              "down_size_below_1000",
+              0.12285450620170546
+            ],
+            [
+              "up_size_mean",
+              0.12285450620170545
+            ],
+            [
+              "up_size_std",
+              -0.12285450620170545
+            ]
+          ],
+          "test_scores": [
+            {
+              "group": 1,
+              "mode": "p0",
+              "label": 1,
+              "score": -5.470819609572244
+            },
+            {
+              "group": 1,
+              "mode": "native",
+              "label": 0,
+              "score": -9.520431169195192
+            }
+          ]
+        }
+      ],
+      "retrained_each_mode": [
+        {
+          "trained_proxy_mode": "p0",
+          "tested_proxy_mode": "p0",
+          "train_sessions": 2,
+          "heldout_sessions": 2,
+          "heldout_groups": 1,
+          "auc": 1.0,
+          "auc_paired_group_bootstrap_95": [
+            1.0,
+            1.0
+          ],
+          "threshold": -1.9656720992272874,
+          "threshold_rule": "strictly greater than maximum native training score (empirical training FPR zero)",
+          "true_positives": 0,
+          "positives": 1,
+          "tpr": 0.0,
+          "tpr_wilson_95": [
+            0.0,
+            0.7934506856227626
+          ],
+          "false_positives": 0,
+          "negatives": 1,
+          "fpr": 0.0,
+          "fpr_wilson_95": [
+            0.0,
+            0.7934506856227626
+          ],
+          "largest_standardized_coefficients": [
+            [
+              "up_size_below_256",
+              0.12285450620170546
+            ],
+            [
+              "up_size_below_512",
+              0.12285450620170546
+            ],
+            [
+              "up_size_below_1000",
+              0.12285450620170546
+            ],
+            [
+              "down_size_below_128",
+              0.12285450620170546
+            ],
+            [
+              "down_size_below_256",
+              0.12285450620170546
+            ],
+            [
+              "down_size_below_1000",
+              0.12285450620170546
+            ],
+            [
+              "up_size_mean",
+              0.12285450620170545
+            ],
+            [
+              "up_size_std",
+              -0.12285450620170545
+            ]
+          ],
+          "test_scores": [
+            {
+              "group": 1,
+              "mode": "p0",
+              "label": 1,
+              "score": -5.470819609572244
+            },
+            {
+              "group": 1,
+              "mode": "native",
+              "label": 0,
+              "score": -9.520431169195192
+            }
+          ]
+        }
+      ]
+    },
+    "timing_counts_only": {
+      "features": [
+        "up_packets_per_second",
+        "up_iat_mean_ms",
+        "up_iat_std_ms",
+        "up_iat_q90_ms",
+        "up_bursts_per_second",
+        "up_iat_below_1ms",
+        "down_packets_per_second",
+        "down_iat_mean_ms",
+        "down_iat_std_ms",
+        "down_iat_q90_ms",
+        "down_bursts_per_second",
+        "down_iat_below_1ms",
+        "direction_changes_per_second"
+      ],
+      "frozen_p0": [
+        {
+          "trained_proxy_mode": "p0",
+          "tested_proxy_mode": "p0",
+          "train_sessions": 2,
+          "heldout_sessions": 2,
+          "heldout_groups": 1,
+          "auc": 1.0,
+          "auc_paired_group_bootstrap_95": [
+            1.0,
+            1.0
+          ],
+          "threshold": -1.8171268347634792,
+          "threshold_rule": "strictly greater than maximum native training score (empirical training FPR zero)",
+          "true_positives": 1,
+          "positives": 1,
+          "tpr": 1.0,
+          "tpr_wilson_95": [
+            0.20654931437723745,
+            1.0
+          ],
+          "false_positives": 0,
+          "negatives": 1,
+          "fpr": 0.0,
+          "fpr_wilson_95": [
+            0.0,
+            0.7934506856227626
+          ],
+          "largest_standardized_coefficients": [
+            [
+              "up_iat_below_1ms",
+              0.13977898728949845
+            ],
+            [
+              "up_packets_per_second",
+              0.13977898728949842
+            ],
+            [
+              "up_iat_mean_ms",
+              -0.13977898728949842
+            ],
+            [
+              "up_iat_std_ms",
+              -0.13977898728949842
+            ],
+            [
+              "up_iat_q90_ms",
+              -0.13977898728949842
+            ],
+            [
+              "up_bursts_per_second",
+              -0.13977898728949842
+            ],
+            [
+              "down_packets_per_second",
+              0.13977898728949842
+            ],
+            [
+              "down_iat_mean_ms",
+              -0.13977898728949842
+            ]
+          ],
+          "test_scores": [
+            {
+              "group": 1,
+              "mode": "p0",
+              "label": 1,
+              "score": 131.87133632502827
+            },
+            {
+              "group": 1,
+              "mode": "native",
+              "label": 0,
+              "score": -326.7630361095539
+            }
+          ]
+        }
+      ],
+      "retrained_each_mode": [
+        {
+          "trained_proxy_mode": "p0",
+          "tested_proxy_mode": "p0",
+          "train_sessions": 2,
+          "heldout_sessions": 2,
+          "heldout_groups": 1,
+          "auc": 1.0,
+          "auc_paired_group_bootstrap_95": [
+            1.0,
+            1.0
+          ],
+          "threshold": -1.8171268347634792,
+          "threshold_rule": "strictly greater than maximum native training score (empirical training FPR zero)",
+          "true_positives": 1,
+          "positives": 1,
+          "tpr": 1.0,
+          "tpr_wilson_95": [
+            0.20654931437723745,
+            1.0
+          ],
+          "false_positives": 0,
+          "negatives": 1,
+          "fpr": 0.0,
+          "fpr_wilson_95": [
+            0.0,
+            0.7934506856227626
+          ],
+          "largest_standardized_coefficients": [
+            [
+              "up_iat_below_1ms",
+              0.13977898728949845
+            ],
+            [
+              "up_packets_per_second",
+              0.13977898728949842
+            ],
+            [
+              "up_iat_mean_ms",
+              -0.13977898728949842
+            ],
+            [
+              "up_iat_std_ms",
+              -0.13977898728949842
+            ],
+            [
+              "up_iat_q90_ms",
+              -0.13977898728949842
+            ],
+            [
+              "up_bursts_per_second",
+              -0.13977898728949842
+            ],
+            [
+              "down_packets_per_second",
+              0.13977898728949842
+            ],
+            [
+              "down_iat_mean_ms",
+              -0.13977898728949842
+            ]
+          ],
+          "test_scores": [
+            {
+              "group": 1,
+              "mode": "p0",
+              "label": 1,
+              "score": 131.87133632502827
+            },
+            {
+              "group": 1,
+              "mode": "native",
+              "label": 0,
+              "score": -326.7630361095539
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "scope": "controlled proxy-vs-native-Go-H3 streaming task; lab evidence only",
+  "design": {
+    "model": "fixed L2=1 logistic regression; train-only normalization; Newton solver",
+    "split": "whole paired workload groups; heldout collected after training groups",
+    "window": "business start +200ms through configured end -100ms",
+    "not_features": [
+      "IP",
+      "port",
+      "SNI",
+      "TLS/ECH contents",
+      "certificate",
+      "raw payload",
+      "absolute clock",
+      "group seed",
+      "mode",
+      "filename",
+      "process identity"
+    ],
+    "uncertainty": "2000 paired-group bootstrap AUC; Wilson 95% TPR/FPR; does not establish 1% FPR operation",
+    "cost_denominator": "validated received HTTP body + SSE token payload + download content; excludes requests and inner application syntax",
+    "line_scope": "UDP payload; IPv4 estimate adds 28 bytes per actual datagram; no Ethernet/NIC headers"
+  }
+}

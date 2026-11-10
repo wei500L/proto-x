@@ -42,7 +42,8 @@ trap 'exit 130' INT
 trap 'exit 143' TERM
 
 arch=$(ssh_test 'test "$(id -u)" -eq 0 && uname -m')
-case "$arch" in x86_64) binary=bin/protox-linux-amd64;; aarch64) binary=bin/protox-linux-arm64;; *) echo 'unsupported test VPS architecture' >&2; exit 1;; esac
+PROTOX_BUILD_DIR=${PROTOX_BUILD_DIR:-bin}
+case "$arch" in x86_64) binary="$PROTOX_BUILD_DIR/protox-linux-amd64";; aarch64) binary="$PROTOX_BUILD_DIR/protox-linux-arm64";; *) echo 'unsupported test VPS architecture' >&2; exit 1;; esac
 test -f "$binary"
 mkdir -p .local
 bundle_dir=$(mktemp -d .local/deploy-package.XXXXXXXX)

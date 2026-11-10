@@ -1,0 +1,75 @@
+{
+  "background_mbps": 2,
+  "benchmark_epoch_offset_ns": 436081000,
+  "benchmark_epoch_wall_ns": 1794050456881272000,
+  "client_private_config_sha256": "d439ea7ef337d5fa1801a39d2374b2aa7f6853071f13ac0ca5058b946914b923",
+  "clock_notes": "Injection, relay, target and proxy-log receipt use one monotonic clock. Benchmark has a separate monotonic start in the same process: align via StartedUTC only when wall-minus-monotonic offsets remain stable. Proxy internal event durations use their own session clocks; log receipt is an upper bound.",
+  "completed": true,
+  "dead_ms": 2000,
+  "direction": "both",
+  "ech_required": true,
+  "ended_utc": "2026-11-07T11:21:10.891846Z",
+  "fault": "blackhole",
+  "fault_after_ns": 5000000000,
+  "fault_for_ns": 5000000000,
+  "harness_sha256": "7b2038ef152c4dcb4c5bfcd585e64ade2ab310195640d0aae4417b93e4a31249",
+  "heartbeat_ms": 500,
+  "idle": false,
+  "label": "baseline",
+  "padding": 127,
+  "planned_duration_ns": 14000000000,
+  "protox_sha256": "8a8fd8b25be1eed3882d0396c5ca311fb51048fb75ba190dc9cfebdde63f4c2d",
+  "scope": "real loopback H3/H2 with UDP datagram delay/drop and independent TLS byte-chunk relay; not kernel packet emulation",
+  "server_private_config_sha256": "2153ecd2a7ceddec8d31d287e61bf2cca0928cb7503b67524d342413d2492c35",
+  "started_utc": "2026-11-07T11:20:56.445195Z",
+  "tcp_counts": {
+    "connections": 1,
+    "down": {
+      "dropped_bytes": 0,
+      "dropped_packets": 0,
+      "forwarded_bytes": 2179470,
+      "forwarded_packets": 123,
+      "io_errors": 0,
+      "queue_drops": 0,
+      "received_bytes": 2214713,
+      "received_packets": 124
+    },
+    "units": "TLS bytes and read/write chunks; no TCP packet or retransmission counters",
+    "up": {
+      "dropped_bytes": 0,
+      "dropped_packets": 0,
+      "forwarded_bytes": 95018,
+      "forwarded_packets": 124,
+      "io_errors": 0,
+      "queue_drops": 0,
+      "received_bytes": 95874,
+      "received_packets": 125
+    }
+  },
+  "tcp_one_way_chunk_delay_ns": 50000000,
+  "timeline_epoch_wall_ns": 1794050456445191000,
+  "trust": "fresh private CA, hostname and leaf pin; no public trust claim",
+  "udp_counts": {
+    "down": {
+      "dropped_bytes": 66114,
+      "dropped_packets": 101,
+      "forwarded_bytes": 1415344,
+      "forwarded_packets": 2489,
+      "io_errors": 0,
+      "queue_drops": 0,
+      "received_bytes": 1481481,
+      "received_packets": 2591
+    },
+    "up": {
+      "dropped_bytes": 6458,
+      "dropped_packets": 45,
+      "forwarded_bytes": 183988,
+      "forwarded_packets": 1817,
+      "io_errors": 0,
+      "queue_drops": 0,
+      "received_bytes": 190446,
+      "received_packets": 1862
+    }
+  },
+  "udp_one_way_delay_ns": 50000000
+}

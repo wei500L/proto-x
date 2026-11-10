@@ -26,9 +26,9 @@ H2 使用一条真实 TLS/TCP HTTP/2 连接，H3 使用一条真实 QUIC HTTP/3 
 uint16 inner_length | uint16 padding_length | wire.Frame | random_padding
 ```
 
-`wire.Frame` 沿用[会话协议](PROTOCOL.md)的 32 字节头和最多 4096 字节 payload。解码先检查长度，内层尾部剩余字节会拒绝。允许 padding≤255；发送上限 `web_padding` 只可为 0、63、127、255，默认 127，在区间内均匀随机。不等待凑包，不发独立填充流量，不改变可靠字节语义。
+`wire.Frame` 沿用[会话协议](PROTOCOL.md)的 32 字节头和最多 4096 字节 payload。解码先检查长度，内层尾部剩余字节会拒绝。允许 padding≤255；发送上限 `web_padding` 只可为 0、63、127、255，v0.3 新配置默认 0（v0.2 为 127），在选定区间内均匀随机。不等待凑包，不发独立填充流量，不改变可靠字节语义。
 
-默认每记录平均额外 67.5 字节。对 2048 字节 DATA，约为原有 2080 字节记录的 3.25%；对短 ACK、心跳比例更高。TLS/HTTP 打包会影响可见包长；这并不产生浏览器分布保证。
+选择 padding127 时每记录平均额外 67.5 字节。对 2048 字节 DATA，约为原有 2080 字节记录的 3.25%；对短 ACK、心跳比例更高。TLS/HTTP 打包会影响可见包长；这并不产生浏览器分布保证。
 
 发送预算预扣 `inner_length + 4 + max_padding + 64`；最后 64 字节沿用旧调度估算。实际 padding 常较小，因此预算偏保守。控制心跳、HTTP 头、握手、加密和重传还另有成本，不是精确整链路字节上限。Link 分别计数封套/填充和内层记录；外部工具统计实际 TLS 字节或 UDP payload。
 
@@ -78,3 +78,10 @@ ACK、偏移、FIN、目标 socket 与有界缓存仍保存在两端进程内。
 Go 1.27 H2 使用标准库单连接 Transport 与一次性 TLS dialer，避开本轮复现的 x/net 兼容 wrapper 锁重入；Go 1.26 用 x/net 旧实现。HTTP handler 返回前终止并等待其 I/O，防止访问失效 ResponseWriter。已确认流正常结束，故障才中止，避免普通回收导致整条载体重连。
 
 整包部署处理证书、站点、ECH 与配置的一致性，激活失败恢复旧整包。命令和已验证边界见 [deployment-web.md](deployment-web.md)。
+
+
+## v0.3 恢复扩展
+
+`adaptive` 客户端在已认证 HELLO 中发送非零单调 `attempt`，包括首次激活及失败后的重试；TLS/ECH 准备阶段不发送 HELLO。WELCOME 必须精确回显。服务端发布新承载时原子检查 attempt 严格递增；已有 fenced 会话拒绝重复、更小或零 attempt。legacy HELLO/WELCOME 保持兼容，但启用 adaptive 的客户端不静默接受不支持该扩展的服务器。
+
+只读准备连接可以取消而不替换会话；激活后的 WELCOME 丢失仍会留下两端状态不确定窗口，更高 attempt 用于继续恢复。ACK 合并不改记录格式、窗口上界或去重语义。详细状态机、实验配置与限界见 [v0.3 研究报告](research-v03.md)。

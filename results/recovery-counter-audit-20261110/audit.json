@@ -1,0 +1,27 @@
+{
+  "measured_utc_date": "2026-11-10",
+  "source": "direct Python UDP echo in owned Linux namespaces before final causal matrix",
+  "payload_bytes_each_direction": 100,
+  "ip_udp_expected": 128,
+  "ethernet_header_expected": 14,
+  "qdisc_delta": {
+    "client": {
+      "bytes": 142,
+      "packets": 1,
+      "drops": 0
+    },
+    "server": {
+      "bytes": 142,
+      "packets": 1,
+      "drops": 0
+    }
+  },
+  "measurement_layer": "veth Ethernet frame, without FCS",
+  "calibrated_expected_ethernet_layer": true,
+  "script_sha256": "47c869143a2ce04a9049670c54010a9ced7bbcf420113d39dd0844800d7c4002",
+  "notes": [
+    "Original measurement used fixed owned UDP port19019. Reproduction script chooses an ephemeral port; otherwise sends the same100byte datagram echo.",
+    "The calibration was completed while no matrix or proxy workload was running.",
+    "Additional24byte netem rate overhead is for shaping, not in qdisc byte count."
+  ]
+}

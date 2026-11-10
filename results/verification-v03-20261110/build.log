@@ -1,0 +1,15 @@
+?   	proto-x/cmd/protox	[no test files]
+?   	proto-x/cmd/pxbench	[no test files]
+ok  	proto-x/internal/app	6.776s
+ok  	proto-x/internal/bench	(cached)
+ok  	proto-x/internal/carrier	(cached)
+ok  	proto-x/internal/cover	(cached)
+?   	proto-x/internal/scheduler	[no test files]
+ok  	proto-x/internal/session	7.487s
+ok  	proto-x/internal/wire	(cached)
+?   	proto-x/scripts/baselines	[no test files]
+ok  	proto-x/tools/faultrelay	(cached)
+?   	proto-x/tools/recognition	[no test files]
+ok  	proto-x/tools/recoverybench	(cached)
+?   	proto-x/tools/securitycheck	[no test files]
+?   	proto-x/tools/shapebench	[no test files]

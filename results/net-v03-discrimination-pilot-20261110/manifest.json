@@ -1,0 +1,162 @@
+{
+  "created_utc": "2026-11-10T08:58:58.843942+00:00",
+  "source": "dedicated Linux VM, tc netem, real IP packets",
+  "kernel": "Linux lima-protox-lab 6.12.115+deb13.1-cloud-arm64 #1 SMP Debian 6.12.115-2 (2026-11-01) aarch64 GNU/Linux",
+  "parameters": {
+    "root": "/tmp/pxlab-v03",
+    "run_id": "net-v03-discrimination-pilot-20261110",
+    "seeds": [
+      502
+    ],
+    "schedule_seed": 74031,
+    "variants": [
+      "v02",
+      "adaptive",
+      "no-prepare",
+      "fixed"
+    ],
+    "profiles": [
+      "healthy",
+      "high-rtt",
+      "pulse",
+      "up-blackhole"
+    ],
+    "duration": 16.0,
+    "warmup": 3.0,
+    "queue_ms": 75,
+    "background": 1,
+    "background_mbps": 2,
+    "fault_after": 5.0,
+    "fault_for": 6.0
+  },
+  "binaries_sha256": {
+    "xray": "5939649960deaf535bcd5f7ce0467a2b1d63b72a2758a6f42eade714ae8d5328",
+    "tlscover": "6bcf2a2aa5348e4185c63deee2977ccec65a6ffcd6ad34a236f487bef9b39cd3",
+    "recoverybench": "417debde0768aad053907a43ed61e30d7f078b2c288a49e2e96f31f1556424a1",
+    "pxbench": "e5e22d2dee14da7eb0ae8c8f6bca4f9f53fde138434b1748589661fdecff743e",
+    "protox-v02": "a5855444ee5c45bd667cc4c9f8fd69f83dc648166199809d2b63ae5d70351679",
+    "protox-candidate": "ca01adda919df5a0670b9510152d7557b792e735bb0b956166cf7c17f3a701e1",
+    "hysteria": "a68a61a84452ca250ce0368202521965ca9cc9d801a404f1dc9008ac6cf677a7"
+  },
+  "scripts_sha256": {
+    "v03_matrix.py": "d4ddc1f6f51060a5a16f9fd3bc8936925056a6ed116c8b11ebe4c07fc01c5532",
+    "matrix.py": "85e1d8cf7a9b9545395d4d5e5d50bba48e44495815b96110b76c6250372c7fa5",
+    "netlab.py": "aff761f96aba34f6b61eca7d343060c856c27cefc8575e3e0675fe37dbfe2ba5"
+  },
+  "public_parameters": {
+    "link": "tc netem with actual IP packets, 8/2Mbps unless profile states otherwise",
+    "proxy": {
+      "baseline": "v0.2 frozen",
+      "candidate": "hash in manifest",
+      "padding": 127,
+      "ech_required": true,
+      "normal_CA_hostname_and_pin_validation": true,
+      "server_rate_mbps": 8,
+      "client_rate_mbps": 2
+    },
+    "variants": {
+      "v02": "500/2000ms legacy",
+      "fixed": "100/400ms legacy; manager100ms retained",
+      "adaptive": "RTT/probe evidence, prepare before commit",
+      "no_prepare": "same detector; cold dial after drop"
+    },
+    "reference": {
+      "xray": "26.10.31 REALITY+Vision, actual owned TLS target, HTTPS workload",
+      "hysteria": "2.13.0 BBR standard, no H2 standby"
+    },
+    "scope": "fresh private CA in a synthetic network, no browser or field-DPI equivalence"
+  },
+  "schedule": [
+    {
+      "variant": "no-prepare",
+      "profile": "up-blackhole",
+      "seed": 502
+    },
+    {
+      "variant": "no-prepare",
+      "profile": "high-rtt",
+      "seed": 502
+    },
+    {
+      "variant": "v02",
+      "profile": "up-blackhole",
+      "seed": 502
+    },
+    {
+      "variant": "fixed",
+      "profile": "up-blackhole",
+      "seed": 502
+    },
+    {
+      "variant": "v02",
+      "profile": "healthy",
+      "seed": 502
+    },
+    {
+      "variant": "v02",
+      "profile": "high-rtt",
+      "seed": 502
+    },
+    {
+      "variant": "no-prepare",
+      "profile": "healthy",
+      "seed": 502
+    },
+    {
+      "variant": "fixed",
+      "profile": "high-rtt",
+      "seed": 502
+    },
+    {
+      "variant": "adaptive",
+      "profile": "high-rtt",
+      "seed": 502
+    },
+    {
+      "variant": "adaptive",
+      "profile": "healthy",
+      "seed": 502
+    },
+    {
+      "variant": "no-prepare",
+      "profile": "pulse",
+      "seed": 502
+    },
+    {
+      "variant": "v02",
+      "profile": "pulse",
+      "seed": 502
+    },
+    {
+      "variant": "fixed",
+      "profile": "healthy",
+      "seed": 502
+    },
+    {
+      "variant": "adaptive",
+      "profile": "pulse",
+      "seed": 502
+    },
+    {
+      "variant": "adaptive",
+      "profile": "up-blackhole",
+      "seed": 502
+    },
+    {
+      "variant": "fixed",
+      "profile": "pulse",
+      "seed": 502
+    }
+  ],
+  "notes": [
+    "tc accounts shared outer traffic, including padding, probes, recovery and retransmissions.",
+    "qdisc deltas are IP packet bytes; startup/warmup are recorded separately.",
+    "No equal-fallback claim: Xray uses TCP; Hysteria has no H2 standby in these configs.",
+    "Faults silently drop incoming UDP at the receiving namespace; output-drop send errors are avoided.",
+    "Fault install/remove timestamps bracket kernel command completion, not exact packet loss onset.",
+    "Proxy event receipt and fault events share a VM monotonic clock; JSON log delivery is an upper bound.",
+    "VPS management and host network are outside these two namespaces."
+  ],
+  "finished_utc": "2026-11-10T09:04:16.210629+00:00",
+  "completed_trials": 16
+}
